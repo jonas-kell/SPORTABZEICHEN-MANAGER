@@ -1,0 +1,19 @@
+.js-cookie-consent.cookie-consent {
+    width: 100%;
+    text-align: center;
+    background-color: #000000a1;
+    color: white;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+
+    z-index: 10000;
+}
+
+.js-cookie-consent.cookie-consent .btn-primary:hover {
+    background-color: #5a565600;
+    border-color: #5a565600;
+}

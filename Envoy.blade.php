@@ -8,7 +8,7 @@
 @task('deploy', ['on' => 'leichtathletik-ionos'])
     @foreach ($app_dirs as $app_dir)
         @php
-            $repository = 'git@github.com:jonas-kell/SPORTABZEICHEN-MANAGER.git';
+            $repository = 'sportabzeichen:jonas-kell/SPORTABZEICHEN-MANAGER.git';
             $composer = '~/composer/composer.phar';
             $releases_dir = $app_dir.'/releases';
             $config_storage = $app_dir .'/config_storage';

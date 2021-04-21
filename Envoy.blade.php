@@ -15,7 +15,7 @@
             $file_storage = $app_dir .'/storage';
             $release = date('YmdHis');
             $new_release_dir = $releases_dir .'/'. $release;
-            $php = '/usr/bin/php7.3-cli';
+            $php = '/usr/bin/php7.4-cli';
         @endphp
 
         {{--Clone Repository--}}

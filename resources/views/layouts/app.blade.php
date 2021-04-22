@@ -42,6 +42,9 @@
 </body>
 
 <!-- Scripts -->
+<script>
+    window._locale = '{{ app()->getLocale() }}';
+    window._translations = {!! cache('translations') !!};
+</script>
 <script src="{{ mix('/js/app.js') }}"></script>
-
 </html>

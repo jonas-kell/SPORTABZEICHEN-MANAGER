@@ -10,5 +10,7 @@ return [
     */
 
     'search' => 'Suche',
+    'name' => 'Name',
+    'year' => 'Jahr',
 
 ];

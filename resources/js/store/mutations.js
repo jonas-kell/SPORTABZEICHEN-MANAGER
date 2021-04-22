@@ -2,12 +2,11 @@ let mutations = {
     FETCH_FAVOURITES(state, favourites) {
         return (state.favourites = favourites);
     },
-    CREATE_POST(state, post) {
-        state.posts.unshift(post);
+    CREATE_ATHLETE(state, athlete) {
+        return (state.athlete = athlete);
     },
-    DELETE_POST(state, post) {
-        let index = state.posts.findIndex(item => item.id === post.id);
-        state.posts.splice(index, 1);
+    DELETE_ATHLETE(state) {
+        state.athlete = null;
     }
 };
 export default mutations;

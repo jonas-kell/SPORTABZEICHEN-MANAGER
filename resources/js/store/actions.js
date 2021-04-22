@@ -9,21 +9,21 @@ let actions = {
                 console.log(err);
             });
     },
-    createPost({ commit }, post) {
+    createAthlete({ commit }, athlete) {
         axios
-            .post("/api/posts", post)
+            .post("/api/athlete/create", athlete)
             .then(res => {
-                commit("CREATE_POST", res.data);
+                commit("CREATE_ATHLETE", res.data.data);
             })
             .catch(err => {
                 console.log(err);
             });
     },
-    deletePost({ commit }, post) {
+    deleteAthlete({ commit }, athlete) {
         axios
-            .delete(`/api/posts/${post.id}`)
+            .delete(`/api/athlete/delete/${athlete.id}`)
             .then(res => {
-                if (res.data === "ok") commit("DELETE_POST", post);
+                commit("DELETE_ATHLETE", post);
             })
             .catch(err => {
                 console.log(err);

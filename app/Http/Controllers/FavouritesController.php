@@ -26,7 +26,7 @@ class FavouritesController extends Controller
         if ($request->ajax()) {
             return response()->json(["asdasd" => true]);
         } else {
-            return redirect("/home");
+            return redirect("/");
         }
     }
 }

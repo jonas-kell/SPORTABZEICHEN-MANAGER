@@ -1,5 +1,6 @@
 let state = {
-    favourites: []
+    favourites: [],
+    athlete: null
 };
 
 export default state;

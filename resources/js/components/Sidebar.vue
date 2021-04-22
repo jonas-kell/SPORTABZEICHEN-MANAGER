@@ -22,14 +22,19 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     mounted() {
-        console.log("Component mounted.");
+        this.$store.dispatch("fetchFavourites");
     },
     data() {
         return {
             searchbar: ""
         };
+    },
+    computed: {
+        ...mapGetters(["favourites"])
     }
 };
 </script>

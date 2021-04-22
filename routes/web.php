@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes(['register' => false]);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Start the "API"
+
+Route::get('api/favourites', [App\Http\Controllers\FavouritesController::class, 'get']);
+Route::put('api/favourites/add/{id}', [App\Http\Controllers\FavouritesController::class, 'add']);
+Route::put('api/favourites/drop/{id}', [App\Http\Controllers\FavouritesController::class, 'drop']);

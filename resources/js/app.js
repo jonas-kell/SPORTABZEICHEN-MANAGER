@@ -7,6 +7,9 @@
 require("./bootstrap");
 
 window.Vue = require("vue").default;
+
+import store from "./store/index"; //vuex main instance
+
 Vue.mixin(require("./trans"));
 
 /**
@@ -35,5 +38,6 @@ files.keys().map(key =>
  */
 
 const app = new Vue({
-    el: "#app"
+    el: "#app",
+    store
 });

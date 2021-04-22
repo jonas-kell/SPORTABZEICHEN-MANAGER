@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Dieser Benutzer könnte nicht angemeldet werden.',
+    'failed' => 'Dieser Benutzer konnte nicht angemeldet werden.',
     'password' => 'Falsches Passwort',
     'throttle' => 'Zu vile Login-Versuche. Versuche es bitte in :seconds Sekunden erneut.',
 

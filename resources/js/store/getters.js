@@ -7,6 +7,9 @@ let getters = {
     },
     yearsArray: state => {
         return state.yearsArray;
+    },
+    searchedAthletes: state => {
+        return state.searchedAthletes;
     }
 };
 

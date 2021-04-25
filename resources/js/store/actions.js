@@ -48,6 +48,21 @@ let actions = {
             .catch(err => {
                 console.log(err);
             });
+    },
+    fetchSearch({ commit }, searchString) {
+        if (searchString == "") {
+            commit("FETCH_ATHLETE_SEARCH", []);
+        } else {
+            //make the call
+            axios
+                .get(`api/search/athletes/${searchString}`)
+                .then(res => {
+                    commit("FETCH_ATHLETE_SEARCH", res.data.athletes);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     }
 };
 

@@ -10,6 +10,9 @@ let mutations = {
     },
     UPDATE_YEARS_ARRAY(state, yearsArray) {
         state.yearsArray = yearsArray;
+    },
+    FETCH_ATHLETE_SEARCH(state, athletes) {
+        return (state.searchedAthletes = athletes);
     }
 };
 export default mutations;

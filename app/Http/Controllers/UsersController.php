@@ -29,6 +29,8 @@ class UsersController extends Controller
         if ($request->ajax()) {
             if (Auth::user()) {
                 return response()->json(Auth::user()->getYearArray());
+            } else {
+                return response()->json(["error" => "no user"]);
             }
         }
         return redirect("/");

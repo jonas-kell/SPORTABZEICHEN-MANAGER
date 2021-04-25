@@ -21,6 +21,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('api/year/get', [App\Http\Controllers\UsersController::class, 'getYears']);
 Route::put('api/year/set', [App\Http\Controllers\UsersController::class, 'setYear']);
 
+Route::get('api/search/athletes/{search}', [App\Http\Controllers\SearchController::class, 'getAthletes']);
+
 Route::get('api/favourites', [App\Http\Controllers\UsersController::class, 'getFavourites']);
 Route::put('api/favourites/add/{id}', [App\Http\Controllers\UsersController::class, 'addFavourite']);
 Route::put('api/favourites/drop/{id}', [App\Http\Controllers\UsersController::class, 'dropFavourite']);

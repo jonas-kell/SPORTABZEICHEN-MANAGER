@@ -7,6 +7,9 @@ let mutations = {
     },
     DELETE_ATHLETE(state) {
         state.athlete = null;
+    },
+    UPDATE_YEARS_ARRAY(state, yearsArray) {
+        state.yearsArray = yearsArray;
     }
 };
 export default mutations;

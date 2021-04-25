@@ -4,6 +4,9 @@ let getters = {
     },
     athlete: state => {
         return state.athlete;
+    },
+    yearsArray: state => {
+        return state.yearsArray;
     }
 };
 

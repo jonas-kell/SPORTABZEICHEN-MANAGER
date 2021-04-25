@@ -18,10 +18,12 @@ Auth::routes(['register' => false]);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Start the "API"
+Route::get('api/year/get', [App\Http\Controllers\UsersController::class, 'getYears']);
+Route::put('api/year/set', [App\Http\Controllers\UsersController::class, 'setYear']);
 
-Route::get('api/favourites', [App\Http\Controllers\FavouritesController::class, 'get']);
-Route::put('api/favourites/add/{id}', [App\Http\Controllers\FavouritesController::class, 'add']);
-Route::put('api/favourites/drop/{id}', [App\Http\Controllers\FavouritesController::class, 'drop']);
+Route::get('api/favourites', [App\Http\Controllers\UsersController::class, 'getFavourites']);
+Route::put('api/favourites/add/{id}', [App\Http\Controllers\UsersController::class, 'addFavourite']);
+Route::put('api/favourites/drop/{id}', [App\Http\Controllers\UsersController::class, 'dropFavourite']);
 
 Route::post('api/athlete/create', [App\Http\Controllers\AthleteController::class, 'create']);
 Route::put('api/athlete/update/{id}', [App\Http\Controllers\AthleteController::class, 'update']);

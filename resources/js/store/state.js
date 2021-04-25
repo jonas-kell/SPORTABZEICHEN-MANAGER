@@ -1,6 +1,7 @@
 let state = {
     favourites: [],
-    athlete: null
+    athlete: null,
+    yearsArray: []
 };
 
 export default state;

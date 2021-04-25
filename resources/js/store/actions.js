@@ -28,6 +28,26 @@ let actions = {
             .catch(err => {
                 console.log(err);
             });
+    },
+    getYear({ commit }) {
+        axios
+            .get("/api/year/get")
+            .then(res => {
+                commit("UPDATE_YEARS_ARRAY", res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+    setYear({ commit }, year) {
+        axios
+            .put("/api/year/set", { year: year })
+            .then(res => {
+                commit("UPDATE_YEARS_ARRAY", res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 };
 

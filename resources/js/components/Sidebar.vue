@@ -24,8 +24,15 @@
             </div>
         </div>
 
-        <div class="card-body">
+        <div class="card-body row no-gutters justify-content-center">
+            <span
+                class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
+                @click="createNewAthlete"
+            >
+                ++ {{ __("general.create_new") }} ++
+            </span>
             <sidebar-list
+                class="col-12"
                 v-bind="{
                     currentYear: yearsArray.current,
                     list: searchedAthletes
@@ -33,10 +40,11 @@
             />
         </div>
         <hr class="m-0" />
-        <div class="card-body">
+        <div class="card-body row no-gutters">
             <h5>{{ __("general.favourites") }}</h5>
 
             <sidebar-list
+                class="col-12"
                 v-bind="{
                     currentYear: yearsArray.current,
                     list: favourites
@@ -61,6 +69,16 @@ export default {
         return {
             searchbar: ""
         };
+    },
+    methods: {
+        createNewAthlete: function() {
+            this.$store.dispatch("setupCreateAthlete", {
+                name: this.searchbar,
+                year: this.yearsArray.current,
+                birthday: null,
+                gender: "male"
+            });
+        }
     },
     watch: {
         "yearsArray.current": function(newValue, oldValue) {

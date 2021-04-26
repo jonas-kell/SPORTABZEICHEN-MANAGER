@@ -1,39 +1,15 @@
-<style scoped>
-.btn-save {
-    color: rgb(17, 17, 17);
-    background-color: #1add00;
-    border-color: #016601;
-}
-
-.btn-edit {
-    color: #fff;
-    background-color: #4d4d4d;
-    border-color: #292929;
-}
-</style>
-
 <template>
     <div class="card card-fill">
-        <div v-if="athlete == null">
-            <div class="card-header">Center</div>
+        <div v-if="newAthlete == null && athlete == null">
+            <div class="card-header">{{ __("general.welcome") }}</div>
 
             <div class="card-body">
-                <input
-                    v-model="newName"
-                    class="form-control"
-                    :placeholder="__('general.name')"
-                />
-                <input
-                    v-model="newYear"
-                    class="form-control"
-                    :placeholder="__('general.year')"
-                />
-                <button v-on:click="createAthlete">
-                    create
-                </button>
+                <p>
+                    {{ __("general.action") }}
+                </p>
             </div>
         </div>
-        <div v-else>
+        <div v-else-if="athlete != null">
             <div class="card-header">
                 {{ athlete.name }}
                 <div class="float-right">
@@ -62,6 +38,7 @@
                         v-model="athlete.name"
                         class="form-control"
                         v-bind:disabled="!canEdit"
+                        :placeholder="__('general.name')"
                     />
                 </div>
                 <div class="from-group col-lg-6 col-12">
@@ -73,6 +50,7 @@
                         v-model="athlete.year"
                         class="form-control"
                         v-bind:disabled="!canEdit"
+                        :placeholder="__('general.year')"
                     />
                 </div>
                 <div class="from-group col-lg-6 col-12">
@@ -109,6 +87,72 @@
             <hr class="m-0" />
             <div class="card-body row"></div>
         </div>
+        <div v-else-if="newAthlete != null">
+            <div class="card-header">{{ __("general.create_new") }}</div>
+
+            <div class="card-body row">
+                <div class="from-group col-lg-6 col-12">
+                    <label for="center_name_field">
+                        {{ __("general.name") }}
+                    </label>
+                    <input
+                        id="center_name_field"
+                        v-model="newAthlete.name"
+                        class="form-control"
+                        :placeholder="__('general.name')"
+                    />
+                </div>
+                <div class="from-group col-lg-6 col-12">
+                    <label for="center_year_field">
+                        {{ __("general.year") }}
+                    </label>
+                    <input
+                        id="center_year_field"
+                        v-model="newAthlete.year"
+                        class="form-control"
+                        :placeholder="__('general.year')"
+                    />
+                </div>
+                <div class="from-group col-lg-6 col-12">
+                    <label for="center_birthday_field">
+                        {{ __("general.birthday") }}
+                    </label>
+                    <input
+                        id="center_birthday_field"
+                        type="date"
+                        v-model="newAthlete.birthday"
+                        class="form-control"
+                    />
+                </div>
+                <div class="from-group col-lg-6 col-12">
+                    <label for="center_gender_field">
+                        {{ __("general.gender") }}
+                    </label>
+                    <select
+                        id="center_gender_field"
+                        v-model="newAthlete.gender"
+                        class="form-control"
+                    >
+                        <option value="male">
+                            {{ __("general.male") }}
+                        </option>
+                        <option value="female">
+                            {{ __("general.female") }}
+                        </option>
+                    </select>
+                </div>
+                <div
+                    class="from-group col-12 mt-3 justify-content-center row no-gutters"
+                >
+                    <button
+                        class="btn btn-save btn-sm"
+                        v-on:click="createAthlete"
+                    >
+                        {{ __("general.save") }}
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -119,17 +163,12 @@ export default {
     mounted() {},
     data() {
         return {
-            newName: "",
-            newYear: 0,
             canEdit: false
         };
     },
     methods: {
         createAthlete: function() {
-            this.$store.dispatch("createAthlete", {
-                name: this.newName,
-                year: this.newYear
-            });
+            this.$store.dispatch("createAthlete", this.newAthlete);
         },
         toggleEdit() {
             if (this.canEdit) {
@@ -142,7 +181,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["athlete"])
+        ...mapGetters(["athlete", "newAthlete"])
     }
 };
 </script>

@@ -5,6 +5,10 @@ let mutations = {
     FETCH_ATHLETE(state, athlete) {
         return (state.athlete = athlete);
     },
+    SETUP_CREATE_ATHLETE(state, newAthlete) {
+        state.athlete = null;
+        state.newAthlete = newAthlete;
+    },
     DELETE_ATHLETE(state) {
         state.athlete = null;
     },

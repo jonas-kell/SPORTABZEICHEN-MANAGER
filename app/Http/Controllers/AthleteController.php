@@ -50,12 +50,22 @@ class AthleteController extends Controller
             $request->validate([
                 "name" => "string|required|min:3",
                 "year" => "integer|required",
+                "birthday" => "date",
+                "gender" => "string",
             ]);
 
 
             $athlete = new Athlete();
             $athlete->name = $request->input("name");
             $athlete->year = $request->input("year");
+
+            if ($request->input("birthday")) {
+                $athlete->birthday = $request->input("birthday");
+            }
+
+            if ($request->input("gender") && in_array($request->input("gender"), Athlete::avaliableGenders())) {
+                $athlete->gender = $request->input("gender");
+            }
 
             $athlete->save();
 

@@ -49,6 +49,9 @@ let actions = {
                 console.log(err);
             });
     },
+    setupCreateAthlete({ commit }, newAthlete) {
+        commit("SETUP_CREATE_ATHLETE", newAthlete);
+    },
     updateAthlete({ commit }, athlete) {
         axios
             .put(`/api/athlete/update/${athlete.id}`, athlete)

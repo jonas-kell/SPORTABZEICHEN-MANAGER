@@ -20,5 +20,8 @@ return [
     'birthday' => 'Geburtstag',
     'no_results' => 'Keine Ergebnisse',
     'favourites' => 'Favoriten',
+    'create_new' => 'Eintrag neu erzeugen',
+    'welcome' => 'Wilkommen!',
+    'action' => 'Bitte wählen Sie eine Aktion über das "Suche-Menü"',
 
 ];

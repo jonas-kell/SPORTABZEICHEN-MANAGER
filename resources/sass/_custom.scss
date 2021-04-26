@@ -85,3 +85,19 @@ select.form-control:disabled {
 hr {
     border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+.btn-save {
+    color: rgb(17, 17, 17);
+    background-color: #1add00;
+    border-color: #016601;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #4d4d4d;
+    border-color: #292929;
+}
+
+.btn-edit:hover {
+    color: #fff;
+}

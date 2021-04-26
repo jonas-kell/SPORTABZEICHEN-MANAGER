@@ -19,4 +19,14 @@ class Athlete extends Model
     {
         return $this->belongsToMany(User::class, "favourites");
     }
+
+
+    /**
+     * The genders, that can be set
+     * @return array
+     */
+    public static function avaliableGenders()
+    {
+        return ["male", "female"];
+    }
 }

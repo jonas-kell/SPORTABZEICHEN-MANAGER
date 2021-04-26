@@ -20,6 +20,7 @@ class AthleteResource extends JsonResource
             'name' => $this->name,
             'year' => $this->year,
             'birthday' => $this->birthday,
+            'gender' => $this->gender,
         ];
 
         // if there is a user authenticated, include user specific info

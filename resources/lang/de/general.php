@@ -10,8 +10,14 @@ return [
     */
 
     'search' => 'Suche',
+    'edit' => 'Bearbeiten',
+    'save' => 'Speichern',
     'name' => 'Name',
-    'year' => 'Jahr',
+    'year' => 'Sportabzeichen Jahr',
+    'gender' => 'Geschlecht',
+    'male' => 'Männlich',
+    'female' => 'Weiblich',
+    'birthday' => 'Geburtstag',
     'no_results' => 'Keine Ergebnisse',
     'favourites' => 'Favoriten',
 

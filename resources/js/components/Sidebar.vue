@@ -31,8 +31,9 @@
                     list: searchedAthletes
                 }"
             />
-
-            <hr />
+        </div>
+        <hr class="m-0" />
+        <div class="card-body">
             <h5>{{ __("general.favourites") }}</h5>
 
             <sidebar-list

@@ -81,6 +81,7 @@ class AthleteController extends Controller
                 "name" => "string|min:3",
                 "year" => "integer",
                 "birthday" => "date",
+                "gender" => "string",
             ]);
 
 
@@ -93,12 +94,16 @@ class AthleteController extends Controller
 
 
                 if ($request->input("year")) {
-                    $athlete->name = $request->input("year");
+                    $athlete->year = $request->input("year");
                 }
 
 
                 if ($request->input("birthday")) {
-                    $athlete->name = $request->input("birthday");
+                    $athlete->birthday = $request->input("birthday");
+                }
+
+                if ($request->input("gender") && in_array($request->input("gender"), Athlete::avaliableGenders())) {
+                    $athlete->gender = $request->input("gender");
                 }
 
                 $athlete->save();

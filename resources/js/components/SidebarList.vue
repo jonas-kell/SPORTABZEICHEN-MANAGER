@@ -14,7 +14,10 @@
                     >({{ athlete.year }})</span
                 ></span
             >
-            <span class="float-right rightarrow" />
+            <span
+                class="float-right rightarrow"
+                @click="pushToCenter(athlete)"
+            />
             <span
                 class="float-right favourite_star"
                 v-bind:class="athlete.favourite ? 'active' : 'inactive'"
@@ -47,6 +50,9 @@ export default {
 
             // update graphic immediately
             athlete.favourite = !startState;
+        },
+        pushToCenter: function(athlete) {
+            this.$store.dispatch("fetchAthlete", athlete.id);
         }
     }
 };

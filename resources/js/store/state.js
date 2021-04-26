@@ -3,7 +3,8 @@ let state = {
     athlete: null,
     newAthlete: null,
     yearsArray: [],
-    searchedAthletes: []
+    searchedAthletes: [],
+    searchNeedsUpdate: false
 };
 
 export default state;

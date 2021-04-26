@@ -17,6 +17,12 @@ let mutations = {
     },
     FETCH_ATHLETE_SEARCH(state, athletes) {
         return (state.searchedAthletes = athletes);
+    },
+    REQUEST_SEARCH_UPDATE(state) {
+        return (state.searchNeedsUpdate = true);
+    },
+    FULFILL_SEARCH_UPDATE(state) {
+        return (state.searchNeedsUpdate = false);
     }
 };
 export default mutations;

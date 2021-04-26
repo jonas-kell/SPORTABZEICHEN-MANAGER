@@ -94,10 +94,22 @@ export default {
             this.typingTimer = setTimeout(function() {
                 store.dispatch("fetchSearch", newValue);
             }, 250);
+        },
+        searchNeedsUpdate: function(newValue, oldValue) {
+            if (newValue) {
+                console.log("done");
+                this.$store.dispatch("fetchSearch", this.searchbar);
+                this.$store.dispatch("fulfillSearchUpdate");
+            }
         }
     },
     computed: {
-        ...mapGetters(["favourites", "yearsArray", "searchedAthletes"])
+        ...mapGetters([
+            "favourites",
+            "yearsArray",
+            "searchedAthletes",
+            "searchNeedsUpdate"
+        ])
     }
 };
 </script>

@@ -106,6 +106,12 @@ let actions = {
                     console.log(err);
                 });
         }
+    },
+    requestSearchUpdate({ commit }) {
+        commit("REQUEST_SEARCH_UPDATE");
+    },
+    fulfillSearchUpdate({ commit }) {
+        commit("FULFILL_SEARCH_UPDATE");
     }
 };
 

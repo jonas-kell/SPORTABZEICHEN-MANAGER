@@ -48,6 +48,9 @@ export default {
                 this.$store.dispatch("addFavourite", athlete);
             }
 
+            // update the star info in the search
+            this.$store.dispatch("requestSearchUpdate");
+
             // update graphic immediately
             athlete.favourite = !startState;
         },

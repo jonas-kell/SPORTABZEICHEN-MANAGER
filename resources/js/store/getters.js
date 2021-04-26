@@ -13,6 +13,9 @@ let getters = {
     },
     searchedAthletes: state => {
         return state.searchedAthletes;
+    },
+    searchNeedsUpdate: state => {
+        return state.searchNeedsUpdate;
     }
 };
 

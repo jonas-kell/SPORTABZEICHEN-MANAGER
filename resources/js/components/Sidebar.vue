@@ -25,41 +25,32 @@
         </div>
 
         <div class="card-body">
-            <ol v-if="searchedAthletes.length > 0" class="list-group">
-                <li
-                    v-for="athlete in searchedAthletes"
-                    v-bind:key="athlete.id"
-                    class="list-group-item"
-                >
-                    <span
-                        >{{ athlete.name }}
-                        <span
-                            v-bind:style="{
-                                color:
-                                    athlete.year !== yearsArray.current
-                                        ? 'red'
-                                        : 'green'
-                            }"
-                            >({{ athlete.year }})</span
-                        ></span
-                    >
-                    <span class="float-right rightarrow" />
-                    <span class="float-right favourite_star inactive" />
-                </li>
-            </ol>
-            <ol v-else class="list-group">
-                <li class="list-group-item">
-                    {{ __("general.empty_search") }}
-                </li>
-            </ol>
+            <sidebar-list
+                v-bind="{
+                    currentYear: yearsArray.current,
+                    list: searchedAthletes
+                }"
+            />
+
+            <hr />
+            <h5>{{ __("general.favourites") }}</h5>
+
+            <sidebar-list
+                v-bind="{
+                    currentYear: yearsArray.current,
+                    list: favourites
+                }"
+            />
         </div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import SidebarList from "./SidebarList.vue";
 
 export default {
+    components: { SidebarList },
     mounted() {
         this.$store.dispatch("fetchFavourites");
         this.$store.dispatch("getYear");

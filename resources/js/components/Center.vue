@@ -24,9 +24,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-    mounted() {
-        console.log("Component mounted.");
-    },
+    mounted() {},
     data() {
         return {
             name: "",

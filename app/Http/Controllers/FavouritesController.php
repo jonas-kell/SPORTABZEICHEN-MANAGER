@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\AthleteResource;
 use App\Models\Athlete;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,6 +63,34 @@ class FavouritesController extends Controller
             if (Auth::user()) {
                 $user = Auth::user();
                 $user->favourites()->attach($athlete);
+
+                return $this->getFavourites($request);
+            } else {
+                return response()->json(["error" => "no user"]);
+            }
+        } else {
+            return redirect("/");
+        }
+    }
+
+
+    /**
+     * remove the athlete from the users currently active favourites
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function dropFavourite(Request $request, $athlete_id)
+    {
+        if ($request->ajax()) {
+            $athlete = Athlete::find($athlete_id);
+
+            if (!$athlete) {
+                return response()->json(["error" => "athlete not found"]);
+            }
+
+            if (Auth::user()) {
+                $user = Auth::user();
+                $user->favourites()->detach($athlete);
 
                 return $this->getFavourites($request);
             } else {

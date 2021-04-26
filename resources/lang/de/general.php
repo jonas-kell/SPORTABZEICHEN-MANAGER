@@ -12,6 +12,7 @@ return [
     'search' => 'Suche',
     'name' => 'Name',
     'year' => 'Jahr',
-    'empty_search' => 'Leere Suche',
+    'no_results' => 'Keine Ergebnisse',
+    'favourites' => 'Favoriten',
 
 ];

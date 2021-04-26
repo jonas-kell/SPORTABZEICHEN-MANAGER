@@ -9,6 +9,26 @@ let actions = {
                 console.log(err);
             });
     },
+    addFavourite({ commit }, athlete) {
+        axios
+            .put(`api/favourites/add/${athlete.id}`)
+            .then(res => {
+                commit("FETCH_FAVOURITES", res.data.athletes);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+    dropFavourite({ commit }, athlete) {
+        axios
+            .put(`api/favourites/drop/${athlete.id}`)
+            .then(res => {
+                commit("FETCH_FAVOURITES", res.data.athletes);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
     createAthlete({ commit }, athlete) {
         axios
             .post("/api/athlete/create", athlete)

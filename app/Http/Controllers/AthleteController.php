@@ -51,7 +51,7 @@ class AthleteController extends Controller
                 "name" => "string|required|min:3",
                 "year" => "integer|required",
                 "birthday" => "date|nullable",
-                "gender" => "string|nullable",
+                "gender" => "string",
             ]);
 
 
@@ -90,7 +90,7 @@ class AthleteController extends Controller
             $request->validate([
                 "name" => "string|min:3",
                 "year" => "integer",
-                "birthday" => "date",
+                "birthday" => "date|nullable",
                 "gender" => "string",
             ]);
 

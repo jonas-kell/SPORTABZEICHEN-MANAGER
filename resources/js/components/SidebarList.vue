@@ -18,11 +18,7 @@
                 class="float-right rightarrow"
                 @click="pushToCenter(athlete)"
             />
-            <span
-                class="float-right favourite_star"
-                v-bind:class="athlete.favourite ? 'active' : 'inactive'"
-                @click="toggleFavourite(athlete)"
-            />
+            <favourite-star-button v-bind="{ athlete: athlete }" />
         </li>
     </ol>
     <ol v-else class="list-group">
@@ -33,27 +29,12 @@
 </template>
 
 <script>
+import FavouriteStarButton from "./FavouriteStarButton.vue";
 export default {
+    components: { FavouriteStarButton },
     mounted() {},
     props: { list: Array, currentYear: Number },
     methods: {
-        toggleFavourite: function(athlete) {
-            let startState = athlete.favourite;
-
-            if (startState) {
-                // drop favourite
-                this.$store.dispatch("dropFavourite", athlete);
-            } else {
-                // associate favourite
-                this.$store.dispatch("addFavourite", athlete);
-            }
-
-            // update the star info in the search
-            this.$store.dispatch("requestSearchUpdate");
-
-            // update graphic immediately
-            athlete.favourite = !startState;
-        },
         pushToCenter: function(athlete) {
             this.$store.dispatch("fetchAthlete", athlete.id);
         }

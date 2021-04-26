@@ -26,6 +26,10 @@
                         >{{ __("general.edit") }}</span
                     >
                 </div>
+                <favourite-star-button
+                    v-bind="{ athlete: athlete }"
+                    class="mr-3"
+                />
             </div>
 
             <div class="card-body row">

@@ -97,7 +97,6 @@ export default {
         },
         searchNeedsUpdate: function(newValue, oldValue) {
             if (newValue) {
-                console.log("done");
                 this.$store.dispatch("fetchSearch", this.searchbar);
                 this.$store.dispatch("fulfillSearchUpdate");
             }

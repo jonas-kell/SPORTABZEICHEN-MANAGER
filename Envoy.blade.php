@@ -40,7 +40,10 @@
         {{--Clear Config--}}
         echo "Clearing Configuration"
         cd {{ $new_release_dir }}
-        {{ $php }} artisan config:clear
+        {{ $php }} artisan config:cache
+        {{ $php }} artisan route:cache
+        {{ $php }} artisan view:cache
+        {{ $php }} artisan config:cache
         echo "Storage Link"
         {{ $php }} artisan storage:link
         {{--Migrate Database--}}

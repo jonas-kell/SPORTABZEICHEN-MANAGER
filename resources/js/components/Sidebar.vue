@@ -31,7 +31,20 @@
                     v-bind:key="athlete.id"
                     class="list-group-item"
                 >
-                    {{ athlete.name }}
+                    <span
+                        >{{ athlete.name }}
+                        <span
+                            v-bind:style="{
+                                color:
+                                    athlete.year !== yearsArray.current
+                                        ? 'red'
+                                        : 'green'
+                            }"
+                            >({{ athlete.year }})</span
+                        ></span
+                    >
+                    <span class="float-right rightarrow" />
+                    <span class="float-right favourite_star inactive" />
                 </li>
             </ol>
             <ol v-else class="list-group">

@@ -10,4 +10,13 @@ class Athlete extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+
+    /**
+     * The users, that favouried this athlete
+     */
+    public function favourited_by()
+    {
+        return $this->belongsToMany(User::class, "favourites");
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Auth;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AthleteResource extends JsonResource
@@ -14,11 +15,24 @@ class AthleteResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $array = [
             'id' => $this->id,
             'name' => $this->name,
             'year' => $this->year,
             'birthday' => $this->birthday,
         ];
+
+        // if there is a user authenticated, include user specific info
+        // has the user favourited the athlete?
+        $user = Auth::user();
+        if ($user) {
+            if (Auth::user()->favourites->find($this->id)) { //TODO make more efficient
+                $array["favourite"] = true;
+            } else {
+                $array["favourite"] = false;
+            }
+        }
+
+        return $array;
     }
 }

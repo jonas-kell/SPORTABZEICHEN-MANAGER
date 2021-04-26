@@ -67,4 +67,12 @@ class User extends Authenticatable
     {
         return [2020, 2021]; //TODO make dynamic year array
     }
+
+    /**
+     * The athletes, the user has favourited
+     */
+    public function favourites()
+    {
+        return $this->belongsToMany(Athlete::class, "favourites");
+    }
 }

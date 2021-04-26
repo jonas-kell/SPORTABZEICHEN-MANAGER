@@ -23,9 +23,9 @@ Route::put('api/year/set', [App\Http\Controllers\UsersController::class, 'setYea
 
 Route::get('api/search/athletes/{search}', [App\Http\Controllers\SearchController::class, 'getAthletes']);
 
-Route::get('api/favourites', [App\Http\Controllers\UsersController::class, 'getFavourites']);
-Route::put('api/favourites/add/{id}', [App\Http\Controllers\UsersController::class, 'addFavourite']);
-Route::put('api/favourites/drop/{id}', [App\Http\Controllers\UsersController::class, 'dropFavourite']);
+Route::get('api/favourites', [App\Http\Controllers\FavouritesController::class, 'getFavourites']);
+Route::put('api/favourites/add/{athlete_id}', [App\Http\Controllers\FavouritesController::class, 'addFavourite']);
+Route::put('api/favourites/drop/{athlete_id}', [App\Http\Controllers\FavouritesController::class, 'dropFavourite']);
 
 Route::post('api/athlete/create', [App\Http\Controllers\AthleteController::class, 'create']);
 Route::put('api/athlete/update/{id}', [App\Http\Controllers\AthleteController::class, 'update']);

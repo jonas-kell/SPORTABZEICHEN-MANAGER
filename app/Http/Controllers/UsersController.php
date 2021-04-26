@@ -66,18 +66,4 @@ class UsersController extends Controller
             return redirect("/");
         }
     }
-
-    /**
-     * Get an array of favourites
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getFavourites(Request $request)
-    {
-        if ($request->ajax()) {
-            return response()->json(["asdasd" => true]);
-        } else {
-            return redirect("/");
-        }
-    }
 }

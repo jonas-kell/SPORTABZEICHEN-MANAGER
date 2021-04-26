@@ -3,7 +3,7 @@ let actions = {
         axios
             .get("api/favourites")
             .then(res => {
-                commit("FETCH_FAVOURITES", res.data);
+                commit("FETCH_FAVOURITES", res.data.athletes);
             })
             .catch(err => {
                 console.log(err);

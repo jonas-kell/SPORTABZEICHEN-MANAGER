@@ -21,8 +21,7 @@ class SearchController extends Controller
     }
 
     /**
-     * Get the year, the user is currently set on
-     * Get all avaliable years for the dropdown generation
+     * Get an array of athletes, that match the search string
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

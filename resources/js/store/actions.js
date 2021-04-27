@@ -39,6 +39,9 @@ let actions = {
                 console.log(err);
             });
     },
+    setupCreateAthlete({ commit }, newAthlete) {
+        commit("SETUP_CREATE_ATHLETE", newAthlete);
+    },
     createAthlete({ commit }, athlete) {
         axios
             .post("/api/athlete/create", athlete)
@@ -48,9 +51,6 @@ let actions = {
             .catch(err => {
                 console.log(err);
             });
-    },
-    setupCreateAthlete({ commit }, newAthlete) {
-        commit("SETUP_CREATE_ATHLETE", newAthlete);
     },
     updateAthlete({ commit }, athlete) {
         axios
@@ -92,11 +92,20 @@ let actions = {
                 console.log(err);
             });
     },
-    fetchSearch({ commit }, searchString) {
-        if (searchString == "") {
+    fetchSearch({ commit, state }, searchString) {
+        if (searchString === undefined) {
+            //call has no searchString specified, use previouse one
+            console.log("reuse value");
+        } else {
+            //call has no searchString specified, use previouse one
+            state.searchString = searchString;
+        }
+
+        if (state.searchString == "") {
+            //search string is empty. an empty string produces no results
             commit("FETCH_ATHLETE_SEARCH", []);
         } else {
-            //make the call
+            //a string is set, therefore make the call
             axios
                 .get(`api/search/athletes/${searchString}`)
                 .then(res => {
@@ -106,12 +115,6 @@ let actions = {
                     console.log(err);
                 });
         }
-    },
-    requestSearchUpdate({ commit }) {
-        commit("REQUEST_SEARCH_UPDATE");
-    },
-    fulfillSearchUpdate({ commit }) {
-        commit("FULFILL_SEARCH_UPDATE");
     }
 };
 

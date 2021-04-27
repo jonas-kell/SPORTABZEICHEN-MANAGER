@@ -1,7 +1,4 @@
 let getters = {
-    favourites: state => {
-        return state.favourites;
-    },
     athlete: state => {
         return state.athlete;
     },
@@ -14,8 +11,11 @@ let getters = {
     searchedAthletes: state => {
         return state.searchedAthletes;
     },
-    searchNeedsUpdate: state => {
-        return state.searchNeedsUpdate;
+    favourites: state => {
+        return state.favourites;
+    },
+    searchString: state => {
+        return state.searchString;
     }
 };
 

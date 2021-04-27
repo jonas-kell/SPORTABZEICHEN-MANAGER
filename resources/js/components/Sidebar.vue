@@ -27,7 +27,7 @@
         <div class="card-body row no-gutters justify-content-center">
             <span
                 class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
-                @click="createNewAthlete"
+                @click="setupCreateAthlete"
             >
                 ++ {{ __("general.create_new") }} ++
             </span>
@@ -71,7 +71,7 @@ export default {
         };
     },
     methods: {
-        createNewAthlete: function() {
+        setupCreateAthlete: function() {
             this.$store.dispatch("setupCreateAthlete", {
                 name: this.searchbar,
                 year: this.yearsArray.current,
@@ -83,10 +83,6 @@ export default {
     watch: {
         "yearsArray.current": function(newValue, oldValue) {
             this.$store.dispatch("setYear", newValue); //TODO also calls on initial laod. sets unnecessary. maybe resolve.
-            let instance = this;
-            setTimeout(function() {
-                instance.$store.dispatch("fetchSearch", instance.searchbar);
-            }, 1000); //TODO lazy, doesn't check for finish of call, just waits a set amount of time. may need to be modified
         },
         searchbar: function(newValue, oldValue) {
             let store = this.$store;
@@ -94,21 +90,10 @@ export default {
             this.typingTimer = setTimeout(function() {
                 store.dispatch("fetchSearch", newValue);
             }, 250);
-        },
-        searchNeedsUpdate: function(newValue, oldValue) {
-            if (newValue) {
-                this.$store.dispatch("fetchSearch", this.searchbar);
-                this.$store.dispatch("fulfillSearchUpdate");
-            }
         }
     },
     computed: {
-        ...mapGetters([
-            "favourites",
-            "yearsArray",
-            "searchedAthletes",
-            "searchNeedsUpdate"
-        ])
+        ...mapGetters(["favourites", "yearsArray", "searchedAthletes"])
     }
 };
 </script>

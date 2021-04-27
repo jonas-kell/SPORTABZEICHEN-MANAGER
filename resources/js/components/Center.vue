@@ -173,16 +173,11 @@ export default {
     methods: {
         createAthlete: function() {
             this.$store.dispatch("createAthlete", this.newAthlete);
-            this.$store.dispatch("requestSearchUpdate");
         },
         toggleEdit() {
             if (this.canEdit) {
                 // edit was avaliable until now, that means we need to save now
                 this.$store.dispatch("updateAthlete", this.athlete);
-
-                //make sure to update sidebar
-                this.$store.dispatch("fetchFavourites");
-                this.$store.dispatch("requestSearchUpdate");
             }
 
             this.canEdit = !this.canEdit;

@@ -32,7 +32,6 @@
 import FavouriteStarButton from "./FavouriteStarButton.vue";
 export default {
     components: { FavouriteStarButton },
-    mounted() {},
     props: { list: Array, currentYear: Number },
     methods: {
         pushToCenter: function(athlete) {

@@ -9,21 +9,27 @@ let actions = {
                 console.log(err);
             });
     },
-    addFavourite({ commit }, athlete) {
+    addFavourite({ dispatch, commit }, athlete) {
         axios
             .put(`api/favourites/add/${athlete.id}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
+
+                //update search asynchronously
+                dispatch("fetchSearch");
             })
             .catch(err => {
                 console.log(err);
             });
     },
-    dropFavourite({ commit }, athlete) {
+    dropFavourite({ dispatch, commit }, athlete) {
         axios
             .put(`api/favourites/drop/${athlete.id}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
+
+                //update search asynchronously
+                dispatch("fetchSearch");
             })
             .catch(err => {
                 console.log(err);
@@ -42,21 +48,28 @@ let actions = {
     setupCreateAthlete({ commit }, newAthlete) {
         commit("SETUP_CREATE_ATHLETE", newAthlete);
     },
-    createAthlete({ commit }, athlete) {
+    createAthlete({ dispatch, commit }, athlete) {
         axios
             .post("/api/athlete/create", athlete)
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
+
+                //update search asynchronously
+                dispatch("fetchSearch");
             })
             .catch(err => {
                 console.log(err);
             });
     },
-    updateAthlete({ commit }, athlete) {
+    updateAthlete({ dispatch, commit }, athlete) {
         axios
             .put(`/api/athlete/update/${athlete.id}`, athlete)
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
+
+                //update search and favourites asynchronously
+                dispatch("fetchSearch");
+                dispatch("fetchFavourites");
             })
             .catch(err => {
                 console.log(err);
@@ -72,21 +85,27 @@ let actions = {
                 console.log(err);
             });
     },
-    getYear({ commit }) {
+    getYear({ dispatch, commit }) {
         axios
             .get("/api/year/get")
             .then(res => {
                 commit("UPDATE_YEARS_ARRAY", res.data);
+
+                //update search asynchronously
+                dispatch("fetchSearch");
             })
             .catch(err => {
                 console.log(err);
             });
     },
-    setYear({ commit }, year) {
+    setYear({ dispatch, commit }, year) {
         axios
             .put("/api/year/set", { year: year })
             .then(res => {
                 commit("UPDATE_YEARS_ARRAY", res.data);
+
+                //update search asynchronously
+                dispatch("fetchSearch");
             })
             .catch(err => {
                 console.log(err);
@@ -95,9 +114,8 @@ let actions = {
     fetchSearch({ commit, state }, searchString) {
         if (searchString === undefined) {
             //call has no searchString specified, use previouse one
-            console.log("reuse value");
         } else {
-            //call has no searchString specified, use previouse one
+            //call has searchString specified, set the stored value new
             state.searchString = searchString;
         }
 
@@ -107,7 +125,7 @@ let actions = {
         } else {
             //a string is set, therefore make the call
             axios
-                .get(`api/search/athletes/${searchString}`)
+                .get(`api/search/athletes/${state.searchString}`)
                 .then(res => {
                     commit("FETCH_ATHLETE_SEARCH", res.data.athletes);
                 })

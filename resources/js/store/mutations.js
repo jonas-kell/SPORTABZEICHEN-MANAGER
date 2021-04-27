@@ -7,22 +7,22 @@ let mutations = {
     },
     SETUP_CREATE_ATHLETE(state, newAthlete) {
         state.athlete = null;
-        state.newAthlete = newAthlete;
+        return (state.newAthlete = newAthlete);
     },
     DELETE_ATHLETE(state) {
         state.athlete = null;
     },
     UPDATE_YEARS_ARRAY(state, yearsArray) {
-        state.yearsArray = yearsArray;
+        return (state.yearsArray = yearsArray);
     },
     FETCH_ATHLETE_SEARCH(state, athletes) {
         return (state.searchedAthletes = athletes);
     },
     REQUEST_SEARCH_UPDATE(state) {
-        return (state.searchNeedsUpdate = true);
+        state.searchNeedsUpdate = true;
     },
     FULFILL_SEARCH_UPDATE(state) {
-        return (state.searchNeedsUpdate = false);
+        state.searchNeedsUpdate = false;
     }
 };
 export default mutations;

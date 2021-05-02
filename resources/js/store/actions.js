@@ -9,27 +9,33 @@ let actions = {
                 console.log(err);
             });
     },
-    addFavourite({ dispatch, commit }, athlete) {
+    addFavourite({ dispatch, commit, state }, athlete) {
         axios
             .put(`api/favourites/add/${athlete.id}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
 
-                //update search asynchronously
+                //update search and center athlete asynchronously
                 dispatch("fetchSearch");
+                if (state.athlete !== null) {
+                    dispatch("fetchAthlete", state.athlete.id);
+                }
             })
             .catch(err => {
                 console.log(err);
             });
     },
-    dropFavourite({ dispatch, commit }, athlete) {
+    dropFavourite({ dispatch, commit, state }, athlete) {
         axios
             .put(`api/favourites/drop/${athlete.id}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
 
-                //update search asynchronously
+                //update search and center athlete asynchronously
                 dispatch("fetchSearch");
+                if (state.athlete !== null) {
+                    dispatch("fetchAthlete", state.athlete.id);
+                }
             })
             .catch(err => {
                 console.log(err);

@@ -9,7 +9,27 @@ scraped_information = {}
 gender_array = ["male", "female"]
 years_to_parse = [
     {"lower_year": 6, "upper_year": 7, "tag": "6-7"},
-    {"lower_year": 18, "upper_year": 200, "tag": "ab 90"},
+    {"lower_year": 8, "upper_year": 9, "tag": "8-9"},
+    {"lower_year": 10, "upper_year": 11, "tag": "10-11"},
+    {"lower_year": 12, "upper_year": 13, "tag": "12-13"},
+    {"lower_year": 14, "upper_year": 15, "tag": "14-15"},
+    {"lower_year": 16, "upper_year": 17, "tag": "16-17"},
+    {"lower_year": 18, "upper_year": 19, "tag": "18-19"},
+    {"lower_year": 20, "upper_year": 24, "tag": "20-24"},
+    {"lower_year": 25, "upper_year": 29, "tag": "25-29"},
+    {"lower_year": 30, "upper_year": 34, "tag": "30-34"},
+    {"lower_year": 35, "upper_year": 39, "tag": "35-39"},
+    {"lower_year": 40, "upper_year": 44, "tag": "40-44"},
+    {"lower_year": 45, "upper_year": 49, "tag": "45-49"},
+    {"lower_year": 50, "upper_year": 54, "tag": "50-54"},
+    {"lower_year": 55, "upper_year": 59, "tag": "55-59"},
+    {"lower_year": 60, "upper_year": 64, "tag": "60-64"},
+    {"lower_year": 65, "upper_year": 69, "tag": "65-69"},
+    {"lower_year": 70, "upper_year": 74, "tag": "70-74"},
+    {"lower_year": 75, "upper_year": 79, "tag": "75-79"},
+    {"lower_year": 80, "upper_year": 84, "tag": "80-84"},
+    {"lower_year": 85, "upper_year": 89, "tag": "85-89"},
+    {"lower_year": 90, "upper_year": 200, "tag": "ab 90"},
 ]
 current_year = 2021
 

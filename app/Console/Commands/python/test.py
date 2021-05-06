@@ -7,15 +7,19 @@ import os
 scraped_information = {}
 
 gender_array = ["male", "female"]
-years_to_parse = [{"lower_year": 90, "upper_year": 200, "tag": "ab 90"}]
+years_to_parse = [
+    {"lower_year": 6, "upper_year": 7, "tag": "6-7"},
+    {"lower_year": 18, "upper_year": 200, "tag": "ab 90"},
+]
+current_year = 2021
 
 for gender in gender_array:
     scraped_information[gender] = {}
     for year_object in years_to_parse:
-        print(gender)
-        print(year_object)
+        year_to_get = current_year - year_object["lower_year"]
+        url = f"https://sportabzeichen.dosb.de/requirements?gender={gender}&year_of_birth={year_to_get}"
 
-        url = "https://sportabzeichen.dosb.de/requirements?gender=female&year_of_birth=1900"
+        print(url)
 
         page = requests.get(url)
         soup = BeautifulSoup(page.content, "html.parser")

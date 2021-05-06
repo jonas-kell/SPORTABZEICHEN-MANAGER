@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,14 +15,9 @@ class RequirementsServiceProvider extends ServiceProvider
     public function boot()
     {
         Cache::rememberForever('requirements', function () {
-            return $this->getRequirements();
+            $path = resource_path("requirements.json");
+
+            return collect(json_decode(file_get_contents($path), true));
         });
-    }
-
-    private function getRequirements()
-    {
-        $path = app_path("requirements.json");
-
-        return collect(json_decode(file_get_contents($path), true));
     }
 }

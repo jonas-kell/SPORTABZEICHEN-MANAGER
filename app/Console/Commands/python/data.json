@@ -1,189 +1,774 @@
 {
-    "endurance": {
-        "3.000 m Lauf": {
-            "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "32:30 min" },
-                "silver": { "requirement_with_unit": "29:30 min" },
-                "gold": { "requirement_with_unit": "26:30 min" }
-            }
-        },
-        "10 km Lauf": {
-            "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.\nFür das Absolvieren des 10 km Laufs können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "2:16:30 h" },
-                "silver": { "requirement_with_unit": "2:04:30 h" },
-                "gold": { "requirement_with_unit": "1:52:30 h" }
-            }
-        },
-        "7,5 km Walking / Nordic Walking": {
-            "description": "Walking definiert sich hier als ein schnelles Gehen, wobei ständig ein Fuß Bodenkontakt hat. Die Arme schwingen gegengleich (linkes Bein und rechter Arm bzw. rechtes Bein und linker Arm). Laufen ist nicht gestattet. Beim Nordic Walking dient die Walking-Technik als Grundlage, jedoch müssen Stöcke aktiv eingesetzt werden.\nFür das Absolvieren dieser Disziplin können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "1:50:20 h" },
-                "silver": { "requirement_with_unit": "1:36:00 h" },
-                "gold": { "requirement_with_unit": "1:27:00 h" }
-            }
-        },
-        "200 m Schwimmen": {
-            "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden. Das Wechseln der Schwimmart während der Prüfung ist gestattet.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "10:45 min" },
-                "silver": { "requirement_with_unit": "8:55 min" },
-                "gold": { "requirement_with_unit": "7:20 min" }
-            }
-        },
-        "20 km Radfahren": {
-            "description": "Bahnart bzw. Streckenführung sind beliebig. Die Strecke soll möglichst eben, also ohne Steigung/Gefälle (niveaugleich) und ohne Verkehrseinflüsse sein. Es muss sichergestellt sein, dass Start und Ziel auf gleicher Höhe liegen. \nFür das Absolvieren des Radfahrstecke können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden. ",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "1:33:00 h" },
-                "silver": { "requirement_with_unit": "1:23:00 h" },
-                "gold": { "requirement_with_unit": "1:12:30 h" }
-            }
+    "male": {
+        "90": {
+            "endurance": {
+                "3.000 m Lauf": {
+                    "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "32:30 min",
+                            "requirement": "32:30",
+                            "unit": "min"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "29:30 min",
+                            "requirement": "29:30",
+                            "unit": "min"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "26:30 min",
+                            "requirement": "26:30",
+                            "unit": "min"
+                        }
+                    }
+                },
+                "10 km Lauf": {
+                    "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.\nFür das Absolvieren des 10 km Laufs können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2:16:30 h",
+                            "requirement": "2:16:30",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "2:04:30 h",
+                            "requirement": "2:04:30",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:52:30 h",
+                            "requirement": "1:52:30",
+                            "unit": "h"
+                        }
+                    }
+                },
+                "7,5 km Walking / Nordic Walking": {
+                    "description": "Walking definiert sich hier als ein schnelles Gehen, wobei ständig ein Fuß Bodenkontakt hat. Die Arme schwingen gegengleich (linkes Bein und rechter Arm bzw. rechtes Bein und linker Arm). Laufen ist nicht gestattet. Beim Nordic Walking dient die Walking-Technik als Grundlage, jedoch müssen Stöcke aktiv eingesetzt werden.\nFür das Absolvieren dieser Disziplin können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1:50:20 h",
+                            "requirement": "1:50:20",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1:36:00 h",
+                            "requirement": "1:36:00",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:27:00 h",
+                            "requirement": "1:27:00",
+                            "unit": "h"
+                        }
+                    }
+                },
+                "200 m Schwimmen": {
+                    "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden. Das Wechseln der Schwimmart während der Prüfung ist gestattet.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "10:45 min",
+                            "requirement": "10:45",
+                            "unit": "min"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "8:55 min",
+                            "requirement": "8:55",
+                            "unit": "min"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7:20 min",
+                            "requirement": "7:20",
+                            "unit": "min"
+                        }
+                    }
+                },
+                "20 km Radfahren": {
+                    "description": "Bahnart bzw. Streckenführung sind beliebig. Die Strecke soll möglichst eben, also ohne Steigung/Gefälle (niveaugleich) und ohne Verkehrseinflüsse sein. Es muss sichergestellt sein, dass Start und Ziel auf gleicher Höhe liegen. \nFür das Absolvieren des Radfahrstecke können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden. ",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1:33:00 h",
+                            "requirement": "1:33:00",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1:23:00 h",
+                            "requirement": "1:23:00",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:12:30 h",
+                            "requirement": "1:12:30",
+                            "unit": "h"
+                        }
+                    }
+                }
+            },
+            "strength": {
+                "Medizinball (2 kg)": {
+                    "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2,75 m",
+                            "requirement": "2,75",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,25 m",
+                            "requirement": "4,25",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Kugelstoßen (2 kg)": {
+                    "description": "Als Fehlversuch gilt, wenn der Teilnehmer nach Beginn des Stoßes mit irgendeinem Körperteil die Oberseite des Stoßbalkens, den Boden außerhalb des Kreises oder den oberen Kreisrand berührt hat. Der Kreis darf erst verlassen werden, wenn die Kugel nach dem Stoß den Boden berührt hat. Der Teilnehmer muss den Kreis nach hinten verlassen. Als Stoßleistung wird die Entfernung vom nächsten Eindruck der Kugel zum inneren Kreisrand gemessen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "3,25 m",
+                            "requirement": "3,25",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,25 m",
+                            "requirement": "4,25",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Standweitsprung": {
+                    "description": "Der Absprung erfolgt ohne Anlauf mit beiden Füßen vom Grubenrand oder von einem Absprungbalken. Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht bis zur Höhe des vordersten Eindruckes des Absprunges bzw. der Vorderkante des Absprungbalkens.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "0,80 m",
+                            "requirement": "0,80",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1,00 m",
+                            "requirement": "1,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1,20 m",
+                            "requirement": "1,20",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Steinstoßen (3 kg)": {
+                    "description": "Die Teilnehmerin bzw. der Teilnehmer hat mit jedem Arm drei Versuche, wobei sie bzw. er selbst bestimmen kann, ob zuerst mit dem linken oder rechten Arm drei Versuche absolviert werden. Das jeweils beste Ergebnis mit dem linken und dem rechten Arm wird zur Gesamtleistung addiert. Es darf ein beliebiger Anlauf genommen werden. Der Stein wird frei mit einer Hand gestoßen. Werfen ist nicht erlaubt.  Der Stein hat Ziegelsteinform, ist achteckig und aus Metall. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Steins zur Innenkante der Abstoßlinie gemessen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "6,10 m",
+                            "requirement": "6,10",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7,80 m",
+                            "requirement": "7,80",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Gerätturnen (Kopf- / Schulterstand)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Aufschwingen der Beine nacheinander ausgeführt"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Anhocken und Strecken der Beine ausgeführt."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände (Beine beliebig) ausgeführt und die gestreckte Endposition 2 Sekunden gehalten."
+                        }
+                    }
+                }
+            },
+            "speed": {
+                "50 m Lauf": {
+                    "description": "Auf die Benutzung von Startblöcken kann verzichtet werden. Der Start kann auch aus einer ruhigen Standstellung erfolgen. Die Läuferin bzw. der Läufer ist zu disqualifizieren, wenn sie bzw. er für zwei Fehlstarts im selben Lauf verantwortlich ist.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "17,1 sek",
+                            "requirement": "17,1",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "15,9 sek",
+                            "requirement": "15,9",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "14,8 sek",
+                            "requirement": "14,8",
+                            "unit": "sek"
+                        }
+                    }
+                },
+                "25 m Schwimmen": {
+                    "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "66,5 sek",
+                            "requirement": "66,5",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "54,5 sek",
+                            "requirement": "54,5",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "42,5 sek",
+                            "requirement": "42,5",
+                            "unit": "sek"
+                        }
+                    }
+                },
+                "200 m Radfahren (fl. Start)": {
+                    "description": "Der Start erfolgt fliegend, also mit einer beliebigen Beschleunigungsphase, die nicht gewertet wird.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "44,5 sek",
+                            "requirement": "44,5",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "38,0 sek",
+                            "requirement": "38,0",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "31,5 sek",
+                            "requirement": "31,5",
+                            "unit": "sek"
+                        }
+                    }
+                },
+                "Gerätturnen (Sprunghocke als Stützsprung)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Aus dem Anlauf beidbeiniger Absprung von einem Sprungbrett (nur ein Brettkontakt) und Landung (beliebig) auf einem ca. hüfthohen Mattenberg."
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei dreiteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei vierteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                        }
+                    }
+                }
+            },
+            "coordination": {
+                "Hochsprung": {
+                    "description": "Der Teilnehmerin bzw. dem Teilnehmer stehen über jede Höhe drei Versuche zu. Nach drei aufeinander folgenden Fehlsprüngen, gleichgültig bei welcher Höhe, scheidet die Teilnehmerin bzw. der Teilnehmer aus. Der Hochsprung darf nur über eine Latte ausgeführt werden. Die Springerin bzw. der Springer muss mit einem Fuß abspringen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "0,60 m",
+                            "requirement": "0,60",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "0,65 m",
+                            "requirement": "0,65",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "0,55 m",
+                            "requirement": "0,55",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Weitsprung": {
+                    "description": "Die Länge des Anlaufs ist beliebig. Absprung vom Balken: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Vorderkante des Absprungbalkens. Absprung aus Absprungfläche: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Höhe des vordersten Eindrucks des Absprunges.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1,10 m",
+                            "requirement": "1,10",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1,50 m",
+                            "requirement": "1,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1,90 m",
+                            "requirement": "1,90",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Schleuderball (1kg)": {
+                    "description": "Der Schleuderball kann aus dem Stand, mit Anlauf oder aus der Drehung geworfen werden. Die Länge des Anlaufs und die Zahl der Drehungen sind nicht begrenzt. Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Schleuderball besteht aus einer Leder- oder Kunststoffhülle mit einer formbeständigen Füllung mit einer Lederschlaufe.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "11,00 m",
+                            "requirement": "11,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "14,00 m",
+                            "requirement": "14,00",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Seilspringen (Grundsprung vorwärts mit oder ohne Zwischensprung ODER Galoppschritt)": {
+                    "description": "Mit beiden Füßen gleichzeitig über das Seil springen. Dabei ist jeweils ein Zwischensprung erlaubt. Es wird jeder Seildurchschlag gezählt. ODER Der/ Die Teilnehmer/in muss im Laufschritt auf der Stelle oder in der Fortbewegung jeweils bei einem Seildurschlag mit beiden Füßen nacheinander das Seil überqueren (einbeiniger Absprung, das andere Bein wird nachgezogen). Hierbei wird gezählt wie oft der rechte Fuß das Seil überquert.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "4 mal",
+                            "requirement": "4",
+                            "unit": "mal"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "6 mal",
+                            "requirement": "6",
+                            "unit": "mal"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "8 mal",
+                            "requirement": "8",
+                            "unit": "mal"
+                        }
+                    }
+                },
+                "Gerätturnen (Schwebebalken)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Zügiges Gehen auf Zehnspitzen mit gestreckten Armen an den Ohren über den Schwebebalken."
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Rückwärts Gehen über den Schwebalken."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Seitwärts Gehen mit Übertreten eines Beines bis zur Balkenmitte,  dann - ohne Änderung der Blickrichtung - mit gleicher Aufgabenstellung wieder zurück."
+                        }
+                    }
+                }
+            },
+            "lower_year": 90,
+            "upper_year": 200,
+            "tag": "ab 90"
         }
     },
-    "strength": {
-        "Medizinball (2 kg)": {
-            "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "2,75 m" },
-                "silver": { "requirement_with_unit": "4,25 m" },
-                "gold": { "requirement_with_unit": "5,50 m" }
-            }
-        },
-        "Kugelstoßen (2 kg)": {
-            "description": "Als Fehlversuch gilt, wenn der Teilnehmer nach Beginn des Stoßes mit irgendeinem Körperteil die Oberseite des Stoßbalkens, den Boden außerhalb des Kreises oder den oberen Kreisrand berührt hat. Der Kreis darf erst verlassen werden, wenn die Kugel nach dem Stoß den Boden berührt hat. Der Teilnehmer muss den Kreis nach hinten verlassen. Als Stoßleistung wird die Entfernung vom nächsten Eindruck der Kugel zum inneren Kreisrand gemessen.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "3,25 m" },
-                "silver": { "requirement_with_unit": "4,25 m" },
-                "gold": { "requirement_with_unit": "5,00 m" }
-            }
-        },
-        "Standweitsprung": {
-            "description": "Der Absprung erfolgt ohne Anlauf mit beiden Füßen vom Grubenrand oder von einem Absprungbalken. Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht bis zur Höhe des vordersten Eindruckes des Absprunges bzw. der Vorderkante des Absprungbalkens.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "0,80 m" },
-                "silver": { "requirement_with_unit": "1,00 m" },
-                "gold": { "requirement_with_unit": "1,20 m" }
-            }
-        },
-        "Steinstoßen (3 kg)": {
-            "description": "Die Teilnehmerin bzw. der Teilnehmer hat mit jedem Arm drei Versuche, wobei sie bzw. er selbst bestimmen kann, ob zuerst mit dem linken oder rechten Arm drei Versuche absolviert werden. Das jeweils beste Ergebnis mit dem linken und dem rechten Arm wird zur Gesamtleistung addiert. Es darf ein beliebiger Anlauf genommen werden. Der Stein wird frei mit einer Hand gestoßen. Werfen ist nicht erlaubt.  Der Stein hat Ziegelsteinform, ist achteckig und aus Metall. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Steins zur Innenkante der Abstoßlinie gemessen.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "6,10 m" },
-                "silver": { "requirement_with_unit": "7,00 m" },
-                "gold": { "requirement_with_unit": "7,80 m" }
-            }
-        },
-        "Gerätturnen (Kopf- / Schulterstand)": {
-            "description": "",
-            "requirements": {
-                "bronze": {
-                    "requirement_with_unit": "einfach",
-                    "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Aufschwingen der Beine nacheinander ausgeführt"
+    "female": {
+        "90": {
+            "endurance": {
+                "3.000 m Lauf": {
+                    "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "32:30 min",
+                            "requirement": "32:30",
+                            "unit": "min"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "29:30 min",
+                            "requirement": "29:30",
+                            "unit": "min"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "26:30 min",
+                            "requirement": "26:30",
+                            "unit": "min"
+                        }
+                    }
                 },
-                "silver": {
-                    "requirement_with_unit": "mittel",
-                    "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Anhocken und Strecken der Beine ausgeführt."
+                "10 km Lauf": {
+                    "description": "Der Start erfolgt aus einer ruhigen Standstellung. Bei diesen Läufen ist das Laufen auf Rundstrecken empfehlenswert. In Ausnahmefällen können diese auch auf geeigneten, vermessenen Strecken im Gelände oder auf der Straße ausgetragen werden. Gehen ist gestattet.\nFür das Absolvieren des 10 km Laufs können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2:16:30 h",
+                            "requirement": "2:16:30",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "2:04:30 h",
+                            "requirement": "2:04:30",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:52:30 h",
+                            "requirement": "1:52:30",
+                            "unit": "h"
+                        }
+                    }
                 },
-                "gold": {
-                    "requirement_with_unit": "schwer",
-                    "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände (Beine beliebig) ausgeführt und die gestreckte Endposition 2 Sekunden gehalten."
+                "7,5 km Walking / Nordic Walking": {
+                    "description": "Walking definiert sich hier als ein schnelles Gehen, wobei ständig ein Fuß Bodenkontakt hat. Die Arme schwingen gegengleich (linkes Bein und rechter Arm bzw. rechtes Bein und linker Arm). Laufen ist nicht gestattet. Beim Nordic Walking dient die Walking-Technik als Grundlage, jedoch müssen Stöcke aktiv eingesetzt werden.\nFür das Absolvieren dieser Disziplin können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1:50:20 h",
+                            "requirement": "1:50:20",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1:36:00 h",
+                            "requirement": "1:36:00",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:27:00 h",
+                            "requirement": "1:27:00",
+                            "unit": "h"
+                        }
+                    }
+                },
+                "200 m Schwimmen": {
+                    "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden. Das Wechseln der Schwimmart während der Prüfung ist gestattet.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "10:45 min",
+                            "requirement": "10:45",
+                            "unit": "min"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "8:55 min",
+                            "requirement": "8:55",
+                            "unit": "min"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7:20 min",
+                            "requirement": "7:20",
+                            "unit": "min"
+                        }
+                    }
+                },
+                "20 km Radfahren": {
+                    "description": "Bahnart bzw. Streckenführung sind beliebig. Die Strecke soll möglichst eben, also ohne Steigung/Gefälle (niveaugleich) und ohne Verkehrseinflüsse sein. Es muss sichergestellt sein, dass Start und Ziel auf gleicher Höhe liegen. \nFür das Absolvieren des Radfahrstecke können auch Wettkämpfe oder vergleichbare Veranstaltungen genutzt werden. Der Nachweis muss durch eine Urkunde mit Zeitangabe oder eine online zur Verfügung gestellte Ergebnisliste vorgelegt werden. ",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1:33:00 h",
+                            "requirement": "1:33:00",
+                            "unit": "h"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1:23:00 h",
+                            "requirement": "1:23:00",
+                            "unit": "h"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1:12:30 h",
+                            "requirement": "1:12:30",
+                            "unit": "h"
+                        }
+                    }
                 }
-            }
-        }
-    },
-    "speed": {
-        "50 m Lauf": {
-            "description": "Auf die Benutzung von Startblöcken kann verzichtet werden. Der Start kann auch aus einer ruhigen Standstellung erfolgen. Die Läuferin bzw. der Läufer ist zu disqualifizieren, wenn sie bzw. er für zwei Fehlstarts im selben Lauf verantwortlich ist.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "17,1 sek" },
-                "silver": { "requirement_with_unit": "15,9 sek" },
-                "gold": { "requirement_with_unit": "14,8 sek" }
-            }
-        },
-        "25 m Schwimmen": {
-            "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "66,5 sek" },
-                "silver": { "requirement_with_unit": "54,5 sek" },
-                "gold": { "requirement_with_unit": "42,5 sek" }
-            }
-        },
-        "200 m Radfahren (fl. Start)": {
-            "description": "Der Start erfolgt fliegend, also mit einer beliebigen Beschleunigungsphase, die nicht gewertet wird.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "44,5 sek" },
-                "silver": { "requirement_with_unit": "38,0 sek" },
-                "gold": { "requirement_with_unit": "31,5 sek" }
-            }
-        },
-        "Gerätturnen (Sprunghocke als Stützsprung)": {
-            "description": "",
-            "requirements": {
-                "bronze": {
-                    "requirement_with_unit": "einfach",
-                    "description": "Aus dem Anlauf beidbeiniger Absprung von einem Sprungbrett (nur ein Brettkontakt) und Landung (beliebig) auf einem ca. hüfthohen Mattenberg."
+            },
+            "strength": {
+                "Medizinball (2 kg)": {
+                    "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2,75 m",
+                            "requirement": "2,75",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,25 m",
+                            "requirement": "4,25",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
+                            "unit": "m"
+                        }
+                    }
                 },
-                "silver": {
-                    "requirement_with_unit": "mittel",
-                    "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei dreiteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                "Kugelstoßen (2 kg)": {
+                    "description": "Als Fehlversuch gilt, wenn der Teilnehmer nach Beginn des Stoßes mit irgendeinem Körperteil die Oberseite des Stoßbalkens, den Boden außerhalb des Kreises oder den oberen Kreisrand berührt hat. Der Kreis darf erst verlassen werden, wenn die Kugel nach dem Stoß den Boden berührt hat. Der Teilnehmer muss den Kreis nach hinten verlassen. Als Stoßleistung wird die Entfernung vom nächsten Eindruck der Kugel zum inneren Kreisrand gemessen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "3,25 m",
+                            "requirement": "3,25",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,25 m",
+                            "requirement": "4,25",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
+                            "unit": "m"
+                        }
+                    }
                 },
-                "gold": {
-                    "requirement_with_unit": "schwer",
-                    "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei vierteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                "Standweitsprung": {
+                    "description": "Der Absprung erfolgt ohne Anlauf mit beiden Füßen vom Grubenrand oder von einem Absprungbalken. Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht bis zur Höhe des vordersten Eindruckes des Absprunges bzw. der Vorderkante des Absprungbalkens.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "0,80 m",
+                            "requirement": "0,80",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1,00 m",
+                            "requirement": "1,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1,20 m",
+                            "requirement": "1,20",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Steinstoßen (3 kg)": {
+                    "description": "Die Teilnehmerin bzw. der Teilnehmer hat mit jedem Arm drei Versuche, wobei sie bzw. er selbst bestimmen kann, ob zuerst mit dem linken oder rechten Arm drei Versuche absolviert werden. Das jeweils beste Ergebnis mit dem linken und dem rechten Arm wird zur Gesamtleistung addiert. Es darf ein beliebiger Anlauf genommen werden. Der Stein wird frei mit einer Hand gestoßen. Werfen ist nicht erlaubt.  Der Stein hat Ziegelsteinform, ist achteckig und aus Metall. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Steins zur Innenkante der Abstoßlinie gemessen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "6,10 m",
+                            "requirement": "6,10",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7,80 m",
+                            "requirement": "7,80",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Gerätturnen (Kopf- / Schulterstand)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Aufschwingen der Beine nacheinander ausgeführt"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände und Anhocken und Strecken der Beine ausgeführt."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Aus dem Kniestand auf dem ersten Kasten wird an den beiden parallel gestellten Kästen ein Schulterstand mit Stütz der Hände (Beine beliebig) ausgeführt und die gestreckte Endposition 2 Sekunden gehalten."
+                        }
+                    }
                 }
-            }
-        }
-    },
-    "coordination": {
-        "Hochsprung": {
-            "description": "Der Teilnehmerin bzw. dem Teilnehmer stehen über jede Höhe drei Versuche zu. Nach drei aufeinander folgenden Fehlsprüngen, gleichgültig bei welcher Höhe, scheidet die Teilnehmerin bzw. der Teilnehmer aus. Der Hochsprung darf nur über eine Latte ausgeführt werden. Die Springerin bzw. der Springer muss mit einem Fuß abspringen.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "0,60 m" },
-                "silver": { "requirement_with_unit": "0,65 m" },
-                "gold": { "requirement_with_unit": "0,55 m" }
-            }
-        },
-        "Weitsprung": {
-            "description": "Die Länge des Anlaufs ist beliebig. Absprung vom Balken: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Vorderkante des Absprungbalkens. Absprung aus Absprungfläche: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Höhe des vordersten Eindrucks des Absprunges.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "1,10 m" },
-                "silver": { "requirement_with_unit": "1,50 m" },
-                "gold": { "requirement_with_unit": "1,90 m" }
-            }
-        },
-        "Schleuderball (1kg)": {
-            "description": "Der Schleuderball kann aus dem Stand, mit Anlauf oder aus der Drehung geworfen werden. Die Länge des Anlaufs und die Zahl der Drehungen sind nicht begrenzt. Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Schleuderball besteht aus einer Leder- oder Kunststoffhülle mit einer formbeständigen Füllung mit einer Lederschlaufe.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "7,50 m" },
-                "silver": { "requirement_with_unit": "11,00 m" },
-                "gold": { "requirement_with_unit": "14,00 m" }
-            }
-        },
-        "Seilspringen (Grundsprung vorwärts mit oder ohne Zwischensprung ODER Galoppschritt)": {
-            "description": "Mit beiden Füßen gleichzeitig über das Seil springen. Dabei ist jeweils ein Zwischensprung erlaubt. Es wird jeder Seildurchschlag gezählt. ODER Der/ Die Teilnehmer/in muss im Laufschritt auf der Stelle oder in der Fortbewegung jeweils bei einem Seildurschlag mit beiden Füßen nacheinander das Seil überqueren (einbeiniger Absprung, das andere Bein wird nachgezogen). Hierbei wird gezählt wie oft der rechte Fuß das Seil überquert.",
-            "requirements": {
-                "bronze": { "requirement_with_unit": "4 mal" },
-                "silver": { "requirement_with_unit": "6 mal" },
-                "gold": { "requirement_with_unit": "8 mal" }
-            }
-        },
-        "Gerätturnen (Schwebebalken)": {
-            "description": "",
-            "requirements": {
-                "bronze": {
-                    "requirement_with_unit": "einfach",
-                    "description": "Zügiges Gehen auf Zehnspitzen mit gestreckten Armen an den Ohren über den Schwebebalken."
+            },
+            "speed": {
+                "50 m Lauf": {
+                    "description": "Auf die Benutzung von Startblöcken kann verzichtet werden. Der Start kann auch aus einer ruhigen Standstellung erfolgen. Die Läuferin bzw. der Läufer ist zu disqualifizieren, wenn sie bzw. er für zwei Fehlstarts im selben Lauf verantwortlich ist.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "17,1 sek",
+                            "requirement": "17,1",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "15,9 sek",
+                            "requirement": "15,9",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "14,8 sek",
+                            "requirement": "14,8",
+                            "unit": "sek"
+                        }
+                    }
                 },
-                "silver": {
-                    "requirement_with_unit": "mittel",
-                    "description": "Rückwärts Gehen über den Schwebalken."
+                "25 m Schwimmen": {
+                    "description": "Die Wahl der Schwimmart ist freigestellt. Schwimmhilfen sind nicht erlaubt. Es kann auch ohne Startsprung aus dem Wasser gestartet werden.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "66,5 sek",
+                            "requirement": "66,5",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "54,5 sek",
+                            "requirement": "54,5",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "42,5 sek",
+                            "requirement": "42,5",
+                            "unit": "sek"
+                        }
+                    }
                 },
-                "gold": {
-                    "requirement_with_unit": "schwer",
-                    "description": "Seitwärts Gehen mit Übertreten eines Beines bis zur Balkenmitte,  dann - ohne Änderung der Blickrichtung - mit gleicher Aufgabenstellung wieder zurück."
+                "200 m Radfahren (fl. Start)": {
+                    "description": "Der Start erfolgt fliegend, also mit einer beliebigen Beschleunigungsphase, die nicht gewertet wird.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "44,5 sek",
+                            "requirement": "44,5",
+                            "unit": "sek"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "38,0 sek",
+                            "requirement": "38,0",
+                            "unit": "sek"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "31,5 sek",
+                            "requirement": "31,5",
+                            "unit": "sek"
+                        }
+                    }
+                },
+                "Gerätturnen (Sprunghocke als Stützsprung)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Aus dem Anlauf beidbeiniger Absprung von einem Sprungbrett (nur ein Brettkontakt) und Landung (beliebig) auf einem ca. hüfthohen Mattenberg."
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei dreiteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Aufhocken mit Stütz der Hände und Strecksprung auf die Landematte. Zwei vierteilige Kästen werden längs parallel gestellt und mit einer dünnen Turnmatte abgedeckt, vor der entstandenen Kastengasse liegt ein Sprungbrett, hinter den Kästen zwei doppelt gelegte Turnmatten (also insgesamt vier!). Der Stützsprung endet mit dem Aufhocken auf dieses Gerät. Danach folgt ein Strecksprung vom Sprunggerät auf die dahinter liegende Landematte, so dass sich die Prüfungsleistung aus zwei Teilen zusammensetzt: Aufhocken (1) und Strecksprung mit Landung auf der Matte (2) hinter dem Sprunggerät."
+                        }
+                    }
                 }
-            }
+            },
+            "coordination": {
+                "Hochsprung": {
+                    "description": "Der Teilnehmerin bzw. dem Teilnehmer stehen über jede Höhe drei Versuche zu. Nach drei aufeinander folgenden Fehlsprüngen, gleichgültig bei welcher Höhe, scheidet die Teilnehmerin bzw. der Teilnehmer aus. Der Hochsprung darf nur über eine Latte ausgeführt werden. Die Springerin bzw. der Springer muss mit einem Fuß abspringen.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "0,60 m",
+                            "requirement": "0,60",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "0,65 m",
+                            "requirement": "0,65",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "0,55 m",
+                            "requirement": "0,55",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Weitsprung": {
+                    "description": "Die Länge des Anlaufs ist beliebig. Absprung vom Balken: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Vorderkante des Absprungbalkens. Absprung aus Absprungfläche: Gemessen wird vom hintersten Eindruck des Niedersprungs senkrecht zur Höhe des vordersten Eindrucks des Absprunges.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "1,10 m",
+                            "requirement": "1,10",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "1,50 m",
+                            "requirement": "1,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "1,90 m",
+                            "requirement": "1,90",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Schleuderball (1kg)": {
+                    "description": "Der Schleuderball kann aus dem Stand, mit Anlauf oder aus der Drehung geworfen werden. Die Länge des Anlaufs und die Zahl der Drehungen sind nicht begrenzt. Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Schleuderball besteht aus einer Leder- oder Kunststoffhülle mit einer formbeständigen Füllung mit einer Lederschlaufe.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "11,00 m",
+                            "requirement": "11,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "14,00 m",
+                            "requirement": "14,00",
+                            "unit": "m"
+                        }
+                    }
+                },
+                "Seilspringen (Grundsprung vorwärts mit oder ohne Zwischensprung ODER Galoppschritt)": {
+                    "description": "Mit beiden Füßen gleichzeitig über das Seil springen. Dabei ist jeweils ein Zwischensprung erlaubt. Es wird jeder Seildurchschlag gezählt. ODER Der/ Die Teilnehmer/in muss im Laufschritt auf der Stelle oder in der Fortbewegung jeweils bei einem Seildurschlag mit beiden Füßen nacheinander das Seil überqueren (einbeiniger Absprung, das andere Bein wird nachgezogen). Hierbei wird gezählt wie oft der rechte Fuß das Seil überquert.",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "4 mal",
+                            "requirement": "4",
+                            "unit": "mal"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "6 mal",
+                            "requirement": "6",
+                            "unit": "mal"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "8 mal",
+                            "requirement": "8",
+                            "unit": "mal"
+                        }
+                    }
+                },
+                "Gerätturnen (Schwebebalken)": {
+                    "description": "",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "einfach",
+                            "description": "Zügiges Gehen auf Zehnspitzen mit gestreckten Armen an den Ohren über den Schwebebalken."
+                        },
+                        "silver": {
+                            "requirement_with_unit": "mittel",
+                            "description": "Rückwärts Gehen über den Schwebalken."
+                        },
+                        "gold": {
+                            "requirement_with_unit": "schwer",
+                            "description": "Seitwärts Gehen mit Übertreten eines Beines bis zur Balkenmitte,  dann - ohne Änderung der Blickrichtung - mit gleicher Aufgabenstellung wieder zurück."
+                        }
+                    }
+                }
+            },
+            "lower_year": 90,
+            "upper_year": 200,
+            "tag": "ab 90"
         }
     }
 }

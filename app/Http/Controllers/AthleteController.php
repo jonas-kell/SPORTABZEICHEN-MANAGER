@@ -23,15 +23,15 @@ class AthleteController extends Controller
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function get(Request $request, $id, $requirements = 0)
+    public function get(Request $request, $id)
     {
         if ($request->ajax()) {
             $athlete = Athlete::find($id);
 
-            $requirements = boolval($requirements);
-            $athlete->requirements = $requirements;
 
             if ($athlete) {
+                //load athlete with requirements
+                $athlete->requirements = true;
                 return new AthleteResource($athlete);
             } else {
                 return response()->json(["error" => "Athlete not found"]);
@@ -73,6 +73,8 @@ class AthleteController extends Controller
             $athlete->save();
 
             if ($athlete) {
+                //load athlete with requirements
+                $athlete->requirements = true;
                 return new AthleteResource($athlete);
             } else {
                 return response()->json(["error" => "Athlete not found"]);
@@ -121,6 +123,8 @@ class AthleteController extends Controller
 
                 $athlete->save();
 
+                //load athlete with requirements
+                $athlete->requirements = true;
                 return new AthleteResource($athlete);
             } else {
                 return response()->json(["error" => "Athlete not found"]);

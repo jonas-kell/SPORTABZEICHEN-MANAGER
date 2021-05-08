@@ -23,10 +23,13 @@ class AthleteController extends Controller
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function get(Request $request, $id)
+    public function get(Request $request, $id, $requirements = 0)
     {
         if ($request->ajax()) {
             $athlete = Athlete::find($id);
+
+            $requirements = boolval($requirements);
+            $athlete->requirements = $requirements;
 
             if ($athlete) {
                 return new AthleteResource($athlete);

@@ -43,7 +43,7 @@ let actions = {
     },
     fetchAthlete({ commit }, athlete_id) {
         axios
-            .get(`/api/athlete/${athlete_id}`)
+            .get(`/api/athlete/${athlete_id}/1`)
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
             })

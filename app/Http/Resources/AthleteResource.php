@@ -25,15 +25,21 @@ class AthleteResource extends JsonResource
             'gender' => $this->gender,
         ];
 
-        //calculate the year information
-        $sportabzeichen_age = $this->year - Carbon::parse($this->birthday)->year;
-        $sportabzeichen_year_array = RequirementsServiceProvider::getYearArray($sportabzeichen_age);
-        $sportabzeichen_year_array["actual_sportabzeichen_age"] = $sportabzeichen_age;
-        $array["sportabzeichen_year_array"] = $sportabzeichen_year_array;
+        //only calculate the following info, if the "requirements" attribute of the athlete is set
+        //this saves computation time and bandwidth
+        if ($this->requirements) {
 
-        //get information on the fields, the user is supposed to have:
-        $needed_requirements = RequirementsServiceProvider::getRequirementsArray($this->gender, $sportabzeichen_age);
-        $array["needed_requirements"] = $needed_requirements;
+            //calculate the year information
+            $sportabzeichen_age = $this->year - Carbon::parse($this->birthday)->year;
+            $sportabzeichen_year_array = RequirementsServiceProvider::getYearArray($sportabzeichen_age);
+            $sportabzeichen_year_array["actual_sportabzeichen_age"] = $sportabzeichen_age;
+            $array["sportabzeichen_year_array"] = $sportabzeichen_year_array;
+
+            //get information on the fields, the user is supposed to have:
+            $needed_requirements = RequirementsServiceProvider::getRequirementsArray($this->gender, $sportabzeichen_age);
+            $array["needed_requirements"] = $needed_requirements;
+        }
+
 
         // if there is a user authenticated, include user specific info
         // has the user favourited the athlete?

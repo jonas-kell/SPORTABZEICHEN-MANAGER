@@ -15,7 +15,7 @@ class AddJsonsToAthletesTable extends Migration
     {
         Schema::table('athletes', function (Blueprint $table) {
             $table->text("notes")->nullable();
-            $table->json("performances")->default("{}");
+            $table->json("performances")->nullable();
         });
     }
 

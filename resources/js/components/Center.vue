@@ -298,8 +298,12 @@ export default {
         athlete: function() {
             //let the dom modify itself before toggeling //TODO: maybe make smart and not delay dependent
             setTimeout(function() {
-                $('[data-toggle="tooltip"]').tooltip();
-            }, 2000);
+                //in order to catch the changed values for title, dispose of all tooltips and reenable them fresh.
+                $('[data-toggle="tooltip"]').tooltip("dispose");
+                // the api says this function is called "destroy".
+                // You have no idea, how much time this misinformation just cost me
+                $('[data-toggle="tooltip"]').tooltip("enable");
+            }, 300);
         },
         "athlete.notes": function() {
             let instance = this;

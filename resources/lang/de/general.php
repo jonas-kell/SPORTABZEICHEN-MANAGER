@@ -24,5 +24,11 @@ return [
     'welcome' => 'Wilkommen!',
     'action' => 'Bitte wählen Sie eine Aktion über das "Suche-Menü"',
     'notes' => 'Notizen',
+    'requirements' => 'Anforderungen',
+
+    'coordination' => 'Koordination',
+    'endurance' => 'Ausdauer',
+    'speed' => 'Schnelligkeit',
+    'strength' => 'Stärke',
 
 ];

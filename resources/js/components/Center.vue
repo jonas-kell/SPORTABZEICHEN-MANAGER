@@ -90,6 +90,7 @@
             </div>
             <hr class="m-0" />
             <div class="card-body row"></div>
+            <!-- Athlete body section -->
             <div class="from-group col-12">
                 <label for="center_notes_field">
                     {{ __("general.notes") }}
@@ -100,6 +101,85 @@
                     class="form-control"
                 >
                 </textarea>
+            </div>
+            <div class="from-group col-12 mt-2">
+                <h3>{{ __("general.requirements") }}</h3>
+            </div>
+            <div
+                class="from-group col-12"
+                v-for="category in [
+                    'coordination',
+                    'endurance',
+                    'speed',
+                    'strength'
+                ]"
+                v-bind:key="category"
+            >
+                <h4 class="mt-2">{{ __("general." + category) }}</h4>
+                <table class="requirements_table">
+                    <tr
+                        v-for="(discipline_array, discipline) in athlete
+                            .needed_requirements[category]"
+                        v-bind:key="discipline"
+                    >
+                        <td style="width: 30%">
+                            {{ discipline }}
+                            <span
+                                class="help_symbol float-right"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                v-bind:title="discipline_array.description"
+                                v-if="discipline_array.description"
+                            ></span>
+                        </td>
+                        <td style="width: 16%">
+                            <span
+                                class="medal bronze float-left mr-1"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                v-bind:title="
+                                    discipline_array.requirements.bronze
+                                        .description
+                                "
+                            ></span>
+                            {{
+                                discipline_array.requirements.bronze
+                                    .requirement_with_unit
+                            }}
+                        </td>
+                        <td style="width: 16%">
+                            <span
+                                class="medal silver float-left mr-1"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                v-bind:title="
+                                    discipline_array.requirements.silver
+                                        .description
+                                "
+                            ></span>
+                            {{
+                                discipline_array.requirements.silver
+                                    .requirement_with_unit
+                            }}
+                        </td>
+                        <td style="width: 16%">
+                            <span
+                                class="medal gold float-left mr-1"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                v-bind:title="
+                                    discipline_array.requirements.gold
+                                        .description
+                                "
+                            ></span>
+                            {{
+                                discipline_array.requirements.gold
+                                    .requirement_with_unit
+                            }}
+                        </td>
+                        <td style="width: 18%"></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div v-else-if="newAthlete != null">
@@ -197,6 +277,12 @@ export default {
         }
     },
     watch: {
+        athlete: function() {
+            //let the dom modify itself before toggeling //TODO: maybe make smart and not delay dependent
+            setTimeout(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            }, 300);
+        },
         "athlete.notes": function() {
             let instance = this;
             clearTimeout(this.typingTimer);

@@ -68,8 +68,6 @@ let actions = {
             });
     },
     updateAthlete({ dispatch, commit }, athlete) {
-        console.log(athlete);
-
         axios
             .put(`/api/athlete/update/${athlete.id}`, athlete)
             .then(res => {

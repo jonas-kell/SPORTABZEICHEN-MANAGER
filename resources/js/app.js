@@ -12,6 +12,9 @@ import store from "./store/index"; //vuex main instance
 
 Vue.mixin(require("./trans"));
 
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

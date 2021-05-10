@@ -299,7 +299,7 @@ export default {
             //let the dom modify itself before toggeling //TODO: maybe make smart and not delay dependent
             setTimeout(function() {
                 $('[data-toggle="tooltip"]').tooltip();
-            }, 300);
+            }, 2000);
         },
         "athlete.notes": function() {
             let instance = this;

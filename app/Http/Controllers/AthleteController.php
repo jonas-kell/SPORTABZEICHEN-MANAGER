@@ -85,7 +85,7 @@ class AthleteController extends Controller
     }
 
     /**
-     * create a new athlete
+     * update an athlete's base information
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -120,6 +120,63 @@ class AthleteController extends Controller
                 if ($request->input("gender") && in_array($request->input("gender"), Athlete::avaliableGenders())) {
                     $athlete->gender = $request->input("gender");
                 }
+
+                $athlete->save();
+
+                //load athlete with requirements
+                $athlete->requirements = true;
+                return new AthleteResource($athlete);
+            } else {
+                return response()->json(["error" => "Athlete not found"]);
+            }
+        } else {
+            return redirect("/");
+        }
+    }
+
+    /**
+     * update an athlete's notes
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function updateNotes(Request $request, $id)
+    {
+        if ($request->ajax()) {
+
+            $athlete = Athlete::find($id);
+
+            if ($athlete) {
+                $athlete->notes = $request->input("notes");
+
+                $athlete->save();
+
+                //load athlete with requirements
+                $athlete->requirements = true;
+                return new AthleteResource($athlete);
+            } else {
+                return response()->json(["error" => "Athlete not found"]);
+            }
+        } else {
+            return redirect("/");
+        }
+    }
+
+    /**
+     * update an athlete's performances
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function updatePerformances(Request $request, $id)
+    {
+        if ($request->ajax()) {
+            $request->validate([
+                "performances" => "json|required",
+            ]);
+
+            $athlete = Athlete::find($id);
+
+            if ($athlete) {
+
 
                 $athlete->save();
 

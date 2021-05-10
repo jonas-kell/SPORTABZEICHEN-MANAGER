@@ -90,6 +90,17 @@
             </div>
             <hr class="m-0" />
             <div class="card-body row"></div>
+            <div class="from-group col-12">
+                <label for="center_notes_field">
+                    {{ __("general.notes") }}
+                </label>
+                <textarea
+                    id="center_notes_field"
+                    v-model="athlete.notes"
+                    class="form-control"
+                >
+                </textarea>
+            </div>
         </div>
         <div v-else-if="newAthlete != null">
             <div class="card-header">{{ __("general.create_new") }}</div>
@@ -164,7 +175,9 @@
 import { mapGetters } from "vuex";
 
 export default {
-    mounted() {},
+    mounted() {
+        this.typingTimer;
+    },
     data() {
         return {
             canEdit: false
@@ -181,6 +194,18 @@ export default {
             }
 
             this.canEdit = !this.canEdit;
+        }
+    },
+    watch: {
+        "athlete.notes": function() {
+            let instance = this;
+            clearTimeout(this.typingTimer);
+            this.typingTimer = setTimeout(function() {
+                instance.$store.dispatch(
+                    "updateAthleteNotes",
+                    instance.athlete
+                );
+            }, 300);
         }
     },
     computed: {

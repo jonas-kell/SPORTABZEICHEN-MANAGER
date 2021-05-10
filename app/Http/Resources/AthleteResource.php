@@ -23,6 +23,7 @@ class AthleteResource extends JsonResource
             'year' => $this->year,
             'birthday' => $this->birthday,
             'gender' => $this->gender,
+            'notes' => $this->notes,
         ];
 
         //only calculate the following info, if the "requirements" attribute of the athlete is set
@@ -38,6 +39,10 @@ class AthleteResource extends JsonResource
             //get information on the fields, the user is supposed to have:
             $needed_requirements = RequirementsServiceProvider::getRequirementsArray($this->gender, $sportabzeichen_age);
             $array["needed_requirements"] = $needed_requirements;
+
+            //get the performances, the athlete has already registered to it's account:
+            $performances = $this->gender;
+            $array["performances"] = $performances;
         }
 
 

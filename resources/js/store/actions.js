@@ -43,7 +43,7 @@ let actions = {
     },
     fetchAthlete({ commit }, athlete_id) {
         axios
-            .get(`/api/athlete/${athlete_id}/1`)
+            .get(`/api/athlete/${athlete_id}`)
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
             })
@@ -68,6 +68,8 @@ let actions = {
             });
     },
     updateAthlete({ dispatch, commit }, athlete) {
+        console.log(athlete);
+
         axios
             .put(`/api/athlete/update/${athlete.id}`, athlete)
             .then(res => {
@@ -76,6 +78,18 @@ let actions = {
                 //update search and favourites asynchronously
                 dispatch("fetchSearch");
                 dispatch("fetchFavourites");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+    updateAthleteNotes({}, athlete) {
+        axios
+            .put(`/api/athlete/update_notes/${athlete.id}`, {
+                notes: athlete.notes
+            })
+            .then(res => {
+                //notes are changed locally, not update event needed
             })
             .catch(err => {
                 console.log(err);

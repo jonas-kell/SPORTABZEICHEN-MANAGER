@@ -29,5 +29,6 @@ Route::put('api/favourites/drop/{athlete_id}', [App\Http\Controllers\FavouritesC
 
 Route::post('api/athlete/create', [App\Http\Controllers\AthleteController::class, 'create']);
 Route::put('api/athlete/update/{id}', [App\Http\Controllers\AthleteController::class, 'update']);
+Route::put('api/athlete/update_notes/{id}', [App\Http\Controllers\AthleteController::class, 'updateNotes']);
 Route::delete('api/athlete/delete/{id}', [App\Http\Controllers\AthleteController::class, 'delete']);
 Route::get('api/athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get']);

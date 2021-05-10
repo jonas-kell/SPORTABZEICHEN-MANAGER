@@ -11,6 +11,7 @@ window.Vue = require("vue").default;
 import store from "./store/index"; //vuex main instance
 
 Vue.mixin(require("./trans"));
+Vue.mixin(require("./string_helpers"));
 
 import VueSimpleAlert from "vue-simple-alert";
 Vue.use(VueSimpleAlert);

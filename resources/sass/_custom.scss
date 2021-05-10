@@ -125,3 +125,13 @@ table.requirements_table > tr {
 table.requirements_table > tr > td {
     border: 1px solid black;
 }
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.requirement_with_unit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

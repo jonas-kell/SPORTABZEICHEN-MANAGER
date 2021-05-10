@@ -132,50 +132,68 @@
                                 v-if="discipline_array.description"
                             ></span>
                         </td>
-                        <td style="width: 16%">
+                        <td style="width: 16%" class="hide-overflow">
                             <span
                                 class="medal bronze float-left mr-1"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 v-bind:title="
-                                    discipline_array.requirements.bronze
-                                        .description
+                                    build_tooltip(
+                                        discipline_array.requirements.bronze
+                                            .requirement_with_unit,
+                                        discipline_array.requirements.bronze
+                                            .description
+                                    )
                                 "
                             ></span>
-                            {{
-                                discipline_array.requirements.bronze
-                                    .requirement_with_unit
-                            }}
+                            <span class="requirement_with_unit">
+                                {{
+                                    discipline_array.requirements.bronze
+                                        .requirement_with_unit
+                                }}
+                            </span>
                         </td>
-                        <td style="width: 16%">
+                        <td style="width: 16%" class="hide-overflow">
                             <span
                                 class="medal silver float-left mr-1"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 v-bind:title="
-                                    discipline_array.requirements.silver
-                                        .description
+                                    build_tooltip(
+                                        discipline_array.requirements.silver
+                                            .requirement_with_unit,
+                                        discipline_array.requirements.silver
+                                            .description
+                                    )
                                 "
                             ></span>
-                            {{
-                                discipline_array.requirements.silver
-                                    .requirement_with_unit
-                            }}
+                            <span class="requirement_with_unit">
+                                {{
+                                    discipline_array.requirements.silver
+                                        .requirement_with_unit
+                                }}
+                            </span>
                         </td>
-                        <td style="width: 16%">
+                        <td style="width: 16%" class="hide-overflow">
                             <span
                                 class="medal gold float-left mr-1"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 v-bind:title="
-                                    discipline_array.requirements.gold
-                                        .description
+                                    build_tooltip(
+                                        discipline_array.requirements.gold
+                                            .requirement_with_unit,
+                                        discipline_array.requirements.gold
+                                            .description
+                                    )
                                 "
                             ></span>
-                            {{
-                                discipline_array.requirements.gold
-                                    .requirement_with_unit
-                            }}
+                            <span class="requirement_with_unit">
+                                {{
+                                    discipline_array.requirements.gold
+                                        .requirement_with_unit
+                                }}
+                            </span>
                         </td>
                         <td style="width: 18%"></td>
                     </tr>

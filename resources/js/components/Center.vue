@@ -204,6 +204,13 @@
                                     athlete.performances[category][discipline]
                                         .performance
                                 "
+                                @change="
+                                    updateAthletePerformance(
+                                        athlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+                                        category,
+                                        discipline
+                                    )
+                                "
                             />
                         </td>
                     </tr>
@@ -302,6 +309,25 @@ export default {
             }
 
             this.canEdit = !this.canEdit;
+        },
+        updateAthletePerformance(athlete_id, category, discipline) {
+            // I hand the athlete id to the function to cache it, because I fear, we have race conditions,
+            // if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+
+            // create mockup athlete structure
+            let mockup_athlete = { id: athlete_id };
+            mockup_athlete.performances = {};
+            mockup_athlete.performances[category] = {};
+            mockup_athlete.performances[category][discipline] = {};
+            // set the changed value
+            mockup_athlete.performances[category][
+                discipline
+            ].performance = this.athlete.performances[category][
+                discipline
+            ].performance; // TODO adapt, if new parameters get added in addition to "performance"
+
+            // dispatch the performance-update
+            this.$store.dispatch("updateAthletePerformances", mockup_athlete);
         }
     },
     watch: {
@@ -324,19 +350,6 @@ export default {
                     instance.athlete
                 );
             }, 300);
-        },
-        "athlete.performances": {
-            deep: true,
-            handler() {
-                let instance = this;
-                clearTimeout(this.typingTimer);
-                this.typingTimer = setTimeout(function() {
-                    instance.$store.dispatch(
-                        "updateAthletePerformances",
-                        instance.athlete
-                    );
-                }, 300);
-            }
         }
     },
     computed: {

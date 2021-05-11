@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
 class Athlete extends Model
 {
@@ -37,13 +36,13 @@ class Athlete extends Model
      */
     public function getCurrentPerformances()
     {
-        //in order to avoid encoding of empty performances to array instead of object, we put the athlete id here to ensure correct parsing
+        //if nothing is stored, initialize with empty categories
         return json_decode($this->performances ?? "{\"coordination\": {},\"endurance\": {},\"speed\": {},\"strength\": {}}", true);
     }
 
     /**
      * get the performances, the athlete has already registered to it's account:
-     * also get keys from the $additional_array initialized with empty fields
+     * also get keys from the $additional_array initialized with empty templates
      * 
      * @param array $additional_array
      * 
@@ -52,7 +51,7 @@ class Athlete extends Model
     public function getMergedPerformances($additional_array)
     {
         $template = [];
-        $template["performance"] = "";
+        $template["performance"] = ""; // TODO adapt, if new parameters get added in addition to "performance"
 
         $all_performances = $this->getCurrentPerformances();
 
@@ -62,9 +61,14 @@ class Athlete extends Model
             'speed',
             'strength'
         ] as $category) {
-            foreach ($additional_array[$category] as $key => $value) {
-                if (!in_array($key, $all_performances[$category])) {
-                    $all_performances[$category][$key] = $template;
+            if (!array_key_exists($category, $all_performances)) {
+                $all_performances[$category] = []; // always add categories, should they be missing.
+            }
+            if (array_key_exists($category, $additional_array)) {
+                foreach ($additional_array[$category] as $key => $value) {
+                    if (!array_key_exists($key, $all_performances[$category])) {
+                        $all_performances[$category][$key] = $template;  //TODO parse with checks up until lowest level
+                    }
                 }
             }
         }
@@ -78,13 +82,32 @@ class Athlete extends Model
      * 
      * intelligently merges the existing and incoming array
      * 
-     * @param json_string $updated_performances
+     * @param string (json) $updated_performances
      * 
      * @return boolean $success
      */
     public function mergePerformances($updated_performances)
     {
-        $this->performances = $updated_performances;
+        $updated_performances = json_decode($updated_performances, true);
+        $current_performances = $this->getCurrentPerformances();
+
+        foreach ([
+            'coordination',
+            'endurance',
+            'speed',
+            'strength'
+        ] as $category) {
+            if (!array_key_exists($category, $current_performances)) {
+                $current_performances[$category] = []; // always add categories, should they be missing.
+            }
+            if (array_key_exists($category, $updated_performances)) {
+                foreach ($updated_performances[$category] as $key => $value) { //TODO parse with checks up until lowest level
+                    $current_performances[$category][$key] = $updated_performances[$category][$key]; // TODO adapt, if new parameters get added in addition to "performance"
+                }
+            }
+        }
+
+        $this->performances = json_encode($current_performances);
         $this->save();
 
         return true;

@@ -41,7 +41,7 @@ class AthleteResource extends JsonResource
             $array["needed_requirements"] = $needed_requirements;
 
             //get the performances, the athlete has already registered to it's account:
-            //also get keys from the "needed_requirements" initialized with empty fields
+            //also get keys from the "needed_requirements" initialized with empty templates (saves extra checks/special initialization inside vue.js)
             $performances = $this->getMergedPerformances($needed_requirements);
             $array["performances"] = $performances;
         }

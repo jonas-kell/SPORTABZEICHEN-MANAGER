@@ -41,13 +41,14 @@ class AthleteResource extends JsonResource
             $array["needed_requirements"] = $needed_requirements;
 
             //get the performances, the athlete has already registered to it's account:
-            $performances = $this->gender;
+            //also get keys from the "needed_requirements" initialized with empty fields
+            $performances = $this->getMergedPerformances($needed_requirements);
             $array["performances"] = $performances;
         }
 
 
         // if there is a user authenticated, include user specific info
-        // has the user favourited the athlete?
+        // has the user favorited the athlete?
         $user = Auth::user();
         if ($user) {
             if (Auth::user()->favourites->find($this->id)) { //TODO make more efficient

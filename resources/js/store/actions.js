@@ -87,7 +87,21 @@ let actions = {
                 notes: athlete.notes
             })
             .then(res => {
-                //notes are changed locally, not update event needed
+                // notes are changed locally, not update event needed
+                // an update on typing events risks inconsistency
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+    updateAthletePerformances({}, athlete) {
+        axios
+            .put(`/api/athlete/update_performances/${athlete.id}`, {
+                performances: JSON.stringify(athlete.performances)
+            })
+            .then(res => {
+                // performances are changed locally, not update event needed
+                // an update on typing events risks inconsistency
             })
             .catch(err => {
                 console.log(err);
@@ -131,7 +145,7 @@ let actions = {
     },
     fetchSearch({ commit, state }, searchString) {
         if (searchString === undefined) {
-            //call has no searchString specified, use previouse one
+            //call has no searchString specified, use previous one
         } else {
             //call has searchString specified, set the stored value new
             state.searchString = searchString;

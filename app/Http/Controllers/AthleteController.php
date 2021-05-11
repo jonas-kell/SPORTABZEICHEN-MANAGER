@@ -150,9 +150,9 @@ class AthleteController extends Controller
 
                 $athlete->save();
 
-                //load athlete with requirements
-                $athlete->requirements = true;
-                return new AthleteResource($athlete);
+                //do not reload the athlete on actions that can be triggered rapidly by e.g. typing.
+                //TODO maybe force reload, when update from other source has been encountered
+                return response()->json(["success" => "Notes updated."]);
             } else {
                 return response()->json(["error" => "Athlete not found"]);
             }
@@ -176,16 +176,14 @@ class AthleteController extends Controller
             $athlete = Athlete::find($id);
 
             if ($athlete) {
+                if ($athlete->mergePerformances($request->input("performances"))) { // Merge function also STORES the data
 
-
-                $athlete->save();
-
-                //load athlete with requirements
-                $athlete->requirements = true;
-                return new AthleteResource($athlete);
-            } else {
-                return response()->json(["error" => "Athlete not found"]);
+                    //do not reload the athlete on actions that can be triggered rapidly by e.g. typing.
+                    //TODO maybe force reload, when update from other source has been encountered
+                    return response()->json(["success" => "Performances updated."]);
+                }
             }
+            return response()->json(["error" => "Athlete not found"]);
         } else {
             return redirect("/");
         }

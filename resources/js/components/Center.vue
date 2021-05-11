@@ -195,7 +195,17 @@
                                 }}
                             </span>
                         </td>
-                        <td style="width: 18%"></td>
+                        <td style="width: 18%">
+                            <input
+                                type="text"
+                                class="mr-1 ml-1"
+                                style="width: 90%;"
+                                v-model="
+                                    athlete.performances[category][discipline]
+                                        .performance
+                                "
+                            />
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -314,6 +324,19 @@ export default {
                     instance.athlete
                 );
             }, 300);
+        },
+        "athlete.performances": {
+            deep: true,
+            handler() {
+                let instance = this;
+                clearTimeout(this.typingTimer);
+                this.typingTimer = setTimeout(function() {
+                    instance.$store.dispatch(
+                        "updateAthletePerformances",
+                        instance.athlete
+                    );
+                }, 300);
+            }
         }
     },
     computed: {

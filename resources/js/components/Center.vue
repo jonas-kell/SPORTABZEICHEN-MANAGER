@@ -103,7 +103,11 @@
                 </textarea>
             </div>
             <div class="from-group col-12 mt-2">
-                <h3>{{ __("general.requirements") }}</h3>
+                <h3>
+                    {{ __("general.requirements") }}:
+                    {{ __("general." + athlete.gender) }} |
+                    {{ athlete.sportabzeichen_year_array.tag }}
+                </h3>
             </div>
             <div
                 class="from-group col-12"

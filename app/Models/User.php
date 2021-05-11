@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     /**
      * Get the year, the user is currently set on
-     * Get all avaliable years for the dropdown generation
+     * Get all available years for the dropdown generation
      *
      * @return array
      */
@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get all avaliable years for the dropdown generation
+     * Get all available years for the dropdown generation
      *
      * @return array
      */
@@ -69,7 +69,7 @@ class User extends Authenticatable
     }
 
     /**
-     * The athletes, the user has favourited
+     * The athletes, the user has favorited
      */
     public function favourites()
     {

@@ -126,8 +126,16 @@ table.requirements_table > tr > td {
     border: 1px solid black;
 }
 
+table.requirements_table > tr > td.highlighted {
+    background-color: #33af229a;
+}
+
 .hide-overflow {
     overflow: hidden;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .requirement_with_unit {

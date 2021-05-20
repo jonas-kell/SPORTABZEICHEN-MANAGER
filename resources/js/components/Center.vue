@@ -136,7 +136,22 @@
                                 v-if="discipline_array.description"
                             ></span>
                         </td>
-                        <td style="width: 16%" class="hide-overflow">
+                        <td
+                            style="width: 16%"
+                            class="hide-overflow unselectable pointer"
+                            v-bind:class="{
+                                highlighted:
+                                    athlete.performances[category][discipline]
+                                        .bronze_highlighted
+                            }"
+                            @click="
+                                toggleHighlight(
+                                    category,
+                                    discipline,
+                                    'bronze_highlighted'
+                                )
+                            "
+                        >
                             <span
                                 class="medal bronze float-left mr-1"
                                 data-toggle="tooltip"
@@ -149,6 +164,7 @@
                                             .description
                                     )
                                 "
+                                @click.stop
                             ></span>
                             <span class="requirement_with_unit">
                                 {{
@@ -157,7 +173,22 @@
                                 }}
                             </span>
                         </td>
-                        <td style="width: 16%" class="hide-overflow">
+                        <td
+                            style="width: 16%"
+                            class="hide-overflow unselectable pointer"
+                            v-bind:class="{
+                                highlighted:
+                                    athlete.performances[category][discipline]
+                                        .silver_highlighted
+                            }"
+                            @click="
+                                toggleHighlight(
+                                    category,
+                                    discipline,
+                                    'silver_highlighted'
+                                )
+                            "
+                        >
                             <span
                                 class="medal silver float-left mr-1"
                                 data-toggle="tooltip"
@@ -170,6 +201,7 @@
                                             .description
                                     )
                                 "
+                                @click.stop
                             ></span>
                             <span class="requirement_with_unit">
                                 {{
@@ -178,7 +210,22 @@
                                 }}
                             </span>
                         </td>
-                        <td style="width: 16%" class="hide-overflow">
+                        <td
+                            style="width: 16%"
+                            class="hide-overflow unselectable pointer"
+                            v-bind:class="{
+                                highlighted:
+                                    athlete.performances[category][discipline]
+                                        .gold_highlighted
+                            }"
+                            @click="
+                                toggleHighlight(
+                                    category,
+                                    discipline,
+                                    'gold_highlighted'
+                                )
+                            "
+                        >
                             <span
                                 class="medal gold float-left mr-1"
                                 data-toggle="tooltip"
@@ -191,6 +238,7 @@
                                             .description
                                     )
                                 "
+                                @click.stop
                             ></span>
                             <span class="requirement_with_unit">
                                 {{
@@ -295,7 +343,7 @@ import { mapGetters } from "vuex";
 
 export default {
     mounted() {
-        this.typingTimer;
+        this.typingTimer = {}; //use sub-elements to time different things, to prevent loss of data
     },
     data() {
         return {
@@ -328,10 +376,46 @@ export default {
                 discipline
             ].performance = this.athlete.performances[category][
                 discipline
-            ].performance; // TODO adapt, if new parameters get added in addition to "performance"
+            ].performance;
+
+            mockup_athlete.performances[category][
+                discipline
+            ].bronze_highlighted = this.athlete.performances[category][
+                discipline
+            ].bronze_highlighted;
+
+            mockup_athlete.performances[category][
+                discipline
+            ].silver_highlighted = this.athlete.performances[category][
+                discipline
+            ].silver_highlighted;
+
+            mockup_athlete.performances[category][
+                discipline
+            ].gold_highlighted = this.athlete.performances[category][
+                discipline
+            ].gold_highlighted;
 
             // dispatch the performance-update
             this.$store.dispatch("updateAthletePerformances", mockup_athlete);
+        },
+        toggleHighlight(category, discipline, type) {
+            if (this.athlete.performances[category][discipline][type]) {
+                this.athlete.performances[category][discipline][type] = false;
+            } else {
+                this.athlete.performances[category][discipline][type] = true;
+            }
+            this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
+
+            let instance = this;
+            clearTimeout(this.typingTimer[discipline]);
+            this.typingTimer[discipline] = setTimeout(function() {
+                instance.updateAthletePerformance(
+                    instance.athlete.id,
+                    category,
+                    discipline
+                ); //store the update in the database
+            }, 400);
         }
     },
     watch: {
@@ -347,8 +431,8 @@ export default {
         },
         "athlete.notes": function() {
             let instance = this;
-            clearTimeout(this.typingTimer);
-            this.typingTimer = setTimeout(function() {
+            clearTimeout(this.typingTimer["typing"]);
+            this.typingTimer["typing"] = setTimeout(function() {
                 instance.$store.dispatch(
                     "updateAthleteNotes",
                     instance.athlete

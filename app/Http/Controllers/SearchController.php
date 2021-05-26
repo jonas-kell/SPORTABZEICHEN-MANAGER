@@ -47,7 +47,7 @@ class SearchController extends Controller
 
             $resulting_athletes = Athlete::where(function ($query) use ($request_string) {
                 $query->where("name", "like", "%" . $request_string . "%");
-            })->take(10)->get(); //limit to 10 results //TODO order, so that current year comes first, than the other years.
+            })->take(20)->get(); //limit to 20 results //TODO order, so that current year comes first, than the other years.
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {

@@ -33,7 +33,7 @@ class FavouritesController extends Controller
                 return response()->json(["error" => "no user"]);
             }
 
-            $resulting_athletes = $user->favourites->take(10); //TODO (think about limit) limit to 10 results
+            $resulting_athletes = $user->favourites->take(60); //TODO (think about limit) limit to 60 results
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {

@@ -4,6 +4,7 @@
             v-for="athlete in list"
             v-bind:key="athlete.id"
             class="list-group-item"
+            @click="pushToCenter(athlete)"
         >
             <span
                 >{{ athlete.name }}
@@ -16,7 +17,7 @@
             >
             <span
                 class="float-right rightarrow"
-                @click="pushToCenter(athlete)"
+                @click.stop="pushToCenter(athlete)"
             />
             <favourite-star-button v-bind="{ athlete: athlete }" />
         </li>

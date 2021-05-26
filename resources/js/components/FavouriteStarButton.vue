@@ -2,7 +2,7 @@
     <span
         class="float-right favourite_star"
         v-bind:class="athlete.favourite ? 'active' : 'inactive'"
-        @click="toggleFavourite(athlete)"
+        @click.stop="toggleFavourite(athlete)"
     />
 </template>
 

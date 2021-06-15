@@ -56,7 +56,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import SidebarList from "./SidebarList.vue";
+import SidebarList from "../Includes/SidebarList.vue";
 
 export default {
     components: { SidebarList },

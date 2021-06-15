@@ -340,8 +340,12 @@
 
 <script>
 import { mapGetters } from "vuex";
+import FavouriteStarButton from "../Includes/FavouriteStarButton.vue";
 
 export default {
+    components: {
+        FavouriteStarButton
+    },
     mounted() {
         this.typingTimer = {}; //use sub-elements to time different things, to prevent loss of data
     },

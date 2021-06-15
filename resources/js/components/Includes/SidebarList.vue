@@ -31,6 +31,7 @@
 
 <script>
 import FavouriteStarButton from "./FavouriteStarButton.vue";
+
 export default {
     components: { FavouriteStarButton },
     props: { list: Array, currentYear: Number },

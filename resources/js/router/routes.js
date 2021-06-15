@@ -1,11 +1,10 @@
 import ManagerIndex from "../components/Manager/ManagerIndex.vue";
-
-const Foo = { template: "<div>foo</div>" };
-const Bar = { template: "<div>bar</div>" };
+import ListIndex from "../components/List/ListIndex.vue";
 
 const routes = [
-    { path: "/", component: ManagerIndex },
-    { path: "/bar", component: Bar }
+    { path: "/", name: "manager", component: ManagerIndex },
+    { path: "/list", component: ListIndex },
+    { path: "*", redirect: "/" }
 ];
 
 export default routes;

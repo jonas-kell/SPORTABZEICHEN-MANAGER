@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
-@section('center')
-<center/>
-@endsection
-
-@section('side')
-<sidebar/>
+@section('content')
+    <div id="vue-app">
+        <router-view></router-view>
+    </div>
 @endsection

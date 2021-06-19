@@ -12,6 +12,8 @@
         <div v-else-if="athlete != null">
             <div class="card-header">
                 {{ athlete.name }}
+                ({{ __("general." + athlete.gender) }} |
+                {{ athlete.requirements_tag }})
                 <div class="float-right">
                     <span
                         v-if="canEdit"
@@ -106,7 +108,7 @@
                 <h3>
                     {{ __("general.requirements") }}:
                     {{ __("general." + athlete.gender) }} |
-                    {{ athlete.sportabzeichen_year_array.tag }}
+                    {{ athlete.requirements_tag }}
                 </h3>
             </div>
             <div
@@ -435,13 +437,15 @@ export default {
         },
         "athlete.notes": function() {
             let instance = this;
-            clearTimeout(this.typingTimer["typing"]);
-            this.typingTimer["typing"] = setTimeout(function() {
-                instance.$store.dispatch(
-                    "updateAthleteNotes",
-                    instance.athlete
-                );
-            }, 300);
+            if (instance.athlete != null) {
+                clearTimeout(this.typingTimer["typing"]);
+                this.typingTimer["typing"] = setTimeout(function() {
+                    instance.$store.dispatch(
+                        "updateAthleteNotes",
+                        instance.athlete
+                    );
+                }, 300);
+            }
         }
     },
     computed: {

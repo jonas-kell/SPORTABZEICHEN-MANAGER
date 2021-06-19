@@ -6,15 +6,26 @@
             class="list-group-item"
             @click="pushToCenter(athlete)"
         >
-            <span
-                >{{ athlete.name }}
+            <span>
+                {{ athlete.name }}
                 <span
+                    v-if="currentYear == -1"
                     v-bind:style="{
-                        color: athlete.year !== currentYear ? 'red' : 'green'
+                        color: 'blue'
                     }"
-                    >({{ athlete.year }})</span
-                ></span
-            >
+                >
+                    ({{ athlete.year }})
+                </span>
+                <span
+                    v-else
+                    v-bind:style="{
+                        color: athlete.gender == 'male' ? 'blue' : 'red'
+                    }"
+                >
+                    {{ __("general.gender_short_" + athlete.gender) }} |
+                    {{ athlete.requirements_tag }}
+                </span>
+            </span>
             <span
                 class="float-right rightarrow"
                 @click.stop="pushToCenter(athlete)"

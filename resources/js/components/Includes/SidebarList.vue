@@ -5,6 +5,12 @@
             v-bind:key="athlete.id"
             class="list-group-item"
             @click="pushToCenter(athlete)"
+            v-bind:style="{
+                background:
+                    centerAthlete != null && centerAthlete.id == athlete.id
+                        ? '#969696'
+                        : ''
+            }"
         >
             <span>
                 {{ athlete.name }}
@@ -42,6 +48,7 @@
 
 <script>
 import FavouriteStarButton from "./FavouriteStarButton.vue";
+import { mapGetters } from "vuex";
 
 export default {
     components: { FavouriteStarButton },
@@ -50,6 +57,9 @@ export default {
         pushToCenter: function(athlete) {
             this.$store.dispatch("fetchAthlete", athlete.id);
         }
+    },
+    computed: {
+        ...mapGetters({ centerAthlete: "athlete" })
     }
 };
 </script>

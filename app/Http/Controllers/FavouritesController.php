@@ -39,7 +39,12 @@ class FavouritesController extends Controller
                 $resulting_athletes = $resulting_athletes->where("year", $user->year);
             }
 
-            $resulting_athletes = $resulting_athletes->take(60); //TODO (think about limit) limit to 60 results
+            $resulting_athletes = $resulting_athletes->sortByDesc([
+                ['gender', 'desc'],
+                ['birthday', 'desc'],
+            ]);
+
+            $resulting_athletes = $resulting_athletes->take(100); //TODO (think about limit) limit to 100 results
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {

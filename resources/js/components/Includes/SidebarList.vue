@@ -12,13 +12,18 @@
                         : ''
             }"
         >
-            <span>
-                {{ athlete.name }}
+            <p class="no-space">
+                <span class="ml-1">
+                    <strong>
+                        {{ athlete.name }}
+                    </strong>
+                </span>
                 <span
                     v-if="currentYear == -1"
                     v-bind:style="{
                         color: 'grey'
                     }"
+                    class="float-right"
                 >
                     ({{ athlete.year }})
                 </span>
@@ -27,17 +32,20 @@
                     v-bind:style="{
                         color: athlete.gender == 'male' ? 'blue' : 'red'
                     }"
+                    class="float-right"
                 >
                     {{ __("general.gender_short_" + athlete.gender) }} |
                     {{ athlete.requirements_tag }}
                 </span>
-            </span>
-            <medal-display :medalScores="athlete.medal_scores"></medal-display>
-            <span
-                class="float-right rightarrow"
-                @click.stop="pushToCenter(athlete)"
-            />
-            <favourite-star-button v-bind="{ athlete: athlete }" />
+            </p>
+            <p class="no-space">
+                <medal-display :medalScores="athlete.medal_scores" />
+                <span
+                    class="float-right rightarrow"
+                    @click.stop="pushToCenter(athlete)"
+                />
+                <favourite-star-button v-bind="{ athlete: athlete }" />
+            </p>
         </li>
     </ol>
     <ol v-else class="list-group">

@@ -19,7 +19,7 @@
 </style>
 
 <template>
-    <span class="no-break ml-2 unselectable">
+    <span class="no-break unselectable">
         <span
             v-bind:class="{
                 bronze: medalScores.coordination == 'bronze',

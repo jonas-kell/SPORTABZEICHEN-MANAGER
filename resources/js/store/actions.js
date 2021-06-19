@@ -94,14 +94,17 @@ let actions = {
                 console.log(err);
             });
     },
-    updateAthletePerformances({}, athlete) {
+    updateAthletePerformances({ dispatch }, athlete) {
         axios
             .put(`/api/athlete/update_performances/${athlete.id}`, {
                 performances: JSON.stringify(athlete.performances)
             })
             .then(res => {
                 // performances are changed locally, not update event needed
-                // an update on typing events risks inconsistency
+
+                //update search and favourites asynchronously
+                dispatch("fetchSearch");
+                dispatch("fetchFavourites");
             })
             .catch(err => {
                 console.log(err);

@@ -41,6 +41,40 @@ class Athlete extends Model
     }
 
     /**
+     * get the medal score for each category
+     * @return array
+     */
+    public function getMedalScores()
+    {
+        $performances = $this->getCurrentPerformances();
+
+        $medals = [];
+
+        foreach ([
+            'coordination',
+            'endurance',
+            'speed',
+            'strength'
+        ] as $category) {
+            $medals[$category] = "none";
+
+            foreach ($performances[$category] as $discipline) {
+                if ($medals[$category] == "none" && ($discipline["bronze_highlighted"] ?? false)) {
+                    $medals[$category] = "bronze";
+                }
+                if (($medals[$category] == "none" || $medals[$category] == "bronze") && ($discipline["silver_highlighted"] ?? false)) {
+                    $medals[$category] = "silver";
+                }
+                if (($medals[$category] == "none" || $medals[$category] == "bronze" || $medals[$category] == "silver") && ($discipline["gold_highlighted"] ?? false)) {
+                    $medals[$category] = "gold";
+                }
+            }
+        }
+
+        return $medals;
+    }
+
+    /**
      * get the performances, the athlete has already registered to it's account:
      * also get keys from the $additional_array initialized with empty templates
      * 

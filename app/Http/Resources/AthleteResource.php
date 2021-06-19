@@ -29,8 +29,11 @@ class AthleteResource extends JsonResource
         $sportabzeichen_age = $this->year - Carbon::parse($this->birthday)->year;
         $sportabzeichen_year_array = RequirementsServiceProvider::getYearArray($sportabzeichen_age);
 
-        //requirements_tag -> short code for the requirements age region
+        // requirements_tag -> short code for the requirements age region
         $array["requirements_tag"] = $sportabzeichen_year_array["tag"];
+
+        // best result in each category
+        $array["medal_scores"] = $this->getMedalScores();
 
         //only calculate the following info, if the "requirements" attribute of the athlete is set
         //this saves computation time and bandwidth

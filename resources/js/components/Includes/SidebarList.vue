@@ -17,7 +17,7 @@
                 <span
                     v-if="currentYear == -1"
                     v-bind:style="{
-                        color: 'blue'
+                        color: 'grey'
                     }"
                 >
                     ({{ athlete.year }})
@@ -32,6 +32,7 @@
                     {{ athlete.requirements_tag }}
                 </span>
             </span>
+            <medal-display :medalScores="athlete.medal_scores"></medal-display>
             <span
                 class="float-right rightarrow"
                 @click.stop="pushToCenter(athlete)"
@@ -47,11 +48,12 @@
 </template>
 
 <script>
-import FavouriteStarButton from "./FavouriteStarButton.vue";
 import { mapGetters } from "vuex";
+import FavouriteStarButton from "./FavouriteStarButton.vue";
+import MedalDisplay from "./MedalDisplay.vue";
 
 export default {
-    components: { FavouriteStarButton },
+    components: { FavouriteStarButton, MedalDisplay },
     props: { list: Array, currentYear: Number },
     methods: {
         pushToCenter: function(athlete) {

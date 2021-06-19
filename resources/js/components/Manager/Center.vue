@@ -168,7 +168,7 @@
                                 "
                                 @click.stop
                             ></span>
-                            <span class="requirement_with_unit">
+                            <span class="no-break">
                                 {{
                                     discipline_array.requirements.bronze
                                         .requirement_with_unit
@@ -205,7 +205,7 @@
                                 "
                                 @click.stop
                             ></span>
-                            <span class="requirement_with_unit">
+                            <span class="no-break">
                                 {{
                                     discipline_array.requirements.silver
                                         .requirement_with_unit
@@ -242,7 +242,7 @@
                                 "
                                 @click.stop
                             ></span>
-                            <span class="requirement_with_unit">
+                            <span class="no-break">
                                 {{
                                     discipline_array.requirements.gold
                                         .requirement_with_unit

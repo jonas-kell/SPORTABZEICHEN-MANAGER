@@ -31,7 +31,7 @@ class SearchController extends Controller
 
             $request_string = $search; //TODO validate search
 
-            $user_year = 0;
+            $user_year = -1;
             if (Auth::user()) {
                 $user_year = Auth::user()->year;
             } else {
@@ -39,15 +39,15 @@ class SearchController extends Controller
                 $user_year = end($all_years);
             }
 
-            // TODO keep in mind, could be used later
-            // where(function ($query) use ($user_year) {
-            //     $query->where("year", $user_year)
-            //         ->orWhereNull('year');
-            // })->
-
             $resulting_athletes = Athlete::where(function ($query) use ($request_string) {
                 $query->where("name", "like", "%" . $request_string . "%");
-            })->take(20)->get(); //limit to 20 results //TODO order, so that current year comes first, than the other years.
+            });
+
+            if ($user_year != -1) {
+                $resulting_athletes = $resulting_athletes->where("year", $user_year);
+            }
+
+            $resulting_athletes = $resulting_athletes->take(20)->get(); //limit to 20 results
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {

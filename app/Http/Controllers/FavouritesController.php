@@ -33,7 +33,13 @@ class FavouritesController extends Controller
                 return response()->json(["error" => "no user"]);
             }
 
-            $resulting_athletes = $user->favourites->take(60); //TODO (think about limit) limit to 60 results
+            $resulting_athletes = $user->favourites;
+
+            if ($user->year != -1) {
+                $resulting_athletes = $resulting_athletes->where("year", $user->year);
+            }
+
+            $resulting_athletes = $resulting_athletes->take(60); //TODO (think about limit) limit to 60 results
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {

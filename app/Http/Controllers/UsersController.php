@@ -20,7 +20,7 @@ class UsersController extends Controller
 
     /**
      * Get the year, the user is currently set on
-     * Get all avaliable years for the dropdown generation
+     * Get all available years for the dropdown generation
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

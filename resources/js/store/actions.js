@@ -138,6 +138,7 @@ let actions = {
 
                 //update search asynchronously
                 dispatch("fetchSearch");
+                dispatch("fetchFavourites");
             })
             .catch(err => {
                 console.log(err);

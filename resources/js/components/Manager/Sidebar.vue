@@ -17,7 +17,7 @@
                             v-bind:key="year"
                             v-bind:value="year"
                         >
-                            {{ year }}
+                            {{ year == -1 ? ALL_YEARS_STRING : year }}
                         </option>
                     </select>
                 </div>
@@ -60,6 +60,9 @@ import SidebarList from "../Includes/SidebarList.vue";
 
 export default {
     components: { SidebarList },
+    created() {
+        this.ALL_YEARS_STRING = "Alle";
+    },
     mounted() {
         this.$store.dispatch("fetchFavourites");
         this.$store.dispatch("getYear");
@@ -82,7 +85,12 @@ export default {
     },
     watch: {
         "yearsArray.current": function(newValue, oldValue) {
-            this.$store.dispatch("setYear", newValue); //TODO also calls on initial laod. sets unnecessary. maybe resolve.
+            //TODO also calls on initial laod. sets unnecessary. maybe resolve.
+            if (newValue == this.ALL_YEARS_STRING) {
+                this.$store.dispatch("setYear", -1);
+            } else {
+                this.$store.dispatch("setYear", newValue);
+            }
         },
         searchbar: function(newValue, oldValue) {
             let store = this.$store;

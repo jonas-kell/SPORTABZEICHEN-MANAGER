@@ -21,7 +21,7 @@ return [
     'no_results' => 'Keine Ergebnisse',
     'favourites' => 'Favoriten',
     'create_new' => 'Eintrag neu erzeugen',
-    'welcome' => 'Wilkommen!',
+    'welcome' => 'Willkommen!',
     'action' => 'Bitte wählen Sie eine Aktion über das "Suche-Menü"',
     'notes' => 'Notizen',
     'requirements' => 'Anforderungen',

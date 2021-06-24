@@ -7,7 +7,15 @@
 
 <template>
     <div class="row no-gutters ml-3 mr-3">
-        <table class="table table-sm table-bordered stronger-table-border">
+        <p class="col-12">
+            <span class="btn btn-sm btn-edit float-right" @click="requestPDF">
+                PDF erzeugen
+            </span>
+        </p>
+        <table
+            class="table table-sm table-bordered stronger-table-border"
+            id="render-pdf"
+        >
             <tr>
                 <th>{{ __("general.name") }}</th>
                 <th></th>
@@ -74,6 +82,14 @@ export default {
     },
     computed: {
         ...mapGetters(["favourites"])
+    },
+    methods: {
+        requestPDF() {
+            this.$store.dispatch(
+                "requestPDF",
+                $("#render-pdf").prop("outerHTML")
+            );
+        }
     }
 };
 </script>

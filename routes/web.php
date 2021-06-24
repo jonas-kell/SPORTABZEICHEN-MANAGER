@@ -33,3 +33,5 @@ Route::put('api/athlete/update_notes/{id}', [App\Http\Controllers\AthleteControl
 Route::put('api/athlete/update_performances/{id}', [App\Http\Controllers\AthleteController::class, 'updatePerformances']);
 Route::delete('api/athlete/delete/{id}', [App\Http\Controllers\AthleteController::class, 'delete']);
 Route::get('api/athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get']);
+
+Route::put('api/pdf/generate_from_html', [App\Http\Controllers\PdfGenerationController::class, 'generate']);

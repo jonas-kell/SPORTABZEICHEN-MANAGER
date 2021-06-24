@@ -13,6 +13,7 @@
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "jquery": "^3.2",
+        "js-file-download": "^0.4.12",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
@@ -22,11 +23,9 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-loader": "^15.9.6",
+        "vue-router": "^3.5.1",
+        "vue-simple-alert": "^1.1.1",
         "vue-template-compiler": "^2.6.10",
         "vuex": "^3.6.2"
-    },
-    "dependencies": {
-        "vue-router": "^3.5.1",
-        "vue-simple-alert": "^1.1.1"
     }
 }

@@ -1,3 +1,5 @@
+import FileDownload from "js-file-download";
+
 let actions = {
     fetchFavourites({ commit }) {
         axios
@@ -184,6 +186,20 @@ let actions = {
                     console.log(err);
                 });
         }
+    },
+    requestPDF({}, htmlString) {
+        axios
+            .put(
+                "api/pdf/generate_from_html",
+                { htmlString: htmlString },
+                { responseType: "blob" }
+            )
+            .then(res => {
+                FileDownload(res.data, "List.pdf");
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 };
 

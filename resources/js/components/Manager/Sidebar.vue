@@ -32,7 +32,7 @@
                 ++ {{ __("general.create_new") }} ++
             </span>
             <sidebar-list
-                class="col-12"
+                class="col-12 vh-search"
                 v-bind="{
                     currentYear: yearsArray.current,
                     list: searchedAthletes
@@ -44,7 +44,7 @@
             <h5>{{ __("general.favourites") }}</h5>
 
             <sidebar-list
-                class="col-12"
+                class="col-12 vh-search"
                 v-bind="{
                     currentYear: yearsArray.current,
                     list: favourites

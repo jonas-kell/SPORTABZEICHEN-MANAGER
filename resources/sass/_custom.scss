@@ -158,5 +158,12 @@ p.no-space {
 
 .side-bar-overflow {
     overflow-y: auto;
-    max-height: 50vh;
+}
+
+.vh-search {
+    max-height: 45vh;
+}
+
+.vh-favourites {
+    max-height: 70vh;
 }

@@ -44,7 +44,7 @@
             <h5>{{ __("general.favourites") }}</h5>
 
             <sidebar-list
-                class="col-12 vh-search"
+                class="col-12 vh-favourites"
                 v-bind="{
                     currentYear: yearsArray.current,
                     list: favourites

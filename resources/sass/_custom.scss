@@ -146,6 +146,7 @@ table.requirements_table > tr > td.highlighted {
 
 li.list-group-item {
     border: 1px solid rgb(101 101 101 / 51%);
+    padding: 0.25rem 0.75rem;
 }
 
 p.no-space {
@@ -153,4 +154,9 @@ p.no-space {
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.side-bar-overflow {
+    overflow-y: auto;
+    max-height: 50vh;
 }

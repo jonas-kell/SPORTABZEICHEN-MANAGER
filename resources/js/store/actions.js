@@ -11,7 +11,7 @@ let actions = {
     },
     addFavourite({ dispatch, commit, state }, athlete) {
         axios
-            .put(`api/favourites/add/${athlete.id}`)
+            .put(`api/favourites/add/${encodeURIComponent(athlete.id)}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
 
@@ -27,7 +27,7 @@ let actions = {
     },
     dropFavourite({ dispatch, commit, state }, athlete) {
         axios
-            .put(`api/favourites/drop/${athlete.id}`)
+            .put(`api/favourites/drop/${encodeURIComponent(athlete.id)}`)
             .then(res => {
                 commit("FETCH_FAVOURITES", res.data.athletes);
 
@@ -43,7 +43,7 @@ let actions = {
     },
     fetchAthlete({ commit }, athlete_id) {
         axios
-            .get(`/api/athlete/${athlete_id}`)
+            .get(`/api/athlete/${encodeURIComponent(athlete_id)}`)
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
             })
@@ -69,7 +69,10 @@ let actions = {
     },
     updateAthlete({ dispatch, commit }, athlete) {
         axios
-            .put(`/api/athlete/update/${athlete.id}`, athlete)
+            .put(
+                `/api/athlete/update/${encodeURIComponent(athlete.id)}`,
+                athlete
+            )
             .then(res => {
                 commit("FETCH_ATHLETE", res.data.data);
 
@@ -83,9 +86,12 @@ let actions = {
     },
     updateAthleteNotes({}, athlete) {
         axios
-            .put(`/api/athlete/update_notes/${athlete.id}`, {
-                notes: athlete.notes
-            })
+            .put(
+                `/api/athlete/update_notes/${encodeURIComponent(athlete.id)}`,
+                {
+                    notes: athlete.notes
+                }
+            )
             .then(res => {
                 // notes are changed locally, not update event needed
                 // an update on typing events risks inconsistency
@@ -96,9 +102,14 @@ let actions = {
     },
     updateAthletePerformances({ dispatch }, athlete) {
         axios
-            .put(`/api/athlete/update_performances/${athlete.id}`, {
-                performances: JSON.stringify(athlete.performances)
-            })
+            .put(
+                `/api/athlete/update_performances/${encodeURIComponent(
+                    athlete.id
+                )}`,
+                {
+                    performances: JSON.stringify(athlete.performances)
+                }
+            )
             .then(res => {
                 // performances are changed locally, not update event needed
 
@@ -112,7 +123,7 @@ let actions = {
     },
     deleteAthlete({ commit }, athlete) {
         axios
-            .delete(`/api/athlete/delete/${athlete.id}`)
+            .delete(`/api/athlete/delete/${encodeURIComponent(athlete.id)}`)
             .then(res => {
                 commit("DELETE_ATHLETE", post);
             })
@@ -161,7 +172,11 @@ let actions = {
         } else {
             //a string is set, therefore make the call
             axios
-                .get(`api/search/athletes/${state.searchString}`)
+                .get(
+                    `api/search/athletes/${encodeURIComponent(
+                        state.searchString
+                    )}`
+                )
                 .then(res => {
                     commit("FETCH_ATHLETE_SEARCH", res.data.athletes);
                 })

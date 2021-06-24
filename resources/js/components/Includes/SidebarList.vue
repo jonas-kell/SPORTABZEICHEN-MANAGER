@@ -1,5 +1,5 @@
 <template>
-    <ol v-if="list.length > 0" class="list-group">
+    <ol v-if="list.length > 0" class="list-group side-bar-overflow">
         <li
             v-for="athlete in list"
             v-bind:key="athlete.id"

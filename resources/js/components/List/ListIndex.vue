@@ -32,7 +32,7 @@
                         {{ athlete.name }}
                     </strong>
                 </td>
-                <td
+                <td style="width:9%"
                     v-bind:style="{
                         color: athlete.gender == 'male' ? 'blue' : 'red'
                     }"
@@ -40,7 +40,7 @@
                     {{ __("general.gender_short_" + athlete.gender) }} |
                     {{ athlete.requirements_tag }}
                 </td>
-                <td>
+                <td style="width:17%">
                     <medal-display-table :medalScores="athlete.medal_scores" />
                 </td>
                 <td style="width:10%"></td>
@@ -52,10 +52,10 @@
             <tr v-for="n in 10" v-bind:key="-n">
                 <!-- binding normal numbes causes duplicate-key issues, when the ids used here are the same as real athletes ones by chance -->
                 <td></td>
-                <td></td>
-                <td>
+                <td style="width:9%"></td>
+                <td style="width:17%">
                     <strong>
-                        {{ __("general.create_new") }}
+                        {{__("general.new") }}
                     </strong>
                 </td>
                 <td style="width:10%"></td>

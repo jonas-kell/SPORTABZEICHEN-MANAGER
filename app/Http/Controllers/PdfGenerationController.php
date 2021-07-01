@@ -38,7 +38,7 @@ class PdfGenerationController extends Controller
                             }
                             td, th {
                                 border: 1px solid rgba(41, 41, 41);
-                                padding: 3px;
+                                padding: 2px;
                                 font-size: 80%;
                             }
                             .gold {

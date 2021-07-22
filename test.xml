@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="NPM-CUSTOM-LICENSE-CHECKER" tests="45" failures="17">
+    <testsuite id="NPM-CUSTOM-LICENSE-CHECKER">
         <testcase name="NPM check allowed licenses">
-            <failure message="PROGRAM.cbl:2 Use a program name that matches the source file name" type="FAILIURE">
+            <failure type="FAILIURE">
                 testtest
+            </failure>
+            <failure type="SUCCESS">
+                testtest2
             </failure>
         </testcase>
     </testsuite>

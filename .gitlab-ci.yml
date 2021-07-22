@@ -2,7 +2,8 @@ image: node:16
 
 licenses-custom:
   script:
-    - ./npm-licenses.sh
+    #- ./npm-licenses.sh
+    - sleep 1s
 
   artifacts:
     when: always

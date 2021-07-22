@@ -1,0 +1,6 @@
+image: node:16
+
+licenses-custom:
+  script:
+    - npm install
+    - license-checker --summary --out "license_summary.txt"

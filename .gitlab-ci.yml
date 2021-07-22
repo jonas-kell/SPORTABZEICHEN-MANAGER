@@ -3,4 +3,6 @@ image: node:16
 licenses-custom:
   script:
     - npm install
+    - npm install -g license-checker
+    - npm install -g yui-lint
     - license-checker --summary --out "license_summary.txt"

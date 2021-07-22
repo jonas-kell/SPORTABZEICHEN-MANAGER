@@ -2,7 +2,7 @@ image: node:16
 
 licenses-custom:
   script:
-    - ./npm-licenses.sh "(MIT OR GPL-3.0)" "Other License"
+    - cat ./npm-licenses.sh "(MIT OR GPL-3.0)" "Other License" | /bin/bash
 
   artifacts:
     when: always

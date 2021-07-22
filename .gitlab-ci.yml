@@ -11,6 +11,7 @@ licenses-custom:
     - license-checker --failOn "(MIT OR GPL-3.0)"
 
   artifacts:
+    when: always
     paths:
       - license_summary.txt
       - license_detailed.json

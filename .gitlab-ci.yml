@@ -2,13 +2,7 @@ image: node:16
 
 licenses-custom:
   script:
-    - npm install
-    - npm install -g license-checker
-    - npm install -g yui-lint
-    - license-checker --summary --out "license_summary.txt"
-    - license-checker --json --out "license_detailed.json"
-    - ls
-    - license-checker --failOn "(MIT OR GPL-3.0)"
+    - ./npm-licenses.sh
 
   artifacts:
     when: always
@@ -16,3 +10,5 @@ licenses-custom:
       - license_summary.txt
       - license_detailed.json
     expire_in: 3 days
+    reports:
+      junit: test.xml

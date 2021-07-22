@@ -13,5 +13,5 @@ licenses-custom:
     untracked: false
     expire_in: 3 days
     paths:
-      - .license_summary.txt
-      - .license_detailed.json
+      - license_summary.txt
+      - license_detailed.json

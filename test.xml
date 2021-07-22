@@ -5,9 +5,9 @@
             <failure type="FAILIURE">
                 testtest
             </failure>
-            <failure type="SUCCESS">
+            <passed type="PASSED">
                 testtest2
-            </failure>
+            </passed>
         </testcase>
     </testsuite>
 </testsuites>

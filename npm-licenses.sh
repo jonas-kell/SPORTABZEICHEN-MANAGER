@@ -11,7 +11,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?><testsuites><testsuite id="NPM-CUSTO
 
 for VARIABLE in "$@"
 do
-    echo '<testcase name="NPM check allowed licenses">' >> licenses.xml	
+    echo '<testcase name="NPM check license ${VARIABLE}">' >> licenses.xml	
     license-checker --failOn "$VARIABLE";
     if [ $? != 0 ];
     then

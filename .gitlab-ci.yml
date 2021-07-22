@@ -6,3 +6,12 @@ licenses-custom:
     - npm install -g license-checker
     - npm install -g yui-lint
     - license-checker --summary --out "license_summary.txt"
+    - license-checker --json --out "license_detailed.json"
+    - license-checker --failOn "(MIT OR GPL-3.0)"
+
+  artifacts:
+    untracked: false
+    expire_in: 3 days
+    paths:
+      - .license_summary.txt
+      - .license_detailed.json

@@ -5,6 +5,8 @@
             <failure type="FAILIURE">
                 testtest
             </failure>
+        </testcase>
+        <testcase name="NPM check allowed licenses 2">
             <passed type="PASSED">
                 testtest2
             </passed>

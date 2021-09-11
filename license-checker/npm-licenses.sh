@@ -9,6 +9,7 @@ license-checker --summary --out "npm_license_summary.txt"
 license-checker --json --out "npm_license_detailed.json"
 
 
+fails=0
 # Generate Output.xml
 echo '<?xml version="1.0" encoding="UTF-8"?><testsuites><testsuite id="NPM-CUSTOM-LICENSE-CHECKER">' > npm_licenses.xml
 echo '<testcase name="NPM check allowed Licenses">' >> npm_licenses.xml	
@@ -18,6 +19,7 @@ ERROR=$(license-checker --onlyAllow "$1" 2>&1 >/dev/null)
 
 if [ $? != 0 ];
 then
+    let "fails++"
     echo '<failure type="FAILURE">' >> npm_licenses.xml
     echo $ERROR >> npm_licenses.xml
     echo '</failure>' >> npm_licenses.xml
@@ -27,3 +29,6 @@ fi
 
 echo '</testcase>' >> npm_licenses.xml
 echo '</testsuite></testsuites>' >> npm_licenses.xml
+
+# 0 if all succeeded, larger 0 otherwise
+exit $fails

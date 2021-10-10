@@ -38,7 +38,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -67,6 +67,11 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('frontend') => base_path('frontend/dist/spa'),
+        public_path('css') => base_path('frontend/dist/spa/css'),
+        public_path('js') => base_path('frontend/dist/spa/js'),
+        public_path('fonts') => base_path('frontend/dist/spa/fonts'),
+        public_path('icons') => base_path('frontend/dist/spa/icons'),
     ],
 
 ];

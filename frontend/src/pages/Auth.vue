@@ -7,5 +7,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-export default defineComponent({});
+export default defineComponent({
+  created: function() {
+    this.$axios
+      .get('sanctum/csrf-cookie')
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.error(err));
+  }
+});
 </script>

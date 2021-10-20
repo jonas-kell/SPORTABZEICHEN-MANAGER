@@ -68,7 +68,10 @@ module.exports = configure(function(ctx) {
       env: {
         APP_NAME: ctx.dev
           ? 'DEV MODE - Sportabzeichen'
-          : 'TSV SMÜ Leichtathletik - Sportabzeichen'
+          : 'TSV SMÜ Leichtathletik - Sportabzeichen',
+        BACKEND_BASE_URL: ctx.dev
+          ? 'http://localhost:8080'
+          : 'https://sportabzeichen.leichtathletik-schwabmuenchen.de'
       },
 
       // Options below are automatically set depending on the env, set them if you want to override
@@ -85,6 +88,14 @@ module.exports = configure(function(ctx) {
     devServer: {
       https: false,
       port: 8080,
+      proxy: [
+        // in dev mode proxy api requests to the backend, to allow for correct cookie setting
+        {
+          context: ['/api', '/sanctum/csrf-cookie', '/login', '/logout'],
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true
+        }
+      ],
       open: true // opens browser window automatically
     },
 

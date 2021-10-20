@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'reset' => 'Dein Passwort wurde zurückgesetzt!',
-    'sent' => 'Dir wurde ein Passworwiederherstellungslink per Mail zugeschickt!',
+    'reset' => 'Dein Passwort wurde zurueckgesetzt!',
+    'sent' => 'Dir wurde ein Passwort-Wiederherstellungslink per Mail zugeschickt!',
     'throttled' => 'Bitte warten und dann erneut versuchen.',
     'token' => 'Der Wiederherstellungstoken ist ungültig.',
     'user' => "Wir konnten keinen Benutzer mit dieser Mailadresse finden.",

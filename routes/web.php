@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("password/reset/", function () {
-    return redirect("/#/auth/password_reset");
+Route::get("password/reset/{token?}", function (Request $request, $token) {
+    return redirect("/#/password/reset/" . $token . "?email=" . urlencode($request->query("email")));
 })->name("password.reset");
 
 // load the Quasar-SPA (requires the "php artisan storage:link" command)

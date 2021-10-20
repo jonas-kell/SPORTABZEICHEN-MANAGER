@@ -91,7 +91,14 @@ module.exports = configure(function(ctx) {
       proxy: [
         // in dev mode proxy api requests to the backend, to allow for correct cookie setting
         {
-          context: ['/api', '/sanctum/csrf-cookie', '/login', '/logout'],
+          context: [
+            '/api',
+            '/sanctum/csrf-cookie',
+            '/login',
+            '/logout',
+            '/forgot-password',
+            '/reset-password'
+          ],
           target: 'http://sportabzeichen.test',
           changeOrigin: true
         }

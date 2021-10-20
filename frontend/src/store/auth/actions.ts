@@ -37,6 +37,41 @@ const actions: ActionTree<AuthStateInterface, StateInterface> = {
         console.log(error);
       });
   },
+  requestReset({}, { email }: { email: string }) {
+    return axios.post('forgot-password', { email: email }).catch(error => {
+      console.log(error);
+    });
+  },
+  setPassword(
+    { dispatch },
+    {
+      password,
+      passwordConfirmation,
+      email,
+      token
+    }: {
+      password: string;
+      passwordConfirmation: string;
+      email: string;
+      token: string;
+    }
+  ) {
+    return axios
+      .post('reset-password', {
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirmation,
+        token: token
+      })
+      .then(() => {
+        dispatch('checkAuthenticated').catch(error => {
+          console.log(error);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
   logout({ commit }) {
     return axios
       .post('logout')

@@ -41,3 +41,4 @@ var
 eslint
 ms
 php
+urlencode

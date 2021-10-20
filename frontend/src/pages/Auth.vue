@@ -134,6 +134,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapActions, mapState } from 'vuex';
+import { Status } from './../store/auth/actions';
 
 export default defineComponent({
   data: function() {
@@ -150,20 +151,34 @@ export default defineComponent({
     handleSubmit: async function() {
       switch (this.pageMode) {
         case 'setNew':
-          console.log('asdad');
-          await this.bindSetPassword({
-            password: this.password,
-            passwordConfirmation: this.passwordConfirmation,
-            email: this.email,
-            token: this.token
-          });
+          if (
+            this.notify(
+              await this.bindSetPassword({
+                password: this.password,
+                passwordConfirmation: this.passwordConfirmation,
+                email: this.email,
+                token: this.token
+              })
+            )
+          ) {
+            void this.$router.push('/auth');
+          }
           break;
         case 'requestMail':
-          await this.bindRequestReset({ email: this.email });
+          this.notify(
+            await this.bindRequestReset({
+              email: this.email
+            })
+          );
           break;
         case 'login':
         default:
-          await this.bindLogin({ password: this.password, email: this.email });
+          this.notify(
+            await this.bindLogin({
+              password: this.password,
+              email: this.email
+            })
+          );
           break;
       }
 
@@ -197,11 +212,29 @@ export default defineComponent({
         this.pageMode = 'login';
       }
     },
+    notify: function(status: Status[]) {
+      let success = true;
+
+      status.forEach(element => {
+        if (element.type != 'success') {
+          success = false;
+        }
+        this.$q.notify({
+          type: element.type,
+          message: element.message
+        });
+      });
+
+      return success;
+    },
+    logout: async function() {
+      this.notify(await this.bindLogout());
+    },
     ...mapActions('authModule', {
       bindLogin: 'login',
       bindSetPassword: 'setPassword',
       bindRequestReset: 'requestReset',
-      logout: 'logout'
+      bindLogout: 'logout'
     })
   },
   computed: {

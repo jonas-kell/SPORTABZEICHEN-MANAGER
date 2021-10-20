@@ -11,8 +11,16 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title class="cursor-pointer" @click="rediredctHome">
-          {{ appName }}
+        <q-toolbar-title>
+          <span class="cursor-pointer" @click="redirectHome">
+            {{ appName }}
+          </span>
+          <span
+            v-if="isLoggedIn"
+            class="float-right cursor-pointer"
+            @click="redirectAuth"
+            >{{ user != null ? user.name : '' }}</span
+          >
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -35,7 +43,7 @@
 
 <script lang="ts">
 import Sidebar from './../components/Sidebar.vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -58,12 +66,21 @@ export default defineComponent({
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
     },
-    rediredctHome: function() {
+    redirectHome: function() {
       void this.$router.push('/');
+    },
+    redirectAuth: function() {
+      void this.$router.push('/auth');
     },
     ...mapActions('authModule', {
       checkAuthenticated: 'checkAuthenticated',
       checkCORS: 'checkCORSCookies'
+    })
+  },
+  computed: {
+    ...mapState('authModule', {
+      isLoggedIn: 'isLoggedIn',
+      user: 'user'
     })
   }
 });

@@ -173,12 +173,16 @@ export default defineComponent({
           break;
         case 'login':
         default:
-          this.notify(
-            await this.bindLogin({
-              password: this.password,
-              email: this.email
-            })
-          );
+          if (
+            this.notify(
+              await this.bindLogin({
+                password: this.password,
+                email: this.email
+              })
+            )
+          ) {
+            void this.$router.push('/');
+          }
           break;
       }
 

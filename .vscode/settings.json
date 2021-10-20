@@ -1,13 +1,15 @@
 {
-    "spellright.language": [
-        "de",
-        "en"
-    ],
+    "spellright.language": ["de", "en"],
     "spellright.documentTypes": [
         "markdown",
         "latex",
         "plaintext",
         "javascript",
         "php"
-    ]
+    ],
+    "vetur.validation.template": false,
+    "vetur.format.enable": false,
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+    "typescript.tsdk": "frontend/node_modules/typescript/lib",
+    "vetur.experimental.templateInterpolationService": true
 }

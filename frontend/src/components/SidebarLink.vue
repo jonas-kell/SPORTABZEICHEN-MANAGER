@@ -1,5 +1,16 @@
+<style lang="scss">
+.q-item.active {
+  background: $primary;
+  color: white;
+}
+
+.q-item.active .text-caption {
+  color: white;
+}
+</style>
+
 <template>
-  <q-item clickable tag="a" :href="link">
+  <q-item clickable tag="a" :href="link" :class="{ active: active }">
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
@@ -23,20 +34,21 @@ export default defineComponent({
       type: String,
       required: true
     },
-
     caption: {
       type: String,
       default: ''
     },
-
     link: {
       type: String,
       default: '#'
     },
-
     icon: {
       type: String,
       default: ''
+    },
+    active: {
+      type: Boolean,
+      default: false
     }
   }
 });

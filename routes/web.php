@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("password/reset/", function () {
+    return redirect("/#/auth/password_reset");
+})->name("password.reset");
+
 // load the Quasar-SPA (requires the "php artisan storage:link" command)
 Route::get('/', function () {
     return \File::get(public_path("frontend/index.html"));

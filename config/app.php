@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TranslationServiceProvider::class,
         App\Providers\RequirementsServiceProvider::class,
-
+        App\Providers\FortifyServiceProvider::class,
     ],
 
     /*

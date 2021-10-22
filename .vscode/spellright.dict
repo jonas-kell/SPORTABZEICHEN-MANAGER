@@ -42,3 +42,7 @@ eslint
 ms
 php
 urlencode
+vetur
+vscode
+monorepos
+tsconfig

@@ -23,7 +23,7 @@ const linksList = [
   }
 ];
 
-import SidebarLink from './../components/SidebarLink.vue';
+import SidebarLink from './SidebarLink.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

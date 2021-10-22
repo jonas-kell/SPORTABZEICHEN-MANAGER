@@ -61,8 +61,8 @@ import { Athlete, Year } from '../../store/athletes/state';
 export default defineComponent({
   components: { SidebarList },
   mounted() {
-    void this.$store.dispatch('athletes', 'fetchFavourites');
-    void this.$store.dispatch('athletes', 'getYear');
+    void this.$store.dispatch('athletesModule/fetchFavourites');
+    void this.$store.dispatch('athletesModule/getYear');
   },
   data() {
     return {
@@ -72,7 +72,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...(mapActions('athletes', {
+    ...(mapActions('athletesModule', {
       mappedSetupCreateAthlete: 'setupCreateAthlete',
     }) as unknown as {
       mappedSetupCreateAthlete: (athlete: Athlete) => string;
@@ -90,21 +90,24 @@ export default defineComponent({
     'yearsArray.current': function (newValue) {
       //TODO also calls on initial laod. sets unnecessary. maybe resolve.
       if (newValue == this.ALL_YEARS_STRING) {
-        void this.$store.dispatch('setYear', -1);
+        void this.$store.dispatch(
+          'athletesModule/setYear',
+          -1 as unknown as undefined
+        );
       } else {
-        void this.$store.dispatch('setYear', newValue);
+        void this.$store.dispatch('athletesModule/setYear', newValue);
       }
     },
     searchbar: function (newValue) {
       let store = this.$store;
       clearTimeout(this.typingTimer);
       this.typingTimer = setTimeout(function () {
-        void store.dispatch('fetchSearch', newValue);
+        void store.dispatch('athletesModule/fetchSearch', newValue);
       }, 250);
     },
   },
   computed: {
-    ...(mapGetters('athletes', [
+    ...(mapGetters('athletesModule', [
       'favourites',
       'yearsArray',
       'searchedAthletes',

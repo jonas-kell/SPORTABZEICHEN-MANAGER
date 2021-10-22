@@ -9,6 +9,10 @@ declare module '@vue/runtime-core' {
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.BACKEND_BASE_URL;
+axios.defaults.headers = {
+  Accept: 'application/json',
+  'X-Requested-With': 'XMLHttpRequest', // show the api these are ajax requests
+};
 
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;

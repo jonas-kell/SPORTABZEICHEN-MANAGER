@@ -18,8 +18,8 @@ Route::get('user/get', function () {
     return Auth::user() ?? "null";
 });
 
-Route::middleware('auth:sanctum')->group(function () {
 
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('year/get', [App\Http\Controllers\UsersController::class, 'getYears']);
     Route::put('year/set', [App\Http\Controllers\UsersController::class, 'setYear']);
 

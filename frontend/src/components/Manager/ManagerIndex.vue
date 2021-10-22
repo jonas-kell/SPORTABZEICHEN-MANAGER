@@ -19,6 +19,9 @@ import Sidebar from './Sidebar.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  components: { Center, Sidebar },
+  components: {
+    Center,
+    Sidebar,
+  },
 });
 </script>

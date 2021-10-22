@@ -13,14 +13,20 @@ const linksList = [
     title: 'Account',
     caption: 'Verwalte deinen Login',
     icon: 'account_circle',
-    link: '/#/auth'
+    link: '/#/auth',
   },
   {
     title: 'Home',
     caption: 'Home Seite',
     icon: 'home',
-    link: '/#/'
-  }
+    link: '/#/',
+  },
+  {
+    title: 'Liste',
+    caption: 'Favoriten Übersichts Liste ',
+    icon: 'list',
+    link: '/#/list',
+  },
 ];
 
 import SidebarLink from './SidebarLink.vue';
@@ -29,22 +35,22 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Sidebar',
   components: {
-    SidebarLink
+    SidebarLink,
   },
   data() {
     return {
-      essentialLinks: linksList
+      essentialLinks: linksList,
     };
   },
   methods: {
-    isCurrentRoute: function(route: string) {
+    isCurrentRoute: function (route: string) {
       return route == this.currentRoute;
-    }
+    },
   },
   computed: {
-    currentRoute: function(): string {
+    currentRoute: function (): string {
       return '/#' + this.$route.path;
-    }
-  }
+    },
+  },
 });
 </script>

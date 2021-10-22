@@ -82,17 +82,22 @@ export default defineComponent({
     //this.ALL_YEARS_STRING = "Alle"; //TODO make selector for favorites/non-favorites, clone year selector to this page
   },
   mounted() {
-    void this.$store.dispatch('fetchFavourites');
+    void this.$store.dispatch('athletesModule/fetchFavourites');
   },
   computed: {
-    ...(mapGetters('athletes', { favourites: 'favourites' }) as MapToComputed<{
+    ...(mapGetters('athletesModule', {
+      favourites: 'favourites',
+    }) as MapToComputed<{
       favourites: Athlete[];
     }>),
   },
   methods: {
     requestPDF() {
-      console.log(this.$refs['render-pdf']); // TODO
-      //   void this.$store.dispatch('requestPDF', this.$refs['render-pdf']);
+      void this.$store.dispatch(
+        'athletesModule/requestPDF',
+        document.getElementById((this.$refs['render-pdf'] as { id: string }).id)
+          ?.outerHTML
+      );
     },
   },
 });

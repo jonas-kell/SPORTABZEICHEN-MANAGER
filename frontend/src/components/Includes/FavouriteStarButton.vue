@@ -23,10 +23,10 @@ export default defineComponent({
 
       if (startState) {
         // drop favourite
-        void this.$store.dispatch('dropFavourite', athlete);
+        void this.$store.dispatch('athletesModule/dropFavourite', athlete);
       } else {
         // associate favourite
-        void this.$store.dispatch('addFavourite', athlete);
+        void this.$store.dispatch('athletesModule/addFavourite', athlete);
       }
 
       // update own state immediately

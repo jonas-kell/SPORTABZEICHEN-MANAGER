@@ -3,11 +3,14 @@ import { InjectionKey } from 'vue';
 import {
   createStore,
   Store as VuexStore,
-  useStore as vuexUseStore
+  useStore as vuexUseStore,
 } from 'vuex';
 
 import authModule from './auth';
 import { AuthStateInterface } from './auth/state';
+
+import athletesModule from './athletes';
+import { AthletesStateInterface } from './athletes/state';
 
 /*
  * If not building with SSR mode, you can
@@ -23,6 +26,7 @@ export interface StateInterface {
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
   auth: AuthStateInterface;
+  athletes: AthletesStateInterface;
 }
 
 // provide typings for `this.$store`
@@ -33,19 +37,19 @@ declare module '@vue/runtime-core' {
 }
 
 // provide typings for `useStore` helper
-export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol(
-  'vuex-key'
-);
+export const storeKey: InjectionKey<VuexStore<StateInterface>> =
+  Symbol('vuex-key');
 
-export default store(function(/* { ssrContext } */) {
+export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
-      authModule
+      authModule,
+      athletesModule,
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
-    strict: !!process.env.DEBUGGING
+    strict: !!process.env.DEBUGGING,
   });
 
   return Store;

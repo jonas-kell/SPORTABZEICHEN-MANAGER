@@ -70,11 +70,13 @@ export default defineComponent({
   },
   methods: {
     pushToCenter: function (athlete: Athlete) {
-      void this.$store.dispatch('fetchAthlete', athlete.id);
+      void this.$store.dispatch('athletesModule/fetchAthlete', athlete.id);
     },
   },
   computed: {
-    ...mapGetters({ centerAthlete: 'athlete' }),
+    ...(mapGetters('athletesModule', {
+      centerAthlete: 'athlete',
+    }) as MapToComputed<{ centerAthlete: Athlete }>),
   },
 });
 </script>

@@ -121,8 +121,8 @@
                 class="help_symbol float-right"
                 data-toggle="tooltip"
                 data-placement="top"
-                v-bind:title="(discipline_array as any).description"
-                v-if="(discipline_array as any).description"
+                v-bind:title="discipline_array.description"
+                v-if="discipline_array.description"
               ></span>
             </td>
             <td
@@ -133,7 +133,7 @@
                   athlete.performances[category][discipline].bronze_highlighted,
               }"
               @click="
-                toggleHighlight(category, discipline as unknown as string, 'bronze_highlighted')
+                toggleHighlight(category, discipline, 'bronze_highlighted')
               "
             >
               <span
@@ -142,14 +142,14 @@
                 data-placement="top"
                 v-bind:title="
                   build_tooltip(
-                    (discipline_array as any).requirements.bronze.requirement_with_unit,
-                    (discipline_array as any).requirements.bronze.description
+                    discipline_array.requirements.bronze.requirement_with_unit,
+                    discipline_array.requirements.bronze.description
                   )
                 "
                 @click.stop
               ></span>
               <span class="no-break">
-                {{ (discipline_array as any).requirements.bronze.requirement_with_unit }}
+                {{ discipline_array.requirements.bronze.requirement_with_unit }}
               </span>
             </td>
             <td
@@ -160,7 +160,7 @@
                   athlete.performances[category][discipline].silver_highlighted,
               }"
               @click="
-                toggleHighlight(category, discipline as unknown as string, 'silver_highlighted')
+                toggleHighlight(category, discipline, 'silver_highlighted')
               "
             >
               <span
@@ -169,14 +169,14 @@
                 data-placement="top"
                 v-bind:title="
                   build_tooltip(
-                    (discipline_array as any).requirements.silver.requirement_with_unit,
-                    (discipline_array as any).requirements.silver.description
+                    discipline_array.requirements.silver.requirement_with_unit,
+                    discipline_array.requirements.silver.description
                   )
                 "
                 @click.stop
               ></span>
               <span class="no-break">
-                {{ (discipline_array as any).requirements.silver.requirement_with_unit }}
+                {{ discipline_array.requirements.silver.requirement_with_unit }}
               </span>
             </td>
             <td
@@ -186,7 +186,7 @@
                 highlighted:
                   athlete.performances[category][discipline].gold_highlighted,
               }"
-              @click="toggleHighlight(category, discipline as unknown as string, 'gold_highlighted')"
+              @click="toggleHighlight(category, discipline, 'gold_highlighted')"
             >
               <span
                 class="medal gold float-left mr-1"
@@ -194,14 +194,14 @@
                 data-placement="top"
                 v-bind:title="
                   build_tooltip(
-                    (discipline_array as any).requirements.gold.requirement_with_unit,
-                    (discipline_array as any).requirements.gold.description
+                    discipline_array.requirements.gold.requirement_with_unit,
+                    discipline_array.requirements.gold.description
                   )
                 "
                 @click.stop
               ></span>
               <span class="no-break">
-                {{ (discipline_array as any).requirements.gold.requirement_with_unit }}
+                {{ discipline_array.requirements.gold.requirement_with_unit }}
               </span>
             </td>
             <td style="width: 18%">
@@ -214,7 +214,7 @@
                   updateAthletePerformance(
                     athlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
                     category,
-                    discipline as unknown as string
+                    discipline
                   )
                 "
               />
@@ -310,18 +310,20 @@ export default defineComponent({
     return {
       canEdit: false,
       typingTimer: {} as { [key: string]: NodeJS.Timeout }, //use sub-elements to time different things, to prevent loss of data
-      athlete: null as Athlete | null,
     };
   },
   methods: {
     build_tooltip: build_tooltip,
     createAthlete: function () {
-      void this.$store.dispatch('createAthlete', this.newAthlete);
+      void this.$store.dispatch(
+        'athletesModule/createAthlete',
+        this.newAthlete
+      );
     },
     toggleEdit() {
       if (this.canEdit) {
         // edit was avaliable until now, that means we need to save now
-        void this.$store.dispatch('updateAthlete', this.athlete);
+        void this.$store.dispatch('athletesModule/updateAthlete', this.athlete);
       }
 
       this.canEdit = !this.canEdit;
@@ -331,9 +333,6 @@ export default defineComponent({
       category: Category,
       discipline: Discipline
     ) {
-      // athlete for this function with correct type
-      let athlete = this.athlete as Athlete;
-
       // I hand the athlete id to the function to cache it, because I fear, we have race conditions,
       // if the athlete changes before this gets executed, if a change athlete click triggers the change event.
 
@@ -347,42 +346,39 @@ export default defineComponent({
 
       // set the changed value
       performances[category][discipline].performance =
-        athlete.performances[category][discipline].performance;
+        this.athlete.performances[category][discipline].performance;
 
       performances[category][discipline].bronze_highlighted =
-        athlete.performances[category][discipline].bronze_highlighted;
+        this.athlete.performances[category][discipline].bronze_highlighted;
 
       performances[category][discipline].silver_highlighted =
-        athlete.performances[category][discipline].silver_highlighted;
+        this.athlete.performances[category][discipline].silver_highlighted;
 
       performances[category][discipline].gold_highlighted =
-        athlete.performances[category][discipline].gold_highlighted;
+        this.athlete.performances[category][discipline].gold_highlighted;
 
       mockup_athlete.performances = performances;
       // dispatch the performance-update
-      void this.$store.dispatch('updateAthletePerformances', mockup_athlete);
+      void this.$store.dispatch(
+        'athletesModule/updateAthletePerformances',
+        mockup_athlete
+      );
     },
     toggleHighlight: function (
       category: Category,
       discipline: Discipline,
       type: 'bronze_highlighted' | 'silver_highlighted' | 'gold_highlighted'
     ) {
-      let athlete = this.athlete as Athlete;
-
-      if (athlete.performances[category][discipline][type]) {
-        athlete.performances[category][discipline][type] = false;
+      if (this.athlete.performances[category][discipline][type]) {
+        this.athlete.performances[category][discipline][type] = false;
       } else {
-        athlete.performances[category][discipline][type] = true;
+        this.athlete.performances[category][discipline][type] = true;
       }
       this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
 
       clearTimeout(this.typingTimer[discipline]);
       this.typingTimer[discipline] = setTimeout(() => {
-        this.updateAthletePerformance(
-          (this.athlete as Athlete).id,
-          category,
-          discipline
-        ); //store the update in the database
+        this.updateAthletePerformance(this.athlete.id, category, discipline); //store the update in the database
       }, 400);
     },
   },
@@ -401,7 +397,10 @@ export default defineComponent({
       if (this.athlete != null) {
         clearTimeout(this.typingTimer['typing']);
         this.typingTimer['typing'] = setTimeout(() => {
-          void this.$store.dispatch('updateAthleteNotes', this.athlete);
+          void this.$store.dispatch(
+            'athletesModule/updateAthleteNotes',
+            this.athlete
+          );
         }, 300);
       }
     },
@@ -410,7 +409,13 @@ export default defineComponent({
     categories: function () {
       return ['coordination', 'endurance', 'speed', 'strength'] as Category[];
     },
-    ...mapGetters(['athlete', 'newAthlete']),
+    ...(mapGetters('athletesModule', [
+      'athlete',
+      'newAthlete',
+    ]) as MapToComputed<{
+      athlete: Athlete;
+      newAthlete: Athlete;
+    }>),
   },
 });
 </script>

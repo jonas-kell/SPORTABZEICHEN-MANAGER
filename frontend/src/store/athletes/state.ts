@@ -18,8 +18,9 @@ export interface RequirementCollection {
 
 export interface Requirement {
   requirement_with_unit: string;
-  requirement: string;
-  unit: string;
+  requirement?: string;
+  unit?: string;
+  description?: string;
 }
 
 export interface PerformanceArray {

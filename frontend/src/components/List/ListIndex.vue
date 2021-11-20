@@ -18,7 +18,7 @@
       ref="render-pdf"
     >
       <tr>
-        <th>{{ 'general.name' }}</th>
+        <th>{{ $t('general.name') }}</th>
         <th></th>
         <th></th>
         <th></th>
@@ -39,7 +39,7 @@
             color: athlete.gender == 'male' ? 'blue' : 'red',
           }"
         >
-          {{ 'general.gender_short_' + athlete.gender }} |
+          {{ $t('general.gender_short_' + athlete.gender) }} |
           {{ athlete.requirements_tag }}
         </td>
         <td style="width: 17%">
@@ -57,7 +57,7 @@
         <td style="width: 9%"></td>
         <td style="width: 17%">
           <strong>
-            {{ 'general.new' }}
+            {{ $t('general.new') }}
           </strong>
         </td>
         <td style="width: 10%"></td>

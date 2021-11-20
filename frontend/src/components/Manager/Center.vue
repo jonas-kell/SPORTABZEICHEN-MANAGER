@@ -1,27 +1,27 @@
 <template>
   <div class="card card-fill">
     <div v-if="newAthlete == null && athlete == null">
-      <div class="card-header">{{ 'general.welcome' }}</div>
+      <div class="card-header">{{ $t('general.welcome') }}</div>
 
       <div class="card-body">
         <p>
-          {{ 'general.action' }}
+          {{ $t('general.action') }}
         </p>
       </div>
     </div>
     <div v-else-if="athlete != null">
       <div class="card-header">
         {{ athlete.name }}
-        ({{ 'general.' + athlete.gender }} | {{ athlete.requirements_tag }})
+        ({{ $t('general.') + athlete.gender }} | {{ athlete.requirements_tag }})
         <div class="float-right">
           <span
             v-if="canEdit"
             class="btn btn-sm btn-save"
             @click="toggleEdit"
-            >{{ 'general.save' }}</span
+            >{{ $t('general.save') }}</span
           >
           <span v-else class="btn btn-sm btn-edit" @click="toggleEdit">{{
-            'general.edit'
+            $t('general.edit')
           }}</span>
         </div>
         <favourite-star-button v-bind="{ athlete: athlete }" class="mr-3" />
@@ -30,31 +30,31 @@
       <div class="card-body row">
         <div class="from-group col-lg-6 col-12">
           <label for="center_name_field">
-            {{ 'general.name' }}
+            {{ $t('general.name') }}
           </label>
           <input
             id="center_name_field"
             v-model="athlete.name"
             class="form-control"
             v-bind:disabled="!canEdit"
-            :placeholder="'general.name'"
+            :placeholder="$t('general.name')"
           />
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_year_field">
-            {{ 'general.year' }}
+            {{ $t('general.year') }}
           </label>
           <input
             id="center_year_field"
             v-model="athlete.year"
             class="form-control"
             v-bind:disabled="!canEdit"
-            :placeholder="'general.year'"
+            :placeholder="$t('general.year')"
           />
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_birthday_field">
-            {{ 'general.birthday' }}
+            {{ $t('general.birthday') }}
           </label>
           <input
             id="center_birthday_field"
@@ -66,7 +66,7 @@
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_gender_field">
-            {{ 'general.gender' }}
+            {{ $t('general.gender') }}
           </label>
           <select
             id="center_gender_field"
@@ -75,10 +75,10 @@
             v-bind:disabled="!canEdit"
           >
             <option value="male">
-              {{ 'general.male' }}
+              {{ $t('general.male') }}
             </option>
             <option value="female">
-              {{ 'general.female' }}
+              {{ $t('general.female') }}
             </option>
           </select>
         </div>
@@ -88,7 +88,7 @@
       <!-- Athlete body section -->
       <div class="from-group col-12">
         <label for="center_notes_field">
-          {{ 'general.notes' }}
+          {{ $t('general.notes') }}
         </label>
         <textarea
           id="center_notes_field"
@@ -99,7 +99,8 @@
       </div>
       <div class="from-group col-12 mt-2">
         <h3>
-          {{ 'general.requirements' }}: {{ 'general.' + athlete.gender }} |
+          {{ $t('general.requirements') }}:
+          {{ $t('general.' + athlete.gender) }} |
           {{ athlete.requirements_tag }}
         </h3>
       </div>
@@ -108,7 +109,7 @@
         v-for="category in categories"
         v-bind:key="category"
       >
-        <h4 class="mt-2">{{ 'general.' + category }}</h4>
+        <h4 class="mt-2">{{ $t('general.' + category) }}</h4>
         <table class="requirements_table">
           <tr
             v-for="(discipline_array, discipline) in athlete
@@ -224,34 +225,34 @@
       </div>
     </div>
     <div v-else-if="newAthlete != null">
-      <div class="card-header">{{ 'general.create_new' }}</div>
+      <div class="card-header">{{ $t('general.create_new') }}</div>
 
       <div class="card-body row">
         <div class="from-group col-lg-6 col-12">
           <label for="center_name_field">
-            {{ 'general.name' }}
+            {{ $t('general.name') }}
           </label>
           <input
             id="center_name_field"
             v-model="newAthlete.name"
             class="form-control"
-            :placeholder="'general.name'"
+            :placeholder="$t('general.name')"
           />
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_year_field">
-            {{ 'general.year' }}
+            {{ $t('general.year') }}
           </label>
           <input
             id="center_year_field"
             v-model="newAthlete.year"
             class="form-control"
-            :placeholder="'general.year'"
+            :placeholder="$t('general.year')"
           />
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_birthday_field">
-            {{ 'general.birthday' }}
+            {{ $t('general.birthday') }}
           </label>
           <input
             id="center_birthday_field"
@@ -262,7 +263,7 @@
         </div>
         <div class="from-group col-lg-6 col-12">
           <label for="center_gender_field">
-            {{ 'general.gender' }}
+            {{ $t('general.gender') }}
           </label>
           <select
             id="center_gender_field"
@@ -270,10 +271,10 @@
             class="form-control"
           >
             <option value="male">
-              {{ 'general.male' }}
+              {{ $t('general.male') }}
             </option>
             <option value="female">
-              {{ 'general.female' }}
+              {{ $t('general.female') }}
             </option>
           </select>
         </div>
@@ -281,7 +282,7 @@
           class="from-group col-12 mt-3 justify-content-center row no-gutters"
         >
           <button class="btn btn-save btn-sm" v-on:click="createAthlete">
-            {{ 'general.save' }}
+            {{ $t('general.save') }}
           </button>
         </div>
       </div>

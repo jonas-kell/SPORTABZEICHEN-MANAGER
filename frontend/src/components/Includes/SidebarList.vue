@@ -34,7 +34,7 @@
           }"
           class="float-right"
         >
-          {{ 'general.gender_short_' + athlete.gender }} |
+          {{ $t('general.gender_short_' + athlete.gender) }} |
           {{ athlete.requirements_tag }}
         </span>
       </p>
@@ -50,7 +50,7 @@
   </ol>
   <ol v-else class="list-group">
     <li class="list-group-item">
-      {{ 'general.no_results' }}
+      {{ $t('general.no_results') }}
     </li>
   </ol>
 </template>

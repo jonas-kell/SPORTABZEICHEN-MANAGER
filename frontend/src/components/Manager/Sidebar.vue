@@ -5,7 +5,7 @@
         <input
           v-model="searchbar"
           class="form-control"
-          :placeholder="'general.search'"
+          :placeholder="$t('general.search')"
         />
         <div class="input-group-append">
           <span class="input-group-text search-icon unselectable"></span>
@@ -27,7 +27,7 @@
         class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
         @click="setupCreateAthlete"
       >
-        ++ {{ 'general.create_new' }} ++
+        ++ {{ $t('general.create_new') }} ++
       </span>
       <sidebar-list
         class="col-12 vh-search"
@@ -39,7 +39,7 @@
     </div>
     <hr class="m-0" />
     <div class="card-body row no-gutters">
-      <h5>{{ 'general.favourites' }}</h5>
+      <h5>{{ $t('general.favourites') }}</h5>
 
       <sidebar-list
         class="col-12 vh-favourites"

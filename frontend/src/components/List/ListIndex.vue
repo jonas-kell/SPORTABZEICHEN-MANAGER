@@ -9,7 +9,7 @@
   <div class="row no-gutters ml-3 mr-3">
     <p class="col-12">
       <span class="btn btn-sm btn-edit float-right" @click="requestPDF">
-        PDF erzeugen
+        {{ $t('general.requestPDF') }}
       </span>
     </p>
     <table

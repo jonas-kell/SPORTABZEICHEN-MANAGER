@@ -4,22 +4,23 @@
     <div v-if="isLoggedIn" class="col-auto row">
       <div class="col-12">
         <h4 class="q-my-sm">
-          Profil: <q-icon name="account_circle" size="xl" class="float-right" />
+          {{ $t('profile.profile') }}:
+          <q-icon name="account_circle" size="xl" class="float-right" />
         </h4>
         <p>
-          Name:
+          {{ $t('profile.name') }}:
           <span class="text-bold">{{ user != null ? user.name : '' }}</span>
         </p>
         <p>
-          Email:
+          {{ $t('profile.email') }}:
           <span class="text-bold">{{ user != null ? user.email : '' }}</span>
         </p>
       </div>
       <div class="col-12 row justify-center">
         <q-btn
-          color="blue"
+          color="primary"
           icon-right="logout"
-          label="Ausloggen"
+          :label="$t('auth.logout')"
           @click="logout"
         ></q-btn>
       </div>
@@ -31,14 +32,14 @@
           <q-input
             filled
             v-model="email"
-            label="E-Mail Address"
+            :label="$t('auth.email')"
             class="col-12"
             id="email"
             name="email"
             lazy-rules
             :rules="[
-              val => (val && val.length > 0) || 'Feld darf nicht leer sein',
-              val => val.includes('@') || 'Email muss ein @ enthalten'
+              (val) => (val && val.length > 0) || $t('auth.notEmpty'),
+              (val) => val.includes('@') || $t('auth.mustContainAt'),
             ]"
           ></q-input>
         </div>
@@ -50,14 +51,12 @@
             filled
             :type="isPwd ? 'password' : 'text'"
             v-model="password"
-            label="Password"
+            :label="$t('auth.password')"
             class="col-12"
             id="password"
             name="password"
             :rules="[
-              val =>
-                (val && val.length >= 8) ||
-                'Passwort muss mindestens 8 Zeichen enthalten'
+              (val) => (val && val.length >= 8) || $t('auth.pwdMin8Chars'),
             ]"
           >
             <template v-slot:append>
@@ -74,17 +73,13 @@
             filled
             :type="isPwd ? 'password' : 'text'"
             v-model="passwordConfirmation"
-            label="Password Wiederholen"
+            :label="$t('auth.repeatPassword')"
             class="col-12"
             id="password-confirmation"
             name="password-confirmation"
             :rules="[
-              val =>
-                (val && val.length >= 8) ||
-                'Passwort muss mindestens 8 Zeichen enthalten',
-              val =>
-                (val && val == password) ||
-                'Passwort und Bestätigung müssen übereinstimmen'
+              (val) => (val && val.length >= 8) || $t('auth.pwdMin8Chars'),
+              (val) => (val && val == password) || $t('auth.pwdMatch'),
             ]"
           >
             <template v-slot:append>
@@ -101,18 +96,16 @@
             <q-btn
               v-if="pageMode == 'login' || pageMode == 'setNew'"
               type="submit"
-              color="blue"
+              color="primary"
               icon-right="send"
-              :label="
-                pageMode == 'login' ? 'Einloggen' : 'Passwort Zurücksetzen'
-              "
+              :label="pageMode == 'login' ? $t('auth.login') : $t('auth.reset')"
             ></q-btn>
             <q-btn
               v-if="pageMode == 'login'"
               class="float-right"
               color="grey"
               icon-right="mail"
-              label="Passwort vergessen"
+              :label="$t('auth.forgotPassword')"
               type="a"
               href="#/password/reset"
             ></q-btn>
@@ -120,9 +113,9 @@
               v-if="pageMode == 'requestMail'"
               type="submit"
               class="float-right"
-              color="blue"
+              color="primary"
               icon-right="mail"
-              label="Schicke Wiederherstellungs Mail"
+              :label="$t('auth.recoveryMail')"
             ></q-btn>
           </div>
         </div>
@@ -137,18 +130,18 @@ import { mapActions, mapState } from 'vuex';
 import { Status } from './../store/auth/actions';
 
 export default defineComponent({
-  data: function() {
+  data: function () {
     return {
       pageMode: 'login' as string,
       email: '' as string,
       password: '' as string,
       passwordConfirmation: '' as string,
       isPwd: true as boolean,
-      token: '' as string
+      token: '' as string,
     };
   },
   methods: {
-    handleSubmit: async function() {
+    handleSubmit: async function () {
       switch (this.pageMode) {
         case 'setNew':
           if (
@@ -157,7 +150,7 @@ export default defineComponent({
                 password: this.password,
                 passwordConfirmation: this.passwordConfirmation,
                 email: this.email,
-                token: this.token
+                token: this.token,
               })
             )
           ) {
@@ -167,7 +160,7 @@ export default defineComponent({
         case 'requestMail':
           this.notify(
             await this.bindRequestReset({
-              email: this.email
+              email: this.email,
             })
           );
           break;
@@ -177,7 +170,7 @@ export default defineComponent({
             this.notify(
               await this.bindLogin({
                 password: this.password,
-                email: this.email
+                email: this.email,
               })
             )
           ) {
@@ -190,7 +183,7 @@ export default defineComponent({
       this.password = '';
       this.passwordConfirmation = '';
     },
-    recomputeRouteOptions: function() {
+    recomputeRouteOptions: function () {
       this.token = '';
 
       // parse parameters
@@ -216,44 +209,44 @@ export default defineComponent({
         this.pageMode = 'login';
       }
     },
-    notify: function(status: Status[]) {
+    notify: function (status: Status[]) {
       let success = true;
 
-      status.forEach(element => {
+      status.forEach((element) => {
         if (element.type != 'success') {
           success = false;
         }
         this.$q.notify({
           type: element.type,
-          message: element.message
+          message: element.message,
         });
       });
 
       return success;
     },
-    logout: async function() {
+    logout: async function () {
       this.notify(await this.bindLogout());
     },
     ...mapActions('authModule', {
       bindLogin: 'login',
       bindSetPassword: 'setPassword',
       bindRequestReset: 'requestReset',
-      bindLogout: 'logout'
-    })
+      bindLogout: 'logout',
+    }),
   },
   computed: {
     ...mapState('authModule', {
       isLoggedIn: 'isLoggedIn',
-      user: 'user'
-    })
+      user: 'user',
+    }),
   },
-  created: function() {
+  created: function () {
     this.recomputeRouteOptions();
   },
   watch: {
     $route() {
       this.recomputeRouteOptions();
-    }
-  }
+    },
+  },
 });
 </script>

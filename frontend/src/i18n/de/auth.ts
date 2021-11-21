@@ -10,8 +10,19 @@ export default {
   /
   */
 
+  login: 'Einloggen',
+  logout: 'Ausloggen',
+  password: 'Passwort',
+  repeatPassword: 'Passwort Wiederholen',
+  reset: 'Passwort Zurücksetzen',
+  pwdMin8Chars: 'Passwort muss mindestens 8 Zeichen enthalten',
+  pwdMatch: 'Passwort und Bestätigung müssen übereinstimmen',
+  notEmpty: 'Feld darf nicht leer sein',
+  mustContainAt: 'Email Adresse muss ein @ enthalten',
+  email: 'Email Adresse',
+  forgotPassword: 'Passwort vergessen',
+  recoveryMail: 'Schicke Wiederherstellungs Mail',
   failed: 'Dieser Benutzer konnte nicht angemeldet werden.',
-  password: 'Falsches Passwort',
   throttle:
     'Zu vile Login-Versuche. Versuche es bitte in :seconds Sekunden erneut.',
 };

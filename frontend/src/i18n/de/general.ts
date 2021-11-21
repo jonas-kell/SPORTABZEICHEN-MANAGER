@@ -29,4 +29,5 @@ export default {
   endurance: 'Ausdauer',
   speed: 'Schnelligkeit',
   strength: 'Stärke',
+  requestPDF: 'PDF erzeugen',
 };

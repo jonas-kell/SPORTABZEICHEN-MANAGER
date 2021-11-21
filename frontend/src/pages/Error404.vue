@@ -1,14 +1,18 @@
 <template>
   <div
-    class="fullscreen bg-primary text-white text-center q-pa-md flex flex-center"
+    class="
+      fullscreen
+      bg-primary
+      text-white text-center
+      q-pa-md
+      flex flex-center
+    "
   >
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+      <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity:.4">
-        Die Seite konnte nicht gefunden werden...
+      <div class="text-h2" style="opacity: 0.4">
+        {{ $t('error.notFound') }}
       </div>
 
       <q-btn
@@ -17,7 +21,7 @@
         text-color="primary"
         unelevated
         to="/"
-        label="Go Home"
+        :label="$t('error.home')"
         no-caps
       />
     </div>
@@ -28,6 +32,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Error404'
+  name: 'Error404',
 });
 </script>

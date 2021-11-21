@@ -8,27 +8,6 @@
 </template>
 
 <script lang="ts">
-const linksList = [
-  {
-    title: 'Account',
-    caption: 'Verwalte deinen Login',
-    icon: 'account_circle',
-    link: '/#/auth',
-  },
-  {
-    title: 'Home',
-    caption: 'Home Seite',
-    icon: 'home',
-    link: '/#/',
-  },
-  {
-    title: 'Liste',
-    caption: 'Favoriten Übersichts Liste ',
-    icon: 'list',
-    link: '/#/list',
-  },
-];
-
 import SidebarLink from './SidebarLink.vue';
 import { defineComponent } from 'vue';
 
@@ -39,7 +18,26 @@ export default defineComponent({
   },
   data() {
     return {
-      essentialLinks: linksList,
+      essentialLinks: [
+        {
+          title: this.$t('sidebar.account'),
+          caption: this.$t('sidebar.accountSubtext'),
+          icon: 'account_circle',
+          link: '/#/auth',
+        },
+        {
+          title: this.$t('sidebar.home'),
+          caption: this.$t('sidebar.homeSubtext'),
+          icon: 'home',
+          link: '/#/',
+        },
+        {
+          title: this.$t('sidebar.list'),
+          caption: this.$t('sidebar.listSubtext'),
+          icon: 'list',
+          link: '/#/list',
+        },
+      ],
     };
   },
   methods: {

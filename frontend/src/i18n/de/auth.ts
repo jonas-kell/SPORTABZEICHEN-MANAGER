@@ -22,6 +22,8 @@ export default {
   email: 'Email Adresse',
   forgotPassword: 'Passwort vergessen',
   recoveryMail: 'Schicke Wiederherstellungs Mail',
+  loggedIn: 'Erfolgreich Eingeloggt',
+  loggedOut: 'Erfolgreich Ausgeloggt',
   failed: 'Dieser Benutzer konnte nicht angemeldet werden.',
   throttle:
     'Zu vile Login-Versuche. Versuche es bitte in :seconds Sekunden erneut.',

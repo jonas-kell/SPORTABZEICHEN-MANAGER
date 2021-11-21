@@ -61,15 +61,9 @@ export default defineComponent({
       return '/#' + this.$route.path;
     },
     linksToRender: function (): LinkThing[] {
-      let filtered = [] as LinkThing[];
-
-      this.essentialLinks.forEach((element) => {
-        if (!element.auth || this.isLoggedIn) {
-          filtered.push(element);
-        }
+      return this.essentialLinks.filter((element) => {
+        return !element.auth || this.isLoggedIn;
       });
-
-      return filtered;
     },
     ...mapState('authModule', {
       isLoggedIn: 'isLoggedIn',

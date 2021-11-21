@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
-import FileDownload from 'js-file-download';
 import { AthletesStateInterface, Athlete, Year } from './state';
+import { exportFile } from 'quasar';
 
 const actions: ActionTree<AthletesStateInterface, StateInterface> = {
   fetchFavourites({ commit }) {
@@ -187,10 +187,17 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         { responseType: 'blob' }
       )
       .then((res) => {
-        FileDownload(res.data, 'List.pdf');
+        const status = exportFile('List.pdf', res.data);
+
+        if (status === true) {
+          // browser allowed it
+        } else {
+          // browser denied it
+          console.error(status);
+        }
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   },
 };

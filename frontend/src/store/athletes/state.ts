@@ -2,6 +2,7 @@ import { SessionStorage } from 'quasar';
 
 export const CURRENT_YEAR_STORAGE_KEY = 'CURRENTYEARINSESSIONSTORAGE';
 export const ALL_YEARS_STORAGE_KEY = 'ALLYEARSINSESSIONSTORAGE';
+export const ATHLETE_STORAGE_KEY = 'CENTERATHLETEINSESSIONSTORAGE';
 
 export interface AthletesStateInterface {
   athlete: Athlete | null;
@@ -78,6 +79,7 @@ export interface YearResource {
 
 let currentYear = -1;
 let allYearsArray = [] as number[];
+let athlete = null as Athlete | null;
 // cache year stuff, to get smoother page refresh
 try {
   const buf = SessionStorage.getItem<number>(CURRENT_YEAR_STORAGE_KEY);
@@ -91,10 +93,16 @@ try {
     allYearsArray = buf;
   }
 } catch (e) {}
+try {
+  const buf = SessionStorage.getItem<Athlete>(ATHLETE_STORAGE_KEY);
+  if (buf && buf != null) {
+    athlete = buf;
+  }
+} catch (e) {}
 
 function state(): AthletesStateInterface {
   return {
-    athlete: null,
+    athlete: athlete,
     newAthlete: null,
     allYearsArray: allYearsArray,
     currentYear: currentYear,

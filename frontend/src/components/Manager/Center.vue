@@ -54,7 +54,13 @@ table.requirements_table > tr > td.highlighted {
       </p>
     </div>
   </q-page>
-  <q-page v-else-if="athlete != null" class="row q-pa-lg">
+  <q-page
+    v-else-if="athlete != null && modifyableAthlete != null"
+    class="row q-pa-lg"
+  >
+    <!-- "modifyableAthlete != null" should be enough to get rid of the "object can be null" drama below,
+      however the nested loops seem to be too complicated for the parser.
+      Therefore, there are multiple switch conditions below that serve no real purpose except to satisfy the ts compiler -->
     <!-- NORMAL ATHLETE MANAGEMENT PART -->
     <q-card class="col-12" bordered>
       <q-card-section class="bg-primary text-white row">
@@ -204,7 +210,7 @@ table.requirements_table > tr > td.highlighted {
           v-bind:key="category"
         >
           <h6 class="q-mb-sm q-mt-md">{{ $t('general.' + category) }}</h6>
-          <table class="requirements_table">
+          <table class="requirements_table" v-if="modifyableAthlete != null">
             <tr
               v-for="(discipline_array, discipline) in modifyableAthlete
                 .needed_requirements[category]"
@@ -227,6 +233,7 @@ table.requirements_table > tr > td.highlighted {
                 </span>
               </td>
               <td
+                v-if="modifyableAthlete != null"
                 style="width: 16%"
                 class="hide-overflow unselectable cursor-pointer"
                 v-bind:class="{
@@ -261,6 +268,7 @@ table.requirements_table > tr > td.highlighted {
                 </span>
               </td>
               <td
+                v-if="modifyableAthlete != null"
                 style="width: 16%"
                 class="hide-overflow unselectable cursor-pointer"
                 v-bind:class="{
@@ -295,6 +303,7 @@ table.requirements_table > tr > td.highlighted {
                 </span>
               </td>
               <td
+                v-if="modifyableAthlete != null"
                 style="width: 16%"
                 class="hide-overflow unselectable cursor-pointer"
                 v-bind:class="{
@@ -326,7 +335,7 @@ table.requirements_table > tr > td.highlighted {
                   {{ discipline_array.requirements.gold.requirement_with_unit }}
                 </span>
               </td>
-              <td style="width: 18%">
+              <td style="width: 18%" v-if="modifyableAthlete != null">
                 <input
                   type="text"
                   class="mr-1 ml-1"
@@ -337,7 +346,7 @@ table.requirements_table > tr > td.highlighted {
                   "
                   @change="
                     updateAthletePerformance(
-                      modifyableAthlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+                      modifyableAthlete != null ? modifyableAthlete.id : -1, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
                       category,
                       discipline
                     )
@@ -350,7 +359,10 @@ table.requirements_table > tr > td.highlighted {
       </q-card-section>
     </q-card>
   </q-page>
-  <q-page v-else-if="newAthlete != null" class="row q-pa-lg">
+  <q-page
+    v-else-if="newAthlete != null && modifyableNewAthlete != null"
+    class="row q-pa-lg"
+  >
     <!-- NEW ATHLETE CREATION PART -->
     <q-card class="col-12" bordered>
       <q-card-section class="bg-primary text-white">
@@ -471,12 +483,25 @@ export default defineComponent({
     return {
       canEdit: false,
       modifyableNewAthlete: {} as Athlete,
-      modifyableAthlete: {} as Athlete,
+      modifyableAthlete: null as Athlete | null,
       typingTimer: {} as { [key: string]: NodeJS.Timeout }, //use sub-elements to time different things, to prevent loss of data
     };
   },
+  created: function () {
+    this.initModifyableAthlete();
+  },
   methods: {
     build_tooltip: build_tooltip,
+    initModifyableAthlete: function () {
+      if (this.athlete != null) {
+        // create a copy to perform local modifications on
+        this.modifyableAthlete = JSON.parse(
+          JSON.stringify(this.athlete)
+        ) as Athlete;
+      } else {
+        this.modifyableAthlete = null;
+      }
+    },
     createAthlete: function () {
       void this.$store.dispatch(
         'athletesModule/createAthlete',
@@ -501,6 +526,11 @@ export default defineComponent({
     ) {
       // I hand the athlete id to the function to cache it, because I fear, we have race conditions,
       // if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+
+      // only if initialized (can only be triggered, if initialized, but ts doesen't know)
+      if (this.modifyableAthlete == null) {
+        return;
+      }
 
       // create mockup athlete structure
       let mockup_athlete = { id: athlete_id } as Athlete;
@@ -541,6 +571,11 @@ export default defineComponent({
       discipline: Discipline,
       type: 'bronze_highlighted' | 'silver_highlighted' | 'gold_highlighted'
     ) {
+      // only if initialized (can only be triggered, if initialized, but ts doesen't know)
+      if (this.modifyableAthlete == null) {
+        return;
+      }
+
       if (this.modifyableAthlete.performances[category][discipline][type]) {
         this.modifyableAthlete.performances[category][discipline][type] = false;
       } else {
@@ -548,33 +583,27 @@ export default defineComponent({
       }
       this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
 
+      let id = this.modifyableAthlete.id;
       clearTimeout(this.typingTimer[discipline]);
       this.typingTimer[discipline] = setTimeout(() => {
-        this.updateAthletePerformance(
-          this.modifyableAthlete.id,
-          category,
-          discipline
-        ); //store the update in the database
+        this.updateAthletePerformance(id, category, discipline); //store the update in the database
       }, 400);
     },
   },
   watch: {
     newAthlete: {
       deep: true,
-      handler: function (newValue: Athlete) {
+      handler: function () {
         // create a copy to perform local modifications on
         this.modifyableNewAthlete = JSON.parse(
-          JSON.stringify(newValue)
+          JSON.stringify(this.newAthlete)
         ) as Athlete;
       },
     },
     athlete: {
       deep: true,
-      handler: function (newValue: Athlete) {
-        // create a copy to perform local modifications on
-        this.modifyableAthlete = JSON.parse(
-          JSON.stringify(newValue)
-        ) as Athlete;
+      handler: function () {
+        this.initModifyableAthlete();
       },
     },
     'modifyableAthlete.notes': function () {

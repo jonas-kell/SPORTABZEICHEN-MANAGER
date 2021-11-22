@@ -1,20 +1,30 @@
 import { MutationTree } from 'vuex';
 import { Athlete, AthletesStateInterface, YearResource } from './state';
 import { SessionStorage } from 'quasar';
-import { CURRENT_YEAR_STORAGE_KEY, ALL_YEARS_STORAGE_KEY } from './state';
+import {
+  CURRENT_YEAR_STORAGE_KEY,
+  ALL_YEARS_STORAGE_KEY,
+  ATHLETE_STORAGE_KEY,
+} from './state';
 
 const mutation: MutationTree<AthletesStateInterface> = {
   FETCH_FAVOURITES(state, favourites: Athlete[]) {
     return (state.favourites = favourites);
   },
   FETCH_ATHLETE(state, athlete: Athlete) {
+    SessionStorage.set(ATHLETE_STORAGE_KEY, athlete);
+
     return (state.athlete = athlete);
   },
   SETUP_CREATE_ATHLETE(state, newAthlete: Athlete) {
     state.athlete = null;
+    SessionStorage.set(ATHLETE_STORAGE_KEY, null);
+
     return (state.newAthlete = newAthlete);
   },
   DELETE_ATHLETE(state) {
+    SessionStorage.set(ATHLETE_STORAGE_KEY, null);
+
     state.athlete = null;
   },
   UPDATE_ALL_YEARS_ARRAY(state, newYearsArray: YearResource) {
@@ -40,6 +50,7 @@ const mutation: MutationTree<AthletesStateInterface> = {
     });
     if (state.athlete != null) {
       state.athlete.favourite = !state.athlete.favourite;
+      SessionStorage.set(ATHLETE_STORAGE_KEY, state.athlete);
     }
   },
   FETCH_ATHLETE_SEARCH(state, athletes: Athlete[]) {

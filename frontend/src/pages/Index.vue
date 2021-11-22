@@ -1,6 +1,6 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <p v-if="!isLoggedIn" class="text-center">
+  <q-page v-if="!isLoggedIn" class="row items-center justify-evenly">
+    <p class="text-center">
       {{ $t('auth.pleaseEnroll') }}
       <br />
       <q-btn
@@ -12,8 +12,8 @@
         href="#/auth"
       ></q-btn>
     </p>
-    <manager-center v-else></manager-center>
   </q-page>
+  <manager-center class="col-12" v-else></manager-center>
 </template>
 
 <script lang="ts">

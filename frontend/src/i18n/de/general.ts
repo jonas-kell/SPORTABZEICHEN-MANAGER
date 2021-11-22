@@ -24,6 +24,8 @@ export default {
   new: 'Neu',
   welcome: 'Willkommen!',
   action: 'Bitte wählen Sie eine Aktion über das "Suche-Menü"',
+  sidebarHint:
+    'Die verfügbaren Aktionen stehen in der Seitenleiste zur Verfügung',
   notes: 'Notizen',
   requirements: 'Anforderungen',
   coordination: 'Koordination',

@@ -1,5 +1,5 @@
 <template>
-  <div class="card card-fill">
+  <div class="card">
     <div v-if="newAthlete == null && athlete == null">
       <div class="card-header">{{ $t('general.welcome') }}</div>
 
@@ -128,7 +128,7 @@
             </td>
             <td
               style="width: 16%"
-              class="hide-overflow unselectable pointer"
+              class="hide-overflow unselectable cursor-pointer"
               v-bind:class="{
                 highlighted:
                   athlete.performances[category][discipline].bronze_highlighted,
@@ -155,7 +155,7 @@
             </td>
             <td
               style="width: 16%"
-              class="hide-overflow unselectable pointer"
+              class="hide-overflow unselectable cursor-pointer"
               v-bind:class="{
                 highlighted:
                   athlete.performances[category][discipline].silver_highlighted,
@@ -182,7 +182,7 @@
             </td>
             <td
               style="width: 16%"
-              class="hide-overflow unselectable pointer"
+              class="hide-overflow unselectable cursor-pointer"
               v-bind:class="{
                 highlighted:
                   athlete.performances[category][discipline].gold_highlighted,

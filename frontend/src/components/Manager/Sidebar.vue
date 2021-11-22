@@ -1,3 +1,13 @@
+<style>
+.vh-search {
+  max-height: 30vh;
+}
+
+.vh-favourites {
+  max-height: 70vh;
+}
+</style>
+
 <template>
   <template v-if="isLoggedIn">
     <q-input
@@ -16,9 +26,9 @@
       </template>
     </q-input>
 
-    <div class="row q-mx-lg">
+    <div class="row q-mx-md">
       <q-select
-        class="col-12"
+        class="col-4 q-pr-sm"
         outlined
         v-model="currentYear"
         emit-value
@@ -29,7 +39,7 @@
         :options="dropdownFormattedYears"
       ></q-select>
       <q-btn
-        class="col-12 q-mt-sm"
+        class="col-8 q-pl-sm"
         color="primary"
         icon-right="add"
         :label="$t('general.create_new')"
@@ -38,24 +48,33 @@
       ></q-btn>
     </div>
 
-    <sidebar-list
-      class="col-12 vh-search"
-      v-bind="{
-        currentYear: currentYear,
-        list: searchedAthletes,
-      }"
-    />
+    <q-item-label class="q-py-sm" header>
+      {{ $t('general.search') }}
+    </q-item-label>
+
+    <div class="q-px-md row">
+      <sidebar-list
+        class="q-mx-md col-12 vh-search"
+        v-bind="{
+          currentYear: currentYear,
+          list: searchedAthletes,
+        }"
+      />
+    </div>
 
     <q-item-label class="q-py-sm" header>
       {{ $t('general.favourites') }}
     </q-item-label>
-    <sidebar-list
-      class="col-12 vh-favourites"
-      v-bind="{
-        currentYear: currentYear,
-        list: favourites,
-      }"
-    />
+
+    <div class="q-px-md row">
+      <sidebar-list
+        class="col-12 vh-favourites"
+        v-bind="{
+          currentYear: currentYear,
+          list: favourites,
+        }"
+      />
+    </div>
   </template>
 </template>
 

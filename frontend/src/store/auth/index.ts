@@ -10,7 +10,7 @@ const authModule: Module<AuthStateInterface, StateInterface> = {
   actions,
   getters,
   mutations,
-  state
+  state,
 };
 
 export default authModule;

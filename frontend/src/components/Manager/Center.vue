@@ -8,6 +8,34 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+table.requirements_table {
+  border: 2px solid black;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table.requirements_table > tr {
+  border: 2px solid black;
+}
+
+table.requirements_table > tr > td {
+  border: 1px solid black;
+}
+
+table.requirements_table > tr > td.highlighted {
+  background-color: #33af229a;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 </style>
 
 <template>
@@ -161,133 +189,150 @@
     </q-card>
 
     <!-- Athlete body section -->
-    <div class="from-group col-12 mt-2">
-      <h3>
-        {{ $t('general.requirements') }}:
-        {{ $t('general.' + modifyableAthlete.gender) }} |
-        {{ modifyableAthlete.requirements_tag }}
-      </h3>
-    </div>
-    <div
-      class="from-group col-12"
-      v-for="category in categories"
-      v-bind:key="category"
-    >
-      <h4 class="mt-2">{{ $t('general.' + category) }}</h4>
-      <table class="requirements_table">
-        <tr
-          v-for="(discipline_array, discipline) in modifyableAthlete
-            .needed_requirements[category]"
-          v-bind:key="discipline"
+    <q-card class="col-12 q-mt-lg" bordered>
+      <q-card-section class="bg-primary text-white row">
+        <b>
+          {{ $t('general.requirements') }}:
+          {{ $t('general.' + modifyableAthlete.gender) }} |
+          {{ modifyableAthlete.requirements_tag }}
+        </b>
+      </q-card-section>
+      <q-card-section class="row q-pt-none">
+        <div
+          class="from-group col-12"
+          v-for="category in categories"
+          v-bind:key="category"
         >
-          <td style="width: 30%">
-            {{ discipline }}
-            <span
-              class="help_symbol float-right"
-              data-toggle="tooltip"
-              data-placement="top"
-              v-bind:title="discipline_array.description"
-              v-if="discipline_array.description"
-            ></span>
-          </td>
-          <td
-            style="width: 16%"
-            class="hide-overflow unselectable cursor-pointer"
-            v-bind:class="{
-              highlighted:
-                modifyableAthlete.performances[category][discipline]
-                  .bronze_highlighted,
-            }"
-            @click="toggleHighlight(category, discipline, 'bronze_highlighted')"
-          >
-            <span
-              class="medal bronze float-left mr-1"
-              data-toggle="tooltip"
-              data-placement="top"
-              v-bind:title="
-                build_tooltip(
-                  discipline_array.requirements.bronze.requirement_with_unit,
-                  discipline_array.requirements.bronze.description
-                )
-              "
-              @click.stop
-            ></span>
-            <span class="no-break">
-              {{ discipline_array.requirements.bronze.requirement_with_unit }}
-            </span>
-          </td>
-          <td
-            style="width: 16%"
-            class="hide-overflow unselectable cursor-pointer"
-            v-bind:class="{
-              highlighted:
-                modifyableAthlete.performances[category][discipline]
-                  .silver_highlighted,
-            }"
-            @click="toggleHighlight(category, discipline, 'silver_highlighted')"
-          >
-            <span
-              class="medal silver float-left mr-1"
-              data-toggle="tooltip"
-              data-placement="top"
-              v-bind:title="
-                build_tooltip(
-                  discipline_array.requirements.silver.requirement_with_unit,
-                  discipline_array.requirements.silver.description
-                )
-              "
-              @click.stop
-            ></span>
-            <span class="no-break">
-              {{ discipline_array.requirements.silver.requirement_with_unit }}
-            </span>
-          </td>
-          <td
-            style="width: 16%"
-            class="hide-overflow unselectable cursor-pointer"
-            v-bind:class="{
-              highlighted:
-                modifyableAthlete.performances[category][discipline]
-                  .gold_highlighted,
-            }"
-            @click="toggleHighlight(category, discipline, 'gold_highlighted')"
-          >
-            <span
-              class="medal gold float-left mr-1"
-              data-toggle="tooltip"
-              data-placement="top"
-              v-bind:title="
-                build_tooltip(
-                  discipline_array.requirements.gold.requirement_with_unit,
-                  discipline_array.requirements.gold.description
-                )
-              "
-              @click.stop
-            ></span>
-            <span class="no-break">
-              {{ discipline_array.requirements.gold.requirement_with_unit }}
-            </span>
-          </td>
-          <td style="width: 18%">
-            <input
-              type="text"
-              class="mr-1 ml-1"
-              style="width: 90%"
-              v-model="
-                modifyableAthlete.performances[category][discipline].performance
-              "
-              @change="
-                updateAthletePerformance(
-                  modifyableAthlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
-                  category,
-                  discipline
-                )
-              "
-            />
-          </td>
-        </tr>
-      </table>
-    </div>
+          <h6 class="q-mb-sm q-mt-md">{{ $t('general.' + category) }}</h6>
+          <table class="requirements_table">
+            <tr
+              v-for="(discipline_array, discipline) in modifyableAthlete
+                .needed_requirements[category]"
+              v-bind:key="discipline"
+            >
+              <td style="width: 30%">
+                {{ discipline }}
+                <span
+                  class="help_symbol float-right"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  v-bind:title="discipline_array.description"
+                  v-if="discipline_array.description"
+                ></span>
+              </td>
+              <td
+                style="width: 16%"
+                class="hide-overflow unselectable cursor-pointer"
+                v-bind:class="{
+                  highlighted:
+                    modifyableAthlete.performances[category][discipline]
+                      .bronze_highlighted,
+                }"
+                @click="
+                  toggleHighlight(category, discipline, 'bronze_highlighted')
+                "
+              >
+                <span
+                  class="medal bronze float-left mr-1"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  v-bind:title="
+                    build_tooltip(
+                      discipline_array.requirements.bronze
+                        .requirement_with_unit,
+                      discipline_array.requirements.bronze.description
+                    )
+                  "
+                  @click.stop
+                ></span>
+                <span class="no-break">
+                  {{
+                    discipline_array.requirements.bronze.requirement_with_unit
+                  }}
+                </span>
+              </td>
+              <td
+                style="width: 16%"
+                class="hide-overflow unselectable cursor-pointer"
+                v-bind:class="{
+                  highlighted:
+                    modifyableAthlete.performances[category][discipline]
+                      .silver_highlighted,
+                }"
+                @click="
+                  toggleHighlight(category, discipline, 'silver_highlighted')
+                "
+              >
+                <span
+                  class="medal silver float-left mr-1"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  v-bind:title="
+                    build_tooltip(
+                      discipline_array.requirements.silver
+                        .requirement_with_unit,
+                      discipline_array.requirements.silver.description
+                    )
+                  "
+                  @click.stop
+                ></span>
+                <span class="no-break">
+                  {{
+                    discipline_array.requirements.silver.requirement_with_unit
+                  }}
+                </span>
+              </td>
+              <td
+                style="width: 16%"
+                class="hide-overflow unselectable cursor-pointer"
+                v-bind:class="{
+                  highlighted:
+                    modifyableAthlete.performances[category][discipline]
+                      .gold_highlighted,
+                }"
+                @click="
+                  toggleHighlight(category, discipline, 'gold_highlighted')
+                "
+              >
+                <span
+                  class="medal gold float-left mr-1"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  v-bind:title="
+                    build_tooltip(
+                      discipline_array.requirements.gold.requirement_with_unit,
+                      discipline_array.requirements.gold.description
+                    )
+                  "
+                  @click.stop
+                ></span>
+                <span class="no-break">
+                  {{ discipline_array.requirements.gold.requirement_with_unit }}
+                </span>
+              </td>
+              <td style="width: 18%">
+                <input
+                  type="text"
+                  class="mr-1 ml-1"
+                  style="width: 90%"
+                  v-model="
+                    modifyableAthlete.performances[category][discipline]
+                      .performance
+                  "
+                  @change="
+                    updateAthletePerformance(
+                      modifyableAthlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+                      category,
+                      discipline
+                    )
+                  "
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </q-card-section>
+    </q-card>
   </q-page>
   <q-page v-else-if="newAthlete != null" class="row q-pa-lg">
     <!-- NEW ATHLETE CREATION PART -->

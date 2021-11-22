@@ -1,3 +1,15 @@
+<style scoped>
+.hide-overflow {
+  overflow: hidden;
+}
+
+.no-break {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
+
 <template>
   <q-page
     v-if="newAthlete == null && athlete == null"
@@ -14,92 +26,141 @@
       </p>
     </div>
   </q-page>
-  <div v-else-if="athlete != null">
-    <div class="card-header">
-      {{ modifyableAthlete.name }}
-      ({{ $t('general.' + modifyableAthlete.gender) }} |
-      {{ modifyableAthlete.requirements_tag }})
-      <div class="float-right">
-        <span v-if="canEdit" class="btn btn-sm btn-save" @click="toggleEdit">{{
-          $t('general.save')
-        }}</span>
-        <span v-else class="btn btn-sm btn-edit" @click="toggleEdit">{{
-          $t('general.edit')
-        }}</span>
-      </div>
-      <favourite-star-button v-bind="{ athlete: athlete }" class="mr-3" />
-    </div>
+  <q-page v-else-if="athlete != null" class="row q-pa-lg">
+    <!-- NORMAL ATHLETE MANAGEMENT PART -->
+    <q-card class="col-12" bordered>
+      <q-card-section class="bg-primary text-white row">
+        <b class="col-6">
+          {{ modifyableAthlete.name }}
+          ({{ $t('general.' + modifyableAthlete.gender) }} |
+          {{ modifyableAthlete.requirements_tag }})
+        </b>
+        <div class="col-6 text-right">
+          <q-btn
+            class="float-right"
+            size="sm"
+            :color="canEdit ? 'positive' : 'primary'"
+            :label="canEdit ? $t('general.save') : $t('general.edit')"
+            v-on:click="toggleEdit"
+          ></q-btn>
+          <favourite-star-button
+            class="q-mr-md"
+            v-bind="{ athlete: modifyableAthlete }"
+          />
+        </div>
+      </q-card-section>
 
-    <div class="card-body row">
-      <div class="from-group col-lg-6 col-12">
-        <label for="center_name_field">
-          {{ $t('general.name') }}
-        </label>
-        <input
-          id="center_name_field"
-          v-model="modifyableAthlete.name"
-          class="form-control"
-          v-bind:disabled="!canEdit"
-          :placeholder="$t('general.name')"
-        />
-      </div>
-      <div class="from-group col-lg-6 col-12">
-        <label for="center_year_field">
-          {{ $t('general.year') }}
-        </label>
-        <input
-          id="center_year_field"
-          v-model="modifyableAthlete.year"
-          class="form-control"
-          v-bind:disabled="!canEdit"
-          :placeholder="$t('general.year')"
-        />
-      </div>
-      <div class="from-group col-lg-6 col-12">
-        <label for="center_birthday_field">
-          {{ $t('general.birthday') }}
-        </label>
-        <input
-          id="center_birthday_field"
-          type="date"
-          v-model="modifyableAthlete.birthday"
-          class="form-control"
-          v-bind:disabled="!canEdit"
-        />
-      </div>
-      <div class="from-group col-lg-6 col-12">
-        <label for="center_gender_field">
-          {{ $t('general.gender') }}
-        </label>
-        <select
-          id="center_gender_field"
-          v-model="modifyableAthlete.gender"
-          class="form-control"
-          v-bind:disabled="!canEdit"
-        >
-          <option value="male">
-            {{ $t('general.male') }}
-          </option>
-          <option value="female">
-            {{ $t('general.female') }}
-          </option>
-        </select>
-      </div>
-    </div>
-    <hr class="m-0" />
-    <div class="card-body row"></div>
+      <q-separator></q-separator>
+
+      <q-card-section class="row">
+        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.name"
+            :label="$t('general.name')"
+            class="col-12"
+            id="center_name_field"
+            name="center_name_field"
+            lazy-rules
+            :rules="[
+              (val) => (val && val.length > 0) || $t('validation.notEmpty'),
+            ]"
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.year"
+            :label="$t('general.year')"
+            class="col-12"
+            id="center_year_field"
+            name="center_year_field"
+            lazy-rules
+            mask="####"
+            :rules="[
+              (val) => (val && val.length > 0) || $t('validation.notEmpty'),
+            ]"
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+          <q-input
+            filled
+            class="col-12"
+            v-model="modifyableAthlete.birthday"
+            :label="$t('general.birthday')"
+            mask="date"
+            :rules="[
+              (val) =>
+                !(val && val.length > 0) ||
+                /^-?[\d]+\/[0-1]\d\/[0-3]\d$/.test(val) ||
+                $t('validation.date'),
+            ]"
+            id="center_birthday_field"
+            name="center_birthday_field"
+            :disable="!canEdit ? true : null"
+          >
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer">
+                <q-popup-proxy
+                  ref="qDateProxy"
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-date v-model="modifyableAthlete.birthday">
+                    <div class="row items-center justify-end">
+                      <q-btn
+                        v-close-popup
+                        label="Close"
+                        color="primary"
+                        flat
+                      ></q-btn>
+                    </div>
+                  </q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+          <q-select
+            filled
+            class="col-12"
+            v-model="modifyableAthlete.gender"
+            emit-value
+            map-options
+            :label="$t('general.years')"
+            :options="[
+              { value: 'female', label: $t('general.female') },
+              { value: 'male', label: $t('general.male') },
+            ]"
+            id="center_gender_field"
+            name="center_gender_field"
+            :disable="!canEdit ? true : null"
+          ></q-select>
+        </div>
+      </q-card-section>
+
+      <q-separator></q-separator>
+
+      <q-card-section class="row">
+        <div class="col-12 q-px-md q-pb-none row">
+          <q-input
+            class="col-12"
+            :label="$t('general.notes')"
+            v-model="modifyableAthlete.notes"
+            id="center_notes_field"
+            name="center_notes_field"
+            filled
+            autogrow
+          ></q-input>
+        </div>
+      </q-card-section>
+    </q-card>
+
     <!-- Athlete body section -->
-    <div class="from-group col-12">
-      <label for="center_notes_field">
-        {{ $t('general.notes') }}
-      </label>
-      <textarea
-        id="center_notes_field"
-        v-model="modifyableAthlete.notes"
-        class="form-control"
-      >
-      </textarea>
-    </div>
     <div class="from-group col-12 mt-2">
       <h3>
         {{ $t('general.requirements') }}:
@@ -227,12 +288,14 @@
         </tr>
       </table>
     </div>
-  </div>
+  </q-page>
   <q-page v-else-if="newAthlete != null" class="row q-pa-lg">
     <!-- NEW ATHLETE CREATION PART -->
     <q-card class="col-12" bordered>
       <q-card-section class="bg-primary text-white">
-        {{ $t('general.create_new') }}
+        <b>
+          {{ $t('general.create_new') }}
+        </b>
       </q-card-section>
 
       <q-separator></q-separator>

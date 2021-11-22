@@ -236,7 +236,7 @@
         <div class="col-12 col-md-8">
           <q-input
             filled
-            v-model="newAthlete.name"
+            v-model="modifyableNewAthlete.name"
             :label="$t('general.name')"
             class="col-12 q-mb-md"
             id="center_name_field"
@@ -248,7 +248,7 @@
           ></q-input>
           <q-input
             filled
-            v-model="newAthlete.year"
+            v-model="modifyableNewAthlete.year"
             :label="$t('general.year')"
             class="col-12 q-mb-md"
             id="center_year_field"
@@ -262,10 +262,15 @@
           <q-input
             filled
             class="col-12 q-mb-md"
-            v-model="newAthlete.birthday"
+            v-model="modifyableNewAthlete.birthday"
             :label="$t('general.birthday')"
             mask="date"
-            :rules="['date']"
+            :rules="[
+              (val) =>
+                !(val && val.length > 0) ||
+                /^-?[\d]+\/[0-1]\d\/[0-3]\d$/.test(val) ||
+                $t('validation.date'),
+            ]"
             id="center_birthday_field"
             name="center_birthday_field"
           >
@@ -277,7 +282,7 @@
                   transition-show="scale"
                   transition-hide="scale"
                 >
-                  <q-date v-model="newAthlete.birthday">
+                  <q-date v-model="modifyableNewAthlete.birthday">
                     <div class="row items-center justify-end">
                       <q-btn
                         v-close-popup
@@ -294,7 +299,7 @@
           <q-select
             filled
             class="col-12 q-mb-md"
-            v-model="newAthlete.gender"
+            v-model="modifyableNewAthlete.gender"
             emit-value
             map-options
             :label="$t('general.years')"
@@ -337,6 +342,8 @@ export default defineComponent({
   data() {
     return {
       canEdit: false,
+      modifyableNewAthlete: {} as Athlete,
+      modifyableAthlete: {} as Athlete,
       typingTimer: {} as { [key: string]: NodeJS.Timeout }, //use sub-elements to time different things, to prevent loss of data
     };
   },
@@ -345,7 +352,7 @@ export default defineComponent({
     createAthlete: function () {
       void this.$store.dispatch(
         'athletesModule/createAthlete',
-        this.newAthlete
+        this.modifyableNewAthlete
       );
     },
     toggleEdit() {
@@ -411,15 +418,18 @@ export default defineComponent({
     },
   },
   watch: {
-    athlete: function () {
-      //let the dom modify itself before toggeling //TODO: maybe make smart and not delay dependent
-      setTimeout(function () {
-        //in order to catch the changed values for title, dispose of all tooltips and reenable them fresh.
-        // $('[data-toggle="tooltip"]').tooltip('dispose'); // TODO
-        // the api says this function is called "destroy".
-        // You have no idea, how much time this misinformation just cost me
-        // $('[data-toggle="tooltip"]').tooltip('enable'); // TODO
-      }, 300);
+    newAthlete: {
+      deep: true,
+      handler: function (newValue: Athlete) {
+        // create a copy to perform local modifications on
+        this.modifyableNewAthlete = JSON.parse(
+          JSON.stringify(newValue)
+        ) as Athlete;
+      },
+    },
+    athlete: function (newValue: Athlete) {
+      // create a copy to perform local modifications on
+      this.modifyableAthlete = JSON.parse(JSON.stringify(newValue)) as Athlete;
     },
     'athlete.notes': function () {
       if (this.athlete != null) {

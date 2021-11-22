@@ -7,4 +7,5 @@ export default {
   */
 
   notEmpty: 'Feld darf nicht leer sein',
+  date: 'Feld muss ein Datum enthalten',
 };

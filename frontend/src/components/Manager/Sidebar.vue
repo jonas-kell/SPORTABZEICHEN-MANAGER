@@ -92,8 +92,10 @@ interface DropdownOption {
 export default defineComponent({
   components: { SidebarList },
   mounted() {
-    void this.$store.dispatch('athletesModule/fetchFavourites');
-    void this.$store.dispatch('athletesModule/getYear');
+    if (this.isLoggedIn) {
+      void this.$store.dispatch('athletesModule/fetchFavourites');
+      void this.$store.dispatch('athletesModule/getYear');
+    }
   },
   data() {
     return {

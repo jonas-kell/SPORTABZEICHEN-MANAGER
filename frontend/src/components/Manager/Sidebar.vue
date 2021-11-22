@@ -110,7 +110,8 @@ export default defineComponent({
     setupCreateAthlete: function () {
       this.mappedSetupCreateAthlete({
         name: this.searchbar,
-        year: this.currentYear,
+        year:
+          this.currentYear != -1 ? this.currentYear : new Date().getFullYear(),
         birthday: null,
         gender: 'male',
       } as Athlete);

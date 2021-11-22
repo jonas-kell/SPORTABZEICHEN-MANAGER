@@ -58,9 +58,9 @@ class UsersController extends Controller
                 $user->year = $year;
                 $user->save();
 
-                return $this->getYears($request);
+                return $user->year;
             } else {
-                return response()->json(["error" => "no user"]);
+                return response()->json(["error" => "no user"])->setStatusCode(400);
             }
         } else {
             return redirect("/");

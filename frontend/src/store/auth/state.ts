@@ -1,7 +1,7 @@
 import { SessionStorage } from 'quasar';
 
-export const UserStorageKey = 'THEUSERTOSTOREINSESSIONSTORAGE';
-export const IsLoggedInStorageKey = 'ISLOGGEDINSESSIONSTORAGE';
+export const USER_STORAGE_KEY = 'THEUSERTOSTOREINSESSIONSTORAGE';
+export const IS_LOGGED_IN_STORAGE_KEY = 'ISLOGGEDINSESSIONSTORAGE';
 
 export interface AuthStateInterface {
   isLoggedIn: boolean;
@@ -19,9 +19,9 @@ let isLoggedIn = false;
 let user = null as null | User;
 // cache user, to get smoother page refresh
 try {
-  if (SessionStorage.getItem(IsLoggedInStorageKey)) {
+  if (SessionStorage.getItem(IS_LOGGED_IN_STORAGE_KEY)) {
     isLoggedIn = true;
-    user = SessionStorage.getItem(UserStorageKey);
+    user = SessionStorage.getItem(USER_STORAGE_KEY);
   }
 } catch (e) {}
 

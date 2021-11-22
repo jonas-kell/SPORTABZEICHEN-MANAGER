@@ -67,7 +67,7 @@ class User extends Authenticatable
      */
     public static function getAllYearsArray()
     {
-        return [-1, 2020, 2021]; //TODO make dynamic year array
+        return [-1, 2020, 2021, 2022]; //TODO make dynamic year array
     }
 
     /**

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
-import { AthletesStateInterface, Athlete, Year } from './state';
+import { AthletesStateInterface, Athlete, YearResource } from './state';
 import { exportFile } from 'quasar';
 
 const actions: ActionTree<AthletesStateInterface, StateInterface> = {
@@ -131,9 +131,10 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
   },
   getYear({ dispatch, commit }) {
     axios
-      .get('/api/year/get')
+      .get<YearResource>('/api/year/get')
       .then((res) => {
-        commit('UPDATE_YEARS_ARRAY', res.data);
+        commit('UPDATE_ALL_YEARS_ARRAY', res.data);
+        commit('UPDATE_CURRENT_YEAR', res.data.current);
 
         //update search asynchronously
         void dispatch('fetchSearch');
@@ -142,11 +143,11 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         console.log(err);
       });
   },
-  setYear({ dispatch, commit }, year: Year) {
+  setYear({ dispatch, commit }, year: number) {
     axios
       .put('/api/year/set', { year: year })
       .then((res) => {
-        commit('UPDATE_YEARS_ARRAY', res.data);
+        commit('UPDATE_CURRENT_YEAR', res.data);
 
         //update search asynchronously
         void dispatch('fetchSearch');
@@ -161,7 +162,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       //call has no searchString specified, use previous one
     } else {
       //call has searchString specified, set the stored value new
-      state.searchString = searchString;
+      commit('SET_SEARCH_STRING', searchString);
     }
 
     if (state.searchString == '') {

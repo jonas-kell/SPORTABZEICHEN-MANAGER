@@ -30,4 +30,5 @@ export default {
   speed: 'Schnelligkeit',
   strength: 'Stärke',
   requestPDF: 'PDF erzeugen',
+  all: 'Alle',
 };

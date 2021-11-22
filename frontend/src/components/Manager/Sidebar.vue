@@ -1,59 +1,62 @@
 <template>
-  <q-item-label class="q-py-sm" header>
-    {{ $t('general.search') }}
-  </q-item-label>
-
-  <div class="input-group">
-    <input
+  <template v-if="isLoggedIn">
+    <q-input
+      class="q-pa-md"
+      filled
       v-model="searchbar"
-      class="form-control"
-      :placeholder="$t('general.search')"
+      :label="$t('general.search')"
+      id="searchbar"
+      name="searchbar"
+      clearable
+    >
+      <template v-slot:append>
+        <span class="input-group-text search-icon unselectable"></span>
+
+        <q-icon name="search"></q-icon>
+      </template>
+    </q-input>
+    <select v-model="currentYear">
+      <option
+        v-for="year in allYearsArray"
+        v-bind:key="year"
+        v-bind:value="year"
+      >
+        {{ year == -1 ? $t('general.all') : year }}
+      </option>
+    </select>
+
+    <span
+      class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
+      @click="setupCreateAthlete"
+    >
+      ++ {{ $t('general.create_new') }} ++
+    </span>
+    <sidebar-list
+      class="col-12 vh-search"
+      v-bind="{
+        currentYear: currentYear,
+        list: searchedAthletes,
+      }"
     />
-    <div class="input-group-append">
-      <span class="input-group-text search-icon unselectable"></span>
-      <select v-model="yearsArray.current">
-        <option
-          v-for="year in yearsArray.allYears"
-          v-bind:key="year"
-          v-bind:value="year"
-        >
-          {{ year == -1 ? ALL_YEARS_STRING : year }}
-        </option>
-      </select>
-    </div>
-  </div>
 
-  <span
-    class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
-    @click="setupCreateAthlete"
-  >
-    ++ {{ $t('general.create_new') }} ++
-  </span>
-  <sidebar-list
-    class="col-12 vh-search"
-    v-bind="{
-      currentYear: yearsArray.current,
-      list: searchedAthletes,
-    }"
-  />
-  <q-item-label class="q-py-sm" header>
-    {{ $t('general.favourites') }}
-  </q-item-label>
-
-  <sidebar-list
-    class="col-12 vh-favourites"
-    v-bind="{
-      currentYear: yearsArray.current,
-      list: favourites,
-    }"
-  />
+    <q-item-label class="q-py-sm" header>
+      {{ $t('general.favourites') }}
+    </q-item-label>
+    <sidebar-list
+      class="col-12 vh-favourites"
+      v-bind="{
+        currentYear: currentYear,
+        list: favourites,
+      }"
+    />
+  </template>
 </template>
 
 <script lang="ts">
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import SidebarList from '../Includes/SidebarList.vue';
 import { defineComponent } from 'vue';
-import { Athlete, Year } from '../../store/athletes/state';
+import { Athlete } from '../../store/athletes/state';
 
 export default defineComponent({
   components: { SidebarList },
@@ -64,7 +67,6 @@ export default defineComponent({
   data() {
     return {
       searchbar: '',
-      ALL_YEARS_STRING: 'Alle',
       typingTimer: setTimeout(() => ({}), 0),
     };
   },
@@ -77,24 +79,13 @@ export default defineComponent({
     setupCreateAthlete: function () {
       this.mappedSetupCreateAthlete({
         name: this.searchbar,
-        year: this.yearsArray.current,
+        year: this.currentYear,
         birthday: null,
         gender: 'male',
       } as Athlete);
     },
   },
   watch: {
-    'yearsArray.current': function (newValue) {
-      //TODO also calls on initial laod. sets unnecessary. maybe resolve.
-      if (newValue == this.ALL_YEARS_STRING) {
-        void this.$store.dispatch(
-          'athletesModule/setYear',
-          -1 as unknown as undefined
-        );
-      } else {
-        void this.$store.dispatch('athletesModule/setYear', newValue);
-      }
-    },
     searchbar: function (newValue) {
       let store = this.$store;
       clearTimeout(this.typingTimer);
@@ -104,14 +95,27 @@ export default defineComponent({
     },
   },
   computed: {
+    currentYear: {
+      get(): number {
+        return (
+          this.$store.getters as { 'athletesModule/currentYear': number }
+        )['athletesModule/currentYear'];
+      },
+      set(newValue: number) {
+        void this.$store.dispatch('athletesModule/setYear', newValue);
+      },
+    },
     ...(mapGetters('athletesModule', [
       'favourites',
-      'yearsArray',
       'searchedAthletes',
+      'allYearsArray',
     ]) as MapToComputed<{
       favourites: Athlete[];
-      yearsArray: Year;
       searchedAthletes: Athlete[];
+      allYearsArray: number[];
+    }>),
+    ...(mapState('authModule', ['isLoggedIn']) as MapToComputed<{
+      isLoggedIn: boolean;
     }>),
   },
 });

@@ -9,8 +9,11 @@ const getters: GetterTree<AthletesStateInterface, StateInterface> = {
   newAthlete: (state) => {
     return state.newAthlete;
   },
-  yearsArray: (state) => {
-    return state.yearsArray;
+  allYearsArray: (state) => {
+    return state.allYearsArray;
+  },
+  currentYear: (state) => {
+    return state.currentYear;
   },
   searchedAthletes: (state) => {
     return state.searchedAthletes;

@@ -3,6 +3,8 @@ import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
 import { AthletesStateInterface, Athlete, YearResource } from './state';
 import { exportFile } from 'quasar';
+import { Notify } from 'quasar';
+import { i18n } from './../../boot/i18n';
 
 const actions: ActionTree<AthletesStateInterface, StateInterface> = {
   fetchFavourites({ commit }) {
@@ -10,9 +12,15 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .get('api/favourites')
       .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
         commit('FETCH_FAVOURITES', res.data.athletes);
+
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.reloadedFavourites'),
+        });
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   addFavourite({ dispatch, commit, state }, athlete: Athlete) {
@@ -28,7 +36,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         }
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   dropFavourite({ dispatch, commit, state }, athlete: Athlete) {
@@ -44,7 +52,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         }
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   fetchAthlete({ commit }, athlete_id: number) {
@@ -54,7 +62,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         commit('FETCH_ATHLETE', res.data.data);
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   setupCreateAthlete({ commit }, newAthlete: Athlete) {
@@ -70,7 +78,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         void dispatch('fetchSearch');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   updateAthlete({ dispatch, commit }, athlete: Athlete) {
@@ -84,7 +92,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         void dispatch('fetchFavourites');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   updateAthleteNotes({}, athlete: Athlete) {
@@ -97,7 +105,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         // an update on typing events risks inconsistency
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   updateAthletePerformances({ dispatch }, athlete: Athlete) {
@@ -116,7 +124,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         void dispatch('fetchFavourites');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   deleteAthlete({ commit }, athlete: Athlete) {
@@ -126,7 +134,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         commit('DELETE_ATHLETE');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   getYear({ dispatch, commit }) {
@@ -140,7 +148,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         void dispatch('fetchSearch');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   setYear({ dispatch, commit }, year: number) {
@@ -154,7 +162,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         void dispatch('fetchFavourites');
       })
       .catch((err) => {
-        console.log(err);
+        notifyOfUnknownError(err);
       });
   },
   fetchSearch({ commit, state }, searchString: string) {
@@ -174,9 +182,15 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         .get(`api/search/athletes/${encodeURIComponent(state.searchString)}`)
         .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
           commit('FETCH_ATHLETE_SEARCH', res.data.athletes);
+
+          // Notify the user of the fetch
+          Notify.create({
+            type: 'reloaded',
+            message: i18n.global.t('general.reloadedSearch'),
+          });
         })
         .catch((err) => {
-          console.log(err);
+          notifyOfUnknownError(err);
         });
     }
   },
@@ -194,13 +208,23 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
           // browser allowed it
         } else {
           // browser denied it
-          console.error(status);
+          notifyOfUnknownError(status);
         }
       })
       .catch((err) => {
-        console.error(err);
+        notifyOfUnknownError(err);
       });
   },
 };
 
 export default actions;
+
+function notifyOfUnknownError(err: unknown) {
+  console.error(err);
+
+  // Notify the user of the error
+  Notify.create({
+    type: 'error',
+    message: i18n.global.t('general.unknownError'),
+  });
+}

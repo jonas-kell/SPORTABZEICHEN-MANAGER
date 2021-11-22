@@ -32,4 +32,7 @@ export default {
   strength: 'Stärke',
   requestPDF: 'PDF erzeugen',
   all: 'Alle',
+  unknownError: 'Unbekannter Fehler',
+  reloadedFavourites: 'Favoriten aktualisiert',
+  reloadedSearch: 'Suche aktualisiert',
 };

@@ -8,7 +8,17 @@ Notify.registerType('success', {
   color: 'green',
   textColor: 'white',
   classes: 'glossy',
-  position: 'top-right'
+  position: 'top-right',
+});
+
+Notify.registerType('reloaded', {
+  icon: 'repeat',
+  progress: true,
+  timeout: 600,
+  color: 'green',
+  textColor: 'white',
+  classes: 'glossy',
+  position: 'top-right',
 });
 
 Notify.registerType('error', {
@@ -17,5 +27,5 @@ Notify.registerType('error', {
   color: 'red',
   textColor: 'white',
   classes: 'glossy',
-  position: 'top-right'
+  position: 'top-right',
 });

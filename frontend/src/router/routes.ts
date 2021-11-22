@@ -11,13 +11,24 @@ const routes: RouteRecordRaw[] = [
           default: () => import('pages/Index.vue'),
           'sidebar-attachment': () => import('components/Manager/Sidebar.vue'),
         },
+        props: {
+          'sidebar-attachment': { supportsCreation: true },
+        },
       },
     ],
   },
   {
     path: '/list',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/List.vue') }],
+    children: [
+      {
+        path: '',
+        components: {
+          default: () => import('pages/List.vue'),
+          'sidebar-attachment': () => import('components/Manager/Sidebar.vue'),
+        },
+      },
+    ],
   },
   {
     path: '/auth',

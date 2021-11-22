@@ -39,6 +39,7 @@
         :options="dropdownFormattedYears"
       ></q-select>
       <q-btn
+        v-if="supportsCreation"
         class="col-8 q-pl-sm"
         color="primary"
         icon-right="add"
@@ -91,6 +92,12 @@ interface DropdownOption {
 
 export default defineComponent({
   components: { SidebarList },
+  props: {
+    supportsCreation: {
+      default: false,
+      type: Boolean,
+    },
+  },
   mounted() {
     if (this.isLoggedIn) {
       void this.$store.dispatch('athletesModule/fetchFavourites');

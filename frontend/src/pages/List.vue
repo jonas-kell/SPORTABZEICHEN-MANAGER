@@ -1,17 +1,17 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <list-index v-if="isLoggedIn"></list-index>
+    <favourites-list v-if="isLoggedIn"></favourites-list>
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
-import ListIndex from '../components/List/ListIndex.vue';
+import FavouritesList from '../components/Manager/FavouritesList.vue';
 
 export default defineComponent({
   components: {
-    ListIndex,
+    FavouritesList,
   },
   computed: {
     ...mapState('authModule', {

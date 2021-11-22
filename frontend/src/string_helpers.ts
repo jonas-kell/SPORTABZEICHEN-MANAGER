@@ -9,7 +9,7 @@ export function nbsp_encode(string: string) {
  * replace spaces with non-breaking spaces
  */
 export function build_tooltip(requirement: string, description = '') {
-  if (description == undefined) {
+  if (description == undefined || description == '') {
     return requirement;
   } else {
     return requirement + ': ' + description;

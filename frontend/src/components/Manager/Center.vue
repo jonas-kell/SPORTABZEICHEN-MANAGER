@@ -214,11 +214,17 @@ table.requirements_table > tr > td.highlighted {
                 {{ discipline }}
                 <span
                   class="help_symbol float-right"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  v-bind:title="discipline_array.description"
                   v-if="discipline_array.description"
-                ></span>
+                >
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                    max-width="40rem"
+                    :offset="[10, 10]"
+                  >
+                    {{ discipline_array.description }}
+                  </q-tooltip>
+                </span>
               </td>
               <td
                 style="width: 16%"
@@ -232,19 +238,22 @@ table.requirements_table > tr > td.highlighted {
                   toggleHighlight(category, discipline, 'bronze_highlighted')
                 "
               >
-                <span
-                  class="medal bronze float-left mr-1"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  v-bind:title="
-                    build_tooltip(
-                      discipline_array.requirements.bronze
-                        .requirement_with_unit,
-                      discipline_array.requirements.bronze.description
-                    )
-                  "
-                  @click.stop
-                ></span>
+                <span class="medal bronze float-left mr-1" @click.stop>
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                    max-width="40rem"
+                    :offset="[10, 10]"
+                  >
+                    {{
+                      build_tooltip(
+                        discipline_array.requirements.bronze
+                          .requirement_with_unit,
+                        discipline_array.requirements.bronze.description
+                      )
+                    }}
+                  </q-tooltip>
+                </span>
                 <span class="no-break">
                   {{
                     discipline_array.requirements.bronze.requirement_with_unit
@@ -263,19 +272,22 @@ table.requirements_table > tr > td.highlighted {
                   toggleHighlight(category, discipline, 'silver_highlighted')
                 "
               >
-                <span
-                  class="medal silver float-left mr-1"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  v-bind:title="
-                    build_tooltip(
-                      discipline_array.requirements.silver
-                        .requirement_with_unit,
-                      discipline_array.requirements.silver.description
-                    )
-                  "
-                  @click.stop
-                ></span>
+                <span class="medal silver float-left mr-1" @click.stop>
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                    max-width="40rem"
+                    :offset="[10, 10]"
+                  >
+                    {{
+                      build_tooltip(
+                        discipline_array.requirements.silver
+                          .requirement_with_unit,
+                        discipline_array.requirements.silver.description
+                      )
+                    }}
+                  </q-tooltip>
+                </span>
                 <span class="no-break">
                   {{
                     discipline_array.requirements.silver.requirement_with_unit
@@ -294,18 +306,22 @@ table.requirements_table > tr > td.highlighted {
                   toggleHighlight(category, discipline, 'gold_highlighted')
                 "
               >
-                <span
-                  class="medal gold float-left mr-1"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  v-bind:title="
-                    build_tooltip(
-                      discipline_array.requirements.gold.requirement_with_unit,
-                      discipline_array.requirements.gold.description
-                    )
-                  "
-                  @click.stop
-                ></span>
+                <span class="medal gold float-left mr-1" @click.stop>
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                    max-width="40rem"
+                    :offset="[10, 10]"
+                  >
+                    {{
+                      build_tooltip(
+                        discipline_array.requirements.gold
+                          .requirement_with_unit,
+                        discipline_array.requirements.gold.description
+                      )
+                    }}
+                  </q-tooltip>
+                </span>
                 <span class="no-break">
                   {{ discipline_array.requirements.gold.requirement_with_unit }}
                 </span>
@@ -436,6 +452,7 @@ table.requirements_table > tr > td.highlighted {
 </template>
 
 <script lang="ts">
+import { build_tooltip } from './../../string_helpers';
 import { mapGetters } from 'vuex';
 import FavouriteStarButton from '../Includes/FavouriteStarButton.vue';
 import { defineComponent } from 'vue';
@@ -445,8 +462,6 @@ import {
   Discipline,
   PerformanceArray,
 } from 'src/store/athletes/state';
-
-import { build_tooltip } from './../../string_helpers';
 
 export default defineComponent({
   components: {

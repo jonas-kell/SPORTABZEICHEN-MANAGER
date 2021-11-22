@@ -12,7 +12,7 @@
     <div v-else-if="athlete != null">
       <div class="card-header">
         {{ athlete.name }}
-        ({{ $t('general.') + athlete.gender }} | {{ athlete.requirements_tag }})
+        ({{ $t('general.' + athlete.gender) }} | {{ athlete.requirements_tag }})
         <div class="float-right">
           <span
             v-if="canEdit"

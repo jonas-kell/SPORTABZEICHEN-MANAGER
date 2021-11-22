@@ -11,6 +11,8 @@ export default {
   */
 
   login: 'Einloggen',
+  enroll: 'Anmelden',
+  pleaseEnroll: 'Nicht eingeloggt. Bitte melde dich an',
   logout: 'Ausloggen',
   password: 'Passwort',
   repeatPassword: 'Passwort Wiederholen',

@@ -1,55 +1,52 @@
 <template>
-  <div class="card card-fill">
-    <div class="card-header">
-      <div class="input-group">
-        <input
-          v-model="searchbar"
-          class="form-control"
-          :placeholder="$t('general.search')"
-        />
-        <div class="input-group-append">
-          <span class="input-group-text search-icon unselectable"></span>
-          <select v-model="yearsArray.current">
-            <option
-              v-for="year in yearsArray.allYears"
-              v-bind:key="year"
-              v-bind:value="year"
-            >
-              {{ year == -1 ? ALL_YEARS_STRING : year }}
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
+  <q-item-label class="q-py-sm" header>
+    {{ $t('general.search') }}
+  </q-item-label>
 
-    <div class="card-body row no-gutters justify-content-center">
-      <span
-        class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
-        @click="setupCreateAthlete"
-      >
-        ++ {{ $t('general.create_new') }} ++
-      </span>
-      <sidebar-list
-        class="col-12 vh-search"
-        v-bind="{
-          currentYear: yearsArray.current,
-          list: searchedAthletes,
-        }"
-      />
-    </div>
-    <hr class="m-0" />
-    <div class="card-body row no-gutters">
-      <h5>{{ $t('general.favourites') }}</h5>
-
-      <sidebar-list
-        class="col-12 vh-favourites"
-        v-bind="{
-          currentYear: yearsArray.current,
-          list: favourites,
-        }"
-      />
+  <div class="input-group">
+    <input
+      v-model="searchbar"
+      class="form-control"
+      :placeholder="$t('general.search')"
+    />
+    <div class="input-group-append">
+      <span class="input-group-text search-icon unselectable"></span>
+      <select v-model="yearsArray.current">
+        <option
+          v-for="year in yearsArray.allYears"
+          v-bind:key="year"
+          v-bind:value="year"
+        >
+          {{ year == -1 ? ALL_YEARS_STRING : year }}
+        </option>
+      </select>
     </div>
   </div>
+
+  <span
+    class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
+    @click="setupCreateAthlete"
+  >
+    ++ {{ $t('general.create_new') }} ++
+  </span>
+  <sidebar-list
+    class="col-12 vh-search"
+    v-bind="{
+      currentYear: yearsArray.current,
+      list: searchedAthletes,
+    }"
+  />
+  <q-item-label class="q-py-sm" header>
+    {{ $t('general.favourites') }}
+  </q-item-label>
+
+  <sidebar-list
+    class="col-12 vh-favourites"
+    v-bind="{
+      currentYear: yearsArray.current,
+      list: favourites,
+    }"
+  />
 </template>
 
 <script lang="ts">

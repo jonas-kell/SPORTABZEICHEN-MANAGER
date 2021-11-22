@@ -1,4 +1,8 @@
 <template>
+  <q-item-label class="q-py-sm" header>
+    {{ $t('sidebar.menu') }}
+  </q-item-label>
+
   <SidebarLink
     v-for="link in linksToRender"
     :key="link.title"

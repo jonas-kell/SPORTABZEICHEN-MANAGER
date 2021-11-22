@@ -4,7 +4,15 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') }],
+    children: [
+      {
+        path: '',
+        components: {
+          default: () => import('pages/Index.vue'),
+          'sidebar-attachment': () => import('components/Manager/Sidebar.vue'),
+        },
+      },
+    ],
   },
   {
     path: '/list',

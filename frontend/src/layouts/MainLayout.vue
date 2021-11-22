@@ -27,9 +27,8 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header> {{ $t('sidebar.menu') }} </q-item-label>
-
         <Sidebar />
+        <router-view name="sidebar-attachment" />
       </q-list>
     </q-drawer>
 

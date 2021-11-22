@@ -1,12 +1,25 @@
 <template>
-  <q-card class="col-12" bordered>
-    <q-card-section class="col-12 q-pb-none">
-      <q-btn
-        color="primary"
-        icon-right="print"
-        :label="$t('general.requestPDF')"
-        @click="requestPDF"
-      ></q-btn>
+  <q-card bordered>
+    <q-card-section class="row q-pb-none">
+      <div class="col-2">
+        <q-btn
+          color="primary"
+          icon-right="print"
+          :label="$t('general.requestPDF')"
+          @click="requestPDF"
+        ></q-btn>
+      </div>
+      <div class="col-2 q-pb-none">
+        <q-input
+          filled
+          :dense="true"
+          :label="$t('general.new')"
+          class="q-pb-none"
+          v-model.number="numberOfExtraCols"
+          type="number"
+          :rules="[(val) => val && val > 0]"
+        ></q-input>
+      </div>
     </q-card-section>
     <q-card-section class="col-12">
       <table id="render-pdf" ref="render-pdf">
@@ -44,7 +57,10 @@
           <td style="width: 10%"></td>
           <td style="width: 10%"></td>
         </tr>
-        <tr v-for="n in 10" v-bind:key="-n">
+        <tr
+          v-for="n in Math.min(Math.max(numberOfExtraCols, 0), 100)"
+          v-bind:key="-n"
+        >
           <!-- binding normal numbes causes duplicate-key issues, when the ids used here are the same as real athletes ones by chance -->
           <td></td>
           <td style="width: 9%"></td>
@@ -72,9 +88,6 @@ import { Athlete } from '../../store/athletes/state';
 
 export default defineComponent({
   components: { MedalDisplayTable },
-  created() {
-    //this.ALL_YEARS_STRING = "Alle"; //TODO make selector for favorites/non-favorites, clone year selector to this page
-  },
   mounted() {
     void this.$store.dispatch('athletesModule/fetchFavourites');
   },
@@ -84,6 +97,11 @@ export default defineComponent({
     }) as MapToComputed<{
       favourites: Athlete[];
     }>),
+  },
+  data() {
+    return {
+      numberOfExtraCols: 10,
+    };
   },
   methods: {
     requestPDF() {

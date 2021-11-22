@@ -16,8 +16,9 @@
   </q-page>
   <div v-else-if="athlete != null">
     <div class="card-header">
-      {{ athlete.name }}
-      ({{ $t('general.' + athlete.gender) }} | {{ athlete.requirements_tag }})
+      {{ modifyableAthlete.name }}
+      ({{ $t('general.' + modifyableAthlete.gender) }} |
+      {{ modifyableAthlete.requirements_tag }})
       <div class="float-right">
         <span v-if="canEdit" class="btn btn-sm btn-save" @click="toggleEdit">{{
           $t('general.save')
@@ -36,7 +37,7 @@
         </label>
         <input
           id="center_name_field"
-          v-model="athlete.name"
+          v-model="modifyableAthlete.name"
           class="form-control"
           v-bind:disabled="!canEdit"
           :placeholder="$t('general.name')"
@@ -48,7 +49,7 @@
         </label>
         <input
           id="center_year_field"
-          v-model="athlete.year"
+          v-model="modifyableAthlete.year"
           class="form-control"
           v-bind:disabled="!canEdit"
           :placeholder="$t('general.year')"
@@ -61,7 +62,7 @@
         <input
           id="center_birthday_field"
           type="date"
-          v-model="athlete.birthday"
+          v-model="modifyableAthlete.birthday"
           class="form-control"
           v-bind:disabled="!canEdit"
         />
@@ -72,7 +73,7 @@
         </label>
         <select
           id="center_gender_field"
-          v-model="athlete.gender"
+          v-model="modifyableAthlete.gender"
           class="form-control"
           v-bind:disabled="!canEdit"
         >
@@ -94,7 +95,7 @@
       </label>
       <textarea
         id="center_notes_field"
-        v-model="athlete.notes"
+        v-model="modifyableAthlete.notes"
         class="form-control"
       >
       </textarea>
@@ -102,8 +103,8 @@
     <div class="from-group col-12 mt-2">
       <h3>
         {{ $t('general.requirements') }}:
-        {{ $t('general.' + athlete.gender) }} |
-        {{ athlete.requirements_tag }}
+        {{ $t('general.' + modifyableAthlete.gender) }} |
+        {{ modifyableAthlete.requirements_tag }}
       </h3>
     </div>
     <div
@@ -114,9 +115,8 @@
       <h4 class="mt-2">{{ $t('general.' + category) }}</h4>
       <table class="requirements_table">
         <tr
-          v-for="(discipline_array, discipline) in athlete.needed_requirements[
-            category
-          ]"
+          v-for="(discipline_array, discipline) in modifyableAthlete
+            .needed_requirements[category]"
           v-bind:key="discipline"
         >
           <td style="width: 30%">
@@ -134,7 +134,8 @@
             class="hide-overflow unselectable cursor-pointer"
             v-bind:class="{
               highlighted:
-                athlete.performances[category][discipline].bronze_highlighted,
+                modifyableAthlete.performances[category][discipline]
+                  .bronze_highlighted,
             }"
             @click="toggleHighlight(category, discipline, 'bronze_highlighted')"
           >
@@ -159,7 +160,8 @@
             class="hide-overflow unselectable cursor-pointer"
             v-bind:class="{
               highlighted:
-                athlete.performances[category][discipline].silver_highlighted,
+                modifyableAthlete.performances[category][discipline]
+                  .silver_highlighted,
             }"
             @click="toggleHighlight(category, discipline, 'silver_highlighted')"
           >
@@ -184,7 +186,8 @@
             class="hide-overflow unselectable cursor-pointer"
             v-bind:class="{
               highlighted:
-                athlete.performances[category][discipline].gold_highlighted,
+                modifyableAthlete.performances[category][discipline]
+                  .gold_highlighted,
             }"
             @click="toggleHighlight(category, discipline, 'gold_highlighted')"
           >
@@ -209,10 +212,12 @@
               type="text"
               class="mr-1 ml-1"
               style="width: 90%"
-              v-model="athlete.performances[category][discipline].performance"
+              v-model="
+                modifyableAthlete.performances[category][discipline].performance
+              "
               @change="
                 updateAthletePerformance(
-                  athlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
+                  modifyableAthlete.id, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
                   category,
                   discipline
                 )
@@ -358,7 +363,10 @@ export default defineComponent({
     toggleEdit() {
       if (this.canEdit) {
         // edit was avaliable until now, that means we need to save now
-        void this.$store.dispatch('athletesModule/updateAthlete', this.athlete);
+        void this.$store.dispatch(
+          'athletesModule/updateAthlete',
+          this.modifyableAthlete
+        );
       }
 
       this.canEdit = !this.canEdit;
@@ -381,16 +389,22 @@ export default defineComponent({
 
       // set the changed value
       performances[category][discipline].performance =
-        this.athlete.performances[category][discipline].performance;
+        this.modifyableAthlete.performances[category][discipline].performance;
 
       performances[category][discipline].bronze_highlighted =
-        this.athlete.performances[category][discipline].bronze_highlighted;
+        this.modifyableAthlete.performances[category][
+          discipline
+        ].bronze_highlighted;
 
       performances[category][discipline].silver_highlighted =
-        this.athlete.performances[category][discipline].silver_highlighted;
+        this.modifyableAthlete.performances[category][
+          discipline
+        ].silver_highlighted;
 
       performances[category][discipline].gold_highlighted =
-        this.athlete.performances[category][discipline].gold_highlighted;
+        this.modifyableAthlete.performances[category][
+          discipline
+        ].gold_highlighted;
 
       mockup_athlete.performances = performances;
       // dispatch the performance-update
@@ -404,16 +418,20 @@ export default defineComponent({
       discipline: Discipline,
       type: 'bronze_highlighted' | 'silver_highlighted' | 'gold_highlighted'
     ) {
-      if (this.athlete.performances[category][discipline][type]) {
-        this.athlete.performances[category][discipline][type] = false;
+      if (this.modifyableAthlete.performances[category][discipline][type]) {
+        this.modifyableAthlete.performances[category][discipline][type] = false;
       } else {
-        this.athlete.performances[category][discipline][type] = true;
+        this.modifyableAthlete.performances[category][discipline][type] = true;
       }
       this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
 
       clearTimeout(this.typingTimer[discipline]);
       this.typingTimer[discipline] = setTimeout(() => {
-        this.updateAthletePerformance(this.athlete.id, category, discipline); //store the update in the database
+        this.updateAthletePerformance(
+          this.modifyableAthlete.id,
+          category,
+          discipline
+        ); //store the update in the database
       }, 400);
     },
   },
@@ -427,17 +445,25 @@ export default defineComponent({
         ) as Athlete;
       },
     },
-    athlete: function (newValue: Athlete) {
-      // create a copy to perform local modifications on
-      this.modifyableAthlete = JSON.parse(JSON.stringify(newValue)) as Athlete;
+    athlete: {
+      deep: true,
+      handler: function (newValue: Athlete) {
+        // create a copy to perform local modifications on
+        this.modifyableAthlete = JSON.parse(
+          JSON.stringify(newValue)
+        ) as Athlete;
+      },
     },
-    'athlete.notes': function () {
-      if (this.athlete != null) {
+    'modifyableAthlete.notes': function () {
+      if (
+        this.modifyableAthlete != null &&
+        this.modifyableAthlete.notes != this.athlete.notes
+      ) {
         clearTimeout(this.typingTimer['typing']);
         this.typingTimer['typing'] = setTimeout(() => {
           void this.$store.dispatch(
             'athletesModule/updateAthleteNotes',
-            this.athlete
+            this.modifyableAthlete
           );
         }, 300);
       }

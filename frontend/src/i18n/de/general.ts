@@ -11,6 +11,7 @@ export default {
   save: 'Speichern',
   name: 'Name',
   year: 'Sportabzeichen Jahr',
+  years: 'Jahre',
   gender: 'Geschlecht',
   male: 'Männlich',
   gender_short_male: 'M',

@@ -15,22 +15,29 @@
         <q-icon name="search"></q-icon>
       </template>
     </q-input>
-    <select v-model="currentYear">
-      <option
-        v-for="year in allYearsArray"
-        v-bind:key="year"
-        v-bind:value="year"
-      >
-        {{ year == -1 ? $t('general.all') : year }}
-      </option>
-    </select>
 
-    <span
-      class="btn btn-edit btn-sm mb-2 col-lg-8 col-md-12 col-8"
-      @click="setupCreateAthlete"
-    >
-      ++ {{ $t('general.create_new') }} ++
-    </span>
+    <div class="row q-mx-lg">
+      <q-select
+        class="col-12"
+        outlined
+        v-model="currentYear"
+        emit-value
+        map-options
+        :label="$t('general.years')"
+        :dense="true"
+        :options-dense="true"
+        :options="dropdownFormattedYears"
+      ></q-select>
+      <q-btn
+        class="col-12 q-mt-sm"
+        color="primary"
+        icon-right="add"
+        :label="$t('general.create_new')"
+        @click="setupCreateAthlete"
+        :disable="searchbar == '' ? true : null"
+      ></q-btn>
+    </div>
+
     <sidebar-list
       class="col-12 vh-search"
       v-bind="{
@@ -57,6 +64,11 @@ import { mapActions, mapGetters, mapState } from 'vuex';
 import SidebarList from '../Includes/SidebarList.vue';
 import { defineComponent } from 'vue';
 import { Athlete } from '../../store/athletes/state';
+
+interface DropdownOption {
+  value: number;
+  label: string;
+}
 
 export default defineComponent({
   components: { SidebarList },
@@ -104,6 +116,19 @@ export default defineComponent({
       set(newValue: number) {
         void this.$store.dispatch('athletesModule/setYear', newValue);
       },
+    },
+    dropdownFormattedYears: function () {
+      let formatted = [] as DropdownOption[];
+
+      this.allYearsArray.forEach((year) => {
+        if (year == -1) {
+          formatted.push({ label: this.$t('general.all'), value: -1 });
+        } else {
+          formatted.push({ label: String(year), value: year });
+        }
+      });
+
+      return formatted;
     },
     ...(mapGetters('athletesModule', [
       'favourites',

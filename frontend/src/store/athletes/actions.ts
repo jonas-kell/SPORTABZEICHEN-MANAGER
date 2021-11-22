@@ -23,33 +23,33 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  addFavourite({ dispatch, commit, state }, athlete: Athlete) {
+  addFavourite({ commit }, athlete: Athlete) {
     axios
       .put(`api/favourites/add/${encodeURIComponent(athlete.id)}`)
       .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
         commit('FETCH_FAVOURITES', res.data.athletes);
 
-        //update search and center athlete asynchronously
-        void dispatch('fetchSearch');
-        if (state.athlete !== null) {
-          void dispatch('fetchAthlete', state.athlete.id);
-        }
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.addedFavourite'),
+        });
       })
       .catch((err) => {
         notifyOfUnknownError(err);
       });
   },
-  dropFavourite({ dispatch, commit, state }, athlete: Athlete) {
+  dropFavourite({ commit }, athlete: Athlete) {
     axios
       .put(`api/favourites/drop/${encodeURIComponent(athlete.id)}`)
       .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
         commit('FETCH_FAVOURITES', res.data.athletes);
 
-        //update search and center athlete asynchronously
-        void dispatch('fetchSearch');
-        if (state.athlete !== null) {
-          void dispatch('fetchAthlete', state.athlete.id);
-        }
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.removedFavourite'),
+        });
       })
       .catch((err) => {
         notifyOfUnknownError(err);
@@ -60,6 +60,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .get(`/api/athlete/${encodeURIComponent(athlete_id)}`)
       .then((res: AxiosResponse<{ data: Athlete }>) => {
         commit('FETCH_ATHLETE', res.data.data);
+
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.showAthlete'),
+        });
       })
       .catch((err) => {
         notifyOfUnknownError(err);
@@ -74,6 +80,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .then((res: AxiosResponse<{ data: Athlete }>) => {
         commit('FETCH_ATHLETE', res.data.data);
 
+        // Notify the user of the action
+        Notify.create({
+          type: 'success',
+          message: i18n.global.t('general.createdAthlete'),
+        });
+
         //update search asynchronously
         void dispatch('fetchSearch');
       })
@@ -86,6 +98,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .put(`/api/athlete/update/${encodeURIComponent(athlete.id)}`, athlete)
       .then((res: AxiosResponse<{ data: Athlete }>) => {
         commit('FETCH_ATHLETE', res.data.data);
+
+        // Notify the user of the action
+        Notify.create({
+          type: 'success',
+          message: i18n.global.t('general.updatedAthleteDetails'),
+        });
 
         //update search and favourites asynchronously
         void dispatch('fetchSearch');
@@ -103,6 +121,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .then(() => {
         // notes are changed locally, not update event needed
         // an update on typing events risks inconsistency
+
+        // Notify the user of the change
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.updatedNotes'),
+        });
       })
       .catch((err) => {
         notifyOfUnknownError(err);
@@ -117,7 +141,13 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         }
       )
       .then(() => {
-        // performances are changed locally, not update event needed
+        // performances are changed locally, no update event needed
+
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.updatedPerformance'),
+        });
 
         //update search and favourites asynchronously
         void dispatch('fetchSearch');
@@ -132,6 +162,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .delete(`/api/athlete/delete/${encodeURIComponent(athlete.id)}`)
       .then(() => {
         commit('DELETE_ATHLETE');
+
+        // Notify the user of the action
+        Notify.create({
+          type: 'success',
+          message: i18n.global.t('general.deletedAthlete'),
+        });
       })
       .catch((err) => {
         notifyOfUnknownError(err);
@@ -157,6 +193,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       .then((res) => {
         commit('UPDATE_CURRENT_YEAR', res.data);
 
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.changedYear'),
+        });
+
         //update search asynchronously
         void dispatch('fetchSearch');
         void dispatch('fetchFavourites');
@@ -173,7 +215,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
       commit('SET_SEARCH_STRING', searchString);
     }
 
-    if (state.searchString == '') {
+    if (state.searchString == '' || searchString === null) {
       //search string is empty. an empty string produces no results
       commit('FETCH_ATHLETE_SEARCH', []);
     } else {

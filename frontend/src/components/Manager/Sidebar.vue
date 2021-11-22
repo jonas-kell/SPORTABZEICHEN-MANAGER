@@ -44,7 +44,7 @@
         icon-right="add"
         :label="$t('general.create_new')"
         @click="setupCreateAthlete"
-        :disable="searchbar == '' ? true : null"
+        :disable="searchbar == '' || searchbar == null ? true : null"
       ></q-btn>
     </div>
 

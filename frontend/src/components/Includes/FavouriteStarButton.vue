@@ -29,8 +29,11 @@ export default defineComponent({
         void this.$store.dispatch('athletesModule/addFavourite', athlete);
       }
 
-      // update own state immediately
-      athlete.favourite = !startState;
+      // instantly show changed star. Lists are re-queried asyncly
+      void this.$store.commit(
+        'athletesModule/TOGGLE_ATHLETE_FAVOURITE_STATE',
+        athlete
+      );
     },
   },
 });

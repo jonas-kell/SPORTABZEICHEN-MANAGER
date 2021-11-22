@@ -27,6 +27,21 @@ const mutation: MutationTree<AthletesStateInterface> = {
 
     return (state.currentYear = newCurrentYear);
   },
+  TOGGLE_ATHLETE_FAVOURITE_STATE(state, athlete: Athlete) {
+    state.favourites.forEach((ath) => {
+      if (ath.id == athlete.id) {
+        ath.favourite = !ath.favourite;
+      }
+    });
+    state.searchedAthletes.forEach((ath) => {
+      if (ath.id == athlete.id) {
+        ath.favourite = !ath.favourite;
+      }
+    });
+    if (state.athlete != null) {
+      state.athlete.favourite = !state.athlete.favourite;
+    }
+  },
   FETCH_ATHLETE_SEARCH(state, athletes: Athlete[]) {
     return (state.searchedAthletes = athletes);
   },

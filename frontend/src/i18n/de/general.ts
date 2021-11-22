@@ -35,4 +35,13 @@ export default {
   unknownError: 'Unbekannter Fehler',
   reloadedFavourites: 'Favoriten aktualisiert',
   reloadedSearch: 'Suche aktualisiert',
+  addedFavourite: 'Favorit hinzugefügt',
+  removedFavourite: 'Favorit entfernt',
+  showAthlete: 'Athlet angezeigt',
+  changedYear: 'Jahr gewechselt',
+  createdAthlete: 'Athlet angelegt',
+  deletedAthlete: 'Athlet gelöscht',
+  updatedPerformance: 'Leistung aktualisiert',
+  updatedNotes: 'Notizen aktualisiert',
+  updatedAthleteDetails: 'Athletenprofil aktualisiert',
 };

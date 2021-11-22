@@ -25,13 +25,13 @@
       <table id="render-pdf" ref="render-pdf">
         <tr>
           <th>{{ $t('general.name') }}</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th style="width: 9%"></th>
+          <th style="width: 17%"></th>
+          <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
         </tr>
         <tr v-for="athlete in favourites" v-bind:key="athlete.id">
           <td>

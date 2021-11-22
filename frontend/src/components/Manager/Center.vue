@@ -9,21 +9,6 @@
   text-overflow: ellipsis;
 }
 
-table.requirements_table {
-  border: 2px solid black;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-
-table.requirements_table > tr {
-  border: 2px solid black;
-}
-
-table.requirements_table > tr > td {
-  border: 1px solid black;
-}
-
 table.requirements_table > tr > td.highlighted {
   background-color: #33af229a;
 }

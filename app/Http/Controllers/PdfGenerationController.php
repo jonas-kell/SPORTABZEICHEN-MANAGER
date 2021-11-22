@@ -28,13 +28,11 @@ class PdfGenerationController extends Controller
 
             //TODO styles not dynamic...
             $extra_styles = "<style>
-                            .table {
+                            table {
+                                border-collapse: collapse;
                                 width: 100%;
                                 margin-bottom: 1rem;
                                 color: #212529;
-                            }
-                            table {
-                                border-collapse: collapse;
                             }
                             td, th {
                                 border: 1px solid rgba(41, 41, 41);

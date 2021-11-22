@@ -1,73 +1,67 @@
-<style scoped>
-.stronger-table-border > tr > td,
-.stronger-table-border > tr > th {
-  border: 2px solid rgba(41, 41, 41, 0.51);
-}
-</style>
-
 <template>
-  <div class="row no-gutters ml-3 mr-3">
-    <p class="col-12">
-      <span class="btn btn-sm btn-edit float-right" @click="requestPDF">
-        {{ $t('general.requestPDF') }}
-      </span>
-    </p>
-    <table
-      class="table table-sm table-bordered stronger-table-border"
-      id="render-pdf"
-      ref="render-pdf"
-    >
-      <tr>
-        <th>{{ $t('general.name') }}</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr v-for="athlete in favourites" v-bind:key="athlete.id">
-        <td>
-          <strong>
-            {{ athlete.name }}
-          </strong>
-        </td>
-        <td
-          style="width: 9%"
-          v-bind:style="{
-            color: athlete.gender == 'male' ? 'blue' : 'red',
-          }"
-        >
-          {{ $t('general.gender_short_' + athlete.gender) }} |
-          {{ athlete.requirements_tag }}
-        </td>
-        <td style="width: 17%">
-          <medal-display-table :medalScores="athlete.medal_scores" />
-        </td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-      </tr>
-      <tr v-for="n in 10" v-bind:key="-n">
-        <!-- binding normal numbes causes duplicate-key issues, when the ids used here are the same as real athletes ones by chance -->
-        <td></td>
-        <td style="width: 9%"></td>
-        <td style="width: 17%">
-          <strong>
-            {{ $t('general.new') }}
-          </strong>
-        </td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-        <td style="width: 10%"></td>
-      </tr>
-    </table>
-  </div>
+  <q-card class="col-12" bordered>
+    <q-card-section class="col-12 q-pb-none">
+      <q-btn
+        color="primary"
+        icon-right="print"
+        :label="$t('general.requestPDF')"
+        @click="requestPDF"
+      ></q-btn>
+    </q-card-section>
+    <q-card-section class="col-12">
+      <table id="render-pdf" ref="render-pdf">
+        <tr>
+          <th>{{ $t('general.name') }}</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr v-for="athlete in favourites" v-bind:key="athlete.id">
+          <td>
+            <strong>
+              {{ athlete.name }}
+            </strong>
+          </td>
+          <td
+            style="width: 9%"
+            v-bind:style="{
+              color: athlete.gender == 'male' ? 'blue' : 'red',
+            }"
+          >
+            {{ $t('general.gender_short_' + athlete.gender) }} |
+            {{ athlete.requirements_tag }}
+          </td>
+          <td style="width: 17%">
+            <medal-display-table :medalScores="athlete.medal_scores" />
+          </td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+        </tr>
+        <tr v-for="n in 10" v-bind:key="-n">
+          <!-- binding normal numbes causes duplicate-key issues, when the ids used here are the same as real athletes ones by chance -->
+          <td></td>
+          <td style="width: 9%"></td>
+          <td style="width: 17%">
+            <strong>
+              {{ $t('general.new') }}
+            </strong>
+          </td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+          <td style="width: 10%"></td>
+        </tr>
+      </table>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script lang="ts">

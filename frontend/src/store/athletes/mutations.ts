@@ -11,6 +11,9 @@ const mutation: MutationTree<AthletesStateInterface> = {
   FETCH_FAVOURITES(state, favourites: Athlete[]) {
     return (state.favourites = favourites);
   },
+  FETCH_RELEVANT_ATHLETES(state, relevants: Athlete[]) {
+    return (state.allRelevantAthletes = relevants);
+  },
   FETCH_ATHLETE(state, athlete: Athlete) {
     SessionStorage.set(ATHLETE_STORAGE_KEY, athlete);
 

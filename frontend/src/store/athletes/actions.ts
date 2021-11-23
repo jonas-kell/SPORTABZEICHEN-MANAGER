@@ -23,6 +23,22 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
+  fetchRelevantAthletes({ commit, state }) {
+    axios
+      .get('api/relevant_athletes/' + String(state.currentYear))
+      .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
+        commit('FETCH_RELEVANT_ATHLETES', res.data.athletes);
+
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.reloadedRelevantAthletes'),
+        });
+      })
+      .catch((err) => {
+        notifyOfUnknownError(err);
+      });
+  },
   addFavourite({ commit }, athlete: Athlete) {
     axios
       .put(`api/favourites/add/${encodeURIComponent(athlete.id)}`)

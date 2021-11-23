@@ -11,6 +11,7 @@ export interface AthletesStateInterface {
   currentYear: number;
   searchedAthletes: Athlete[];
   favourites: Athlete[];
+  allRelevantAthletes: Athlete[];
   searchString: string;
 }
 
@@ -108,6 +109,7 @@ function state(): AthletesStateInterface {
     currentYear: currentYear,
     searchedAthletes: [],
     favourites: [],
+    allRelevantAthletes: [],
     searchString: '',
   };
 }

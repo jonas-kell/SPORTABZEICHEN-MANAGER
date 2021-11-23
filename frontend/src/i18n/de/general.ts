@@ -36,6 +36,7 @@ export default {
   all: 'Alle',
   unknownError: 'Unbekannter Fehler',
   reloadedFavourites: 'Favoriten aktualisiert',
+  reloadedRelevantAthletes: 'Athletenübersicht geladen',
   reloadedSearch: 'Suche aktualisiert',
   addedFavourite: 'Favorit hinzugefügt',
   removedFavourite: 'Favorit entfernt',

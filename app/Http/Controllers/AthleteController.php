@@ -210,4 +210,38 @@ class AthleteController extends Controller
             return redirect("/");
         }
     }
+
+    /**
+     * Get an array of the relevant athletes
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getRelevantAthletes(Request $request, $year)
+    {
+        if ($request->ajax()) {
+            $year = intval($year);
+
+            $resulting_athletes = Athlete::query();
+
+            if ($year != -1) {
+                $resulting_athletes = $resulting_athletes->where("year", $year);
+            }
+            $resulting_athletes = $resulting_athletes->take(200)->get(); //TODO (think about limit) limit to 200 results
+
+            $resulting_athletes = $resulting_athletes->sortByDesc([
+                ['year', 'desc'],
+                ['gender', 'desc'],
+                ['birthday', 'desc'],
+            ]);
+
+            $resource_athletes = [];
+            foreach ($resulting_athletes as $athlete) {
+                $resource_athletes[] = new AthleteResource($athlete);
+            }
+
+            return response()->json(["athletes" => $resource_athletes]);
+        } else {
+            return redirect("/");
+        }
+    }
 }

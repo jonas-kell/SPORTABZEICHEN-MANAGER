@@ -21,6 +21,9 @@ const getters: GetterTree<AthletesStateInterface, StateInterface> = {
   favourites: (state) => {
     return state.favourites;
   },
+  allRelevantAthletes: (state) => {
+    return state.allRelevantAthletes;
+  },
   searchString: (state) => {
     return state.searchString;
   },

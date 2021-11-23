@@ -1,5 +1,11 @@
 import { MutationTree } from 'vuex';
-import { Athlete, AthletesStateInterface, YearResource } from './state';
+import {
+  Athlete,
+  AthletesStateInterface,
+  FAVOURITES_STORAGE_KEY,
+  RELEVANT_ATHLETES_STORAGE_KEY,
+  YearResource,
+} from './state';
 import { SessionStorage } from 'quasar';
 import {
   CURRENT_YEAR_STORAGE_KEY,
@@ -9,9 +15,13 @@ import {
 
 const mutation: MutationTree<AthletesStateInterface> = {
   FETCH_FAVOURITES(state, favourites: Athlete[]) {
+    SessionStorage.set(FAVOURITES_STORAGE_KEY, favourites);
+
     return (state.favourites = favourites);
   },
   FETCH_RELEVANT_ATHLETES(state, relevants: Athlete[]) {
+    SessionStorage.set(RELEVANT_ATHLETES_STORAGE_KEY, relevants);
+
     return (state.allRelevantAthletes = relevants);
   },
   FETCH_ATHLETE(state, athlete: Athlete) {

@@ -117,6 +117,11 @@ export default defineComponent({
   methods: {
     pushToCenter: function (athlete: Athlete) {
       void this.$store.dispatch('athletesModule/fetchAthlete', athlete.id);
+
+      if (this.$router.currentRoute.value.fullPath != '/') {
+        console.log('Info: redirect');
+        void this.$router.push('/');
+      }
     },
   },
   computed: {

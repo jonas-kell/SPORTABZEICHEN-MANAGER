@@ -103,7 +103,7 @@
         </tr>
         <tr v-for="athlete in allRelevant" v-bind:key="athlete.id">
           <td>
-            <strong>
+            <strong class="cursor-pointer" @click="revealAthlete(athlete.id)">
               {{ athlete.name }}
             </strong>
           </td>
@@ -133,11 +133,16 @@ import { mapGetters } from 'vuex';
 import MedalDisplayTable from '../Includes/MedalDisplayTable.vue';
 import { defineComponent } from 'vue';
 import { Athlete } from '../../store/athletes/state';
+import { SessionStorage } from 'quasar';
+
+const MODE_STORAGE_KEY = 'TABLEMODEINSESSIONSTORAGE';
 
 export default defineComponent({
   components: { MedalDisplayTable },
   mounted() {
     this.fetchAthletes();
+
+    this.mode = SessionStorage.getItem(MODE_STORAGE_KEY) as string;
   },
   computed: {
     ...(mapGetters('athletesModule', {
@@ -160,8 +165,16 @@ export default defineComponent({
     currentYear: function () {
       this.fetchAthletes();
     },
+    mode: function () {
+      SessionStorage.set(MODE_STORAGE_KEY, this.mode);
+    },
   },
   methods: {
+    revealAthlete: function (id: number) {
+      void this.$store.dispatch('athletesModule/fetchAthlete', id);
+
+      void this.$router.push('/');
+    },
     fetchAthletes: function () {
       void this.$store.dispatch('athletesModule/fetchRelevantAthletes');
     },

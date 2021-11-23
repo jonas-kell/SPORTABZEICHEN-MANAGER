@@ -3,6 +3,9 @@ import { SessionStorage } from 'quasar';
 export const CURRENT_YEAR_STORAGE_KEY = 'CURRENTYEARINSESSIONSTORAGE';
 export const ALL_YEARS_STORAGE_KEY = 'ALLYEARSINSESSIONSTORAGE';
 export const ATHLETE_STORAGE_KEY = 'CENTERATHLETEINSESSIONSTORAGE';
+export const RELEVANT_ATHLETES_STORAGE_KEY =
+  'ALLRELEVANTATHLETESINSESSIONSTORAGE';
+export const FAVOURITES_STORAGE_KEY = 'FAVOURITESINSESSIONSTORAGE';
 
 export interface AthletesStateInterface {
   athlete: Athlete | null;
@@ -81,6 +84,8 @@ export interface YearResource {
 let currentYear = -1;
 let allYearsArray = [] as number[];
 let athlete = null as Athlete | null;
+let allRelevantAthletes = [] as Athlete[];
+let favourites = [] as Athlete[];
 // cache year stuff, to get smoother page refresh
 try {
   const buf = SessionStorage.getItem<number>(CURRENT_YEAR_STORAGE_KEY);
@@ -100,6 +105,18 @@ try {
     athlete = buf;
   }
 } catch (e) {}
+try {
+  const buf = SessionStorage.getItem<Athlete[]>(RELEVANT_ATHLETES_STORAGE_KEY);
+  if (buf && buf != null) {
+    allRelevantAthletes = buf;
+  }
+} catch (e) {}
+try {
+  const buf = SessionStorage.getItem<Athlete[]>(FAVOURITES_STORAGE_KEY);
+  if (buf && buf != null) {
+    favourites = buf;
+  }
+} catch (e) {}
 
 function state(): AthletesStateInterface {
   return {
@@ -108,8 +125,8 @@ function state(): AthletesStateInterface {
     allYearsArray: allYearsArray,
     currentYear: currentYear,
     searchedAthletes: [],
-    favourites: [],
-    allRelevantAthletes: [],
+    favourites: favourites,
+    allRelevantAthletes: allRelevantAthletes,
     searchString: '',
   };
 }

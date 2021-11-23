@@ -226,7 +226,7 @@ class AthleteController extends Controller
             if ($year != -1) {
                 $resulting_athletes = $resulting_athletes->where("year", $year);
             }
-            $resulting_athletes = $resulting_athletes->take(200)->get(); //TODO (think about limit) limit to 200 results
+            $resulting_athletes = $resulting_athletes->take(400)->get(); //TODO (think about limit) limit to 400 results
 
             $resulting_athletes = $resulting_athletes->sortByDesc([
                 ['year', 'desc'],

@@ -52,7 +52,7 @@ class fillOutPDFwithBasicInfo extends Command
         # https://github.com/mikehaertl/php-pdftk/issues/22#issuecomment-497229511
         $pdf = new Pdf($templatePDFLocation, config("pdftk.configuration_array"));
 
-        $result = $pdf->fillForm([0 => "asdasd"])->needAppearances()->saveAs($targetPDFFolder);
+        $result = $pdf->fillForm([0 => "asdasd"])->needAppearances()->saveAs($targetPDFLocation);
 
         // Always check for errors
         if ($result === false) {

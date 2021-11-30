@@ -22,36 +22,36 @@
   <span class="no-break unselectable">
     <span
       v-bind:class="{
-        bronze: medalScores.coordination == 'bronze',
-        silver: medalScores.coordination == 'silver',
-        gold: medalScores.coordination == 'gold',
+        bronze: medalScores.coordination.value == 'bronze',
+        silver: medalScores.coordination.value == 'silver',
+        gold: medalScores.coordination.value == 'gold',
         edges: true,
       }"
       >Koo</span
     >
     <span
       v-bind:class="{
-        bronze: medalScores.endurance == 'bronze',
-        silver: medalScores.endurance == 'silver',
-        gold: medalScores.endurance == 'gold',
+        bronze: medalScores.endurance.value == 'bronze',
+        silver: medalScores.endurance.value == 'silver',
+        gold: medalScores.endurance.value == 'gold',
         edges: true,
       }"
       >Aus</span
     >
     <span
       v-bind:class="{
-        bronze: medalScores.speed == 'bronze',
-        silver: medalScores.speed == 'silver',
-        gold: medalScores.speed == 'gold',
+        bronze: medalScores.speed.value == 'bronze',
+        silver: medalScores.speed.value == 'silver',
+        gold: medalScores.speed.value == 'gold',
         edges: true,
       }"
       >Sch</span
     >
     <span
       v-bind:class="{
-        bronze: medalScores.strength == 'bronze',
-        silver: medalScores.strength == 'silver',
-        gold: medalScores.strength == 'gold',
+        bronze: medalScores.strength.value == 'bronze',
+        silver: medalScores.strength.value == 'silver',
+        gold: medalScores.strength.value == 'gold',
         edges: true,
       }"
       >Stä</span
@@ -66,8 +66,22 @@ import { PropType, defineComponent } from 'vue';
 export default defineComponent({
   props: {
     medalScores: {
-      type: Object as PropType<{ [key in Category]: string }>,
-      default: {} as { [key in Category]: string },
+      type: Object as PropType<{
+        [key in Category]: {
+          performance: string;
+          points: number;
+          discipline_name: string;
+          value: string;
+        };
+      }>,
+      default: {} as {
+        [key in Category]: {
+          performance: string;
+          points: number;
+          discipline_name: string;
+          value: string;
+        };
+      },
     },
   },
   methods: {},

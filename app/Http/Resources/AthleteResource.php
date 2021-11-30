@@ -26,7 +26,7 @@ class AthleteResource extends JsonResource
             'notes' => $this->notes,
         ];
 
-        $sportabzeichen_age = $this->year - Carbon::parse($this->birthday)->year;
+        $sportabzeichen_age = $this->sportabzeichen_age;
         $sportabzeichen_year_array = RequirementsServiceProvider::getYearArray($sportabzeichen_age);
 
         // requirements_tag -> short code for the requirements age region

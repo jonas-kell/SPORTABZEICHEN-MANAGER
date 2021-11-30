@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +12,10 @@ class Athlete extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public function getSportabzeichenAgeAttribute()
+    {
+        return $this->year - Carbon::parse($this->birthday)->year;
+    }
 
     /**
      * The users, that favorited this athlete
@@ -19,7 +24,6 @@ class Athlete extends Model
     {
         return $this->belongsToMany(User::class, "favourites");
     }
-
 
     /**
      * The genders, that can be set
@@ -56,17 +60,30 @@ class Athlete extends Model
             'speed',
             'strength'
         ] as $category) {
-            $medals[$category] = "none";
+            $medals[$category] = [];
+            $medals[$category]["value"] = "none";
+            $medals[$category]["points"] = 0;
+            $medals[$category]["discipline_name"] = "";
+            $medals[$category]["performance"] = "";
 
-            foreach ($performances[$category] as $discipline) {
-                if ($medals[$category] == "none" && ($discipline["bronze_highlighted"] ?? false)) {
-                    $medals[$category] = "bronze";
+            foreach ($performances[$category] as $discipline_name => $discipline) {
+                if ($medals[$category]["value"] == "none" && ($discipline["bronze_highlighted"] ?? false)) {
+                    $medals[$category]["value"] = "bronze";
+                    $medals[$category]["points"] = 1;
+                    $medals[$category]["discipline_name"] = $discipline_name;
+                    $medals[$category]["performance"] = $discipline["performance"];
                 }
-                if (($medals[$category] == "none" || $medals[$category] == "bronze") && ($discipline["silver_highlighted"] ?? false)) {
-                    $medals[$category] = "silver";
+                if (($medals[$category]["value"] == "none" || $medals[$category]["value"] == "bronze") && ($discipline["silver_highlighted"] ?? false)) {
+                    $medals[$category]["value"] = "silver";
+                    $medals[$category]["points"] = 2;
+                    $medals[$category]["discipline_name"] = $discipline_name;
+                    $medals[$category]["performance"] = $discipline["performance"];
                 }
-                if (($medals[$category] == "none" || $medals[$category] == "bronze" || $medals[$category] == "silver") && ($discipline["gold_highlighted"] ?? false)) {
-                    $medals[$category] = "gold";
+                if (($medals[$category]["value"] == "none" || $medals[$category]["value"] == "bronze" || $medals[$category]["value"] == "silver") && ($discipline["gold_highlighted"] ?? false)) {
+                    $medals[$category]["value"] = "gold";
+                    $medals[$category]["points"] = 3;
+                    $medals[$category]["discipline_name"] = $discipline_name;
+                    $medals[$category]["performance"] = $discipline["performance"];
                 }
             }
         }

@@ -59,7 +59,12 @@ export interface Athlete {
   notes: string;
   requirements_tag: string;
   medal_scores: {
-    [key in Category]: string;
+    [key in Category]: {
+      performance: string;
+      points: number;
+      discipline_name: string;
+      value: string;
+    };
   };
   sportabzeichen_year_array: {
     lower_year: number;

@@ -1,0 +1,1797 @@
+---
+FieldType: Button
+FieldName: Verein
+FieldNameAlt: Verein
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: Schule
+FieldNameAlt: Schule
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: Organisation
+FieldNameAlt: Organisation
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: Einheit
+FieldNameAlt: Einheit
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: Name
+FieldNameAlt: Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Ort/Land
+FieldNameAlt: Ort/Land
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Jahr der Pr&#252;fung
+FieldNameAlt: Jahr der Pr&#252;fung
+FieldFlags: 29360128
+FieldJustification: Left
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: Pr&#252;fungswegweiser_2
+FieldNameAlt: Pr&#252;fungswegweiser_2
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Ausf&#252;hrung_2
+FieldNameAlt: Ausf&#252;hrung_2
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Pr&#252;fungswegweiser_1
+FieldNameAlt: Pr&#252;fungswegweiser_1
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Pr&#252;fungswegweiser_3
+FieldNameAlt: Pr&#252;fungswegweiser_3
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Ausf&#252;hrung_3
+FieldNameAlt: Ausf&#252;hrung_3
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1 Nachname, Vorname
+FieldNameAlt: 1 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Geschlecht
+FieldNameAlt: Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1 TTMMJJ
+FieldNameAlt: 1 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 1
+FieldNameAlt: Alter 1
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 1 Ziffer &#220;bung
+FieldNameAlt: 1 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1 Verband
+FieldNameAlt: 1 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 1 Punkte
+FieldNameAlt: 1 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1B Ziffer &#220;bung
+FieldNameAlt: 1B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1B Verband
+FieldNameAlt: 1B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 1B Punkte
+FieldNameAlt: 1B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1C Ziffer &#220;bung
+FieldNameAlt: 1C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1C Verband
+FieldNameAlt: 1C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 1C Punkte
+FieldNameAlt: 1C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1D Ziffer &#220;bung
+FieldNameAlt: 1D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1D Verband
+FieldNameAlt: 1D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 1D Punkte
+FieldNameAlt: 1D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 1JJJJ
+FieldNameAlt: 1JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 1 Gesamtpunkte
+FieldNameAlt: 1 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 1 bisherige Sportabzeichen
+FieldNameAlt: 1 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 1
+FieldNameAlt: Ankreuzen 1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: Zusatz Abz. 1
+FieldNameAlt: Zusatz Abz. 1
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 2
+FieldNameAlt: Zusatz Abz. 2
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 3
+FieldNameAlt: Zusatz Abz. 3
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 4
+FieldNameAlt: Zusatz Abz. 4
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 5
+FieldNameAlt: Zusatz Abz. 5
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 6
+FieldNameAlt: Zusatz Abz. 6
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 7
+FieldNameAlt: Zusatz Abz. 7
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 8
+FieldNameAlt: Zusatz Abz. 8
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 9
+FieldNameAlt: Zusatz Abz. 9
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: Zusatz Abz. 10
+FieldNameAlt: Zusatz Abz. 10
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: AJJJJ
+FieldNameAlt: AJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 1 Ident-Nr
+FieldNameAlt: 1 Ident-Nr.
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 2 Nachname, Vorname
+FieldNameAlt: 2 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 2 Geschlecht
+FieldNameAlt: 2 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2 TTMMJJ
+FieldNameAlt: 2 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 2
+FieldNameAlt: Alter 2
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 2 Ziffer &#220;bung
+FieldNameAlt: 2 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2 Verband
+FieldNameAlt: 2 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 2 Punkte
+FieldNameAlt: 2 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2B Ziffer &#220;bung
+FieldNameAlt: 2B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2B Verband
+FieldNameAlt: 2B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 2B Punkte
+FieldNameAlt: 2B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2C Ziffer &#220;bung
+FieldNameAlt: 2C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2C Verband
+FieldNameAlt: 2C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 2C Punkte
+FieldNameAlt: 2C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2D Ziffer &#220;bung
+FieldNameAlt: 2D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2D Verband
+FieldNameAlt: 2D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 2D Punkte
+FieldNameAlt: 2D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 2JJJJ
+FieldNameAlt: 2JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 2 Gesamtpunkte
+FieldNameAlt: 2 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 2 bisherige Sportabzeichen
+FieldNameAlt: 2 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 2
+FieldNameAlt: Ankreuzen 2
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: BJJJJ
+FieldNameAlt: BJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 2 Ident-Nr
+FieldNameAlt: 2 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 3 Nachname, Vorname
+FieldNameAlt: 3 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 3 Geschlecht
+FieldNameAlt: 3 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3 TTMMJJ
+FieldNameAlt: 3 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 3
+FieldNameAlt: Alter 3
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 3 Ziffer &#220;bung
+FieldNameAlt: 3 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3 Verband
+FieldNameAlt: 3 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 3 Punkte
+FieldNameAlt: 3 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3B Ziffer &#220;bung
+FieldNameAlt: 3B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3B Verband
+FieldNameAlt: 3B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 3B Punkte
+FieldNameAlt: 3B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3C Ziffer &#220;bung
+FieldNameAlt: 3C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3C Verband
+FieldNameAlt: 3C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 3C Punkte
+FieldNameAlt: 3C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3D Ziffer &#220;bung
+FieldNameAlt: 3D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3D Verband
+FieldNameAlt: 3D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 3D Punkte
+FieldNameAlt: 3D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 3JJJJ
+FieldNameAlt: 3JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 3 Gesamtpunkte
+FieldNameAlt: 3 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 3 bisherige Sportabzeichen
+FieldNameAlt: 3 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 3
+FieldNameAlt: Ankreuzen 3
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: CJJJJ
+FieldNameAlt: CJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 3 Ident-Nr
+FieldNameAlt: 3 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 4 Nachname, Vorname
+FieldNameAlt: 4 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 4 Geschlecht
+FieldNameAlt: 4 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4 TTMMJJ
+FieldNameAlt: 4 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 4
+FieldNameAlt: Alter 4
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 4 Ziffer &#220;bung
+FieldNameAlt: 4 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4 Verband
+FieldNameAlt: 4 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 4 Punkte
+FieldNameAlt: 4 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4B Ziffer &#220;bung
+FieldNameAlt: 4B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4B Verband
+FieldNameAlt: 4B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 4B Punkte
+FieldNameAlt: 4B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4C Ziffer &#220;bung
+FieldNameAlt: 4C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4C Verband
+FieldNameAlt: 4C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 4C Punkte
+FieldNameAlt: 4C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4D Ziffer &#220;bung
+FieldNameAlt: 4D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4D Verband
+FieldNameAlt: 4D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 4D Punkte
+FieldNameAlt: 4D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 4JJJJ
+FieldNameAlt: 4JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 4 Gesamtpunkte
+FieldNameAlt: 4 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 4 bisherige Sportabzeichen
+FieldNameAlt: 4 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 4
+FieldNameAlt: Ankreuzen 4
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: DJJJJ
+FieldNameAlt: DJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 4 Ident-Nr
+FieldNameAlt: 4 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 5 Nachname, Vorname
+FieldNameAlt: 5 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 5 Geschlecht
+FieldNameAlt: 5 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5 TTMMJJ
+FieldNameAlt: 5 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 5
+FieldNameAlt: Alter 5
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 5 Ziffer &#220;bung
+FieldNameAlt: 5 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5 Verband
+FieldNameAlt: 5 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 5 Punkte
+FieldNameAlt: 5 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5B Ziffer &#220;bung
+FieldNameAlt: 5B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5B Verband
+FieldNameAlt: 5B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 5B Punkte
+FieldNameAlt: 5B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5C Ziffer &#220;bung
+FieldNameAlt: 5C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5C Verband
+FieldNameAlt: 5C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 5C Punkte
+FieldNameAlt: 5C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5D Ziffer &#220;bung
+FieldNameAlt: 5D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5D Verband
+FieldNameAlt: 5D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 5D Punkte
+FieldNameAlt: 5D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 5JJJJ
+FieldNameAlt: 5JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 5 Gesamtpunkte
+FieldNameAlt: 5 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 5 bisherige Sportabzeichen
+FieldNameAlt: 5 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 5
+FieldNameAlt: Ankreuzen 5
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: EJJJJ
+FieldNameAlt: EJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 5 Ident-Nr
+FieldNameAlt: 5 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 6 Nachname, Vorname
+FieldNameAlt: 6 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 6 Geschlecht
+FieldNameAlt: 6 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6 TTMMJJ
+FieldNameAlt: 6 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 6
+FieldNameAlt: Alter 6
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 6 Ziffer &#220;bung
+FieldNameAlt: 6 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6 Verband
+FieldNameAlt: 6 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 6 Punkte
+FieldNameAlt: 6 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6B Ziffer &#220;bung
+FieldNameAlt: 6B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6B Verband
+FieldNameAlt: 6B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 6B Punkte
+FieldNameAlt: 6B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6C Ziffer &#220;bung
+FieldNameAlt: 6C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6C Verband
+FieldNameAlt: 6C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 6C Punkte
+FieldNameAlt: 6C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6D Ziffer &#220;bung
+FieldNameAlt: 6D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6D Verband
+FieldNameAlt: 6D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 6D Punkte
+FieldNameAlt: 6D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 6JJJJ
+FieldNameAlt: 6JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 6 Gesamtpunkte
+FieldNameAlt: 6 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 6 bisherige Sportabzeichen
+FieldNameAlt: 6 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 6
+FieldNameAlt: Ankreuzen 6
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: FJJJJ
+FieldNameAlt: FJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 6 Ident-Nr
+FieldNameAlt: 6 Ident-Nr.
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 7 Nachname, Vorname
+FieldNameAlt: 7 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 7 Geschlecht
+FieldNameAlt: 7 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7 TTMMJJ
+FieldNameAlt: 7 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 7
+FieldNameAlt: Alter 7
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 7 Ziffer &#220;bung
+FieldNameAlt: 7 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7 Verband
+FieldNameAlt: 7 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 7 Punkte
+FieldNameAlt: 7 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7B Ziffer &#220;bung
+FieldNameAlt: 7B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7B Verband
+FieldNameAlt: 7B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 7B Punkte
+FieldNameAlt: 7B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7C Ziffer &#220;bung
+FieldNameAlt: 7C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7C Verband
+FieldNameAlt: 7C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 7C Punkte
+FieldNameAlt: 7C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7D Ziffer &#220;bung
+FieldNameAlt: 7D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7D Verband
+FieldNameAlt: 7D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 7D Punkte
+FieldNameAlt: 7D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 7JJJJ
+FieldNameAlt: 7JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 7 Gesamtpunkte
+FieldNameAlt: 7 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 7 bisherige Sportabzeichen
+FieldNameAlt: 7 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 7
+FieldNameAlt: Ankreuzen 7
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: GJJJJ
+FieldNameAlt: GJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 7 Ident-Nr
+FieldNameAlt: 7 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 8 Nachname, Vorname
+FieldNameAlt: 8 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 8 Geschlecht
+FieldNameAlt: 8 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8 TTMMJJ
+FieldNameAlt: 8 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 8
+FieldNameAlt: Alter 8
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 8 Ziffer &#220;bung
+FieldNameAlt: 8 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8 Verband
+FieldNameAlt: 8 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 8 Punkte
+FieldNameAlt: 8 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8B Ziffer &#220;bung
+FieldNameAlt: 8B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8B Verband
+FieldNameAlt: 8B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 8B Punkte
+FieldNameAlt: 8B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8C Ziffer &#220;bung
+FieldNameAlt: 8C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8C Verband
+FieldNameAlt: 8C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 8C Punkte
+FieldNameAlt: 8C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8D Ziffer &#220;bung
+FieldNameAlt: 8D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8D Verband
+FieldNameAlt: 8D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 8D Punkte
+FieldNameAlt: 8D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 8JJJJ
+FieldNameAlt: 8JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 8 Gesamtpunkte
+FieldNameAlt: 8 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 8 bisherige Sportabzeichen
+FieldNameAlt: 8 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 8
+FieldNameAlt: Ankreuzen 8
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: HJJJJ
+FieldNameAlt: HJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 8 Ident-Nr
+FieldNameAlt: 8 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 9 Nachname, Vorname
+FieldNameAlt: 9 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 9 Geschlecht
+FieldNameAlt: 9 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9 TTMMJJ
+FieldNameAlt: 9 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 9
+FieldNameAlt: Alter 9
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 9 Ziffer &#220;bung
+FieldNameAlt: 9 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9 Verband
+FieldNameAlt: 9 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 9 Punkte
+FieldNameAlt: 9 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9B Ziffer &#220;bung
+FieldNameAlt: 9B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9B Verband
+FieldNameAlt: 9B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 9B Punkte
+FieldNameAlt: 9B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9C Ziffer &#220;bung
+FieldNameAlt: 9C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9C Verband
+FieldNameAlt: 9C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 9C Punkte
+FieldNameAlt: 9C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9D Ziffer &#220;bung
+FieldNameAlt: 9D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9D Verband
+FieldNameAlt: 9D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 9D Punkte
+FieldNameAlt: 9D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 9JJJJ
+FieldNameAlt: 9JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 9 Gesamtpunkte
+FieldNameAlt: 9 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 9 bisherige Sportabzeichen
+FieldNameAlt: 9 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 9
+FieldNameAlt: Ankreuzen 9
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: IJJJJ
+FieldNameAlt: IJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 9 Ident-Nr
+FieldNameAlt: 9 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 10 Nachname, Vorname
+FieldNameAlt: 10 Nachname, Vorname
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: 10 Geschlecht
+FieldNameAlt: 10 Geschlecht
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10 TTMMJJ
+FieldNameAlt: 10 TTMMJJ
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Alter 10
+FieldNameAlt: Alter 10
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 10 Ziffer &#220;bung
+FieldNameAlt: 10 Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10 Verband
+FieldNameAlt: 10 Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 10 Punkte
+FieldNameAlt: 10 Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10B Ziffer &#220;bung
+FieldNameAlt: 10B Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10B Verband
+FieldNameAlt: 10B Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 10B Punkte
+FieldNameAlt: 10B Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10C Ziffer &#220;bung
+FieldNameAlt: 10C Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10C Verband
+FieldNameAlt: 10C Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 10C Punkte
+FieldNameAlt: 10C Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10D Ziffer &#220;bung
+FieldNameAlt: 10D Ziffer &#220;bung
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10D Verband
+FieldNameAlt: 10D Verband
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 10
+---
+FieldType: Text
+FieldName: 10D Punkte
+FieldNameAlt: 10D Punkte
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1
+---
+FieldType: Text
+FieldName: 10JJJJ
+FieldNameAlt: 10JJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 10 Gesamtpunkte
+FieldNameAlt: 10 Gesamtpunkte
+FieldFlags: 12582912
+FieldValue: 0
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: 10 bisherige Sportabzeichen
+FieldNameAlt: 10 bisherige Sportabzeichen
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 3
+---
+FieldType: Button
+FieldName: Ankreuzen 10
+FieldNameAlt: Ankreuzen 10
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: KJJJJ
+FieldNameAlt: KJJJJ
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: 10 Ident-Nr
+FieldNameAlt: 10 Ident-Nr
+FieldFlags: 12582912
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: Name Pr&#252;fer
+FieldNameAlt: Name Pr&#252;fer
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Ident-Nr
+FieldNameAlt: Ident-Nr.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Tel. Nummer
+FieldNameAlt: Tel. Nummer
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Unterschrift Best&#228;tigung
+FieldNameAlt: Unterschrift Best&#228;tigung
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Ort, Datum
+FieldNameAlt: Ort, Datum
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: E-Mail
+FieldNameAlt: E-Mail
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Unterschrift Gesamtleistung
+FieldNameAlt: Unterschrift Gesamtleistung
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: Datum Gesamtleistung
+FieldNameAlt: Datum Gesamtleistung
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 1
+FieldNameAlt: St&#252;ckzahlen 1
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 2
+FieldNameAlt: St&#252;ckzahlen 2
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 3
+FieldNameAlt: St&#252;ckzahlen 3
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 4
+FieldNameAlt: St&#252;ckzahlen 4
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 5
+FieldNameAlt: St&#252;ckzahlen 5
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 6
+FieldNameAlt: St&#252;ckzahlen 6
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 7
+FieldNameAlt: St&#252;ckzahlen 7
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: St&#252;ckzahlen 8
+FieldNameAlt: St&#252;ckzahlen 8
+FieldFlags: 12582912
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: Ausf&#252;hrung_1
+FieldNameAlt: Ausf&#252;hrung_1
+FieldFlags: 29360128
+FieldJustification: Center
+FieldMaxLength: 1

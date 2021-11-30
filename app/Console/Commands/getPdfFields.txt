@@ -1,0 +1,2 @@
+# get the data fields
+> pdftk DSA_Gruppenpruefkarte_2021_beschreibbar.pdf dump_data_fields > fieldNames.txt

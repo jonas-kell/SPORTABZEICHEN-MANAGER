@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use mikehaertl\pdftk\Pdf;
+use SebastianBergmann\Environment\Console;
 use Storage;
 use Str;
 
@@ -21,25 +22,51 @@ class PdfGenerationServiceProvider extends ServiceProvider
     {
     }
 
+    /**
+     * chunk athletes into batches of 10 and generate a pdf for each batch
+     * then join the created pdfs
+     */
+    public static function generateBatchOfPdfs($athletes, &$pdf, &$error)
+    {
+        $pdfs = [];
+
+        $i = 0;
+        foreach ($athletes->chunk(10) as $subsetOfAthletes) {
+            $status = self::generateOutputPdf($subsetOfAthletes, $pdfs[$i], $error);
+            if ($status == Command::FAILURE) {
+                return Command::FAILURE;
+            }
+            $i++;
+        }
+
+        $outputPdf = new Pdf();
+        foreach ($pdfs as $tempPdf) {
+            $outputPdf->addFile($tempPdf);
+        }
+
+        $result = $outputPdf->execute();
+        // Always check for errors
+        if ($result === false) {
+            $error = $outputPdf->getError();
+            return Command::FAILURE;
+        }
+
+        $pdf = file_get_contents((string) $outputPdf->getTmpFile());
+
+        return Command::SUCCESS;
+    }
+
     //generate a pdf for a set of athletes
-    public static function generateOutputPdf($athletes, &$pdf, &$error)
+    public static function generateOutputPdf($athletes, &$path, &$error)
     {
         $templatePDFLocation = resource_path("DSA_Gruppenpruefkarte_2021_beschreibbar.pdf");
-
-        $targetPDFFolder = "generated_output_pdfs";
-        Storage::makeDirectory($targetPDFFolder);
-        // $targetPDFName = "test.pdf"; # debug switch
-        $targetPDFName = Str::uuid() . ".pdf";
-
-        $targetPdfLocationInStorage = $targetPDFFolder . DIRECTORY_SEPARATOR . $targetPDFName;
-        $targetPDFLocation = storage_path("app" . DIRECTORY_SEPARATOR . $targetPdfLocationInStorage);
 
         # "pdftk" command must be available!!! 
         # https://www.pdflabs.com/tools/pdftk-server/
         # https://github.com/mikehaertl/php-pdftk/issues/22#issuecomment-497229511
         $pdf = new Pdf($templatePDFLocation, config("pdftk.configuration_array"));
 
-        $result = $pdf->fillForm(self::formFillingValues($athletes))->needAppearances()->saveAs($targetPDFLocation);
+        $result = $pdf->fillForm(self::formFillingValues($athletes))->needAppearances()->execute();
 
         // Always check for errors
         if ($result === false) {
@@ -47,7 +74,7 @@ class PdfGenerationServiceProvider extends ServiceProvider
             return Command::FAILURE;
         }
 
-        $pdf = Storage::get($targetPdfLocationInStorage);
+        $path = $pdf->getTmpFile();
 
         return Command::SUCCESS;
     }

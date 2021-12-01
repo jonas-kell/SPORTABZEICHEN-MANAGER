@@ -201,24 +201,9 @@ export default defineComponent({
 
       this.allRelevant.forEach((athlete) => {
         arrayOfIds.push(athlete.id);
-
-        if (arrayOfIds.length == 10) {
-          void this.$store.dispatch(
-            'athletesModule/requestOutputPDF',
-            arrayOfIds
-          );
-
-          arrayOfIds = [];
-        }
       });
 
-      // rest
-      if (arrayOfIds.length != 0) {
-        void this.$store.dispatch(
-          'athletesModule/requestOutputPDF',
-          arrayOfIds
-        );
-      }
+      void this.$store.dispatch('athletesModule/requestOutputPDF', arrayOfIds);
     },
   },
 });

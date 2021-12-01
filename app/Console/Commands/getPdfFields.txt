@@ -1,2 +1,5 @@
 # get the data fields
 > pdftk DSA_Gruppenpruefkarte_2021_beschreibbar.pdf dump_data_fields > fieldNames.txt
+
+# extract one page from pdf
+> pdftk DSA_Gruppenpruefkarte_2021_beschreibbar.pdf cat 1-1 output DSA_Gruppenpruefkarte_2021_beschreibbar2.pdf

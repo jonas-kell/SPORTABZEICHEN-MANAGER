@@ -77,12 +77,14 @@ class PdfGenerationController extends Controller
         if ($request->ajax()) {
             $athleteIds = $request->input("athlete_ids");
 
-            $athletes = Athlete::whereIn("id", $athleteIds)->get();
+            $athletes = Athlete::whereIn("id", $athleteIds)->get()->sortBy(function ($athlete, $key) use ($athleteIds) {
+                return array_search($athlete->id, $athleteIds);
+            });
 
             $pdf = null;
             $error = "";
 
-            $status = PdfGenerationServiceProvider::generateOutputPdf($athletes, $pdf, $error);
+            $status = PdfGenerationServiceProvider::generateBatchOfPdfs($athletes, $pdf, $error);
 
             if ($status == Command::SUCCESS) {
                 return $pdf;

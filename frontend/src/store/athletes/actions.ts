@@ -129,14 +129,13 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  updateAthleteNotes({}, athlete: Athlete) {
+  updateAthleteNotes({ commit }, athlete: Athlete) {
     axios
       .put(`/api/athlete/update_notes/${encodeURIComponent(athlete.id)}`, {
         notes: athlete.notes,
       })
       .then(() => {
-        // notes are changed locally, not update event needed
-        // an update on typing events risks inconsistency
+        commit('FETCH_ATHLETE', athlete);
 
         // Notify the user of the change
         Notify.create({
@@ -157,17 +156,16 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         }
       )
       .then(() => {
-        // performances are changed locally, no update event needed
-
         // Notify the user of the fetch
         Notify.create({
           type: 'reloaded',
           message: i18n.global.t('general.updatedPerformance'),
         });
 
-        //update search and favourites asynchronously
+        //update search and favourites and the cached center athlete asynchronously
         void dispatch('fetchSearch');
         void dispatch('fetchFavourites');
+        void dispatch('fetchAthlete', athlete.id);
       })
       .catch((err) => {
         notifyOfUnknownError(err);

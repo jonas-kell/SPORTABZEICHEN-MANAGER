@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Athlete;
+use App\Providers\PdfGenerationServiceProvider;
+use Illuminate\Console\Command;
 use Illuminate\Http\Request;
 
 class PdfGenerationController extends Controller
@@ -19,9 +22,9 @@ class PdfGenerationController extends Controller
     /**
      * require rendering of html (possibly unsecure, I don't know how good the escaping on the pdf engine is)
      * 
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return pdf
      */
-    public function generate(Request $request)
+    public function generateTable(Request $request)
     {
         if ($request->ajax()) {
             $html = $request->input("htmlString");
@@ -61,6 +64,31 @@ class PdfGenerationController extends Controller
             $pdf = \App::make('dompdf.wrapper');
             $pdf->loadHTML($extra_styles . $html);
             return $pdf->stream();
+        } else {
+            return redirect("/");
+        }
+    }
+
+    /**
+     * @return pdf
+     */
+    public function generateOutput(Request $request)
+    {
+        if ($request->ajax()) {
+            $athleteIds = $request->input("athlete_ids");
+
+            $athletes = Athlete::whereIn("id", $athleteIds)->get();
+
+            $pdf = null;
+            $error = "";
+
+            $status = PdfGenerationServiceProvider::generateOutputPdf($athletes, $pdf, $error);
+
+            if ($status == Command::SUCCESS) {
+                return $pdf;
+            } else {
+                return abort(500, $error);
+            }
         } else {
             return redirect("/");
         }

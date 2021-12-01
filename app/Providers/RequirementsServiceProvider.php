@@ -27,6 +27,13 @@ class RequirementsServiceProvider extends ServiceProvider
 
             return collect(json_decode(file_get_contents($path), true));
         });
+
+
+        Cache::rememberForever('name_number_map', function () {
+            $path = resource_path("name_number_map.json");
+
+            return collect(json_decode(file_get_contents($path), true));
+        });
     }
 
     //returns the correct year array from the cache 
@@ -52,6 +59,22 @@ class RequirementsServiceProvider extends ServiceProvider
             $requirement_array = cache("requirements")[$gender][$year_array["lower_year"]];
 
             return $requirement_array; //because of filter in getYearArray, this should always return a value
+        }
+    }
+
+    //translates a name into a printout number
+    public static function formatPerformance($category, $discipline_name, $performance, $points)
+    {
+        if ($discipline_name == "") {
+            return ["number" => "", "performance" => $performance];
+        } else {
+            if (array_key_exists("FULL: " . $discipline_name, cache("name_number_map")[$category])) {
+                // Geräteturnen sub-Übung
+                $char = $points == 1 ? "B" : ($points == 2 ? "S" : ($points == 3 ? "G" : "_"));
+                return ["number" => cache("name_number_map")[$category][$discipline_name], "performance" => cache("name_number_map")[$category]["FULL: " . $discipline_name] . "." . $char];
+            } else {
+                return ["number" => cache("name_number_map")[$category][$discipline_name], "performance" => $performance];
+            }
         }
     }
 }

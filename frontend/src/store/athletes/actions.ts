@@ -250,15 +250,36 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         });
     }
   },
-  requestPDF({}, htmlString: string) {
+  requestTablePDF({}, htmlString: string) {
     axios
       .put(
-        'api/pdf/generate_from_html',
+        'api/pdf/generate_table_from_html',
         { htmlString: htmlString },
         { responseType: 'blob' }
       )
       .then((res) => {
         const status = exportFile('List.pdf', res.data);
+
+        if (status === true) {
+          // browser allowed it
+        } else {
+          // browser denied it
+          notifyOfUnknownError(status);
+        }
+      })
+      .catch((err) => {
+        notifyOfUnknownError(err);
+      });
+  },
+  requestOutputPDF({}, athleteIds: number[]) {
+    axios
+      .put(
+        'api/pdf/generate_output_pdf',
+        { athlete_ids: athleteIds },
+        { responseType: 'blob' }
+      )
+      .then((res) => {
+        const status = exportFile('Output.pdf', res.data);
 
         if (status === true) {
           // browser allowed it

@@ -37,5 +37,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get']);
     Route::get('relevant_athletes/{year}', [App\Http\Controllers\AthleteController::class, 'getRelevantAthletes']);
 
-    Route::put('pdf/generate_from_html', [App\Http\Controllers\PdfGenerationController::class, 'generate']);
+    Route::put('pdf/generate_table_from_html', [App\Http\Controllers\PdfGenerationController::class, 'generateTable']);
+    Route::put('pdf/generate_output_pdf', [App\Http\Controllers\PdfGenerationController::class, 'generateOutput']);
 });

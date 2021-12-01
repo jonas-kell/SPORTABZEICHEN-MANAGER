@@ -14,9 +14,17 @@
       <div class="col">
         <q-btn
           color="primary"
+          class="q-mr-sm"
           icon-right="print"
-          :label="$t('general.requestPDF')"
-          @click="requestPDF"
+          :label="$t('general.requestPDFList')"
+          @click="requestTablePDF"
+        ></q-btn>
+        <q-btn
+          v-if="mode == 'all'"
+          color="primary"
+          icon-right="print"
+          :label="$t('general.requestPDFOutput')"
+          @click="requestOutputPDF"
         ></q-btn>
       </div>
       <div class="col-2 q-pb-none" v-if="mode == 'favourites'">
@@ -143,6 +151,9 @@ export default defineComponent({
     this.fetchAthletes();
 
     this.mode = SessionStorage.getItem(MODE_STORAGE_KEY) as string;
+    if (!this.mode) {
+      this.mode = 'all';
+    }
   },
   computed: {
     ...(mapGetters('athletesModule', {
@@ -178,12 +189,36 @@ export default defineComponent({
     fetchAthletes: function () {
       void this.$store.dispatch('athletesModule/fetchRelevantAthletes');
     },
-    requestPDF() {
+    requestTablePDF() {
       void this.$store.dispatch(
-        'athletesModule/requestPDF',
+        'athletesModule/requestTablePDF',
         document.getElementById((this.$refs['render-pdf'] as { id: string }).id)
           ?.outerHTML
       );
+    },
+    requestOutputPDF() {
+      let arrayOfIds = [] as number[];
+
+      this.allRelevant.forEach((athlete) => {
+        arrayOfIds.push(athlete.id);
+
+        if (arrayOfIds.length == 10) {
+          void this.$store.dispatch(
+            'athletesModule/requestOutputPDF',
+            arrayOfIds
+          );
+
+          arrayOfIds = [];
+        }
+      });
+
+      // rest
+      if (arrayOfIds.length != 0) {
+        void this.$store.dispatch(
+          'athletesModule/requestOutputPDF',
+          arrayOfIds
+        );
+      }
     },
   },
 });

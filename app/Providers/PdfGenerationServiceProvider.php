@@ -39,7 +39,7 @@ class PdfGenerationServiceProvider extends ServiceProvider
             $i++;
         }
 
-        $outputPdf = new Pdf();
+        $outputPdf = new Pdf(null, config("pdftk.configuration_array"));
         foreach ($pdfs as $tempPdf) {
             $outputPdf->addFile($tempPdf);
         }

@@ -58,6 +58,7 @@ class Athlete extends Model
         }
 
         $scores = $this->getMedalScores();
+        $total = 0;
         foreach ([
             'coordination',
             'endurance',
@@ -67,6 +68,11 @@ class Athlete extends Model
             if ($scores[$category]["points"] <= 0) {
                 return false;
             }
+            $total += $scores[$category]["points"];
+        }
+
+        if ($total < 4) {
+            return false; // shouldn't be needed
         }
 
         return true;

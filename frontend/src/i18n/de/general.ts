@@ -31,7 +31,7 @@ export default {
   coordination: 'Koordination',
   endurance: 'Ausdauer',
   speed: 'Schnelligkeit',
-  strength: 'Stärke',
+  strength: 'Kraft',
   requestPDFList: 'Tabellen PDF',
   requestPDFOutput: 'Ausgaben PDF',
   all: 'Alle',

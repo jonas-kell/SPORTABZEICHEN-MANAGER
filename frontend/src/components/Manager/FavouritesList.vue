@@ -111,7 +111,11 @@
         </tr>
         <tr v-for="athlete in allRelevant" v-bind:key="athlete.id">
           <td>
-            <strong class="cursor-pointer" @click="revealAthlete(athlete.id)">
+            <strong
+              class="cursor-pointer"
+              @click="revealAthlete(athlete.id)"
+              :style="athlete.hasFinished ? 'color: green;' : 'color: red;'"
+            >
               {{ athlete.name }}
             </strong>
           </td>

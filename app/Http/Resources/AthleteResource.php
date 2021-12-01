@@ -34,6 +34,7 @@ class AthleteResource extends JsonResource
 
         // best result in each category
         $array["medal_scores"] = $this->getMedalScores();
+        $array["hasFinished"] = $this->hasFinished();
 
         //only calculate the following info, if the "requirements" attribute of the athlete is set
         //this saves computation time and bandwidth

@@ -66,6 +66,7 @@ export interface Athlete {
       value: string;
     };
   };
+  hasFinished: boolean;
   sportabzeichen_year_array: {
     lower_year: number;
     upper_year: number;

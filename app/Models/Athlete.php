@@ -45,6 +45,34 @@ class Athlete extends Model
     }
 
     /**
+     * get the info, whether the athlete is done or is missing results
+     * @return boolean
+     */
+    public function hasFinished()
+    {
+
+        $proofOfSwimmingOk = (($this->year - $this->proofOfSwimming ?? 0) < 5);
+
+        if (!$proofOfSwimmingOk) {
+            return false;
+        }
+
+        $scores = $this->getMedalScores();
+        foreach ([
+            'coordination',
+            'endurance',
+            'speed',
+            'strength'
+        ] as $category) {
+            if ($scores[$category]["points"] <= 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * get the medal score for each category
      * @return array
      */

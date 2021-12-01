@@ -40,15 +40,15 @@ class AthletePrintoutResource extends JsonResource
             "#D Ziffer Übung" => $performanceFormattedCoordination["number"],                                               # Koordination Ziffer
             "#D Verband" => $performanceFormattedCoordination["performance"],                                               # Koordination Leistung
             "#D Punkte" => $scores["coordination"]["points"],                                                               # Koordination Punkte
-            "#JJJJ" => "TODO",                                                                                              # Schwimmfertigkeit
+            "#JJJJ" => $this->proofOfSwimming ?? "",                                                                        # Schwimmfertigkeit
             "# Gesamtpunkte" => $scores["endurance"]["points"] +
                 $scores["strength"]["points"] +
                 $scores["speed"]["points"] +
                 $scores["coordination"]["points"],                                                                          # Gesamtpunkte
-            "# bisherige Sportabzeichen" => "TODO",                                                                         # bisherige Sportabzeichen
-            "Ankreuzen #" => "On",                                                                                          # bestelle Abzeichen
-            '$JJJJ' => "TODO",                                                                                              # letzte Prüfung
-            "# Ident-Nr" => "TODO",                                                                                         # Ident Nr
+            "# bisherige Sportabzeichen" => $this->numberOfBadgesSoFar ?? "0",                                              # bisherige Sportabzeichen
+            "Ankreuzen #" => $this->hasFinished() ? "On" : "Off",                                                           # bestelle Abzeichen
+            '$JJJJ' => $this->lastBadgeYear ?? "",                                                                          # letzte Prüfung
+            "# Ident-Nr" => $this->identNo ?? "",                                                                           # Ident Nr
         ];
 
         return $personArray;

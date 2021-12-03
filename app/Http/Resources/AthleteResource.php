@@ -23,6 +23,10 @@ class AthleteResource extends JsonResource
             'year' => $this->year,
             'birthday' => $this->birthday,
             'gender' => $this->gender,
+            'proofOfSwimming' => $this->proofOfSwimming,
+            'lastBadgeYear' => $this->lastBadgeYear,
+            'numberOfBadgesSoFar' => $this->numberOfBadgesSoFar,
+            'identNo' => $this->identNo,
             'notes' => $this->notes,
         ];
 

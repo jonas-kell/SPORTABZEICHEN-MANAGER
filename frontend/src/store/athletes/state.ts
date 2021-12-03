@@ -80,6 +80,10 @@ export interface Athlete {
     [key in Category]: { [key: Discipline]: PerformanceArray };
   };
   favourite: boolean;
+  proofOfSwimming: number;
+  lastBadgeYear: number;
+  numberOfBadgesSoFar: number;
+  identNo: string;
 }
 
 export interface YearResource {

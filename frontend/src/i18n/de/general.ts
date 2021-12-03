@@ -48,4 +48,12 @@ export default {
   updatedPerformance: 'Leistung aktualisiert',
   updatedNotes: 'Notizen aktualisiert',
   updatedAthleteDetails: 'Athletenprofil aktualisiert',
+  selectFinishers: 'Fertige',
+  selectNone: 'Niemand',
+  scores: 'Leistungen',
+  proofOfSwimming: 'Schwimmnachweis',
+  proofOfSwimmingShort: 'Schwimmn.',
+  lastBadgeYear: 'Letzte Prüfung',
+  numberOfBadgesSoFar: '# Abzeichen',
+  identNo: 'Ident-Nr.',
 };

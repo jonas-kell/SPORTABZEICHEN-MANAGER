@@ -38,6 +38,12 @@ class PdfGenerationServiceProvider extends ServiceProvider
             }
             $i++;
         }
+        if (count($athletes) == 0) {
+            $status = self::generateOutputPdf(collect([]), $pdfs[0], $error);
+            if ($status == Command::FAILURE) {
+                return Command::FAILURE;
+            }
+        }
 
         $outputPdf = new Pdf(null, config("pdftk.configuration_array"));
         foreach ($pdfs as $tempPdf) {

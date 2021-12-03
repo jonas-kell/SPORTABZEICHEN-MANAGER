@@ -42,6 +42,9 @@ class PdfGenerationController extends Controller
                                 padding: 2px;
                                 font-size: 80%;
                             }
+                            td {
+                                padding-left: 0.5rem;
+                            }
                             .gold {
                                 color: green;
                                 font-weight: bold;
@@ -58,6 +61,9 @@ class PdfGenerationController extends Controller
                                 border-radius: 0.7em;
                                 padding-left: 0.2em;
                                 padding-right: 0.2em;
+                            }
+                            .printout-display-none {
+                                display: none;
                             }
                         </style>";
 

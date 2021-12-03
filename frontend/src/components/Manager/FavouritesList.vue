@@ -1,3 +1,9 @@
+<style scoped>
+td {
+  padding-left: 0.5rem;
+}
+</style>
+
 <template>
   <q-card class="col-12" bordered>
     <q-card-section class="row q-pb-none">
@@ -10,6 +16,18 @@
             { label: $t('general.all'), value: 'all' },
           ]"
         ></q-btn-toggle>
+      </div>
+      <div class="col" v-if="mode == 'all'">
+        <q-btn
+          icon="check_box"
+          color="primary"
+          :label="
+            selectMode == 'none'
+              ? $t('general.selectNone')
+              : $t('general.selectFinishers')
+          "
+          @click="handleSelectModeSwitch"
+        ></q-btn>
       </div>
       <div class="col">
         <q-btn
@@ -96,6 +114,7 @@
       </table>
       <table id="render-pdf" ref="render-pdf" v-else>
         <tr>
+          <th class="printout-display-none" style="width: 4%"></th>
           <th>
             {{
               currentYear == -1
@@ -104,12 +123,35 @@
             }}{{ $t('general.name') }}
           </th>
           <th style="width: 9%"></th>
-          <th style="width: 17%"></th>
+          <th style="width: 17%">
+            {{ $t('general.scores') }}
+          </th>
           <th style="width: 15%" v-if="currentYear == -1">
             {{ $t('general.year') }}
           </th>
+          <th style="width: 10%">
+            {{ $t('general.proofOfSwimmingShort') }}
+          </th>
+          <th style="width: 10%">
+            {{ $t('general.lastBadgeYear') }}
+          </th>
+          <th style="width: 10%">
+            {{ $t('general.numberOfBadgesSoFar') }}
+          </th>
+          <th style="width: 10%">
+            {{ $t('general.identNo') }}
+          </th>
         </tr>
         <tr v-for="athlete in allRelevant" v-bind:key="athlete.id">
+          <td
+            class="printout-display-none"
+            style="width: 4%"
+            v-bind:style="{
+              background: selected[athlete.id] ? 'green' : 'red',
+            }"
+          >
+            <q-checkbox v-model="selected[athlete.id]" size="xs"></q-checkbox>
+          </td>
           <td>
             <strong
               class="cursor-pointer"
@@ -134,6 +176,28 @@
           <td style="width: 15%" v-if="currentYear == -1">
             {{ athlete.year }}
           </td>
+          <td
+            style="width: 10%"
+            :style="{
+              color:
+                (athlete.year - athlete.proofOfSwimming ?? 0) < 5
+                  ? 'green'
+                  : 'red',
+            }"
+          >
+            <b>
+              {{ athlete.proofOfSwimming }}
+            </b>
+          </td>
+          <td style="width: 10%">
+            {{ athlete.lastBadgeYear }}
+          </td>
+          <td style="width: 10%">
+            {{ athlete.numberOfBadgesSoFar }}
+          </td>
+          <td style="width: 10%">
+            {{ athlete.identNo }}
+          </td>
         </tr>
       </table>
     </q-card-section>
@@ -154,7 +218,9 @@ export default defineComponent({
   mounted() {
     this.fetchAthletes();
 
-    this.mode = SessionStorage.getItem(MODE_STORAGE_KEY) as string;
+    this.mode = SessionStorage.getItem(MODE_STORAGE_KEY) as
+      | 'favourites'
+      | 'all';
     if (!this.mode) {
       this.mode = 'all';
     }
@@ -173,7 +239,9 @@ export default defineComponent({
   data() {
     return {
       numberOfExtraCols: 10,
-      mode: 'favourites',
+      mode: 'favourites' as 'favourites' | 'all',
+      selected: [] as boolean[],
+      selectMode: 'none' as 'finished' | 'none',
     };
   },
   watch: {
@@ -182,6 +250,9 @@ export default defineComponent({
     },
     mode: function () {
       SessionStorage.set(MODE_STORAGE_KEY, this.mode);
+    },
+    allRelevant: function () {
+      this.selectAllFinishers();
     },
   },
   methods: {
@@ -204,10 +275,33 @@ export default defineComponent({
       let arrayOfIds = [] as number[];
 
       this.allRelevant.forEach((athlete) => {
-        arrayOfIds.push(athlete.id);
+        if (this.selected[athlete.id]) {
+          arrayOfIds.push(athlete.id);
+        }
       });
 
       void this.$store.dispatch('athletesModule/requestOutputPDF', arrayOfIds);
+    },
+    handleSelectModeSwitch() {
+      if (this.selectMode == 'finished') {
+        this.selectAllFinishers();
+        this.selectMode = 'none';
+      } else if (this.selectMode == 'none') {
+        this.selectNone();
+        this.selectMode = 'finished';
+      }
+    },
+    selectAllFinishers() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = athlete.hasFinished;
+      });
+    },
+    selectNone() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = false;
+      });
     },
   },
 });

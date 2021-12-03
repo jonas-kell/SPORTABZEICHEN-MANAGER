@@ -97,6 +97,10 @@ class AthleteController extends Controller
                 "year" => "integer",
                 "birthday" => "date|nullable",
                 "gender" => "string",
+                "proofOfSwimming" => "integer|nullable",
+                "lastBadgeYear" => "integer|nullable",
+                "numberOfBadgesSoFar" => "integer|nullable",
+                "identNo" => "string|nullable",
             ]);
 
 
@@ -107,11 +111,9 @@ class AthleteController extends Controller
                     $athlete->name = $request->input("name");
                 }
 
-
                 if ($request->input("year")) {
                     $athlete->year = $request->input("year");
                 }
-
 
                 if ($request->input("birthday")) {
                     $athlete->birthday = $request->input("birthday");
@@ -119,6 +121,26 @@ class AthleteController extends Controller
 
                 if ($request->input("gender") && in_array($request->input("gender"), Athlete::avaliableGenders())) {
                     $athlete->gender = $request->input("gender");
+                }
+
+                if ($request->has("proofOfSwimming")) {
+                    $athlete->proofOfSwimming = $request->input("proofOfSwimming");
+                }
+
+                if ($request->has("lastBadgeYear")) {
+                    $athlete->lastBadgeYear = $request->input("lastBadgeYear");
+                }
+
+                if ($request->has("numberOfBadgesSoFar")) {
+                    if ($request->input("numberOfBadgesSoFar") && $request->input("numberOfBadgesSoFar") > 0) {
+                        $athlete->numberOfBadgesSoFar = $request->input("numberOfBadgesSoFar");
+                    } else {
+                        $athlete->numberOfBadgesSoFar = 0;
+                    }
+                }
+
+                if ($request->has("identNo")) {
+                    $athlete->identNo = $request->input("identNo");
                 }
 
                 $athlete->save();

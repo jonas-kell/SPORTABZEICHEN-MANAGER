@@ -143,14 +143,14 @@ table.requirements_table > tr > td.highlighted {
             </template>
           </q-input>
         </div>
-        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
           <q-select
             filled
             class="col-12"
             v-model="modifyableAthlete.gender"
             emit-value
             map-options
-            :label="$t('general.years')"
+            :label="$t('general.gender')"
             :options="[
               { value: 'female', label: $t('general.female') },
               { value: 'male', label: $t('general.male') },
@@ -159,6 +159,57 @@ table.requirements_table > tr > td.highlighted {
             name="center_gender_field"
             :disable="!canEdit ? true : null"
           ></q-select>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.proofOfSwimming"
+            :label="$t('general.proofOfSwimming')"
+            class="col-12"
+            id="center_proof_of_swimming_field"
+            name="center_proof_of_swimming_field"
+            lazy-rules
+            mask="####"
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.lastBadgeYear"
+            :label="$t('general.lastBadgeYear')"
+            class="col-12"
+            id="center_last_badge_year_field"
+            name="center_last_badge_year_field"
+            lazy-rules
+            mask="####"
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.numberOfBadgesSoFar"
+            :label="$t('general.numberOfBadgesSoFar')"
+            class="col-12"
+            id="center_number_of_badges_field"
+            name="center_number_of_badges_field"
+            lazy-rules
+            mask="###"
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.identNo"
+            :label="$t('general.identNo')"
+            class="col-12"
+            id="center_ident_no_field"
+            name="center_ident_no_field"
+            lazy-rules
+            :disable="!canEdit ? true : null"
+          ></q-input>
         </div>
       </q-card-section>
 

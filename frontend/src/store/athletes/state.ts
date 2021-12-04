@@ -81,6 +81,7 @@ export interface Athlete {
   };
   favourite: boolean;
   proofOfSwimming: number;
+  proofOfSwimmingOk: boolean;
   lastBadgeYear: number;
   numberOfBadgesSoFar: number;
   identNo: string;

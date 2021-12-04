@@ -179,10 +179,7 @@ td {
           <td
             style="width: 10%"
             :style="{
-              color:
-                (athlete.year - athlete.proofOfSwimming ?? 0) < 5
-                  ? 'green'
-                  : 'red',
+              color: athlete.proofOfSwimmingOk ? 'green' : 'red',
             }"
           >
             <b>

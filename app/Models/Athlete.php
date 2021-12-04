@@ -17,6 +17,12 @@ class Athlete extends Model
         return $this->year - Carbon::parse($this->birthday)->year;
     }
 
+    public function getProofOfSwimmingOkAttribute()
+    {
+        return ($this->sportabzeichen_age < 18 && ($this->year - $this->proofOfSwimming ?? 0) < 18)
+            || (($this->year - $this->proofOfSwimming ?? 0) < 5);
+    }
+
     /**
      * The users, that favorited this athlete
      */
@@ -51,7 +57,7 @@ class Athlete extends Model
     public function hasFinished()
     {
 
-        $proofOfSwimmingOk = (($this->year - $this->proofOfSwimming ?? 0) < 5);
+        $proofOfSwimmingOk = $this->proof_of_swimming_ok;
 
         if (!$proofOfSwimmingOk) {
             return false;

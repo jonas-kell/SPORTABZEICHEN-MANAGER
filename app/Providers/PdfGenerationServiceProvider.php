@@ -7,9 +7,6 @@ use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use mikehaertl\pdftk\Pdf;
-use SebastianBergmann\Environment\Console;
-use Storage;
-use Str;
 
 class PdfGenerationServiceProvider extends ServiceProvider
 {
@@ -107,12 +104,6 @@ class PdfGenerationServiceProvider extends ServiceProvider
                 // make sure to hit all fields even if they are miss-named (thx a lot...)
                 $arr[str_replace("#", $i, $key)] = $value;
                 $arr[str_replace("$", chr(ord("A") - 1 + $i < ord("J") ? ord("A") - 1 + $i : ord("A") + $i), $key)] = $value;
-
-                // extra case... : 
-                if ($i == 1 && $key == "# Geschlecht") {
-                    unset($arr["1 Geschlecht"]);
-                    $arr["Geschlecht"] = $value;
-                }
             }
 
             $i++;

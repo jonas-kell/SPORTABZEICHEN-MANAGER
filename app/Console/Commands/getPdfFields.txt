@@ -3,3 +3,37 @@
 
 # extract one page from pdf
 > pdftk DSA_Gruppenpruefkarte_2021_beschreibbar.pdf cat 1-1 output DSA_Gruppenpruefkarte_2021_beschreibbar2.pdf
+
+# edit the pdf field ident-nr font size
+open in notepad++
+
+replace the fields like that:
+/P 3 0 R
+/FT /Tx
+/TU (2 Ident-Nr)
+/Ff 12582912
+/F 4
+/DA (/Helv 8 Tf 0 g)
+/Subtype /Widget
+/Type /Annot
+/Rect [765.112 281.971 812.198 295.575]
+/T (2 Ident-Nr)
+
+with:
+/P 3 0 R
+/FT /Tx
+/TU (2 Ident-Nr)
+/Ff 12582912
+/F 4
+/DA (/Helv 5.3 Tf 0 g)
+/Subtype /Widget
+/Type /Annot
+/Rect [765.112 281.971 812.198 295.575]
+/T (2 Ident-Nr)
+
+(only changed /Helv 8 -> /Helv 5.3)
+
+# edit the pdf field geschlecht-key
+open in notepad++
+
+replace all: (Geschlecht) with: (1 Geschlecht) for uniform form names

@@ -171,7 +171,7 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  deleteAthlete({ commit }, athlete: Athlete) {
+  deleteAthlete({ commit, dispatch }, athlete: Athlete) {
     axios
       .delete(`/api/athlete/delete/${encodeURIComponent(athlete.id)}`)
       .then(() => {
@@ -182,6 +182,10 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
           type: 'success',
           message: i18n.global.t('general.deletedAthlete'),
         });
+
+        //update search and favourites asynchronously
+        void dispatch('fetchSearch');
+        void dispatch('fetchFavourites');
       })
       .catch((err) => {
         notifyOfUnknownError(err);

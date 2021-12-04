@@ -110,8 +110,8 @@ try {
   }
 } catch (e) {}
 try {
-  const buf = SessionStorage.getItem<Athlete>(ATHLETE_STORAGE_KEY);
-  if (buf && buf != null) {
+  const buf = SessionStorage.getItem<Athlete | 'null'>(ATHLETE_STORAGE_KEY);
+  if (buf && buf != null && buf != 'null') {
     athlete = buf;
   }
 } catch (e) {}

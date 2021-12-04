@@ -199,7 +199,7 @@ table.requirements_table > tr > td.highlighted {
             :disable="!canEdit ? true : null"
           ></q-input>
         </div>
-        <div class="col-12 col-lg-6 q-px-md q-pb-none row">
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
           <q-input
             filled
             v-model="modifyableAthlete.identNo"
@@ -210,6 +210,15 @@ table.requirements_table > tr > td.highlighted {
             lazy-rules
             :disable="!canEdit ? true : null"
           ></q-input>
+        </div>
+        <div class="col-12 q-px-md" v-if="canEdit">
+          <q-btn
+            filled
+            :label="$t('general.delete')"
+            class="float-right"
+            color="negative"
+            @click="askToDelete"
+          ></q-btn>
         </div>
       </q-card-section>
 
@@ -624,6 +633,28 @@ export default defineComponent({
       this.typingTimer[discipline] = setTimeout(() => {
         this.updateAthletePerformance(id, category, discipline); //store the update in the database
       }, 400);
+    },
+    askToDelete: function () {
+      this.$q
+        .dialog({
+          title: this.$t('general.delete'),
+          message: this.$t('general.deleteConfirmation'),
+          ok: {
+            push: true,
+            color: 'negative',
+            label: this.$t('general.delete'),
+          },
+          cancel: {
+            color: 'primary',
+            label: this.$t('general.abort'),
+          },
+        })
+        .onOk(() => {
+          void this.$store.dispatch(
+            'athletesModule/deleteAthlete',
+            this.modifyableAthlete
+          );
+        });
     },
   },
   watch: {

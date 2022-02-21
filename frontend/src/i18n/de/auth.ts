@@ -20,7 +20,7 @@ export default {
   pwdMin8Chars: 'Passwort muss mindestens 8 Zeichen enthalten',
   pwdMatch: 'Passwort und Bestätigung müssen übereinstimmen',
   notEmpty: 'Feld darf nicht leer sein',
-  mustContainAt: 'Email Adresse muss ein @ enthalten',
+  mustContainAt: "Email Adresse muss ein {'@'} enthalten",
   email: 'Email Adresse',
   forgotPassword: 'Passwort vergessen',
   recoveryMail: 'Schicke Wiederherstellungs Mail',

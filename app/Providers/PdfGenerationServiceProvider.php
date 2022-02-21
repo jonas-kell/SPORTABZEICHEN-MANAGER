@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Resources\AthletePrintoutResource;
+use Auth;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -84,11 +85,13 @@ class PdfGenerationServiceProvider extends ServiceProvider
 
     private static function formFillingValues($athletes): array
     {
+        $year = Auth::user()->year == -1 ? Carbon::now()->format("y") : Carbon::createFromDate(Auth::user()->year, 3, 3)->format("y"); // only last two digits needed
+
         $arr = [
             "Verein" => "On",
             "Name" => config("pdf_printout.association_name"),
             "Ort/Land" => config("pdf_printout.location"),
-            "Jahr der Prüfung" => Carbon::now()->format("y"),
+            "Jahr der Prüfung" => $year,
             "Name Prüfer" => config("pdf_printout.validator_name"),
             "Ident-Nr" => config("pdf_printout.validator_ident_nr"),
             "Tel. Nummer" => config("pdf_printout.validator_tel_nr"),

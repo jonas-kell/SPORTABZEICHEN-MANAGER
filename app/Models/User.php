@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -67,7 +67,15 @@ class User extends Authenticatable
      */
     public static function getAllYearsArray()
     {
-        return [-1, 2020, 2021, 2022]; //TODO make dynamic year array
+        $years = [-1];
+        $startYear = 2020;
+        $endYear = Carbon::now()->year;
+
+        for ($i = $startYear; $i <= $endYear; $i++) {
+            $years[] = $i;
+        }
+
+        return $years;
     }
 
     /**

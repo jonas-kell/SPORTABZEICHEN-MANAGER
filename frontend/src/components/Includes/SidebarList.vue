@@ -86,11 +86,35 @@ p.no-space {
       </p>
       <p class="no-space">
         <medal-display :medalScores="athlete.medal_scores" />
+
         <span
           class="float-right rightarrow"
           @click.stop="pushToCenter(athlete)"
-        />
+        >
+          <q-tooltip
+            anchor="top middle"
+            self="bottom middle"
+            max-width="40rem"
+            :offset="[10, 10]"
+          >
+            {{ $t('general.showCenter') }}
+          </q-tooltip>
+        </span>
         <favourite-star-button v-bind="{ athlete: athlete }" />
+        <span
+          v-if="currentYear == -1"
+          class="float-right clone-button"
+          @click.stop="setupCloneAthlete(athlete)"
+        >
+          <q-tooltip
+            anchor="top middle"
+            self="bottom middle"
+            max-width="40rem"
+            :offset="[10, 10]"
+          >
+            {{ $t('general.cloneForYear') }}
+          </q-tooltip>
+        </span>
       </p>
     </li>
   </ol>
@@ -102,7 +126,7 @@ p.no-space {
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import FavouriteStarButton from './FavouriteStarButton.vue';
 import MedalDisplay from './MedalDisplay.vue';
 import { PropType, defineComponent } from 'vue';
@@ -122,6 +146,36 @@ export default defineComponent({
         console.log('Info: redirect');
         void this.$router.push('/');
       }
+    },
+    ...(mapActions('athletesModule', {
+      mappedCreateAthlete: 'createAthlete',
+    }) as unknown as {
+      mappedCreateAthlete: (params: {
+        athlete: Athlete;
+        cloned: boolean;
+      }) => string;
+    }),
+    setupCloneAthlete: async function (athlete: Athlete) {
+      let hasCompletedTheBadge = athlete.hasFinished;
+
+      let clonedAthlete = {
+        name: athlete.name,
+        year: new Date().getFullYear(),
+        birthday: athlete.birthday,
+        gender: athlete.gender,
+        proofOfSwimming: athlete.proofOfSwimming,
+        lastBadgeYear: hasCompletedTheBadge
+          ? athlete.year
+          : athlete.lastBadgeYear,
+        numberOfBadgesSoFar: hasCompletedTheBadge
+          ? athlete.numberOfBadgesSoFar + 1
+          : athlete.numberOfBadgesSoFar,
+      } as Athlete;
+
+      this.mappedCreateAthlete({
+        athlete: clonedAthlete,
+        cloned: true,
+      });
     },
   },
   computed: {

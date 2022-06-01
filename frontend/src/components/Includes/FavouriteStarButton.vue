@@ -3,7 +3,16 @@
     class="float-right favourite_star"
     v-bind:class="athlete.favourite ? 'active' : 'inactive'"
     @click.stop="toggleFavourite(athlete)"
-  />
+  >
+    <q-tooltip
+      anchor="top middle"
+      self="bottom middle"
+      max-width="40rem"
+      :offset="[10, 10]"
+    >
+      {{ $t('general.toggleFavourite') }}
+    </q-tooltip>
+  </span>
 </template>
 
 <script lang="ts">

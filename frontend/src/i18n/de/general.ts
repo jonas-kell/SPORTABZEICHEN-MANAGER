@@ -48,6 +48,7 @@ export default {
   showAthlete: 'Athlet angezeigt',
   changedYear: 'Jahr gewechselt',
   createdAthlete: 'Athlet angelegt',
+  clonedAthlete: 'Athlet kopiert',
   deletedAthlete: 'Athlet gelöscht',
   updatedPerformance: 'Leistung aktualisiert',
   updatedNotes: 'Notizen aktualisiert',
@@ -60,4 +61,7 @@ export default {
   lastBadgeYear: 'Letzte Prüfung',
   numberOfBadgesSoFar: '# Abzeichen',
   identNo: 'Ident-Nr.',
+  cloneForYear: 'Für aktuelles Jahr kopieren',
+  toggleFavourite: 'Favoritenstatus Umschalten',
+  showCenter: 'Anzeigen',
 };

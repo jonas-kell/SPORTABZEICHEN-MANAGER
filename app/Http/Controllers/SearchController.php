@@ -47,7 +47,7 @@ class SearchController extends Controller
                 $resulting_athletes = $resulting_athletes->where("year", $user_year);
             }
 
-            $resulting_athletes = $resulting_athletes->orderBy("gender", "desc")->orderBy("birthday", "desc");
+            $resulting_athletes = $resulting_athletes->orderBy("year", "desc")->orderBy("gender", "desc")->orderBy("birthday", "desc");
 
             $resulting_athletes = $resulting_athletes->take(20)->get(); //limit to 20 results
 

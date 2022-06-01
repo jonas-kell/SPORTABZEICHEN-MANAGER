@@ -90,16 +90,21 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
   setupCreateAthlete({ commit }, newAthlete: Athlete) {
     commit('SETUP_CREATE_ATHLETE', newAthlete);
   },
-  createAthlete({ dispatch, commit }, athlete: Athlete) {
+  createAthlete(
+    { dispatch, commit },
+    params: { athlete: Athlete; cloned: false }
+  ) {
     axios
-      .post('/api/athlete/create', athlete)
+      .post('/api/athlete/create', params.athlete)
       .then((res: AxiosResponse<{ data: Athlete }>) => {
         commit('FETCH_ATHLETE', res.data.data);
 
         // Notify the user of the action
         Notify.create({
           type: 'success',
-          message: i18n.global.t('general.createdAthlete'),
+          message: params.cloned
+            ? i18n.global.t('general.clonedAthlete')
+            : i18n.global.t('general.createdAthlete'),
         });
 
         //update search asynchronously

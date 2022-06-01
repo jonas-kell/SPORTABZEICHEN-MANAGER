@@ -548,10 +548,9 @@ export default defineComponent({
       }
     },
     createAthlete: function () {
-      void this.$store.dispatch(
-        'athletesModule/createAthlete',
-        this.modifyableNewAthlete
-      );
+      void this.$store.dispatch('athletesModule/createAthlete', {
+        athlete: this.modifyableNewAthlete,
+      });
     },
     toggleEdit() {
       if (this.canEdit) {

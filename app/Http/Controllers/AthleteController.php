@@ -55,6 +55,9 @@ class AthleteController extends Controller
                 "year" => "integer|required",
                 "birthday" => "date|nullable",
                 "gender" => "string",
+                "proofOfSwimming" => "integer|nullable",
+                "lastBadgeYear" => "integer|nullable",
+                "numberOfBadgesSoFar" => "integer|nullable",
             ]);
 
 
@@ -68,6 +71,20 @@ class AthleteController extends Controller
 
             if ($request->input("gender") && in_array($request->input("gender"), Athlete::avaliableGenders())) {
                 $athlete->gender = $request->input("gender");
+            }
+
+            if ($request->input("proofOfSwimming")) {
+                $athlete->proofOfSwimming = intval($request->input("proofOfSwimming"));
+            }
+
+            if ($request->input("lastBadgeYear")) {
+                $athlete->lastBadgeYear = intval($request->input("lastBadgeYear"));
+            }
+
+            if ($request->input("numberOfBadgesSoFar")) {
+                $athlete->numberOfBadgesSoFar = intval($request->input("numberOfBadgesSoFar"));
+            } else {
+                $athlete->numberOfBadgesSoFar = 0;
             }
 
             $athlete->save();

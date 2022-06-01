@@ -605,10 +605,9 @@ export default defineComponent({
 
       mockup_athlete.performances = performances;
       // dispatch the performance-update
-      void this.$store.dispatch(
-        'athletesModule/updateAthletePerformances',
-        mockup_athlete
-      );
+      void this.$store.dispatch('athletesModule/updateAthletePerformances', {
+        athlete: mockup_athlete,
+      });
     },
     toggleHighlight: function (
       category: Category,

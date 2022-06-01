@@ -10,6 +10,9 @@ td {
   writing-mode: vertical-lr;
   margin-top: 0.3em;
 }
+td.highlighted {
+  background-color: #33af229a;
+}
 </style>
 
 <template>
@@ -214,6 +217,13 @@ td {
                   ]"
                   :key="discipline"
                   style="height: 1cm"
+                  v-bind:class="{
+                    highlighted:
+                      performance.bronze_highlighted ||
+                      performance.silver_highlighted ||
+                      performance.gold_highlighted,
+                  }"
+                  @click="editDialog(athlete, category as 'coordination'| 'endurance' | 'speed'| 'strength', discipline as string)"
                 >
                   {{ formatPerformance(performance) }}
                 </td>
@@ -240,6 +250,7 @@ import MedalDisplayTable from '../Includes/MedalDisplayTable.vue';
 import { defineComponent } from 'vue';
 import { Athlete, PerformanceArray } from '../../store/athletes/state';
 import { SessionStorage } from 'quasar';
+import DisciplineManager from './DisciplineManager.vue';
 
 const MODE_STORAGE_KEY = 'TABLEMODEINSESSIONSTORAGE';
 
@@ -302,6 +313,27 @@ export default defineComponent({
     },
   },
   methods: {
+    editDialog(
+      athlete: Athlete,
+      category: 'coordination' | 'endurance' | 'speed' | 'strength',
+      discipline: string
+    ) {
+      this.$q
+        .dialog({
+          component: DisciplineManager,
+          componentProps: {
+            athlete: athlete,
+            category: category,
+            discipline: discipline,
+          },
+        })
+        .onOk(() => {
+          console.log('OK');
+        })
+        .onDismiss(() => {
+          console.log('Called on OK or Cancel');
+        });
+    },
     formatPerformance: function (performance: PerformanceArray) {
       let highest = '';
 

@@ -80,6 +80,9 @@ class PdfGenerationController extends Controller
                                 margin-top: 7em;
                                 margin-bottom: 7em;
                             }
+                            td.highlighted {
+                                background-color: #33af229a;
+                            }
                         </style>";
 
             $pdf = \App::make('dompdf.wrapper')->setPaper('a4', 'landscape');;

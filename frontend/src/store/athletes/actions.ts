@@ -157,12 +157,17 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  updateAthletePerformances({ dispatch }, athlete: Athlete) {
+  updateAthletePerformances(
+    { dispatch },
+    params: { athlete: Athlete; updateTable: false }
+  ) {
     axios
       .put(
-        `/api/athlete/update_performances/${encodeURIComponent(athlete.id)}`,
+        `/api/athlete/update_performances/${encodeURIComponent(
+          params.athlete.id
+        )}`,
         {
-          performances: JSON.stringify(athlete.performances),
+          performances: JSON.stringify(params.athlete.performances),
         }
       )
       .then(() => {
@@ -175,7 +180,11 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         //update search and favourites and the cached center athlete asynchronously
         void dispatch('fetchSearch');
         void dispatch('fetchFavourites');
-        void dispatch('fetchAthlete', athlete.id);
+        if (!params.updateTable) {
+          void dispatch('fetchAthlete', params.athlete.id);
+        } else {
+          void dispatch('fetchRelevantAthletes', true);
+        }
       })
       .catch((err) => {
         notifyOfUnknownError(err);

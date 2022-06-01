@@ -12,6 +12,7 @@ export default {
   delete: 'Löschen',
   deleteConfirmation: 'Wollen Sie das Element wirklich Löschen?',
   abort: 'Abbrechen',
+  nameSpecific: 'Nachname Vorname',
   name: 'Name',
   year: 'Sportabzeichen Jahr',
   years: 'Jahre',

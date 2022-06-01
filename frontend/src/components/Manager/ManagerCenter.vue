@@ -76,7 +76,7 @@ table.requirements_table > tr > td.highlighted {
           <q-input
             filled
             v-model="modifyableAthlete.name"
-            :label="$t('general.name')"
+            :label="$t('general.nameSpecific')"
             class="col-12"
             id="center_name_field"
             name="center_name_field"
@@ -423,7 +423,7 @@ table.requirements_table > tr > td.highlighted {
           <q-input
             filled
             v-model="modifyableNewAthlete.name"
-            :label="$t('general.name')"
+            :label="$t('general.nameSpecific')"
             class="col-12 q-mb-md"
             id="center_name_field"
             name="center_name_field"
@@ -488,7 +488,7 @@ table.requirements_table > tr > td.highlighted {
             v-model="modifyableNewAthlete.gender"
             emit-value
             map-options
-            :label="$t('general.years')"
+            :label="$t('general.gender')"
             :options="[
               { value: 'female', label: $t('general.female') },
               { value: 'male', label: $t('general.male') },

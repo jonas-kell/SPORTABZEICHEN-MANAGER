@@ -23,3 +23,9 @@ php artisan storage:link
 ```
 
 Using `sail artisan storage:link` doesn't work
+
+## Sail Envoy delpoy:
+
+```
+sail php vendor/bin/envoy run deploy
+```

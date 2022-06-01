@@ -54,6 +54,7 @@ export default {
   updatedNotes: 'Notizen aktualisiert',
   updatedAthleteDetails: 'Athletenprofil aktualisiert',
   selectFinishers: 'Fertige',
+  selectNonFinishers: 'Nicht Fertige',
   selectNone: 'Niemand',
   selectAll: 'Alle',
   scores: 'Leistungen',
@@ -65,4 +66,10 @@ export default {
   cloneForYear: 'Für aktuelles Jahr kopieren',
   toggleFavourite: 'Favoritenstatus Umschalten',
   showCenter: 'Anzeigen',
+  meta: 'Metadaten',
+  performances: 'Leistungen',
+  table_notice: 'Leistungsübersicht nur bei ausgewähltem Jahr',
+  gold: 'Leistung für Gold',
+  silver: 'Leistung für Silber',
+  bronze: 'Leistung für Bronze',
 };

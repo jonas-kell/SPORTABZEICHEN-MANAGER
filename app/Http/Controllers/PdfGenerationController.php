@@ -31,6 +31,9 @@ class PdfGenerationController extends Controller
 
             //TODO styles not dynamic...
             $extra_styles = "<style>
+                            table.smoll-in-printout {
+                                font-size: 90%;
+                            }
                             table {
                                 border-collapse: collapse;
                                 width: 100%;
@@ -65,9 +68,21 @@ class PdfGenerationController extends Controller
                             .printout-display-none {
                                 display: none;
                             }
+                            .wrapper-page {
+                                page-break-after: always;
+                            }
+                            .wrapper-page:last-child {
+                                page-break-after: avoid;
+                            }
+                            .verticalTableHeader p {
+                                transform: rotate(270deg);
+                                font-size: 70%;
+                                margin-top: 7em;
+                                margin-bottom: 7em;
+                            }
                         </style>";
 
-            $pdf = \App::make('dompdf.wrapper');
+            $pdf = \App::make('dompdf.wrapper')->setPaper('a4', 'landscape');;
             $pdf->loadHTML($extra_styles . $html);
             return $pdf->stream();
         } else {

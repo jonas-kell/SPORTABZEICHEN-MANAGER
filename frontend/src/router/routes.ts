@@ -33,6 +33,20 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/overview',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        components: {
+          default: () => import('src/pages/OverviewPage.vue'),
+          'sidebar-attachment': () =>
+            import('src/components/Manager/ManagerSidebar.vue'),
+        },
+      },
+    ],
+  },
+  {
     path: '/auth',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('src/pages/AuthPage.vue') }],

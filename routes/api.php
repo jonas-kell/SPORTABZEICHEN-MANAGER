@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('athlete/update_performances/{id}', [App\Http\Controllers\AthleteController::class, 'updatePerformances']);
     Route::delete('athlete/delete/{id}', [App\Http\Controllers\AthleteController::class, 'delete']);
     Route::get('athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get']);
-    Route::get('relevant_athletes/{year}', [App\Http\Controllers\AthleteController::class, 'getRelevantAthletes']);
+    Route::get('relevant_athletes/{year}/{requirements?}', [App\Http\Controllers\AthleteController::class, 'getRelevantAthletes']);
 
     Route::put('pdf/generate_table_from_html', [App\Http\Controllers\PdfGenerationController::class, 'generateTable']);
     Route::put('pdf/generate_output_pdf', [App\Http\Controllers\PdfGenerationController::class, 'generateOutput']);

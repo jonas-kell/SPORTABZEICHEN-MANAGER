@@ -23,9 +23,14 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  fetchRelevantAthletes({ commit, state }) {
+  fetchRelevantAthletes({ commit, state }, loadRequirements: false) {
     axios
-      .get('api/relevant_athletes/' + String(state.currentYear))
+      .get(
+        'api/relevant_athletes/' +
+          String(state.currentYear) +
+          '/' +
+          String(loadRequirements ? 1 : 0)
+      )
       .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
         commit('FETCH_RELEVANT_ATHLETES', res.data.athletes);
 

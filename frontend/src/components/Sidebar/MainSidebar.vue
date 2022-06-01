@@ -52,6 +52,13 @@ export default defineComponent({
           link: '/#/list',
           auth: true,
         },
+        {
+          title: this.$t('sidebar.listOverview'),
+          caption: this.$t('sidebar.overviewSubtext'),
+          icon: 'list',
+          link: '/#/overview',
+          auth: true,
+        },
       ] as LinkThing[],
     };
   },

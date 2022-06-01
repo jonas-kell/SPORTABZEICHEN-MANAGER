@@ -255,7 +255,7 @@ class AthleteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getRelevantAthletes(Request $request, $year)
+    public function getRelevantAthletes(Request $request, $year, $requirements = false)
     {
         if ($request->ajax()) {
             $year = intval($year);
@@ -275,6 +275,10 @@ class AthleteController extends Controller
 
             $resource_athletes = [];
             foreach ($resulting_athletes as $athlete) {
+                if ($requirements) {
+                    $athlete->requirements = true;
+                }
+
                 $resource_athletes[] = new AthleteResource($athlete);
             }
 

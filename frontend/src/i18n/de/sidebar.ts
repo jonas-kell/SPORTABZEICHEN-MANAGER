@@ -11,6 +11,8 @@ export default {
   accountSubtext: 'Verwalte deinen Account',
   home: 'Home',
   homeSubtext: 'Home Seite',
-  list: 'Liste',
-  listSubtext: 'Favoriten Übersichts Liste ',
+  list: 'Leere Liste',
+  listSubtext: 'Favoriten Liste Leer',
+  listOverview: 'Leistungen Zwischenstand',
+  overviewSubtext: 'Übersichts Liste Leistungen',
 };

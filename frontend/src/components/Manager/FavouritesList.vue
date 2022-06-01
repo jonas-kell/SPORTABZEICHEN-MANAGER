@@ -24,6 +24,8 @@ td {
           :label="
             selectMode == 'none'
               ? $t('general.selectNone')
+              : selectMode == 'all'
+              ? $t('general.selectAll')
               : $t('general.selectFinishers')
           "
           @click="handleSelectModeSwitch"
@@ -238,7 +240,7 @@ export default defineComponent({
       numberOfExtraCols: 10,
       mode: 'favourites' as 'favourites' | 'all',
       selected: [] as boolean[],
-      selectMode: 'none' as 'finished' | 'none',
+      selectMode: 'none' as 'finished' | 'none' | 'all',
     };
   },
   watch: {
@@ -285,6 +287,9 @@ export default defineComponent({
         this.selectMode = 'none';
       } else if (this.selectMode == 'none') {
         this.selectNone();
+        this.selectMode = 'all';
+      } else {
+        this.selectAll();
         this.selectMode = 'finished';
       }
     },
@@ -298,6 +303,12 @@ export default defineComponent({
       this.selected = [];
       this.allRelevant.forEach((athlete) => {
         this.selected[athlete.id] = false;
+      });
+    },
+    selectAll() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = true;
       });
     },
   },

@@ -55,6 +55,7 @@ export default {
   updatedAthleteDetails: 'Athletenprofil aktualisiert',
   selectFinishers: 'Fertige',
   selectNone: 'Niemand',
+  selectAll: 'Alle',
   scores: 'Leistungen',
   proofOfSwimming: 'Schwimmnachweis',
   proofOfSwimmingShort: 'Schwimmn.',

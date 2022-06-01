@@ -102,21 +102,32 @@ module.exports = configure(function (ctx) {
     devServer: {
       https: false,
       port: 8080,
-      proxy: [
-        // in dev mode proxy api requests to the backend, to allow for correct cookie setting
-        {
-          context: [
-            '/api',
-            '/sanctum/csrf-cookie',
-            '/login',
-            '/logout',
-            '/forgot-password',
-            '/reset-password',
-          ],
-          target: 'http://127.0.0.1:80',
+      proxy: {
+        '/sanctum/csrf-cookie': {
+          target: 'http://sportabzeichen.test',
           changeOrigin: true,
         },
-      ],
+        '/api': {
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true,
+        },
+        '/login': {
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true,
+        },
+        '/logout': {
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true,
+        },
+        '/forgot-password': {
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true,
+        },
+        '/reset-password': {
+          target: 'http://sportabzeichen.test',
+          changeOrigin: true,
+        },
+      },
       open: true, // opens browser window automatically
     },
 

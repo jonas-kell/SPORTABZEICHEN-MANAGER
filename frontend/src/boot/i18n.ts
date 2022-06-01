@@ -1,13 +1,19 @@
-import { createI18n, I18n } from 'vue-i18n';
+import { boot } from 'quasar/wrappers';
+import { createI18n } from 'vue-i18n';
+
 import messages from 'src/i18n';
 
-// Create I18n instance
 export const i18n = createI18n({
   locale: 'de',
+  globalInjection: true,
   messages,
 });
 
-export default ({ app }: { app: { use: (param: I18n) => void } }) => {
-  // Tell app to use the I18n instance
+export default boot(({ app }) => {
+  // Set i18n instance on app
   app.use(i18n);
-};
+
+  app.config.globalProperties.$t = i18n.global.t;
+  // ^ ^ ^ this will allow you to use this.$t (for Vue Options API form)
+  //       so you won't necessarily have to import i18n in each vue file
+});

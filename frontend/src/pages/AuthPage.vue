@@ -127,7 +127,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapActions, mapState } from 'vuex';
-import { Status } from './../store/auth/actions';
+import { Status } from '../store/auth/actions';
 
 export default defineComponent({
   data: function () {

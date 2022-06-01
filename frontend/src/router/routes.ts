@@ -8,8 +8,9 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         components: {
-          default: () => import('pages/Index.vue'),
-          'sidebar-attachment': () => import('components/Manager/Sidebar.vue'),
+          default: () => import('src/pages/IndexPage.vue'),
+          'sidebar-attachment': () =>
+            import('src/components/Manager/ManagerSidebar.vue'),
         },
         props: {
           'sidebar-attachment': { supportsCreation: true },
@@ -24,8 +25,9 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         components: {
-          default: () => import('pages/List.vue'),
-          'sidebar-attachment': () => import('components/Manager/Sidebar.vue'),
+          default: () => import('src/pages/ListPage.vue'),
+          'sidebar-attachment': () =>
+            import('src/components/Manager/ManagerSidebar.vue'),
         },
       },
     ],
@@ -33,24 +35,24 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/auth',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Auth.vue') }],
+    children: [{ path: '', component: () => import('src/pages/AuthPage.vue') }],
   },
   {
     path: '/password/reset',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Auth.vue') }],
+    children: [{ path: '', component: () => import('src/pages/AuthPage.vue') }],
   },
   {
     path: '/password/reset/:token',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Auth.vue') }],
+    children: [{ path: '', component: () => import('src/pages/AuthPage.vue') }],
   },
 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue'),
+    component: () => import('pages/Error404Page.vue'),
   },
 ];
 

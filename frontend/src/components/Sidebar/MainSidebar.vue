@@ -24,7 +24,7 @@ interface LinkThing {
   auth: boolean;
 }
 export default defineComponent({
-  name: 'Sidebar',
+  name: 'MainSidebar',
   components: {
     SidebarLink,
   },

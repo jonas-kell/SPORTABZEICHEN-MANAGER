@@ -509,7 +509,7 @@ table.requirements_table > tr > td.highlighted {
 </template>
 
 <script lang="ts">
-import { build_tooltip } from './../../string_helpers';
+import { build_tooltip } from '../../string_helpers';
 import { mapGetters } from 'vuex';
 import FavouriteStarButton from '../Includes/FavouriteStarButton.vue';
 import { defineComponent } from 'vue';

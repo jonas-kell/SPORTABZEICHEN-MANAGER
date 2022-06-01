@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import Sidebar from './../components/Sidebar/Sidebar.vue';
+import Sidebar from './../components/Sidebar/MainSidebar.vue';
 import { mapActions, mapState } from 'vuex';
 import { defineComponent } from 'vue';
 

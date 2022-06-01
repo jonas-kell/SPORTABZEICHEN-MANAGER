@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
-import ManagerCenter from './../components/Manager/Center.vue';
+import ManagerCenter from '../components/Manager/ManagerCenter.vue';
 
 export default defineComponent({
   components: {

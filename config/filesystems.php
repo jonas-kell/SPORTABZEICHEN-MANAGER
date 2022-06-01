@@ -68,9 +68,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('frontend') => base_path('frontend/dist/spa'),
-        public_path('css') => public_path('frontend/css'),
-        public_path('js') => public_path('frontend/js'),
-        public_path('fonts') => public_path('frontend/fonts'),
+        public_path('assets') => public_path('frontend/assets'),
         public_path('icons') => public_path('frontend/icons'),
     ],
 

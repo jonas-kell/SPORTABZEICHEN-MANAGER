@@ -653,6 +653,7 @@ export default defineComponent({
             'athletesModule/deleteAthlete',
             this.modifyableAthlete
           );
+          this.canEdit = false;
         });
     },
   },
@@ -664,12 +665,14 @@ export default defineComponent({
         this.modifyableNewAthlete = JSON.parse(
           JSON.stringify(this.newAthlete)
         ) as Athlete;
+        this.canEdit = false; // switch off potential edit-mode center
       },
     },
     athlete: {
       deep: true,
       handler: function () {
         this.initModifyableAthlete();
+        this.canEdit = false; // switch off potential edit-mode center
       },
     },
     'modifyableAthlete.notes': function () {

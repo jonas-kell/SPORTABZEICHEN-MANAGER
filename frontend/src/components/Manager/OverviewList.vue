@@ -39,6 +39,8 @@ td.highlighted {
               ? $t('general.selectAll')
               : selectMode == 'finished'
               ? $t('general.selectFinishers')
+              : selectMode == 'favourites'
+              ? $t('general.favourites')
               : $t('general.selectNonFinishers')
           "
           @click="handleSelectModeSwitch"
@@ -321,7 +323,12 @@ export default defineComponent({
     return {
       mode: 'performances' as 'performances' | 'meta',
       selected: [] as boolean[],
-      selectMode: 'none' as 'finished' | 'notFinished' | 'none' | 'all',
+      selectMode: 'none' as
+        | 'finished'
+        | 'notFinished'
+        | 'none'
+        | 'all'
+        | 'favourites',
       categories: ['coordination', 'endurance', 'speed', 'strength'],
     };
   },
@@ -414,8 +421,8 @@ export default defineComponent({
       void this.$store.dispatch('athletesModule/requestOutputPDF', arrayOfIds);
     },
     handleSelectModeSwitch() {
-      if (this.selectMode == 'finished') {
-        this.selectAllFinishers();
+      if (this.selectMode == 'favourites') {
+        this.selectAllFavourites();
         this.selectMode = 'none';
       } else if (this.selectMode == 'none') {
         this.selectNone();
@@ -423,9 +430,12 @@ export default defineComponent({
       } else if (this.selectMode == 'all') {
         this.selectAll();
         this.selectMode = 'notFinished';
-      } else {
+      } else if (this.selectMode == 'notFinished') {
         this.selectAllNonFinishers();
         this.selectMode = 'finished';
+      } else {
+        this.selectAllFinishers();
+        this.selectMode = 'favourites';
       }
     },
     selectAllFinishers() {
@@ -450,6 +460,12 @@ export default defineComponent({
       this.selected = [];
       this.allRelevant.forEach((athlete) => {
         this.selected[athlete.id] = !athlete.hasFinished;
+      });
+    },
+    selectAllFavourites() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = athlete.favourite;
       });
     },
   },

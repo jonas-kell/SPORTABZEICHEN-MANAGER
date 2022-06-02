@@ -281,7 +281,10 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         { responseType: 'blob' }
       )
       .then((res) => {
-        const status = exportFile('List.pdf', res.data);
+        const status = exportFile(
+          'List_' + new Date().getTime() + '.pdf',
+          res.data
+        );
 
         if (status === true) {
           // browser allowed it
@@ -302,7 +305,10 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         { responseType: 'blob' }
       )
       .then((res) => {
-        const status = exportFile('Output.pdf', res.data);
+        const status = exportFile(
+          'Output_' + new Date().getTime() + '.pdf',
+          res.data
+        );
 
         if (status === true) {
           // browser allowed it

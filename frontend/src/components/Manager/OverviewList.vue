@@ -156,10 +156,16 @@ td.highlighted {
           class="wrapper-page"
           v-for="(athletes, ageGroup) in relevantAgeGroupsWithAthletes"
           :key="ageGroup"
+          v-bind:class="{
+            'printout-display-none': !athletes.some(
+              (athlete) => selected[athlete.id]
+            ),
+          }"
         >
           <table style="margin-bottom: 1cm" class="smoll-in-printout">
             <tr>
               <th>{{ ageGroup }}</th>
+              <th class="printout-display-none"></th>
               <th
                 v-for="category in categories"
                 :key="category"
@@ -172,6 +178,7 @@ td.highlighted {
             </tr>
             <tr>
               <th></th>
+              <th class="printout-display-none"></th>
               <template v-for="category in categories" :key="category">
                 <th
                   v-for="(requirements, discipline) in athletes[0].needed_requirements[
@@ -185,6 +192,7 @@ td.highlighted {
               </template>
             </tr>
             <tr v-for="rank in ['gold', 'silver', 'bronze']" :key="rank">
+              <th class="printout-display-none"></th>
               <th style="font-size: 70%">
                 {{ $t('general.' + rank) }}
               </th>
@@ -200,7 +208,23 @@ td.highlighted {
                 </td>
               </template>
             </tr>
-            <tr v-for="athlete in athletes" :key="athlete.id">
+            <tr
+              v-for="athlete in athletes"
+              :key="athlete.id"
+              v-bind:class="{ 'printout-display-none': !selected[athlete.id] }"
+            >
+              <td
+                class="printout-display-none"
+                style="width: 4%"
+                v-bind:style="{
+                  background: selected[athlete.id] ? 'green' : 'red',
+                }"
+              >
+                <q-checkbox
+                  v-model="selected[athlete.id]"
+                  size="xs"
+                ></q-checkbox>
+              </td>
               <td>
                 <strong
                   class="cursor-pointer"

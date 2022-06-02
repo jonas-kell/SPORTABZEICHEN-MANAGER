@@ -11,6 +11,26 @@ td.highlighted {
         <p class="text-center">
           {{ $t('general.' + category) }}: <br />
           {{ discipline }}
+          <span>
+            <span
+              class="help_symbol"
+              style="position: absolute"
+              v-if="
+                athlete.needed_requirements[category][discipline].description
+              "
+            >
+              <q-tooltip
+                anchor="top middle"
+                self="bottom middle"
+                max-width="40rem"
+                :offset="[10, 10]"
+              >
+                {{
+                  athlete.needed_requirements[category][discipline].description
+                }}
+              </q-tooltip>
+            </span>
+          </span>
         </p>
       </h5>
       <div style="width: 100%">

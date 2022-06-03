@@ -238,20 +238,20 @@ td.highlighted {
               </td>
               <template v-for="category in categories" :key="category">
                 <td
-                  v-for="(performance, discipline) in athlete.performances[
+                  v-for="(_, discipline) in athletes[0].needed_requirements[
                     category as 'coordination'| 'endurance' | 'speed'| 'strength'
                   ]"
                   :key="discipline"
                   style="height: 1cm"
                   v-bind:class="{
                     highlighted:
-                      performance.bronze_highlighted ||
-                      performance.silver_highlighted ||
-                      performance.gold_highlighted,
+                      athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].bronze_highlighted ||
+                      athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].silver_highlighted ||
+                      athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].gold_highlighted,
                   }"
                   @click="editDialog(athlete, category as 'coordination'| 'endurance' | 'speed'| 'strength', discipline as string)"
                 >
-                  {{ formatPerformance(performance) }}
+                  {{ formatPerformance(athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline]) }}
                 </td>
               </template>
             </tr>

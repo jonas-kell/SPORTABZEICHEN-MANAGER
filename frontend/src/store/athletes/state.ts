@@ -84,7 +84,8 @@ export interface Athlete {
   proofOfSwimmingOk: boolean;
   lastBadgeYear: number;
   numberOfBadgesSoFar: number;
-  identNo: string;
+  lastYearIdentNo: string;
+  newIdentNo: string;
 }
 
 export interface YearResource {

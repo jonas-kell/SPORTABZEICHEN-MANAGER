@@ -48,7 +48,7 @@ class AthletePrintoutResource extends JsonResource
             "# bisherige Sportabzeichen" => $this->numberOfBadgesSoFar ?? "0",                                              # bisherige Sportabzeichen
             "Ankreuzen #" => $this->hasFinished() ? "On" : "Off",                                                           # bestelle Abzeichen
             '$JJJJ' => $this->lastBadgeYear ?? "",                                                                          # letzte Prüfung
-            "# Ident-Nr" => $this->identNo ?? "",                                                                           # Ident Nr
+            "# Ident-Nr" => $this->lastYearIdentNo ?? "",                                                                           # Ident Nr
         ];
 
         return $personArray;

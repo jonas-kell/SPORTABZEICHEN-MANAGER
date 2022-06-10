@@ -81,17 +81,20 @@ td.highlighted {
           <th style="width: 15%" v-if="currentYear == -1">
             {{ $t('general.year') }}
           </th>
-          <th style="width: 10%">
+          <th style="width: 8%">
             {{ $t('general.proofOfSwimmingShort') }}
           </th>
-          <th style="width: 10%">
+          <th style="width: 8%">
             {{ $t('general.lastBadgeYear') }}
           </th>
-          <th style="width: 10%">
+          <th style="width: 8%">
             {{ $t('general.numberOfBadgesSoFar') }}
           </th>
-          <th style="width: 10%">
-            {{ $t('general.identNo') }}
+          <th style="width: 8%">
+            {{ $t('general.lastYearIdentNo') }}
+          </th>
+          <th style="width: 8%">
+            {{ $t('general.newIdentNo') }}
           </th>
         </tr>
         <tr v-for="athlete in allRelevant" v-bind:key="athlete.id">
@@ -128,7 +131,7 @@ td.highlighted {
             {{ athlete.year }}
           </td>
           <td
-            style="width: 10%"
+            style="width: 8%"
             :style="{
               color: athlete.proofOfSwimmingOk ? 'green' : 'red',
             }"
@@ -137,14 +140,17 @@ td.highlighted {
               {{ athlete.proofOfSwimming }}
             </b>
           </td>
-          <td style="width: 10%">
+          <td style="width: 8%">
             {{ athlete.lastBadgeYear }}
           </td>
-          <td style="width: 10%">
+          <td style="width: 8%">
             {{ athlete.numberOfBadgesSoFar }}
           </td>
-          <td style="width: 10%">
-            {{ athlete.identNo }}
+          <td style="width: 8%">
+            {{ athlete.lastYearIdentNo }}
+          </td>
+          <td style="width: 8%">
+            {{ athlete.newIdentNo }}
           </td>
         </tr>
       </table>

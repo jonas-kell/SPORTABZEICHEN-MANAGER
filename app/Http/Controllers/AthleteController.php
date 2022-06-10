@@ -117,7 +117,8 @@ class AthleteController extends Controller
                 "proofOfSwimming" => "integer|nullable",
                 "lastBadgeYear" => "integer|nullable",
                 "numberOfBadgesSoFar" => "integer|nullable",
-                "identNo" => "string|nullable",
+                "lastYearIdentNo" => "string|nullable",
+                "newIdentNo" => "string|nullable",
             ]);
 
 
@@ -156,8 +157,11 @@ class AthleteController extends Controller
                     }
                 }
 
-                if ($request->has("identNo")) {
-                    $athlete->identNo = $request->input("identNo");
+                if ($request->has("lastYearIdentNo")) {
+                    $athlete->lastYearIdentNo = $request->input("lastYearIdentNo");
+                }
+                if ($request->has("newIdentNo")) {
+                    $athlete->newIdentNo = $request->input("newIdentNo");
                 }
 
                 $athlete->save();

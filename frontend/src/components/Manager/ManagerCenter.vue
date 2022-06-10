@@ -202,11 +202,23 @@ table.requirements_table > tr > td.highlighted {
         <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
           <q-input
             filled
-            v-model="modifyableAthlete.identNo"
-            :label="$t('general.identNo')"
+            v-model="modifyableAthlete.lastYearIdentNo"
+            :label="$t('general.lastYearIdentNo')"
             class="col-12"
-            id="center_ident_no_field"
-            name="center_ident_no_field"
+            id="center_old_ident_no_field"
+            name="center_old_ident_no_field"
+            lazy-rules
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.newIdentNo"
+            :label="$t('general.newIdentNo')"
+            class="col-12"
+            id="center_new_ident_no_field"
+            name="center_new_ident_no_field"
             lazy-rules
             :disable="!canEdit ? true : null"
           ></q-input>

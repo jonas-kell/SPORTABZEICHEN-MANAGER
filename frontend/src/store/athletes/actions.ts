@@ -5,6 +5,7 @@ import { AthletesStateInterface, Athlete, YearResource } from './state';
 import { exportFile } from 'quasar';
 import { Notify } from 'quasar';
 import { i18n } from './../../boot/i18n';
+import { recreateObjectFromCache } from './../cache';
 
 const actions: ActionTree<AthletesStateInterface, StateInterface> = {
   fetchFavourites({ commit }) {
@@ -31,8 +32,12 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
           '/' +
           String(loadRequirements ? 1 : 0)
       )
-      .then((res: AxiosResponse<{ athletes: Athlete[] }>) => {
-        commit('FETCH_RELEVANT_ATHLETES', res.data.athletes);
+      .then(async (res: AxiosResponse<{ athletes: Athlete[] }>) => {
+        const athletes = await recreateObjectFromCache<Athlete[]>(
+          res.data.athletes
+        );
+
+        commit('FETCH_RELEVANT_ATHLETES', athletes);
 
         // Notify the user of the fetch
         Notify.create({

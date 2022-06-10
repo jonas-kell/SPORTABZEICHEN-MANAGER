@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Middleware\CacheMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,13 +29,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('favourites/add/{athlete_id}', [App\Http\Controllers\FavouritesController::class, 'addFavourite']);
     Route::put('favourites/drop/{athlete_id}', [App\Http\Controllers\FavouritesController::class, 'dropFavourite']);
 
+    Route::get('relevant_athletes/{year}/{requirements?}', [App\Http\Controllers\AthleteController::class, 'getRelevantAthletes'])->middleware([CacheMiddleware::class]);
+
     Route::post('athlete/create', [App\Http\Controllers\AthleteController::class, 'create']);
     Route::put('athlete/update/{id}', [App\Http\Controllers\AthleteController::class, 'update']);
     Route::put('athlete/update_notes/{id}', [App\Http\Controllers\AthleteController::class, 'updateNotes']);
     Route::put('athlete/update_performances/{id}', [App\Http\Controllers\AthleteController::class, 'updatePerformances']);
     Route::delete('athlete/delete/{id}', [App\Http\Controllers\AthleteController::class, 'delete']);
     Route::get('athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get']);
-    Route::get('relevant_athletes/{year}/{requirements?}', [App\Http\Controllers\AthleteController::class, 'getRelevantAthletes']);
 
     Route::middleware('throttle:1,0.1')->group(function () {
         Route::put('pdf/generate_table_from_html', [App\Http\Controllers\PdfGenerationController::class, 'generateTable']);
@@ -43,4 +44,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::middleware('throttle:1,0.1')->group(function () {
         Route::put('pdf/generate_output_pdf', [App\Http\Controllers\PdfGenerationController::class, 'generateOutput']);
     });
+
+    Route::get('cache_element/{uuid_array}', [App\Http\Controllers\CacheController::class, 'getCacheElements']);
 });

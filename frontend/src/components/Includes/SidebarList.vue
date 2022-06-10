@@ -170,6 +170,7 @@ export default defineComponent({
         numberOfBadgesSoFar: hasCompletedTheBadge
           ? athlete.numberOfBadgesSoFar + 1
           : athlete.numberOfBadgesSoFar,
+        lastYearIdentNo: athlete.newIdentNo ? athlete.newIdentNo : undefined,
       } as Athlete;
 
       this.mappedCreateAthlete({

@@ -104,27 +104,27 @@ module.exports = configure(function (ctx) {
       port: 8080,
       proxy: {
         '/sanctum/csrf-cookie': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
         '/api': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
         '/login': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
         '/logout': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
         '/forgot-password': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
         '/reset-password': {
-          target: 'http://sportabzeichen.test',
+          target: 'http://laravel',
           changeOrigin: true,
         },
       },

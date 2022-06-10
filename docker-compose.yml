@@ -1,7 +1,7 @@
 # For more information: https://laravel.com/docs/sail
 version: "3"
 services:
-  laravel.test:
+  laravel:
     build:
       context: ./vendor/laravel/sail/runtimes/8.1
       dockerfile: Dockerfile
@@ -63,6 +63,18 @@ services:
       - "${FORWARD_MAILHOG_DASHBOARD_PORT:-8082}:8025"
     networks:
       - sail
+  quasar:
+    build:
+      context: .
+      target: "develop-quasar"
+    user: "node"
+    ports:
+      - "${FORWARD_QUASAR_DEV_PORT:-8080}:8080"
+    networks:
+      - sail
+    volumes:
+      - "./frontend:/app"
+    command: /bin/sh -c "npm install && quasar dev"
 networks:
   sail:
     driver: bridge

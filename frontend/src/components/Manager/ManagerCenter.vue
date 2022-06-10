@@ -244,6 +244,7 @@ table.requirements_table > tr > td.highlighted {
             v-model="modifyableAthlete.notes"
             id="center_notes_field"
             name="center_notes_field"
+            :disable="!modifyableAthlete.canStillBeEdited ? true : null"
             filled
             autogrow
           ></q-input>
@@ -292,11 +293,12 @@ table.requirements_table > tr > td.highlighted {
               <td
                 v-if="modifyableAthlete != null"
                 style="width: 16%"
-                class="hide-overflow unselectable cursor-pointer"
+                class="hide-overflow unselectable"
                 v-bind:class="{
                   highlighted:
                     modifyableAthlete.performances[category][discipline]
                       .bronze_highlighted,
+                  'cursor-pointer': modifyableAthlete.canStillBeEdited,
                 }"
                 @click="
                   toggleHighlight(category, discipline, 'bronze_highlighted')
@@ -327,11 +329,12 @@ table.requirements_table > tr > td.highlighted {
               <td
                 v-if="modifyableAthlete != null"
                 style="width: 16%"
-                class="hide-overflow unselectable cursor-pointer"
+                class="hide-overflow unselectable"
                 v-bind:class="{
                   highlighted:
                     modifyableAthlete.performances[category][discipline]
                       .silver_highlighted,
+                  'cursor-pointer': modifyableAthlete.canStillBeEdited,
                 }"
                 @click="
                   toggleHighlight(category, discipline, 'silver_highlighted')
@@ -362,11 +365,12 @@ table.requirements_table > tr > td.highlighted {
               <td
                 v-if="modifyableAthlete != null"
                 style="width: 16%"
-                class="hide-overflow unselectable cursor-pointer"
+                class="hide-overflow unselectable"
                 v-bind:class="{
                   highlighted:
                     modifyableAthlete.performances[category][discipline]
                       .gold_highlighted,
+                  'cursor-pointer': modifyableAthlete.canStillBeEdited,
                 }"
                 @click="
                   toggleHighlight(category, discipline, 'gold_highlighted')
@@ -401,6 +405,9 @@ table.requirements_table > tr > td.highlighted {
                     modifyableAthlete.performances[category][discipline]
                       .performance
                   "
+                  :class="{
+                    disabled: !modifyableAthlete.canStillBeEdited ? true : null,
+                  }"
                   @change="
                     updateAthletePerformance(
                       modifyableAthlete != null ? modifyableAthlete.id : -1, // I hand this to the function to cache it, because I fear, we have race conditions, if the athlete changes before this gets executed, if a change athlete click triggers the change event.
@@ -588,84 +595,116 @@ export default defineComponent({
         return;
       }
 
-      // create mockup athlete structure
-      let mockup_athlete = { id: athlete_id } as Athlete;
-      let performances = {} as {
-        [key in Category]: { [key: Discipline]: PerformanceArray };
-      };
-      performances[category] = {};
-      performances[category][discipline] = {} as PerformanceArray;
+      if (this.modifyableAthlete.canStillBeEdited) {
+        // create mockup athlete structure
+        let mockup_athlete = { id: athlete_id } as Athlete;
+        let performances = {} as {
+          [key in Category]: { [key: Discipline]: PerformanceArray };
+        };
+        performances[category] = {};
+        performances[category][discipline] = {} as PerformanceArray;
 
-      // set the changed value
-      performances[category][discipline].performance =
-        this.modifyableAthlete.performances[category][discipline].performance;
+        // set the changed value
+        performances[category][discipline].performance =
+          this.modifyableAthlete.performances[category][discipline].performance;
 
-      performances[category][discipline].bronze_highlighted =
-        this.modifyableAthlete.performances[category][
-          discipline
-        ].bronze_highlighted;
+        performances[category][discipline].bronze_highlighted =
+          this.modifyableAthlete.performances[category][
+            discipline
+          ].bronze_highlighted;
 
-      performances[category][discipline].silver_highlighted =
-        this.modifyableAthlete.performances[category][
-          discipline
-        ].silver_highlighted;
+        performances[category][discipline].silver_highlighted =
+          this.modifyableAthlete.performances[category][
+            discipline
+          ].silver_highlighted;
 
-      performances[category][discipline].gold_highlighted =
-        this.modifyableAthlete.performances[category][
-          discipline
-        ].gold_highlighted;
+        performances[category][discipline].gold_highlighted =
+          this.modifyableAthlete.performances[category][
+            discipline
+          ].gold_highlighted;
 
-      mockup_athlete.performances = performances;
-      // dispatch the performance-update
-      void this.$store.dispatch('athletesModule/updateAthletePerformances', {
-        athlete: mockup_athlete,
-      });
+        mockup_athlete.performances = performances;
+        // dispatch the performance-update
+        void this.$store.dispatch('athletesModule/updateAthletePerformances', {
+          athlete: mockup_athlete,
+        });
+      } else {
+        // athlete can not be updated
+        this.$q.dialog({
+          title: '',
+          message: this.$t('general.athleteCanNoLongerBeEdited'),
+        });
+      }
     },
     toggleHighlight: function (
       category: Category,
       discipline: Discipline,
       type: 'bronze_highlighted' | 'silver_highlighted' | 'gold_highlighted'
     ) {
-      // only if initialized (can only be triggered, if initialized, but ts doesen't know)
+      // only if initialized (can only be triggered, if initialized, but ts doesn't know)
       if (this.modifyableAthlete == null) {
         return;
       }
 
-      if (this.modifyableAthlete.performances[category][discipline][type]) {
-        this.modifyableAthlete.performances[category][discipline][type] = false;
-      } else {
-        this.modifyableAthlete.performances[category][discipline][type] = true;
-      }
-      this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
+      if (this.modifyableAthlete.canStillBeEdited) {
+        // athlete can be updated
+        if (this.modifyableAthlete.performances[category][discipline][type]) {
+          this.modifyableAthlete.performances[category][discipline][type] =
+            false;
+        } else {
+          this.modifyableAthlete.performances[category][discipline][type] =
+            true;
+        }
+        this.$forceUpdate(); // don't know, why I need this, but hey it doesn't rerender otherwise.
 
-      let id = this.modifyableAthlete.id;
-      clearTimeout(this.typingTimer[discipline]);
-      this.typingTimer[discipline] = setTimeout(() => {
-        this.updateAthletePerformance(id, category, discipline); //store the update in the database
-      }, 400);
+        let id = this.modifyableAthlete.id;
+        clearTimeout(this.typingTimer[discipline]);
+        this.typingTimer[discipline] = setTimeout(() => {
+          this.updateAthletePerformance(id, category, discipline); //store the update in the database
+        }, 400);
+      } else {
+        // athlete can not be updated
+        this.$q.dialog({
+          title: '',
+          message: this.$t('general.athleteCanNoLongerBeEdited'),
+        });
+      }
     },
     askToDelete: function () {
-      this.$q
-        .dialog({
-          title: this.$t('general.delete'),
-          message: this.$t('general.deleteConfirmation'),
-          ok: {
-            push: true,
-            color: 'negative',
-            label: this.$t('general.delete'),
-          },
-          cancel: {
-            color: 'primary',
-            label: this.$t('general.abort'),
-          },
-        })
-        .onOk(() => {
-          void this.$store.dispatch(
-            'athletesModule/deleteAthlete',
-            this.modifyableAthlete
-          );
-          this.canEdit = false;
+      // only if initialized (can only be triggered, if initialized, but ts doesn't know)
+      if (this.modifyableAthlete == null) {
+        return;
+      }
+
+      if (this.modifyableAthlete.canStillBeEdited) {
+        this.$q
+          .dialog({
+            title: this.$t('general.delete'),
+            message: this.$t('general.deleteConfirmation'),
+            ok: {
+              push: true,
+              color: 'negative',
+              label: this.$t('general.delete'),
+            },
+            cancel: {
+              color: 'primary',
+              label: this.$t('general.abort'),
+            },
+          })
+          .onOk(() => {
+            void this.$store.dispatch(
+              'athletesModule/deleteAthlete',
+              this.modifyableAthlete
+            );
+            this.canEdit = false;
+          });
+      } else {
+        // athlete can not be updated
+        this.$q.dialog({
+          title: '',
+          message: this.$t('general.athleteCanNoLongerBeEdited'),
         });
+      }
     },
   },
   watch: {

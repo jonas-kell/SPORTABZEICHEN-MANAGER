@@ -242,8 +242,6 @@ export default defineComponent({
 
       mockup_athlete.performances = performances;
 
-      console.log(mockup_athlete);
-
       // dispatch the performance-update
       void this.$store.dispatch('athletesModule/updateAthletePerformances', {
         athlete: mockup_athlete,

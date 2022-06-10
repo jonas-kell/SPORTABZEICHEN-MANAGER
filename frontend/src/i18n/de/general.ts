@@ -73,4 +73,6 @@ export default {
   gold: 'Leistung für Gold',
   silver: 'Leistung für Silber',
   bronze: 'Leistung für Bronze',
+  athleteCanNoLongerBeEdited:
+    'Der Athlet hat das Sportabzeichen abgeschlossen, die Leistungen sind eingereicht und eine neue Ident-Nr. wurde zugewiesen. Daher darf keine Änderung mehr vorgenommen werden.',
 };

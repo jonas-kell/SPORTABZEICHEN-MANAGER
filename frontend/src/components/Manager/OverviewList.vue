@@ -254,6 +254,7 @@ td.highlighted {
                       athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].bronze_highlighted ||
                       athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].silver_highlighted ||
                       athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].gold_highlighted,
+                    'cursor-pointer': athlete.canStillBeEdited
                   }"
                   @click="editDialog(athlete, category as 'coordination'| 'endurance' | 'speed'| 'strength', discipline as string)"
                 >
@@ -355,21 +356,21 @@ export default defineComponent({
       category: 'coordination' | 'endurance' | 'speed' | 'strength',
       discipline: string
     ) {
-      this.$q
-        .dialog({
+      if (athlete.canStillBeEdited) {
+        this.$q.dialog({
           component: DisciplineManager,
           componentProps: {
             athlete: athlete,
             category: category,
             discipline: discipline,
           },
-        })
-        .onOk(() => {
-          console.log('OK');
-        })
-        .onDismiss(() => {
-          console.log('Called on OK or Cancel');
         });
+      } else {
+        this.$q.dialog({
+          title: '',
+          message: this.$t('general.athleteCanNoLongerBeEdited'),
+        });
+      }
     },
     formatPerformance: function (performance: PerformanceArray) {
       let highest = '';

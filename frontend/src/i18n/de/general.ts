@@ -57,6 +57,8 @@ export default {
   selectNonFinishers: 'Nicht Fertige',
   selectNone: 'Niemand',
   selectAll: 'Alle',
+  selectOfficial: 'Offizielle',
+  selectNonOfficial: 'Nicht offizielle',
   scores: 'Leistungen',
   proofOfSwimming: 'Schwimmnachweis',
   proofOfSwimmingShort: 'Schwimmn.',

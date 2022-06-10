@@ -41,7 +41,11 @@ td.highlighted {
               ? $t('general.selectFinishers')
               : selectMode == 'favourites'
               ? $t('general.favourites')
-              : $t('general.selectNonFinishers')
+              : selectMode == 'notFinished'
+              ? $t('general.selectNonFinishers')
+              : selectMode == 'official'
+              ? $t('general.selectOfficial')
+              : $t('general.selectNonOfficial')
           "
           @click="handleSelectModeSwitch"
         ></q-btn>
@@ -335,7 +339,9 @@ export default defineComponent({
         | 'notFinished'
         | 'none'
         | 'all'
-        | 'favourites',
+        | 'favourites'
+        | 'official'
+        | 'notOfficial',
       categories: ['coordination', 'endurance', 'speed', 'strength'],
     };
   },
@@ -440,8 +446,14 @@ export default defineComponent({
       } else if (this.selectMode == 'notFinished') {
         this.selectAllNonFinishers();
         this.selectMode = 'finished';
-      } else {
+      } else if (this.selectMode == 'finished') {
         this.selectAllFinishers();
+        this.selectMode = 'official';
+      } else if (this.selectMode == 'official') {
+        this.selectAllOfficial();
+        this.selectMode = 'notOfficial';
+      } else {
+        this.selectAllNotOfficial();
         this.selectMode = 'favourites';
       }
     },
@@ -473,6 +485,18 @@ export default defineComponent({
       this.selected = [];
       this.allRelevant.forEach((athlete) => {
         this.selected[athlete.id] = athlete.favourite;
+      });
+    },
+    selectAllOfficial() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = !athlete.canStillBeEdited;
+      });
+    },
+    selectAllNotOfficial() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] = athlete.canStillBeEdited;
       });
     },
   },

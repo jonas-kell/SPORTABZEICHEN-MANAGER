@@ -25,11 +25,15 @@ class CacheMiddleware
 
             if (key_exists("athletes", $data)) {
                 foreach ($data["athletes"] as &$athlete) {
-                    if (key_exists("needed_requirements", $data)) {
+                    if (key_exists("needed_requirements", $athlete)) {
                         $athlete["needed_requirements"] = CacheController::storeAndGenerateKey($athlete["needed_requirements"]);
                     }
-
                     $athlete = CacheController::storeAndGenerateKey($athlete);
+                }
+            }
+            if (key_exists("data", $data)) {
+                if (key_exists("needed_requirements", $data["data"])) {
+                    $data["data"]["needed_requirements"] = CacheController::storeAndGenerateKey($data["data"]["needed_requirements"]);
                 }
             }
 

@@ -62,9 +62,9 @@ async function recreateObjectFromCache<Type>(object: Type): Promise<Type> {
 }
 
 function getHashesFromObjectRecursively<Type>(object: Type): {
-  [key: string]: boolean;
+  [key: string]: boolean | string;
 } {
-  let hashes = {} as { [key: string]: boolean };
+  let hashes = {} as { [key: string]: boolean | string };
 
   if (object instanceof Array) {
     for (let index = 0; index < object.length; index++) {
@@ -74,6 +74,22 @@ function getHashesFromObjectRecursively<Type>(object: Type): {
       };
     }
   } else if (object instanceof Object) {
+    if (isHash(object)) {
+      // piggiback case
+      // data for sure not yet cached
+
+      // cache data here already
+      SessionStorage.set(
+        STORAGE_CACHE_PREFIX + (object as unknown as { hash: string })['hash'],
+        JSON.parse((object as unknown as { data: string })['data'])
+      );
+
+      // tell rest of the calls the data is cached
+      return {
+        [(object as unknown as { hash: string })['hash']]: true,
+      };
+    }
+
     Object.keys(object).forEach((key) => {
       hashes = {
         ...hashes,
@@ -105,6 +121,11 @@ function insertValuesToHashesInObjectRecursively<Type>(
     }
     return res as unknown as Type;
   } else if (object instanceof Object) {
+    if (isHash(object)) {
+      // piggiback case
+      return objectMap[(object as unknown as { hash: string })['hash']] as Type;
+    }
+
     const res = {} as { [key: string]: Type };
     Object.keys(object).forEach((key) => {
       res[key] = insertValuesToHashesInObjectRecursively<Type>(
@@ -123,10 +144,20 @@ function insertValuesToHashesInObjectRecursively<Type>(
 }
 
 function isHash(element: unknown): boolean {
+  // piggiback data
+  if (element instanceof Object) {
+    return (
+      'hash' in element &&
+      'data' in element &&
+      Object.keys(element).length == 2 &&
+      isHash(element['hash'])
+    );
+  }
+
+  // hash strings
   const st = String(element);
 
   const arr = st.split('$', 2);
-
   return (
     arr.length == 2 &&
     arr[0].length == 32 &&

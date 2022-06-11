@@ -31,10 +31,12 @@ class CacheController extends Controller
         $key = md5($json) . self::$seperator . Auth::user()->id;
 
         if (!Cache::has($key)) {
-            Cache::put($key, $json);
+            Cache::put($key, $json, 60 * 60 * 24);
+            return ["hash" => $key, "data" => $json]; // piggiback data and hash to save request
+        } else {
+            // very likely already cached on the users frontend. If not will be requested vie /cache/ route
+            return $key;
         }
-
-        return $key;
     }
 
     public function getCacheElements($uuid_array)

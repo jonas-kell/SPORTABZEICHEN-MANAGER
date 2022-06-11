@@ -23,11 +23,13 @@ class CacheMiddleware
         if ($response instanceof JsonResponse) {
             $data = $response->getData(assoc: true);
 
-            if ($data["athletes"]) {
+            if (key_exists("athletes", $data)) {
                 foreach ($data["athletes"] as &$athlete) {
-                    if ($athlete["needed_requirements"]) {
-                        $athlete["needed_requirements"] =                         CacheController::storeAndGenerateKey($athlete["needed_requirements"]);
+                    if (key_exists("needed_requirements", $data)) {
+                        $athlete["needed_requirements"] = CacheController::storeAndGenerateKey($athlete["needed_requirements"]);
                     }
+
+                    $athlete = CacheController::storeAndGenerateKey($athlete);
                 }
             }
 

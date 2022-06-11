@@ -6,38 +6,46 @@ const STORAGE_CACHE_PREFIX = 'CACHE_STORAGE_';
 export async function recreateObjectFromCache<Type>(
   object: Type
 ): Promise<Type> {
-  const hashesMap = getHashesFromObjectRecursively<Type>(object);
-  const hashesToGet = [] as string[];
+  let breakLoop = false;
 
-  Object.keys(hashesMap).forEach((hash) => {
-    if (!hashesMap[hash]) {
-      // key is not present in cache
-      hashesToGet.push(hash);
+  while (!breakLoop) {
+    const hashesMap = getHashesFromObjectRecursively<Type>(object);
+    const hashesToGet = [] as string[];
+
+    Object.keys(hashesMap).forEach((hash) => {
+      if (!hashesMap[hash]) {
+        // key is not present in cache
+        hashesToGet.push(hash);
+      }
+    });
+
+    let data = {} as { [key: string]: string };
+    if (hashesToGet.length > 0) {
+      data = (
+        await axios.get<{ [key: string]: string }>(
+          'api/cache_element/' + encodeURIComponent(JSON.stringify(hashesToGet))
+        )
+      ).data;
     }
-  });
 
-  let data = {} as { [key: string]: string };
-  if (hashesToGet.length > 0) {
-    data = (
-      await axios.get<{ [key: string]: string }>(
-        'api/cache_element/' + encodeURIComponent(JSON.stringify(hashesToGet))
-      )
-    ).data;
+    breakLoop = true;
+    const objectMap = {} as { [key: string]: unknown };
+    Object.keys(hashesMap).forEach((hash) => {
+      breakLoop = false;
+      if (hashesMap[hash]) {
+        // key is in local storage
+        objectMap[hash] = SessionStorage.getItem(STORAGE_CACHE_PREFIX + hash);
+      } else {
+        // key was just requested
+        objectMap[hash] = JSON.parse(data[hash]);
+        SessionStorage.set(STORAGE_CACHE_PREFIX + hash, objectMap[hash]);
+      }
+    });
+
+    object = insertValuesToHashesInObjectRecursively<Type>(object, objectMap);
   }
 
-  const objectMap = {} as { [key: string]: unknown };
-  Object.keys(hashesMap).forEach((hash) => {
-    if (hashesMap[hash]) {
-      // key is in local storage
-      objectMap[hash] = SessionStorage.getItem(STORAGE_CACHE_PREFIX + hash);
-    } else {
-      // key was just requested
-      objectMap[hash] = JSON.parse(data[hash]);
-      SessionStorage.set(STORAGE_CACHE_PREFIX + hash, objectMap[hash]);
-    }
-  });
-
-  return insertValuesToHashesInObjectRecursively<Type>(object, objectMap);
+  return object;
 }
 
 function getHashesFromObjectRecursively<Type>(object: Type): {

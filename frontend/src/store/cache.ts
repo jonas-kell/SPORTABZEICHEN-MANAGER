@@ -1,11 +1,24 @@
 import axios from 'axios';
 import { SessionStorage } from 'quasar';
 
+// Add a response interceptor (basically a middleware)
+axios.interceptors.response.use(
+  async function (response) {
+    response.data = await recreateObjectFromCache(response.data);
+
+    return response;
+  },
+  function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+  }
+);
+
+export default axios;
+
 const STORAGE_CACHE_PREFIX = 'CACHE_STORAGE_';
 
-export async function recreateObjectFromCache<Type>(
-  object: Type
-): Promise<Type> {
+async function recreateObjectFromCache<Type>(object: Type): Promise<Type> {
   let breakLoop = false;
 
   while (!breakLoop) {

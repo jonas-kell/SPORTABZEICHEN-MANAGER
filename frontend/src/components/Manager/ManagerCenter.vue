@@ -244,7 +244,6 @@ table.requirements_table > tr > td.highlighted {
             v-model="modifyableAthlete.notes"
             id="center_notes_field"
             name="center_notes_field"
-            :disable="!modifyableAthlete.canStillBeEdited ? true : null"
             filled
             autogrow
           ></q-input>

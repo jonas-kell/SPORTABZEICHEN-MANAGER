@@ -63,7 +63,7 @@ export default {
   proofOfSwimming: 'Schwimmnachweis',
   proofOfSwimmingShort: 'Schwimmn.',
   lastBadgeYear: 'Letzte Prüfung',
-  numberOfBadgesSoFar: '# Abzeichen',
+  numberOfBadgesSoFar: '# Abzeichen bisher',
   lastYearIdentNo: 'Bish. Id-Nr.',
   newIdentNo: 'Neue Id-Nr.',
   cloneForYear: 'Für aktuelles Jahr kopieren',

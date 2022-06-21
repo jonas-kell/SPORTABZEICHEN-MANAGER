@@ -4,7 +4,12 @@ import { SessionStorage } from 'quasar';
 // Add a response interceptor (basically a middleware)
 axios.interceptors.response.use(
   async function (response) {
-    response.data = await recreateObjectFromCache(response.data);
+    if (
+      response.data instanceof Object &&
+      response?.headers?.['chached-object-needs-parsing'] == 'true'
+    ) {
+      response.data = await recreateObjectFromCache(response.data);
+    }
 
     return response;
   },

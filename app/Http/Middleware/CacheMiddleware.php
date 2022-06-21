@@ -38,6 +38,7 @@ class CacheMiddleware
             }
 
             $response->setData($data);
+            $response->headers->add(["chached-object-needs-parsing" => "true"]);
         }
 
         return $response;

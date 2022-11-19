@@ -1,9 +1,10 @@
 {
-    "name": "jonas-kell/sportabnzeichen",
+    "name": "jonas-kell/SPORTABZEICHEN-MANAGER",
     "type": "project",
     "description": "SPORTABZEICHEN-MANAGER Backend",
     "keywords": [
-        "laravel"
+        "laravel",
+        "quasar"
     ],
     "require": {
         "php": "^8.1",

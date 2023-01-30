@@ -37,6 +37,8 @@ td.highlighted {
               ? $t('general.selectNone')
               : selectMode == 'all'
               ? $t('general.selectAll')
+              : selectMode == 'needsSubmit'
+              ? $t('general.selectNeedsSubmit')
               : selectMode == 'finished'
               ? $t('general.selectFinishers')
               : selectMode == 'favourites'
@@ -341,7 +343,8 @@ export default defineComponent({
         | 'all'
         | 'favourites'
         | 'official'
-        | 'notOfficial',
+        | 'notOfficial'
+        | 'needsSubmit',
       categories: ['coordination', 'endurance', 'speed', 'strength'],
     };
   },
@@ -439,6 +442,9 @@ export default defineComponent({
         this.selectMode = 'none';
       } else if (this.selectMode == 'none') {
         this.selectNone();
+        this.selectMode = 'needsSubmit';
+      } else if (this.selectMode == 'needsSubmit') {
+        this.selectNeedsSubmit();
         this.selectMode = 'all';
       } else if (this.selectMode == 'all') {
         this.selectAll();
@@ -485,6 +491,13 @@ export default defineComponent({
       this.selected = [];
       this.allRelevant.forEach((athlete) => {
         this.selected[athlete.id] = athlete.favourite;
+      });
+    },
+    selectNeedsSubmit() {
+      this.selected = [];
+      this.allRelevant.forEach((athlete) => {
+        this.selected[athlete.id] =
+          athlete.hasFinished && athlete.canStillBeEdited; // finished, but not yet submitted
       });
     },
     selectAllOfficial() {

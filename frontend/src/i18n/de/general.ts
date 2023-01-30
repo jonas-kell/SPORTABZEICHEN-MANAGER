@@ -54,6 +54,7 @@ export default {
   updatedNotes: 'Notizen aktualisiert',
   updatedAthleteDetails: 'Athletenprofil aktualisiert',
   selectFinishers: 'Fertige',
+  selectNeedsSubmit: 'Müssen eingereicht werden',
   selectNonFinishers: 'Nicht Fertige',
   selectNone: 'Niemand',
   selectAll: 'Alle',

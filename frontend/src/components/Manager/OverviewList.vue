@@ -64,8 +64,17 @@ td.highlighted {
           class="q-mr-sm q-mb-sm"
           color="primary"
           icon-right="print"
+          v-if="mode == 'performances'"
           :label="$t('general.requestPDFOutput')"
           @click="requestOutputPDF"
+        ></q-btn>
+        <q-btn
+          class="q-mr-sm q-mb-sm"
+          color="primary"
+          icon-right="print"
+          v-else
+          :label="$t('general.requestPDFShow')"
+          @click="requestShowPDF"
         ></q-btn>
       </div>
     </q-card-section>
@@ -81,10 +90,10 @@ td.highlighted {
             }}{{ $t('general.name') }}
           </th>
           <th style="width: 9%"></th>
-          <th style="width: 17%">
+          <th style="width: 20%">
             {{ $t('general.scores') }}
           </th>
-          <th style="width: 15%" v-if="currentYear == -1">
+          <th style="width: 10%" v-if="currentYear == -1">
             {{ $t('general.year') }}
           </th>
           <th style="width: 8%">
@@ -96,11 +105,14 @@ td.highlighted {
           <th style="width: 8%">
             {{ $t('general.numberOfBadgesSoFar') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 8%" v-if="!hideCols">
             {{ $t('general.lastYearIdentNo') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 8%" v-if="!hideCols">
             {{ $t('general.newIdentNo') }}
+          </th>
+          <th style="width: 8%">
+            {{ $t('general.totalScore') }}
           </th>
         </tr>
         <tr v-for="athlete in allRelevant" v-bind:key="athlete.id">
@@ -130,10 +142,10 @@ td.highlighted {
           >
             {{ getGenderAndAgeString(athlete) }}
           </td>
-          <td style="width: 17%">
+          <td style="width: 20%">
             <medal-display-table :medalScores="athlete.medal_scores" />
           </td>
-          <td style="width: 15%" v-if="currentYear == -1">
+          <td style="width: 10%" v-if="currentYear == -1">
             {{ athlete.year }}
           </td>
           <td
@@ -152,11 +164,14 @@ td.highlighted {
           <td style="width: 8%">
             {{ athlete.numberOfBadgesSoFar }}
           </td>
-          <td style="width: 8%">
+          <td style="width: 8%" v-if="!hideCols">
             {{ athlete.lastYearIdentNo }}
           </td>
-          <td style="width: 8%">
+          <td style="width: 8%" v-if="!hideCols">
             {{ athlete.newIdentNo }}
+          </td>
+          <td style="width: 8%">
+            {{ getScoreString(athlete) }}
           </td>
         </tr>
       </table>
@@ -286,7 +301,7 @@ td.highlighted {
 <script lang="ts">
 import { mapGetters } from 'vuex';
 import MedalDisplayTable from '../Includes/MedalDisplayTable.vue';
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import { Athlete, PerformanceArray } from '../../store/athletes/state';
 import { SessionStorage } from 'quasar';
 import DisciplineManager from './DisciplineManager.vue';
@@ -346,6 +361,7 @@ export default defineComponent({
         | 'notOfficial'
         | 'needsSubmit',
       categories: ['coordination', 'endurance', 'speed', 'strength'],
+      hideCols: false,
     };
   },
   watch: {
@@ -410,6 +426,36 @@ export default defineComponent({
         athlete.requirements_tag
       );
     },
+    getScoreString: function (athlete: Athlete) {
+      let coordination = parseInt(
+        athlete.medal_scores.coordination.points as unknown as string
+      );
+      let speed = parseInt(
+        athlete.medal_scores.speed.points as unknown as string
+      );
+      let strength = parseInt(
+        athlete.medal_scores.strength.points as unknown as string
+      );
+      let endurance = parseInt(
+        athlete.medal_scores.endurance.points as unknown as string
+      );
+
+      let sum = coordination + speed + strength + endurance;
+      let minOne =
+        coordination > 0 && speed > 0 && strength > 0 && endurance > 0;
+
+      if (!minOne || !athlete.proofOfSwimmingOk) {
+        return '-- (' + sum + ')';
+      } else {
+        if (sum < 8) {
+          return 'Bronze (' + sum + ')';
+        } else if (sum < 11) {
+          return 'Silber (' + sum + ')';
+        } else {
+          return 'Gold (' + sum + ')';
+        }
+      }
+    },
     revealAthlete: function (id: number) {
       void this.$store.dispatch('athletesModule/fetchAthlete', id);
 
@@ -435,6 +481,20 @@ export default defineComponent({
       });
 
       void this.$store.dispatch('athletesModule/requestOutputPDF', arrayOfIds);
+    },
+    requestShowPDF() {
+      this.hideCols = true;
+
+      nextTick(async () => {
+        await this.$store.dispatch(
+          'athletesModule/requestTablePDF',
+          document.getElementById(
+            (this.$refs['render-pdf'] as { id: string }).id
+          )?.outerHTML
+        );
+
+        this.hideCols = false;
+      });
     },
     handleSelectModeSwitch() {
       if (this.selectMode == 'favourites') {

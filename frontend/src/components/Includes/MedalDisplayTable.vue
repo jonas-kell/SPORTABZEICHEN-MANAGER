@@ -30,7 +30,7 @@
         gold: medalScores.coordination.value == 'gold',
         edges: true,
       }"
-      >Koo</span
+      >Koo{{ calculatePointsNumber(medalScores.coordination.value) }}</span
     >
     <span
       v-bind:class="{
@@ -39,7 +39,7 @@
         gold: medalScores.endurance.value == 'gold',
         edges: true,
       }"
-      >Aus</span
+      >Aus{{ calculatePointsNumber(medalScores.endurance.value) }}</span
     >
     <span
       v-bind:class="{
@@ -48,7 +48,7 @@
         gold: medalScores.speed.value == 'gold',
         edges: true,
       }"
-      >Sch</span
+      >Sch{{ calculatePointsNumber(medalScores.speed.value) }}</span
     >
     <span
       v-bind:class="{
@@ -57,7 +57,7 @@
         gold: medalScores.strength.value == 'gold',
         edges: true,
       }"
-      >Stä</span
+      >Stä{{ calculatePointsNumber(medalScores.strength.value) }}</span
     >
   </span>
 </template>
@@ -87,6 +87,18 @@ export default defineComponent({
       },
     },
   },
-  methods: {},
+  methods: {
+    calculatePointsNumber: function (valueString: string) {
+      if (valueString == 'gold') {
+        return '(3)';
+      } else if (valueString == 'silver') {
+        return '(2)';
+      } else if (valueString == 'bronze') {
+        return '(1)';
+      } else {
+        return '(0)';
+      }
+    },
+  },
 });
 </script>

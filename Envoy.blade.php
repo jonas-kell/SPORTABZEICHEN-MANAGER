@@ -53,10 +53,11 @@
 
         {{-- Commands to execute --}}
         echo 'Start Locally: '
-        echo 'docker exec -it sportabzeichen-manager-quasar-1 npm install'
-        echo 'docker exec -it sportabzeichen-manager-quasar-1 quasar build'
-        echo 'scp -r frontend/dist u86027393@home642699496.1and1-data.host:{{ $new_release_dir }}/frontend/'
-        echo 'ssh u86027393@home642699496.1and1-data.host'
+        echo 'docker exec -it sportabzeichen-manager_quasar_1 npm install'
+        echo 'docker exec -it sportabzeichen-manager_quasar_1 quasar build'
+        echo 'scp -r -o PubkeyAuthentication=no -o PreferredAuthentications=password frontend/dist
+        u86027393@home642699496.1and1-data.host:{{ $new_release_dir }}/frontend/'
+        echo 'ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password u86027393@home642699496.1and1-data.host'
         echo 'cd {{ $new_release_dir }}'
         echo '{{ $php }} artisan storage:link'
     @endforeach

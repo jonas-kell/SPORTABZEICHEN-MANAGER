@@ -36,6 +36,7 @@ class ExportController extends Controller
 
                 $out[] = [
                     "id" => $athlete->id,
+                    "name" => $athlete->name,
                     "age" => $athlete->getSportabzeichenAgeAttribute(),
                     "scores" => $scores,
                     "total_points" => intval($scores["coordination"]["points"]) + intval($scores["strength"]["points"]) + intval($scores["endurance"]["points"]) + intval($scores["speed"]["points"]),

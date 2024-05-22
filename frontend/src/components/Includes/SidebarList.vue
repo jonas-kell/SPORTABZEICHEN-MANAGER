@@ -158,18 +158,37 @@ export default defineComponent({
     setupCloneAthlete: async function (athlete: Athlete) {
       let hasCompletedTheBadge = athlete.hasFinished;
 
+      let newNumberBadges = hasCompletedTheBadge
+        ? athlete.numberOfBadgesSoFar + 1
+        : athlete.numberOfBadgesSoFar;
+
+      let currentYear = new Date().getFullYear();
+
+      if (athlete.birthday) {
+        let parsedBirthDate = new Date(athlete.birthday);
+        if (!isNaN(parsedBirthDate as unknown as number)) {
+          // has date
+          const birthYear = parsedBirthDate.getFullYear();
+
+          const spzAgePrev = athlete.year - birthYear;
+          const spzAgeNew = currentYear - birthYear;
+
+          if (spzAgePrev < 18 && spzAgeNew >= 18) {
+            newNumberBadges = 0; // overwrite badge number to 0 for new adult
+          }
+        }
+      }
+
       let clonedAthlete = {
         name: athlete.name,
-        year: new Date().getFullYear(),
+        year: currentYear,
         birthday: athlete.birthday,
         gender: athlete.gender,
         proofOfSwimming: athlete.proofOfSwimming,
         lastBadgeYear: hasCompletedTheBadge
           ? athlete.year
           : athlete.lastBadgeYear,
-        numberOfBadgesSoFar: hasCompletedTheBadge
-          ? athlete.numberOfBadgesSoFar + 1
-          : athlete.numberOfBadgesSoFar,
+        numberOfBadgesSoFar: newNumberBadges,
         lastYearIdentNo: athlete.newIdentNo ? athlete.newIdentNo : undefined,
       } as Athlete;
 

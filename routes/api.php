@@ -45,5 +45,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::put('pdf/generate_output_pdf', [App\Http\Controllers\PdfGenerationController::class, 'generateOutput']);
     });
 
+    Route::put('export/json', [App\Http\Controllers\ExportController::class, 'json']);
+
     Route::get('cache_element/{uuid_array}', [App\Http\Controllers\CacheController::class, 'getCacheElements']);
 });

@@ -322,6 +322,30 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
+  requestJSONExport({}, athleteIds: number[]) {
+    axios
+      .put(
+        'api/export/json',
+        { athlete_ids: athleteIds },
+        { responseType: 'json' }
+      )
+      .then((res) => {
+        const status = exportFile(
+          'Export_' + new Date().getTime() + '.json',
+          JSON.stringify(res.data)
+        );
+
+        if (status === true) {
+          // browser allowed it
+        } else {
+          // browser denied it
+          notifyOfUnknownError(status);
+        }
+      })
+      .catch((err) => {
+        notifyOfUnknownError(err);
+      });
+  },
 };
 
 export default actions;

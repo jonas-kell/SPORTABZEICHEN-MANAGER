@@ -76,6 +76,14 @@ td.highlighted {
           :label="$t('general.requestPDFShow')"
           @click="requestShowPDF"
         ></q-btn>
+        <q-btn
+          class="q-mr-sm q-mb-sm"
+          color="primary"
+          icon-right="download"
+          v-if="mode == 'meta'"
+          :label="$t('general.export')"
+          @click="requestExport"
+        ></q-btn>
       </div>
     </q-card-section>
     <q-card-section class="col-12">
@@ -481,6 +489,17 @@ export default defineComponent({
       });
 
       void this.$store.dispatch('athletesModule/requestOutputPDF', arrayOfIds);
+    },
+    requestExport() {
+      let arrayOfIds = [] as number[];
+
+      this.allRelevant.forEach((athlete) => {
+        if (this.selected[athlete.id]) {
+          arrayOfIds.push(athlete.id);
+        }
+      });
+
+      void this.$store.dispatch('athletesModule/requestJSONExport', arrayOfIds);
     },
     requestShowPDF() {
       this.hideCols = true;

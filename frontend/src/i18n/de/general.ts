@@ -38,6 +38,7 @@ export default {
   strength: 'Kraft',
   requestPDFList: 'Tabellen PDF',
   requestPDFShow: 'Aushang PDF',
+  export: 'Export JSON',
   requestPDFOutput: 'Ausgaben PDF',
   all: 'Alle',
   unknownError: 'Unbekannter Fehler',

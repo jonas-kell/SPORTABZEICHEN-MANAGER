@@ -191,6 +191,39 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
+  updateAthleteSwimmingYear(
+    { dispatch },
+    params: { athleteId: number; proofOfSwimming: number; updateTable: false }
+  ) {
+    axios
+      .put(
+        `/api/athlete/update_swimming_year/${encodeURIComponent(
+          params.athleteId
+        )}`,
+        {
+          proofOfSwimming: params.proofOfSwimming,
+        }
+      )
+      .then(() => {
+        // Notify the user of the fetch
+        Notify.create({
+          type: 'reloaded',
+          message: i18n.global.t('general.updatedAthleteDetails'),
+        });
+
+        //update search and favourites and the cached center athlete asynchronously
+        void dispatch('fetchSearch');
+        void dispatch('fetchFavourites');
+        if (!params.updateTable) {
+          void dispatch('fetchAthlete', params.athleteId);
+        } else {
+          void dispatch('fetchRelevantAthletes', true);
+        }
+      })
+      .catch((err) => {
+        notifyOfUnknownError(err);
+      });
+  },
   deleteAthlete({ commit, dispatch }, athlete: Athlete) {
     axios
       .delete(`/api/athlete/delete/${encodeURIComponent(athlete.id)}`)

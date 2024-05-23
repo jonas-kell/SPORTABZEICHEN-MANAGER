@@ -158,9 +158,11 @@ td.highlighted {
           </td>
           <td
             style="width: 8%"
+            class="cursor-pointer"
             :style="{
               color: athlete.proofOfSwimmingOk ? 'green' : 'red',
             }"
+            @click="editDialogSwimmingYear(athlete)"
           >
             <b>
               {{ athlete.proofOfSwimming }}
@@ -313,6 +315,7 @@ import { defineComponent, nextTick } from 'vue';
 import { Athlete, PerformanceArray } from '../../store/athletes/state';
 import { SessionStorage } from 'quasar';
 import DisciplineManager from './DisciplineManager.vue';
+import SwimmingManager from './SwimmingManager.vue';
 
 const MODE_STORAGE_KEY = 'TABLEMODEINSESSIONSTORAGE';
 
@@ -396,6 +399,21 @@ export default defineComponent({
             athlete: athlete,
             category: category,
             discipline: discipline,
+          },
+        });
+      } else {
+        this.$q.dialog({
+          title: '',
+          message: this.$t('general.athleteCanNoLongerBeEdited'),
+        });
+      }
+    },
+    editDialogSwimmingYear(athlete: Athlete) {
+      if (athlete.canStillBeEdited) {
+        this.$q.dialog({
+          component: SwimmingManager,
+          componentProps: {
+            athlete: athlete,
           },
         });
       } else {

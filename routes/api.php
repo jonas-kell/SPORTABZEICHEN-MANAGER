@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('athlete/update/{id}', [App\Http\Controllers\AthleteController::class, 'update']);
     Route::put('athlete/update_notes/{id}', [App\Http\Controllers\AthleteController::class, 'updateNotes']);
     Route::put('athlete/update_performances/{id}', [App\Http\Controllers\AthleteController::class, 'updatePerformances']);
+    Route::put('athlete/update_swimming_year/{id}', [App\Http\Controllers\AthleteController::class, 'updateSwimmingYear']);
     Route::delete('athlete/delete/{id}', [App\Http\Controllers\AthleteController::class, 'delete']);
     Route::get('athlete/{id}', [App\Http\Controllers\AthleteController::class, 'get'])->middleware([CacheMiddleware::class]);
 

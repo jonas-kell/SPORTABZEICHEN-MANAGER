@@ -209,6 +209,34 @@ class AthleteController extends Controller
         }
     }
 
+
+    /**
+     * update an athlete's swimming year
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function updateSwimmingYear(Request $request, $id)
+    {
+        if ($request->ajax()) {
+
+            $athlete = Athlete::find($id);
+
+            if ($athlete) {
+                $athlete->proofOfSwimming = $request->input("proofOfSwimming");
+
+                $athlete->save();
+
+                //do not reload the athlete on actions that can be triggered rapidly by e.g. typing.
+                //TODO maybe force reload, when update from other source has been encountered
+                return response()->json(["success" => "Swimming proof updated."]);
+            } else {
+                return response()->json(["error" => "Athlete not found"]);
+            }
+        } else {
+            return redirect("/");
+        }
+    }
+
     /**
      * update an athlete's performances
      * 

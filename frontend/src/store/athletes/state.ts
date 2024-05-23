@@ -81,7 +81,7 @@ export interface Athlete {
     [key in Category]: { [key: Discipline]: PerformanceArray };
   };
   favourite: boolean;
-  proofOfSwimming: number;
+  proofOfSwimming: number | null;
   proofOfSwimmingOk: boolean;
   lastBadgeYear: number;
   numberOfBadgesSoFar: number;

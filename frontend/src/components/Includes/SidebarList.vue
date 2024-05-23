@@ -161,11 +161,12 @@ export default defineComponent({
       let newNumberBadges = hasCompletedTheBadge
         ? athlete.numberOfBadgesSoFar + 1
         : athlete.numberOfBadgesSoFar;
+      let newSwimmingProof = athlete.proofOfSwimming;
 
-      let currentYear = new Date().getFullYear();
+      const currentYear = new Date().getFullYear();
 
       if (athlete.birthday) {
-        let parsedBirthDate = new Date(athlete.birthday);
+        const parsedBirthDate = new Date(athlete.birthday);
         if (!isNaN(parsedBirthDate as unknown as number)) {
           // has date
           const birthYear = parsedBirthDate.getFullYear();
@@ -175,16 +176,17 @@ export default defineComponent({
 
           if (spzAgePrev < 18 && spzAgeNew >= 18) {
             newNumberBadges = 0; // overwrite badge number to 0 for new adult
+            newSwimmingProof = null; // clear swimming proof
           }
         }
       }
 
-      let clonedAthlete = {
+      const clonedAthlete = {
         name: athlete.name,
         year: currentYear,
         birthday: athlete.birthday,
         gender: athlete.gender,
-        proofOfSwimming: athlete.proofOfSwimming,
+        proofOfSwimming: newSwimmingProof,
         lastBadgeYear: hasCompletedTheBadge
           ? athlete.year
           : athlete.lastBadgeYear,

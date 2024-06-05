@@ -47,6 +47,7 @@ class ExportController extends Controller
                     "expect_data_present" => $athlete->expect_data_present,
                     "proof_of_swimming" => $athlete->proofOfSwimming,
                     "ident_no" => $athlete->lastYearIdentNo,
+                    "male" => $athlete->gender == "male",
                 ];
             }
 

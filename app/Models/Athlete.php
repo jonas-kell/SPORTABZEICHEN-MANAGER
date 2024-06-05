@@ -22,12 +22,12 @@ class Athlete extends Model
         return Carbon::parse($this->birthday)->year;
     }
 
-    public function getBirthMonthAttribute()
+    public function getBirthMonthNumberAttribute()
     {
         return Carbon::parse($this->birthday)->month;
     }
 
-    public function getBirthDayAttribute()
+    public function getBirthDayNumberAttribute()
     {
         return Carbon::parse($this->birthday)->day;
     }

@@ -17,6 +17,16 @@ class Athlete extends Model
         return $this->year - Carbon::parse($this->birthday)->year;
     }
 
+    public function getBirthYearAttribute()
+    {
+        return Carbon::parse($this->birthday)->year;
+    }
+
+    public function getExpectDataPresentAttribute()
+    {
+        return $this->lastYearIdentNo != "" && $this->lastYearIdentNo != null;
+    }
+
     public function getProofOfSwimmingOkAttribute()
     {
         return ($this->sportabzeichen_age < 18 && ($this->year - $this->proofOfSwimming ?? 0) < 18)

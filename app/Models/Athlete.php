@@ -22,6 +22,16 @@ class Athlete extends Model
         return Carbon::parse($this->birthday)->year;
     }
 
+    public function getBirthMonthAttribute()
+    {
+        return Carbon::parse($this->birthday)->month;
+    }
+
+    public function getBirthDayAttribute()
+    {
+        return Carbon::parse($this->birthday)->day;
+    }
+
     public function getExpectDataPresentAttribute()
     {
         return $this->lastYearIdentNo != "" && $this->lastYearIdentNo != null;

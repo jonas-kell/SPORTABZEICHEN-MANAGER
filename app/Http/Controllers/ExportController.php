@@ -39,6 +39,8 @@ class ExportController extends Controller
                     "name" => $athlete->name,
                     "age" => $athlete->sportabzeichen_age,
                     "birth_year" => $athlete->birth_year,
+                    "birth_month" => $athlete->birth_month,
+                    "birth_day" => $athlete->birth_day,
                     "scores" => $scores,
                     "total_points" => intval($scores["coordination"]["points"]) + intval($scores["strength"]["points"]) + intval($scores["endurance"]["points"]) + intval($scores["speed"]["points"]),
                     "finished" => $athlete->hasFinished(),

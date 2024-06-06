@@ -101,25 +101,28 @@ td.highlighted {
           <th style="width: 20%">
             {{ $t('general.scores') }}
           </th>
-          <th style="width: 10%" v-if="currentYear == -1">
+          <th style="width: 9%" v-if="currentYear == -1">
             {{ $t('general.year') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 7%">
             {{ $t('general.proofOfSwimmingShort') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 7%">
             {{ $t('general.lastBadgeYear') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 7%">
             {{ $t('general.numberOfBadgesSoFar') }}
           </th>
-          <th style="width: 8%" v-if="!hideCols">
+          <th style="width: 7%" v-if="!hideCols">
             {{ $t('general.lastYearIdentNo') }}
           </th>
-          <th style="width: 8%" v-if="!hideCols">
+          <th style="width: 7%" v-if="!hideCols">
             {{ $t('general.newIdentNo') }}
           </th>
-          <th style="width: 8%">
+          <th style="width: 7%" v-if="!hideCols">
+            {{ $t('general.externalId') }}
+          </th>
+          <th style="width: 7%">
             {{ $t('general.totalScore') }}
           </th>
         </tr>
@@ -153,11 +156,11 @@ td.highlighted {
           <td style="width: 20%">
             <medal-display-table :medalScores="athlete.medal_scores" />
           </td>
-          <td style="width: 10%" v-if="currentYear == -1">
+          <td style="width: 9%" v-if="currentYear == -1">
             {{ athlete.year }}
           </td>
           <td
-            style="width: 8%"
+            style="width: 7%"
             class="cursor-pointer"
             :style="{
               color: athlete.proofOfSwimmingOk ? 'green' : 'red',
@@ -168,19 +171,22 @@ td.highlighted {
               {{ athlete.proofOfSwimming }}
             </b>
           </td>
-          <td style="width: 8%">
+          <td style="width: 7%">
             {{ athlete.lastBadgeYear }}
           </td>
-          <td style="width: 8%">
+          <td style="width: 7%">
             {{ athlete.numberOfBadgesSoFar }}
           </td>
-          <td style="width: 8%" v-if="!hideCols">
+          <td style="width: 7%" v-if="!hideCols">
             {{ athlete.lastYearIdentNo }}
           </td>
-          <td style="width: 8%" v-if="!hideCols">
+          <td style="width: 7%" v-if="!hideCols">
             {{ athlete.newIdentNo }}
           </td>
-          <td style="width: 8%">
+          <td style="width: 7%" v-if="!hideCols">
+            {{ athlete.externalId }}
+          </td>
+          <td style="width: 7%">
             {{ getScoreString(athlete) }}
           </td>
         </tr>

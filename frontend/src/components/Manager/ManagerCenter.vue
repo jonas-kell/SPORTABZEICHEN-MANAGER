@@ -223,6 +223,18 @@ table.requirements_table > tr > td.highlighted {
             :disable="!canEdit ? true : null"
           ></q-input>
         </div>
+        <div class="col-12 col-lg-6 q-px-md q-pb-none q-mb-lg row">
+          <q-input
+            filled
+            v-model="modifyableAthlete.externalId"
+            :label="$t('general.externalId')"
+            class="col-12"
+            id="center_external_id_field"
+            name="center_external_id_field"
+            lazy-rules
+            :disable="!canEdit ? true : null"
+          ></q-input>
+        </div>
         <div class="col-12 q-px-md" v-if="canEdit">
           <q-btn
             filled

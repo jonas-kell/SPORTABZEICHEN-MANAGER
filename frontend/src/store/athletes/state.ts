@@ -87,6 +87,7 @@ export interface Athlete {
   numberOfBadgesSoFar: number;
   lastYearIdentNo: string;
   newIdentNo: string;
+  externalId: string;
 }
 
 export interface YearResource {

@@ -59,6 +59,7 @@ class AthleteController extends Controller
                 "lastBadgeYear" => "integer|nullable",
                 "numberOfBadgesSoFar" => "integer|nullable",
                 "lastYearIdentNo" => "string|nullable",
+                "externalId" => "string|nullable",
             ]);
 
 
@@ -90,6 +91,9 @@ class AthleteController extends Controller
 
             if ($request->has("lastYearIdentNo")) {
                 $athlete->lastYearIdentNo = $request->input("lastYearIdentNo");
+            }
+            if ($request->has("externalId")) {
+                $athlete->externalId = $request->input("externalId");
             }
 
             $athlete->save();
@@ -124,6 +128,7 @@ class AthleteController extends Controller
                 "numberOfBadgesSoFar" => "integer|nullable",
                 "lastYearIdentNo" => "string|nullable",
                 "newIdentNo" => "string|nullable",
+                "externalId" => "string|nullable",
             ]);
 
 
@@ -167,6 +172,9 @@ class AthleteController extends Controller
                 }
                 if ($request->has("newIdentNo")) {
                     $athlete->newIdentNo = $request->input("newIdentNo");
+                }
+                if ($request->has("externalId")) {
+                    $athlete->externalId = $request->input("externalId");
                 }
 
                 $athlete->save();

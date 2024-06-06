@@ -69,6 +69,7 @@ export default {
   numberOfBadgesSoFar: '# Abzeichen bisher',
   lastYearIdentNo: 'Bish. Id-Nr.',
   newIdentNo: 'Neue Id-Nr.',
+  externalId: 'Fremdprogramm Id-Nr.',
   totalScore: 'Abzeichen (Punkte)',
   cloneForYear: 'Für aktuelles Jahr kopieren',
   toggleFavourite: 'Favoritenstatus Umschalten',

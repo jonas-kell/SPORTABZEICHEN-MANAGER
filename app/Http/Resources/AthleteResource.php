@@ -29,6 +29,7 @@ class AthleteResource extends JsonResource
             'numberOfBadgesSoFar' => $this->numberOfBadgesSoFar,
             'lastYearIdentNo' => $this->lastYearIdentNo,
             'newIdentNo' => $this->newIdentNo,
+            'externalId' => $this->externalId,
             'notes' => $this->notes,
         ];
 

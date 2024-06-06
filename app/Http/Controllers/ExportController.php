@@ -48,6 +48,7 @@ class ExportController extends Controller
                     "proof_of_swimming" => $athlete->proofOfSwimming,
                     "ident_no" => $athlete->lastYearIdentNo,
                     "male" => $athlete->gender == "male",
+                    "emblem_count" => $athlete->numberOfBadgesSoFar,
                 ];
             }
 

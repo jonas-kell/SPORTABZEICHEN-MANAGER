@@ -1,10 +1,13 @@
-@servers(['leichtathletik-ionos' => 'u86027393@home642699496.1and1-data.host'])
-
 @setup
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+    
     $app_dirs = ['~/deploy_sportabzeichen'];
 @endsetup
 
-@task('deploy', ['on' => 'leichtathletik-ionos'])
+@servers(['live' => env('DEPLOY_USER') . '@' . env('DEPLOY_HOST')])
+
+@task('deploy', ['on' => 'live'])
     @foreach ($app_dirs as $app_dir)
         @php
             $repository = 'sportabzeichen:jonas-kell/SPORTABZEICHEN-MANAGER.git';

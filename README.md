@@ -63,7 +63,18 @@ sail up
 
 Then, other default Laravel-steps may be required. Read the [Docs](https://laravel.com/docs/11.x/installation).
 
-(Database migration, seeding, cache-clearing, symlinks, .env-configuration).
+(Database migration, seeding, cache-clearing, symlinks, .env-configuration, user creation)
+
+To setup a user with login, it should be the best to use the [Artisan-Shell](https://laravel.com/docs/11.x/artisan) (e.g. Tinker).
+
+For local installations, per default the database will have one user, if the database is created with:
+
+```
+sail artisan migrate:fresh --seed
+```
+
+Username/Email: `test@test`
+Password: `asdfasdf`
 
 ### Sail Symlinks for Dev
 
@@ -73,6 +84,13 @@ Using `sail artisan storage:link` doesn't work. Instead run
 sail root-shell
 php artisan storage:link
 ```
+
+#### Dev-Services
+
+-   [http://localhost:80/](http://localhost:80/) Main Application
+-   [http://localhost:8080/](http://localhost:8080/) Main Application (Direct Access to the Hot-Reloading Vite dev-server)
+-   [http://localhost:8081/](http://localhost:8081/) phpMyAdmin Database interface
+-   [http://localhost:8082/](http://localhost:8082/) MailHog email simulation webinterface
 
 ## Deploy to a live-server
 

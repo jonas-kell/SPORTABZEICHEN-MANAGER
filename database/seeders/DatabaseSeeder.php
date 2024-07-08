@@ -16,5 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        if (app()->isLocal()) {
+            $root = new User();
+
+            $root->name = "TEST ROOT USER";
+            $root->email = "test@test";
+            $root->password = bcrypt("asdfasdf");
+
+            $root->save();
+        }
     }
 }

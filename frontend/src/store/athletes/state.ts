@@ -103,31 +103,61 @@ let favourites = [] as Athlete[];
 // cache year stuff, to get smoother page refresh
 try {
   const buf = SessionStorage.getItem<number>(CURRENT_YEAR_STORAGE_KEY);
-  if (buf) {
+  if (
+    buf &&
+    buf != null &&
+    (buf as unknown) != 'null' &&
+    buf != undefined &&
+    (buf as unknown) != 'undefined'
+  ) {
     currentYear = buf;
   }
 } catch (e) {}
 try {
   const buf = SessionStorage.getItem<number[]>(ALL_YEARS_STORAGE_KEY);
-  if (buf) {
+  if (
+    buf &&
+    buf != null &&
+    (buf as unknown) != 'null' &&
+    buf != undefined &&
+    (buf as unknown) != 'undefined'
+  ) {
     allYearsArray = buf;
   }
 } catch (e) {}
 try {
   const buf = SessionStorage.getItem<Athlete | 'null'>(ATHLETE_STORAGE_KEY);
-  if (buf && buf != null && buf != 'null') {
+  if (
+    buf &&
+    buf != null &&
+    buf != 'null' &&
+    buf != undefined &&
+    (buf as unknown) != 'undefined'
+  ) {
     athlete = buf;
   }
 } catch (e) {}
 try {
   const buf = SessionStorage.getItem<Athlete[]>(RELEVANT_ATHLETES_STORAGE_KEY);
-  if (buf && buf != null) {
+  if (
+    buf &&
+    buf != null &&
+    (buf as unknown) != 'null' &&
+    buf != undefined &&
+    (buf as unknown) != 'undefined'
+  ) {
     allRelevantAthletes = buf;
   }
 } catch (e) {}
 try {
   const buf = SessionStorage.getItem<Athlete[]>(FAVOURITES_STORAGE_KEY);
-  if (buf && buf != null) {
+  if (
+    buf &&
+    buf != null &&
+    (buf as unknown) != 'null' &&
+    buf != undefined &&
+    (buf as unknown) != 'undefined'
+  ) {
     favourites = buf;
   }
 } catch (e) {}

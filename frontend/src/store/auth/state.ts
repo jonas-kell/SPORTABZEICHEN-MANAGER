@@ -21,7 +21,17 @@ let user = null as null | User;
 try {
   if (SessionStorage.getItem(IS_LOGGED_IN_STORAGE_KEY)) {
     isLoggedIn = true;
-    user = SessionStorage.getItem(USER_STORAGE_KEY);
+
+    const buf = SessionStorage.getItem<User>(USER_STORAGE_KEY);
+    if (
+      buf &&
+      buf != null &&
+      (buf as unknown) != 'null' &&
+      buf != undefined &&
+      (buf as unknown) != 'undefined'
+    ) {
+      user = buf;
+    }
   }
 } catch (e) {}
 

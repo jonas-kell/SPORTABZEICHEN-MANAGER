@@ -1,6 +1,6 @@
 # Sportabzeichen Manager (frontend)
 
-Frontend Component to the TSV-SMÜ Sportabzeichen Manager
+Frontend Component to the Sportabzeichen Manager
 
 ## Install the dependencies
 

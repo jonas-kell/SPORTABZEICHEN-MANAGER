@@ -10,6 +10,15 @@
 
 const { configure } = require('quasar/wrappers');
 const path = require('path');
+const { config } = require('dotenv');
+
+// Load environment variables from .env file
+console.log(config({ path: path.resolve(__dirname, '.env.quasar') }));
+
+const BACKEND_APP_NAME =
+  process.env.APP_NAME ?? 'Unnamed Sportabzeichen Manager';
+const APP_URL_PROD =
+  process.env.APP_URL ?? 'https://sportabzeichen.sportabzeichen.replaceme';
 
 module.exports = configure(function (ctx) {
   return {
@@ -89,12 +98,8 @@ module.exports = configure(function (ctx) {
 
       // passing down to UI code from quasar.config.js
       env: {
-        APP_NAME: ctx.dev
-          ? 'DEV MODE - Sportabzeichen'
-          : 'TSV SMÜ Leichtathletik - Sportabzeichen',
-        BACKEND_BASE_URL: ctx.dev
-          ? 'http://localhost:8080'
-          : 'https://sportabzeichen.leichtathletik-schwabmuenchen.de',
+        APP_NAME: ctx.dev ? 'DEV MODE - Sportabzeichen' : BACKEND_APP_NAME,
+        BACKEND_BASE_URL: ctx.dev ? 'http://localhost:8080' : APP_URL_PROD,
       },
     },
 

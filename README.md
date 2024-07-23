@@ -63,7 +63,7 @@ sail up
 
 Then, other default Laravel-steps may be required. Read the [Docs](https://laravel.com/docs/11.x/installation).
 
-(Database migration, seeding, cache-clearing, symlinks, .env-configuration, user creation)
+(Database migration, seeding, cache-clearing, symlinks, .env-configuration (copy `/.env.example` to `/.env` and `/frontend/.env.quasar.example` to `/frontend/.env.quasar` and fill in values), user creation)
 
 To setup a user with login, it should be the best to use the [Artisan-Shell](https://laravel.com/docs/11.x/artisan) (e.g. Tinker).
 
@@ -87,10 +87,10 @@ php artisan storage:link
 
 #### Dev-Services
 
--   [http://localhost:80/](http://localhost:80/) Main Application
 -   [http://localhost:8080/](http://localhost:8080/) Main Application (Direct Access to the Hot-Reloading Vite dev-server)
 -   [http://localhost:8081/](http://localhost:8081/) phpMyAdmin Database interface
 -   [http://localhost:8082/](http://localhost:8082/) MailHog email simulation webinterface
+-   [http://localhost:80/](http://localhost:80/) Main Application Backend (not "working" as expected in dev mode, meaning you cannot use that page there even if it loos like the one under 8080)
 
 ## Deploy to a live-server
 

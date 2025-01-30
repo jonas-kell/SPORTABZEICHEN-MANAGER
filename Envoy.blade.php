@@ -1,7 +1,7 @@
 @setup
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
-    
+
     $app_dirs = ['~/deploy_sportabzeichen'];
 @endsetup
 
@@ -17,7 +17,7 @@
             $file_storage = $app_dir . '/storage';
             $release = date('YmdHis');
             $new_release_dir = $releases_dir . '/' . $release;
-            $php = '/usr/bin/php8.1-cli';
+            $php = '/usr/bin/php8.4-cli';
         @endphp
 
         {{-- Clone Repository --}}
@@ -58,7 +58,8 @@
         echo 'Start Locally: '
         echo 'docker exec -it sportabzeichen-manager-quasar-1 npm install'
         echo 'docker exec -it sportabzeichen-manager-quasar-1 quasar build'
-        echo 'scp -r -o PubkeyAuthentication=no -o PreferredAuthentications=password frontend/dist u86027393@home642699496.1and1-data.host:{{ $new_release_dir }}/frontend/'
+        echo 'scp -r -o PubkeyAuthentication=no -o PreferredAuthentications=password frontend/dist
+        u86027393@home642699496.1and1-data.host:{{ $new_release_dir }}/frontend/'
         echo 'ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password u86027393@home642699496.1and1-data.host'
         echo 'cd {{ $new_release_dir }}'
         echo '{{ $php }} artisan storage:link'

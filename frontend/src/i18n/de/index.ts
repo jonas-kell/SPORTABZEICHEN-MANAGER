@@ -2,7 +2,7 @@
 
 const messages = {} as { [key: string]: string };
 
-const files = import.meta.globEager('./*.ts');
+const files = import.meta.glob('./*.ts', { eager: true });
 
 Object.keys(files).forEach((key) => {
   if (!key.includes('index')) {

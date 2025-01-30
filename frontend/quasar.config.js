@@ -8,9 +8,9 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
-const { configure } = require('quasar/wrappers');
-const path = require('path');
-const { config } = require('dotenv');
+import { defineConfig } from '#q-app/wrappers';
+import path from 'path';
+import { config } from 'dotenv';
 
 // Load environment variables from .env file
 console.log(config({ path: path.resolve(__dirname, '.env.quasar') }));
@@ -20,7 +20,7 @@ const BACKEND_APP_NAME =
 const APP_URL_PROD =
   process.env.APP_URL ?? 'https://sportabzeichen.sportabzeichen.replaceme';
 
-module.exports = configure(function (ctx) {
+export default defineConfig((ctx) => {
   return {
     eslint: {
       // fix: true,
@@ -37,7 +37,7 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'notify', 'axios'],
+    boot: ['i18n', 'notify', 'axios', 'store'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],

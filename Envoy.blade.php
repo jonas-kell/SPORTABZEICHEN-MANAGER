@@ -58,8 +58,8 @@
         echo 'Start Locally: '
         echo 'docker exec -it sportabzeichen-manager-quasar-1 npm install'
         echo 'docker exec -it sportabzeichen-manager-quasar-1 quasar build'
-        echo 'scp -r -o PubkeyAuthentication=no -o PreferredAuthentications=password frontend/dist {{ env('DEPLOY_USER') }}@{{ env('DEPLOY_HOST') }}:{{ $new_release_dir }}/frontend/'
-        echo 'ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password {{ env('DEPLOY_USER') }}@{{ env('DEPLOY_HOST') }}'
+        echo 'scp -r -o PubkeyAuthentication=no -o PreferredAuthentications=password frontend/dist {{ env('DEPLOY_USER') . '@'. env('DEPLOY_HOST') }}:{{ $new_release_dir }}/frontend/'
+        echo 'ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password {{ env('DEPLOY_USER') . '@'. env('DEPLOY_HOST') }}'
         echo 'cd {{ $new_release_dir }}'
         echo '{{ $php }} artisan storage:link'
     @endforeach

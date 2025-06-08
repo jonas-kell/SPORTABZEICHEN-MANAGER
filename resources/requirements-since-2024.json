@@ -64,6 +64,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2,50 m",
+                            "requirement": "2,50",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "3,50 m",
+                            "requirement": "3,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "4,50 m",
+                            "requirement": "4,50",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -348,6 +368,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "3,00 m",
+                            "requirement": "3,00",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,00 m",
+                            "requirement": "4,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -652,6 +692,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -2032,18 +2092,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "10,25 m",
-                            "requirement": "10,25",
-                            "unit": "m"
-                        },
-                        "silver": {
                             "requirement_with_unit": "11,00 m",
                             "requirement": "11,00",
                             "unit": "m"
                         },
+                        "silver": {
+                            "requirement_with_unit": "13,00 m",
+                            "requirement": "13,00",
+                            "unit": "m"
+                        },
                         "gold": {
-                            "requirement_with_unit": "11,75 m",
-                            "requirement": "11,75",
+                            "requirement_with_unit": "14,00 m",
+                            "requirement": "14,00",
                             "unit": "m"
                         }
                     }
@@ -2416,18 +2476,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "10,25 m",
-                            "requirement": "10,25",
+                            "requirement_with_unit": "11,0 m",
+                            "requirement": "11,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "11,25 m",
-                            "requirement": "11,25",
+                            "requirement_with_unit": "13,50 m",
+                            "requirement": "13,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "12,00 m",
-                            "requirement": "12,00",
+                            "requirement_with_unit": "14,50 m",
+                            "requirement": "14,50",
                             "unit": "m"
                         }
                     }
@@ -2800,18 +2860,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "9,75 m",
-                            "requirement": "9,75",
+                            "requirement_with_unit": "10,50 m",
+                            "requirement": "10,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "10,75 m",
-                            "requirement": "10,75",
+                            "requirement_with_unit": "13,00 m",
+                            "requirement": "13,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "11,75 m",
-                            "requirement": "11,75",
+                            "requirement_with_unit": "14,50 m",
+                            "requirement": "14,50",
                             "unit": "m"
                         }
                     }
@@ -3184,18 +3244,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "9,00 m",
-                            "requirement": "9,00",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "10,25 m",
-                            "requirement": "10,25",
+                            "requirement_with_unit": "13,00 m",
+                            "requirement": "13,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "11,50 m",
-                            "requirement": "11,50",
+                            "requirement_with_unit": "14,00 m",
+                            "requirement": "14,00",
                             "unit": "m"
                         }
                     }
@@ -3585,18 +3645,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "8,25 m",
-                            "requirement": "8,25",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "9,75 m",
-                            "requirement": "9,75",
+                            "requirement_with_unit": "12,50 m",
+                            "requirement": "12,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "11,25 m",
-                            "requirement": "11,25",
+                            "requirement_with_unit": "14,00 m",
+                            "requirement": "14,00",
                             "unit": "m"
                         }
                     }
@@ -3952,18 +4012,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "7,75 m",
-                            "requirement": "7,75",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "9,25 m",
-                            "requirement": "9,25",
+                            "requirement_with_unit": "12,00 m",
+                            "requirement": "12,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "10,75 m",
-                            "requirement": "10,75",
+                            "requirement_with_unit": "13,50 m",
+                            "requirement": "13,50",
                             "unit": "m"
                         }
                     }
@@ -4336,18 +4396,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "7,00 m",
-                            "requirement": "7,00",
+                            "requirement_with_unit": "8,00 m",
+                            "requirement": "8,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "8,75 m",
-                            "requirement": "8,75",
+                            "requirement_with_unit": "11,50 m",
+                            "requirement": "11,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "10,50 m",
-                            "requirement": "10,50",
+                            "requirement_with_unit": "13,50 m",
+                            "requirement": "13,50",
                             "unit": "m"
                         }
                     }
@@ -4740,18 +4800,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "6,50 m",
-                            "requirement": "6,50",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "8,50 m",
-                            "requirement": "8,50",
+                            "requirement_with_unit": "11,00 m",
+                            "requirement": "11,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "10,25 m",
-                            "requirement": "10,25",
+                            "requirement_with_unit": "13,00 m",
+                            "requirement": "13,00",
                             "unit": "m"
                         }
                     }
@@ -5104,18 +5164,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "6,00 m",
-                            "requirement": "6,00",
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "8,25 m",
-                            "requirement": "8,25",
+                            "requirement_with_unit": "10,50 m",
+                            "requirement": "10,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "10,00 m",
-                            "requirement": "10,00",
+                            "requirement_with_unit": "12,50 m",
+                            "requirement": "12,50",
                             "unit": "m"
                         }
                     }
@@ -5488,18 +5548,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "5,75 m",
-                            "requirement": "5,75",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "7,75 m",
-                            "requirement": "7,75",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "9,75 m",
-                            "requirement": "9,75",
+                            "requirement_with_unit": "12,50 m",
+                            "requirement": "12,50",
                             "unit": "m"
                         }
                     }
@@ -5872,18 +5932,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "5,25 m",
-                            "requirement": "5,25",
+                            "requirement_with_unit": "6,00 m",
+                            "requirement": "6,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "7,25 m",
-                            "requirement": "7,25",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "9,25 m",
-                            "requirement": "9,25",
+                            "requirement_with_unit": "11,50 m",
+                            "requirement": "11,50",
                             "unit": "m"
                         }
                     }
@@ -6276,18 +6336,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "5,00 m",
-                            "requirement": "5,00",
+                            "requirement_with_unit": "6,00 m",
+                            "requirement": "6,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "7,00 m",
-                            "requirement": "7,00",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "9,00 m",
-                            "requirement": "9,00",
+                            "requirement_with_unit": "10,50 m",
+                            "requirement": "10,50",
                             "unit": "m"
                         }
                     }
@@ -6660,18 +6720,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,50 m",
-                            "requirement": "4,50",
+                            "requirement_with_unit": "6,00 m",
+                            "requirement": "6,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,50 m",
-                            "requirement": "6,50",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,50 m",
-                            "requirement": "8,50",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         }
                     }
@@ -7024,18 +7084,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,25 m",
-                            "requirement": "4,25",
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,25 m",
-                            "requirement": "6,25",
+                            "requirement_with_unit": "8,00 m",
+                            "requirement": "8,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,25 m",
-                            "requirement": "8,25",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         }
                     }
@@ -7408,18 +7468,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,00 m",
-                            "requirement": "4,00",
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,00 m",
-                            "requirement": "6,00",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,00 m",
-                            "requirement": "8,00",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         }
                     }
@@ -7792,18 +7852,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,50 m",
-                            "requirement": "3,50",
+                            "requirement_with_unit": "4,50 m",
+                            "requirement": "4,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "5,50 m",
-                            "requirement": "5,50",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "7,50 m",
-                            "requirement": "7,50",
+                            "requirement_with_unit": "8,00 m",
+                            "requirement": "8,00",
                             "unit": "m"
                         }
                     }
@@ -8134,6 +8194,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "2,50 m",
+                            "requirement": "2,50",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "3,50 m",
+                            "requirement": "3,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "4,50 m",
+                            "requirement": "4,50",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -8418,6 +8498,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "3,00 m",
+                            "requirement": "3,00",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "4,00 m",
+                            "requirement": "4,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -8722,6 +8822,26 @@
                 }
             },
             "strength": {
+                "Medizinball (1 kg)": {
+                    "description": "Medizinball für Kinder von 6-11 als Lückenschluss zum Kugelstoßen. Konkret empfohlen wird der beidarmige Stoß frontal nach vorn (vgl. Seite 86/87, U8: https://leichtathletiktraining.de/wks_kla). Eine weitere Variante ist der beidhändige Stoß aus der seitlichen Stoßauslage (vgl. Seite 88/89, U10: gleicher Link).",
+                    "requirements": {
+                        "bronze": {
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
+                            "unit": "m"
+                        },
+                        "silver": {
+                            "requirement_with_unit": "6,00 m",
+                            "requirement": "6,00",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
+                            "unit": "m"
+                        }
+                    }
+                },
                 "Schlagball (80 g)": {
                     "description": "Der Schlagball kann aus dem Anlauf oder aus dem Stand geworfen werden. Als Leistung wird die senkrechte Entfernung des nächsten Eindruckes des Gerätes zur Innenkante der Abwurflinie oder ihrer seitlichen Verlängerung gemessen.",
                     "requirements": {
@@ -10102,18 +10222,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "7,50 m",
-                            "requirement": "7,50",
-                            "unit": "m"
-                        },
-                        "silver": {
                             "requirement_with_unit": "8,00 m",
                             "requirement": "8,00",
                             "unit": "m"
                         },
+                        "silver": {
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
+                            "unit": "m"
+                        },
                         "gold": {
-                            "requirement_with_unit": "8,75 m",
-                            "requirement": "8,75",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         }
                     }
@@ -10486,18 +10606,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "7,50 m",
-                            "requirement": "7,50",
-                            "unit": "m"
-                        },
-                        "silver": {
                             "requirement_with_unit": "8,00 m",
                             "requirement": "8,00",
                             "unit": "m"
                         },
+                        "silver": {
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
+                            "unit": "m"
+                        },
                         "gold": {
-                            "requirement_with_unit": "8,75 m",
-                            "requirement": "8,75",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         }
                     }
@@ -10870,18 +10990,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "7,00 m",
-                            "requirement": "7,00",
+                            "requirement_with_unit": "8,00 m",
+                            "requirement": "8,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "7,75 m",
-                            "requirement": "7,75",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,50 m",
-                            "requirement": "8,50",
+                            "requirement_with_unit": "10,00 m",
+                            "requirement": "10,00",
                             "unit": "m"
                         }
                     }
@@ -11254,18 +11374,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "6,50 m",
-                            "requirement": "6,50",
-                            "unit": "m"
-                        },
-                        "silver": {
                             "requirement_with_unit": "7,50 m",
                             "requirement": "7,50",
                             "unit": "m"
                         },
-                        "gold": {
+                        "silver": {
                             "requirement_with_unit": "8,50 m",
                             "requirement": "8,50",
+                            "unit": "m"
+                        },
+                        "gold": {
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         }
                     }
@@ -11655,18 +11775,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "6,00 m",
-                            "requirement": "6,00",
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "7,25 m",
-                            "requirement": "7,25",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,25 m",
-                            "requirement": "8,25",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         }
                     }
@@ -12022,18 +12142,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "5,25 m",
-                            "requirement": "5,25",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,75 m",
-                            "requirement": "6,75",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,25 m",
-                            "requirement": "8,25",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         }
                     }
@@ -12406,18 +12526,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,75 m",
-                            "requirement": "4,75",
+                            "requirement_with_unit": "6,00 m",
+                            "requirement": "6,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,50 m",
-                            "requirement": "6,50",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "8,00 m",
-                            "requirement": "8,00",
+                            "requirement_with_unit": "9,50 m",
+                            "requirement": "9,50",
                             "unit": "m"
                         }
                     }
@@ -12810,18 +12930,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,25 m",
-                            "requirement": "4,25",
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "6,00 m",
-                            "requirement": "6,00",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "7,75 m",
-                            "requirement": "7,75",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         }
                     }
@@ -13194,18 +13314,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "4,00 m",
-                            "requirement": "4,00",
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "5,75 m",
-                            "requirement": "5,75",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "7,50 m",
-                            "requirement": "7,50",
+                            "requirement_with_unit": "9,00 m",
+                            "requirement": "9,00",
                             "unit": "m"
                         }
                     }
@@ -13558,18 +13678,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,75 m",
-                            "requirement": "3,75",
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "5,50 m",
-                            "requirement": "5,50",
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "7,25 m",
-                            "requirement": "7,25",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         }
                     }
@@ -13962,18 +14082,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,50 m",
-                            "requirement": "3,50",
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "5,25 m",
-                            "requirement": "5,25",
+                            "requirement_with_unit": "7,00 m",
+                            "requirement": "7,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "7,00 m",
-                            "requirement": "7,00",
+                            "requirement_with_unit": "8,50 m",
+                            "requirement": "8,50",
                             "unit": "m"
                         }
                     }
@@ -14326,18 +14446,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,25 m",
-                            "requirement": "3,25",
+                            "requirement_with_unit": "4,50 m",
+                            "requirement": "4,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "5,00 m",
-                            "requirement": "5,00",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "6,75 m",
-                            "requirement": "6,75",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         }
                     }
@@ -14710,18 +14830,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,25 m",
-                            "requirement": "3,25",
+                            "requirement_with_unit": "4,50 m",
+                            "requirement": "4,50",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "4,75 m",
-                            "requirement": "4,75",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "6,50 m",
-                            "requirement": "6,50",
+                            "requirement_with_unit": "7,50 m",
+                            "requirement": "7,50",
                             "unit": "m"
                         }
                     }
@@ -15114,18 +15234,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,00 m",
-                            "requirement": "3,00",
+                            "requirement_with_unit": "4,00 m",
+                            "requirement": "4,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "4,75 m",
-                            "requirement": "4,75",
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "6,25 m",
-                            "requirement": "6,25",
+                            "requirement_with_unit": "6,50 m",
+                            "requirement": "6,50",
                             "unit": "m"
                         }
                     }
@@ -15478,8 +15598,8 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "3,00 m",
-                            "requirement": "3,00",
+                            "requirement_with_unit": "3,50 m",
+                            "requirement": "3,50",
                             "unit": "m"
                         },
                         "silver": {
@@ -15488,8 +15608,8 @@
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "6,00 m",
-                            "requirement": "6,00",
+                            "requirement_with_unit": "5,50 m",
+                            "requirement": "5,50",
                             "unit": "m"
                         }
                     }
@@ -15862,18 +15982,18 @@
                     "description": "Der Medizinballwurf erfolgt aus dem Stand, ohne Anlauf oder Drehung. Der Abwurf muss mit beiden Händen über Kopf oder seitlich erfolgen (ein Rückwärtswurf ist nicht erlaubt). Der Abwurf erfolgt aus einem Abwurfraum in einen Wurfsektor. Die Abwurfstelle wird durch eine Linie am Boden oder einen Abwurfbalken markiert. Der Abwurfraum darf erst verlassen werden, wenn der Medizinball nach dem Wurf den Boden berührt hat. Die Teilnehmer*innen müssen den Abwurfraum nach hinten verlassen.",
                     "requirements": {
                         "bronze": {
-                            "requirement_with_unit": "2,75 m",
-                            "requirement": "2,75",
+                            "requirement_with_unit": "3,00 m",
+                            "requirement": "3,00",
                             "unit": "m"
                         },
                         "silver": {
-                            "requirement_with_unit": "4,25 m",
-                            "requirement": "4,25",
+                            "requirement_with_unit": "4,00 m",
+                            "requirement": "4,00",
                             "unit": "m"
                         },
                         "gold": {
-                            "requirement_with_unit": "5,50 m",
-                            "requirement": "5,50",
+                            "requirement_with_unit": "5,00 m",
+                            "requirement": "5,00",
                             "unit": "m"
                         }
                     }

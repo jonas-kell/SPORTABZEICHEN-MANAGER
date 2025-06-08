@@ -53,7 +53,7 @@ class AthleteResource extends JsonResource
             $array["sportabzeichen_year_array"] = $sportabzeichen_year_array;
 
             //get information on the fields, the user is supposed to have:
-            $needed_requirements = RequirementsServiceProvider::getRequirementsArray($this->gender, $sportabzeichen_age);
+            $needed_requirements = RequirementsServiceProvider::getRequirementsArray($this->gender, $sportabzeichen_age, $this->year);
             $array["needed_requirements"] = $needed_requirements;
 
             //get the performances, the athlete has already registered to it's account:

@@ -15,8 +15,14 @@ class RequirementsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Cache::rememberForever('requirements', function () {
-            $path = resource_path("requirements.json");
+        Cache::rememberForever('requirements-before-2024', function () {
+            $path = resource_path("requirements-before-2024.json");
+
+            return collect(json_decode(file_get_contents($path), true));
+        });
+
+        Cache::rememberForever('requirements-since-2024', function () {
+            $path = resource_path("requirements-since-2024.json");
 
             return collect(json_decode(file_get_contents($path), true));
         });
@@ -44,19 +50,26 @@ class RequirementsServiceProvider extends ServiceProvider
                 return $year_array;
             }
         }
-        //default is the youngest audience, because the faulty ones are most likely those unter 6
+        //default is the youngest audience, because the faulty ones are most likely those under 6
         return cache("sportabzeichen_years")[0];
     }
 
     //returns the correct requirements array from the cache 
-    public static function getRequirementsArray($gender, $age)
+    public static function getRequirementsArray($gender, $age, $year)
     {
+        $requirement_resource = null;
+        if ($year < 2024) {
+            $requirement_resource = cache("requirements-before-2024");
+        } else {
+            $requirement_resource = cache("requirements-since-2024");
+        }
+
         $year_array = self::getYearArray($age);
 
         if (!in_array($gender, ["male", "female"])) {
             throw new ErrorException("Gender undefined");
         } else {
-            $requirement_array = cache("requirements")[$gender][$year_array["lower_year"]];
+            $requirement_array = $requirement_resource[$gender][$year_array["lower_year"]];
 
             return $requirement_array; //because of filter in getYearArray, this should always return a value
         }

@@ -35,7 +35,7 @@ docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/var/www/html \
     -w /var/www/html \
-    laravelsail/php81-composer:latest \
+    laravelsail/php84-composer:latest \
     composer install --ignore-platform-reqs
 ```
 
@@ -87,10 +87,10 @@ php artisan storage:link
 
 #### Dev-Services
 
--   [http://localhost:8080/](http://localhost:8080/) Main Application (Direct Access to the Hot-Reloading Vite dev-server)
--   [http://localhost:8081/](http://localhost:8081/) phpMyAdmin Database interface
--   [http://localhost:8082/](http://localhost:8082/) MailHog email simulation webinterface
--   [http://localhost:80/](http://localhost:80/) Main Application Backend (not "working" as expected in dev mode, meaning you cannot use that page there even if it loos like the one under 8080)
+- [http://localhost:8080/](http://localhost:8080/) Main Application (Direct Access to the Hot-Reloading Vite dev-server)
+- [http://localhost:8081/](http://localhost:8081/) phpMyAdmin Database interface
+- [http://localhost:8082/](http://localhost:8082/) MailHog email simulation webinterface
+- [http://localhost:80/](http://localhost:80/) Main Application Backend (not "working" as expected in dev mode, meaning you cannot use that page there even if it loos like the one under 8080)
 
 ## Deploy to a live-server
 

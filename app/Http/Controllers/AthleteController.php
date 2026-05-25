@@ -92,6 +92,9 @@ class AthleteController extends Controller
             if ($request->has("lastYearIdentNo")) {
                 $athlete->lastYearIdentNo = $request->input("lastYearIdentNo");
             }
+            if ($request->has("newIdentNo")) {
+                $athlete->newIdentNo = $request->input("newIdentNo");
+            }
             if ($request->has("externalId")) {
                 $athlete->externalId = $request->input("externalId");
             }

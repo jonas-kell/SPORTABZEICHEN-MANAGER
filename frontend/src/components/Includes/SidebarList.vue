@@ -191,8 +191,14 @@ export default defineComponent({
           ? athlete.year
           : athlete.lastBadgeYear,
         numberOfBadgesSoFar: newNumberBadges,
-        lastYearIdentNo: athlete.newIdentNo ? athlete.newIdentNo : undefined,
         externalId: athlete.externalId ? athlete.externalId : undefined,
+        lastYearIdentNo: athlete.newIdentNo ? athlete.newIdentNo : undefined,
+        newIdentNo:
+          currentYear >= 2024
+            ? athlete.newIdentNo
+              ? athlete.newIdentNo
+              : undefined
+            : undefined,
       } as Athlete;
 
       this.mappedCreateAthlete({

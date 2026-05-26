@@ -1,0 +1,56 @@
+https://sportabzeichen-digital.de/requirements
+
+-> open dev-tools
+-> preserve log
+-> clean log
+
+-> navigate through all the requirements for all years
+
+-> on top is a download button -> "save as .har" (-> Male/Female.har )(a bit more convenience, splitting the male and female data, so that this does not need to be done later)
+
+jq . Male.har > Male.json
+jq . Female.har > Female.json
+
+jq '
+  reduce (
+    .log.entries[]
+    | select(.request.url | contains("disciplines?"))
+    | select(.response.content.text?)
+    | {
+        url: .request.url,
+        content: (
+          .response.content.text
+          | try fromjson catch null
+        ).data | map(.data)
+      }
+  ) as $item
+  ({}; 
+    if has($item.url) then .
+    else . + {($item.url): $item}
+    end
+  )
+  | to_entries
+  | map(.value)
+' Male.json > Male-Processed.json
+
+jq '
+  reduce (
+    .log.entries[]
+    | select(.request.url | contains("disciplines?"))
+    | select(.response.content.text?)
+    | {
+        url: .request.url,
+        content: (
+          .response.content.text
+          | try fromjson catch null
+        ).data | map(.data)
+      }
+  ) as $item
+  ({}; 
+    if has($item.url) then .
+    else . + {($item.url): $item}
+    end
+  )
+  | to_entries
+  | map(.value)
+' Female.json > Female-Processed.json

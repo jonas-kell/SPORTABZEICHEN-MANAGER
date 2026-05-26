@@ -54,3 +54,6 @@ jq '
   | to_entries
   | map(.value)
 ' Female.json > Female-Processed.json
+
+
+jq --slurpfile ages ages.json -f transform.jq Male-Processed.json

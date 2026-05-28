@@ -58,4 +58,37 @@ class ExportController extends Controller
             return redirect("/");
         }
     }
+
+
+    /**
+     * @return jsonResource
+     */
+    public function jsonSWS(Request $request)
+    {
+        if ($request->ajax()) {
+            $athleteIds = $request->input("athlete_ids");
+
+            $athletes = Athlete::whereIn("id", $athleteIds)->get()->sortBy(function ($athlete, $key) use ($athleteIds) {
+                return array_search($athlete->id, $athleteIds);
+            });
+
+            $out = [];
+
+            foreach ($athletes as $athlete) {
+                $out[] = [
+                    "id" => $athlete->id,
+                    "age" => $athlete->sportabzeichen_age,
+                    "birth_year" => $athlete->birth_year,
+                    "birth_month" => $athlete->birth_month_number,
+                    "birth_day" => $athlete->birth_day_number,
+                    "male" => $athlete->gender == "male",
+                    "performance" => $athlete->getSWS(),
+                ];
+            }
+
+            return json_encode($out);
+        } else {
+            return redirect("/");
+        }
+    }
 }

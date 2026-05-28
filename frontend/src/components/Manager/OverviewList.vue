@@ -84,6 +84,14 @@ td.highlighted {
           :label="$t('general.export')"
           @click="requestExport"
         ></q-btn>
+        <q-btn
+          class="q-mr-sm q-mb-sm"
+          color="primary"
+          icon-right="download"
+          v-if="mode == 'meta'"
+          :label="$t('general.exportSWS')"
+          @click="requestExportSWS"
+        ></q-btn>
       </div>
     </q-card-section>
     <q-card-section class="col-12">
@@ -249,7 +257,11 @@ td.highlighted {
                   :key="discipline"
                   class="verticalTableHeader"
                 >
-                  {{ requirements.requirements[rank as 'gold'| 'silver'| 'bronze'].requirement_with_unit }}
+                  {{
+                    requirements.requirements[
+                      rank as 'gold' | 'silver' | 'bronze'
+                    ].requirement_with_unit
+                  }}
                 </td>
               </template>
             </tr>
@@ -293,9 +305,29 @@ td.highlighted {
                       athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline].gold_highlighted,
                     'cursor-pointer': athlete.canStillBeEdited
                   }"
-                  @click="editDialog(athlete, category as 'coordination'| 'endurance' | 'speed'| 'strength', discipline as string)"
+                  @click="
+                    editDialog(
+                      athlete,
+                      category as
+                        | 'coordination'
+                        | 'endurance'
+                        | 'speed'
+                        | 'strength',
+                      discipline as string
+                    )
+                  "
                 >
-                  {{ formatPerformance(athlete.performances[category as 'coordination'| 'endurance' | 'speed'| 'strength'][discipline]) }}
+                  {{
+                    formatPerformance(
+                      athlete.performances[
+                        category as
+                          | 'coordination'
+                          | 'endurance'
+                          | 'speed'
+                          | 'strength'
+                      ][discipline]
+                    )
+                  }}
                 </td>
               </template>
             </tr>
@@ -524,6 +556,20 @@ export default defineComponent({
       });
 
       void this.$store.dispatch('athletesModule/requestJSONExport', arrayOfIds);
+    },
+    requestExportSWS() {
+      let arrayOfIds = [] as number[];
+
+      this.allRelevant.forEach((athlete) => {
+        if (this.selected[athlete.id]) {
+          arrayOfIds.push(athlete.id);
+        }
+      });
+
+      void this.$store.dispatch(
+        'athletesModule/requestJSONExportSWS',
+        arrayOfIds
+      );
     },
     requestShowPDF() {
       this.hideCols = true;

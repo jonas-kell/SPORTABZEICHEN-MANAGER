@@ -355,10 +355,10 @@ const actions: ActionTree<AthletesStateInterface, StateInterface> = {
         notifyOfUnknownError(err);
       });
   },
-  requestJSONExport({}, athleteIds: number[]) {
+  requestJSONExportSWS({}, athleteIds: number[]) {
     axios
       .put(
-        'api/export/json',
+        'api/export/jsonSWS',
         { athlete_ids: athleteIds },
         { responseType: 'json' }
       )

@@ -39,6 +39,7 @@ export default {
   requestPDFList: 'Tabellen PDF',
   requestPDFShow: 'Aushang PDF',
   export: 'Export JSON',
+  exportSWS: 'Export SWS', // TODO Proper selection what discipline we wanna export
   requestPDFOutput: 'Ausgaben PDF',
   all: 'Alle',
   unknownError: 'Unbekannter Fehler',

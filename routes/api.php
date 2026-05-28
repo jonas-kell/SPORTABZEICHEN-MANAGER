@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::put('export/json', [App\Http\Controllers\ExportController::class, 'json']);
+    Route::put('export/jsonSWS', [App\Http\Controllers\ExportController::class, 'jsonSWS']);
 
     Route::get('cache_element/{uuid_array}', [App\Http\Controllers\CacheController::class, 'getCacheElements']);
 });

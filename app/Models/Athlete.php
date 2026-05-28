@@ -85,12 +85,14 @@ class Athlete extends Model
 
         $scores = $this->getMedalScores();
         $total = 0;
-        foreach ([
-            'coordination',
-            'endurance',
-            'speed',
-            'strength'
-        ] as $category) {
+        foreach (
+            [
+                'coordination',
+                'endurance',
+                'speed',
+                'strength'
+            ] as $category
+        ) {
             if ($scores[$category]["points"] <= 0) {
                 return false;
             }
@@ -114,12 +116,14 @@ class Athlete extends Model
 
         $medals = [];
 
-        foreach ([
-            'coordination',
-            'endurance',
-            'speed',
-            'strength'
-        ] as $category) {
+        foreach (
+            [
+                'coordination',
+                'endurance',
+                'speed',
+                'strength'
+            ] as $category
+        ) {
             $medals[$category] = [];
             $medals[$category]["value"] = "none";
             $medals[$category]["points"] = 0;
@@ -151,6 +155,32 @@ class Athlete extends Model
         return $medals;
     }
 
+
+    /**
+     * get the Standweitsprung score
+     * @return array
+     */
+    public function getSWS()
+    {
+        $performances = $this->getCurrentPerformances();
+
+        $results = [];
+
+        foreach (
+            [
+                'strength'
+            ] as $category
+        ) {
+            foreach ($performances[$category] as $discipline_name => $discipline) {
+                if ($discipline_name == "Standweitsprung") {
+                    $results[] = $discipline["performance"];
+                }
+            }
+        }
+
+        return $results[0] ?? null;
+    }
+
     /**
      * get the performances, the athlete has already registered to it's account:
      * also get keys from the $additional_array initialized with empty templates
@@ -166,12 +196,14 @@ class Athlete extends Model
 
         $all_performances = $this->getCurrentPerformances();
 
-        foreach ([
-            'coordination',
-            'endurance',
-            'speed',
-            'strength'
-        ] as $category) {
+        foreach (
+            [
+                'coordination',
+                'endurance',
+                'speed',
+                'strength'
+            ] as $category
+        ) {
             if (!array_key_exists($category, $all_performances)) {
                 $all_performances[$category] = []; // always add categories, should they be missing.
             }
@@ -202,12 +234,14 @@ class Athlete extends Model
         $updated_performances = json_decode($updated_performances, true);
         $current_performances = $this->getCurrentPerformances();
 
-        foreach ([
-            'coordination',
-            'endurance',
-            'speed',
-            'strength'
-        ] as $category) {
+        foreach (
+            [
+                'coordination',
+                'endurance',
+                'speed',
+                'strength'
+            ] as $category
+        ) {
             if (!array_key_exists($category, $current_performances)) {
                 $current_performances[$category] = []; // always add categories, should they be missing.
             }
